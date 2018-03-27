@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="edu.kit.ipd.sdq.dataflow.privacy.analysis.prolog.generator.contributor" name="Prolog Generator Contributor" schema="schema/edu.kit.ipd.sdq.dataflow.privacy.analysis.prolog.generator.contributor.exsd"/>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="edu.kit.ipd.sdq.dataflow.privacy.analysis.prolog.generator.ui.GeneratorHandler"
+            id="edu.kit.ipd.sdq.dataflow.privacy.analysis.prolog.ui.generatorhandler"
+            name="Prolog Generator">
+      </command>
+   </extension>
+ <extension
+        point="org.eclipse.ui.menus">
+     <menuContribution
+           allPopups="false"
+           locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+        <menu
+              id="edu.kit.ipd.sdq.dataflow.privacy.menu"
+              label="PCM Privacy">
+           <command
+                 commandId="edu.kit.ipd.sdq.dataflow.privacy.analysis.prolog.ui.generatorhandler"
+                 label="Create Prolog Code"
+                 style="push"
+                 tooltip="Create Code that ...">
+           </command>
+           <visibleWhen
+                 checkEnabled="false">
+              <with
+                    variable="activeMenuSelection">
+                 <iterate>
+                 <adapt type="org.eclipse.core.resources.IResource">
+             <or>
+                <test
+                      property="org.eclipse.core.resources.name"
+                      value="*.xmi">
+                </test>
+             </or>
+                 </adapt>
+                 </iterate>
+              </with>
+           </visibleWhen>
+        </menu>
+     </menuContribution>
+  </extension>
+ <extension
+       point="edu.kit.ipd.sdq.dataflow.privacy.analysis.prolog.generator.contributor">
+    <class
+          class="edu.kit.ipd.sdq.dataflow.privacy.analysis.prolog.generator.contributors.impl.RoleCharacteristicContributor">
+    </class>
+ </extension>
+
+</plugin>

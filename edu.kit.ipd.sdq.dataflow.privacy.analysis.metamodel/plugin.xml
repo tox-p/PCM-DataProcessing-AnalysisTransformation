@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated metamodel -->
+      <package
+            uri="http://sdq.ipd.kit.edu/dataflow/privacy/analysis/mm"
+            class="edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.MetamodelPackage"
+            genModel="model/metamodel.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated metamodel -->
+      <package
+            uri="http://sdq.ipd.kit.edu/dataflow/privacy/analysis/mm/characteristics"
+            class="edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicsPackage"
+            genModel="model/metamodel.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated metamodel -->
+      <package
+            uri="http://sdq.ipd.kit.edu/dataflow/privacy/analysis/mm/operations"
+            class="edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.OperationsPackage"
+            genModel="model/metamodel.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated metamodel -->
+      <package
+            uri="http://sdq.ipd.kit.edu/dataflow/privacy/analysis/mm/flow"
+            class="edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.flow.FlowPackage"
+            genModel="model/metamodel.genmodel"/>
+   </extension>
+
+</plugin>
