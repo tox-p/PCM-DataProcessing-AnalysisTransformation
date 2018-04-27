@@ -2,6 +2,8 @@
  */
 package edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.impl;
 
+import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.Entity;
+
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.Characteristic;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicCatalogue;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicsPackage;
@@ -29,6 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.impl.CharacteristicCatalogueImpl#getCharacteristics <em>Characteristics</em>}</li>
+ *   <li>{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.impl.CharacteristicCatalogueImpl#getOwnedEntities <em>Owned Entities</em>}</li>
  * </ul>
  *
  * @generated
@@ -43,6 +46,16 @@ public class CharacteristicCatalogueImpl extends MinimalEObjectImpl.Container im
 	 * @ordered
 	 */
 	protected EList<Characteristic> characteristics;
+
+	/**
+	 * The cached value of the '{@link #getOwnedEntities() <em>Owned Entities</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOwnedEntities()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Entity> ownedEntities;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -81,11 +94,26 @@ public class CharacteristicCatalogueImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Entity> getOwnedEntities() {
+		if (ownedEntities == null) {
+			ownedEntities = new EObjectContainmentEList<Entity>(Entity.class, this,
+					CharacteristicsPackage.CHARACTERISTIC_CATALOGUE__OWNED_ENTITIES);
+		}
+		return ownedEntities;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case CharacteristicsPackage.CHARACTERISTIC_CATALOGUE__CHARACTERISTICS:
 			return ((InternalEList<?>) getCharacteristics()).basicRemove(otherEnd, msgs);
+		case CharacteristicsPackage.CHARACTERISTIC_CATALOGUE__OWNED_ENTITIES:
+			return ((InternalEList<?>) getOwnedEntities()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -100,6 +128,8 @@ public class CharacteristicCatalogueImpl extends MinimalEObjectImpl.Container im
 		switch (featureID) {
 		case CharacteristicsPackage.CHARACTERISTIC_CATALOGUE__CHARACTERISTICS:
 			return getCharacteristics();
+		case CharacteristicsPackage.CHARACTERISTIC_CATALOGUE__OWNED_ENTITIES:
+			return getOwnedEntities();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -117,6 +147,10 @@ public class CharacteristicCatalogueImpl extends MinimalEObjectImpl.Container im
 			getCharacteristics().clear();
 			getCharacteristics().addAll((Collection<? extends Characteristic>) newValue);
 			return;
+		case CharacteristicsPackage.CHARACTERISTIC_CATALOGUE__OWNED_ENTITIES:
+			getOwnedEntities().clear();
+			getOwnedEntities().addAll((Collection<? extends Entity>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -132,6 +166,9 @@ public class CharacteristicCatalogueImpl extends MinimalEObjectImpl.Container im
 		case CharacteristicsPackage.CHARACTERISTIC_CATALOGUE__CHARACTERISTICS:
 			getCharacteristics().clear();
 			return;
+		case CharacteristicsPackage.CHARACTERISTIC_CATALOGUE__OWNED_ENTITIES:
+			getOwnedEntities().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -146,6 +183,8 @@ public class CharacteristicCatalogueImpl extends MinimalEObjectImpl.Container im
 		switch (featureID) {
 		case CharacteristicsPackage.CHARACTERISTIC_CATALOGUE__CHARACTERISTICS:
 			return characteristics != null && !characteristics.isEmpty();
+		case CharacteristicsPackage.CHARACTERISTIC_CATALOGUE__OWNED_ENTITIES:
+			return ownedEntities != null && !ownedEntities.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

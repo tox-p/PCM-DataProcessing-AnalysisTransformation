@@ -14,7 +14,7 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicsPackage;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumCharacteristic;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumCharacteristicValue;
-import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumLiterals;
+import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumLiteral;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.util.ItemPropertyDescriptorWrapper;
 
 public class EnumCharacteristicValueItemProvider extends edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.provider.orig.EnumCharacteristicValueItemProvider {
@@ -39,8 +39,9 @@ public class EnumCharacteristicValueItemProvider extends edu.kit.ipd.sdq.dataflo
 				Optional<EnumCharacteristic> characteristic = Optional.ofNullable(thisObject)
 						.filter(EnumCharacteristicValue.class::isInstance).map(EnumCharacteristicValue.class::cast)
 						.map(EnumCharacteristicValue::getCharacteristic);
-				return values.stream().filter(EnumLiterals.class::isInstance).map(EnumLiterals.class::cast)
-						.filter(l -> characteristic.map(l.eContainer()::equals).orElse(false))
+				return values.stream().filter(EnumLiteral.class::isInstance).map(EnumLiteral.class::cast)
+						.filter(l -> characteristic.map(EnumCharacteristic::getEnum)
+								.map(en -> en.getLiterals().contains(l)).orElse(false))
 						.collect(Collectors.toList());
 			}
 			

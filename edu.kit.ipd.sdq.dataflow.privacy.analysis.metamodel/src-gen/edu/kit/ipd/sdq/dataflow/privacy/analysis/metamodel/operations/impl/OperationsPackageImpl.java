@@ -14,6 +14,7 @@ import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.flow.impl.FlowPackage
 
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.impl.MetamodelPackageImpl;
 
+import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.DataCharacteristicChangingOperationExecution;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.DataTransformingOperation;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.DataTransformingOperationExecution;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.EnumChangeOperations;
@@ -25,9 +26,9 @@ import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.OperationE
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.OperationExecution;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.OperationsFactory;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.OperationsPackage;
-
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.ParameterizedDataTransformingOperation;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.ParameterizedDataTransformingOperationExecution;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -93,6 +94,13 @@ public class OperationsPackageImpl extends EPackageImpl implements OperationsPac
 	 * @generated
 	 */
 	private EClass operationExecutionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dataCharacteristicChangingOperationExecutionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -309,6 +317,24 @@ public class OperationsPackageImpl extends EPackageImpl implements OperationsPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getDataCharacteristicChangingOperationExecution() {
+		return dataCharacteristicChangingOperationExecutionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDataCharacteristicChangingOperationExecution_Data() {
+		return (EReference) dataCharacteristicChangingOperationExecutionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getEnumCharacteristicChangingOperationExecution() {
 		return enumCharacteristicChangingOperationExecutionEClass;
 	}
@@ -423,6 +449,11 @@ public class OperationsPackageImpl extends EPackageImpl implements OperationsPac
 		operationExecutionEClass = createEClass(OPERATION_EXECUTION);
 		createEReference(operationExecutionEClass, OPERATION_EXECUTION__OPERATION);
 
+		dataCharacteristicChangingOperationExecutionEClass = createEClass(
+				DATA_CHARACTERISTIC_CHANGING_OPERATION_EXECUTION);
+		createEReference(dataCharacteristicChangingOperationExecutionEClass,
+				DATA_CHARACTERISTIC_CHANGING_OPERATION_EXECUTION__DATA);
+
 		enumCharacteristicChangingOperationExecutionEClass = createEClass(
 				ENUM_CHARACTERISTIC_CHANGING_OPERATION_EXECUTION);
 		createEReference(enumCharacteristicChangingOperationExecutionEClass,
@@ -468,12 +499,14 @@ public class OperationsPackageImpl extends EPackageImpl implements OperationsPac
 		// Obtain other dependent packages
 		MetamodelPackage theMetamodelPackage = (MetamodelPackage) EPackage.Registry.INSTANCE
 				.getEPackage(MetamodelPackage.eNS_URI);
+		FlowPackage theFlowPackage = (FlowPackage) EPackage.Registry.INSTANCE.getEPackage(FlowPackage.eNS_URI);
 		CharacteristicsPackage theCharacteristicsPackage = (CharacteristicsPackage) EPackage.Registry.INSTANCE
 				.getEPackage(CharacteristicsPackage.eNS_URI);
-		FlowPackage theFlowPackage = (FlowPackage) EPackage.Registry.INSTANCE.getEPackage(FlowPackage.eNS_URI);
 
 		// Create type parameters
 		ETypeParameter operationExecutionEClass_T = addETypeParameter(operationExecutionEClass, "T");
+		ETypeParameter dataCharacteristicChangingOperationExecutionEClass_T = addETypeParameter(
+				dataCharacteristicChangingOperationExecutionEClass, "T");
 		ETypeParameter dataTransformingOperationExecutionEClass_T = addETypeParameter(
 				dataTransformingOperationExecutionEClass, "T");
 		ETypeParameter parameterizedDataTransformingOperationExecutionEClass_T = addETypeParameter(
@@ -482,6 +515,8 @@ public class OperationsPackageImpl extends EPackageImpl implements OperationsPac
 		// Set bounds for type parameters
 		EGenericType g1 = createEGenericType(this.getOperation());
 		operationExecutionEClass_T.getEBounds().add(g1);
+		g1 = createEGenericType(this.getOperation());
+		dataCharacteristicChangingOperationExecutionEClass_T.getEBounds().add(g1);
 		g1 = createEGenericType(this.getDataTransformingOperation());
 		dataTransformingOperationExecutionEClass_T.getEBounds().add(g1);
 		g1 = createEGenericType(this.getParameterizedDataTransformingOperation());
@@ -493,7 +528,11 @@ public class OperationsPackageImpl extends EPackageImpl implements OperationsPac
 		dataTransformingOperationEClass.getESuperTypes().add(this.getOperation());
 		parameterizedDataTransformingOperationEClass.getESuperTypes().add(this.getDataTransformingOperation());
 		g1 = createEGenericType(this.getOperationExecution());
-		EGenericType g2 = createEGenericType(this.getEnumCharacteristicChangingOperation());
+		EGenericType g2 = createEGenericType(dataCharacteristicChangingOperationExecutionEClass_T);
+		g1.getETypeArguments().add(g2);
+		dataCharacteristicChangingOperationExecutionEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getDataCharacteristicChangingOperationExecution());
+		g2 = createEGenericType(this.getEnumCharacteristicChangingOperation());
 		g1.getETypeArguments().add(g2);
 		enumCharacteristicChangingOperationExecutionEClass.getEGenericSuperTypes().add(g1);
 		g1 = createEGenericType(this.getOperationExecution());
@@ -542,6 +581,13 @@ public class OperationsPackageImpl extends EPackageImpl implements OperationsPac
 		initEReference(getOperationExecution_Operation(), g1, null, "operation", null, 1, 1, OperationExecution.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dataCharacteristicChangingOperationExecutionEClass,
+				DataCharacteristicChangingOperationExecution.class, "DataCharacteristicChangingOperationExecution",
+				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDataCharacteristicChangingOperationExecution_Data(), theFlowPackage.getData(), null, "data",
+				null, 1, 1, DataCharacteristicChangingOperationExecution.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(enumCharacteristicChangingOperationExecutionEClass,
 				EnumCharacteristicChangingOperationExecution.class, "EnumCharacteristicChangingOperationExecution",

@@ -2,7 +2,7 @@ package edu.kit.ipd.sdq.dataflow.privacy.analysis.prolog.generator.contributors;
 
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.flow.DataFlowDiagram;
 
-public interface IPrologGeneratorContributor {
+public interface IPrologGeneratorContributor extends IModelContributor {
 
 	default String getIdentifier() {
 		return getClass().getName();

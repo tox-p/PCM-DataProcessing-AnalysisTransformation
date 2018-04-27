@@ -12,8 +12,9 @@ import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.Chara
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicsPackage;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumCharacteristic;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumCharacteristicValue;
-import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumLiterals;
+import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumLiteral;
 
+import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.util.CharacteristicsValidator;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.flow.FlowPackage;
 
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.flow.impl.FlowPackageImpl;
@@ -30,6 +31,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.ETypeParameter;
 
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -72,13 +74,6 @@ public class CharacteristicsPackageImpl extends EPackageImpl implements Characte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass enumLiteralsEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass characteristicValueEClass = null;
 
 	/**
@@ -87,6 +82,20 @@ public class CharacteristicsPackageImpl extends EPackageImpl implements Characte
 	 * @generated
 	 */
 	private EClass enumCharacteristicValueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass enumEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass enumLiteralEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -163,6 +172,13 @@ public class CharacteristicsPackageImpl extends EPackageImpl implements Characte
 		theOperationsPackage.initializePackageContents();
 		theFlowPackage.initializePackageContents();
 
+		// Register package validator
+		EValidator.Registry.INSTANCE.put(theCharacteristicsPackage, new EValidator.Descriptor() {
+			public EValidator getEValidator() {
+				return CharacteristicsValidator.INSTANCE;
+			}
+		});
+
 		// Mark meta-data to indicate it can't be changed
 		theCharacteristicsPackage.freeze();
 
@@ -212,6 +228,15 @@ public class CharacteristicsPackageImpl extends EPackageImpl implements Characte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getCharacteristicCatalogue_OwnedEntities() {
+		return (EReference) characteristicCatalogueEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCharacteristic() {
 		return characteristicEClass;
 	}
@@ -230,17 +255,8 @@ public class CharacteristicsPackageImpl extends EPackageImpl implements Characte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEnumCharacteristic_Enumliterals() {
+	public EReference getEnumCharacteristic_Enum() {
 		return (EReference) enumCharacteristicEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getEnumLiterals() {
-		return enumLiteralsEClass;
 	}
 
 	/**
@@ -284,6 +300,33 @@ public class CharacteristicsPackageImpl extends EPackageImpl implements Characte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getEnum() {
+		return enumEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getEnum_Literals() {
+		return (EReference) enumEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEnumLiteral() {
+		return enumLiteralEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CharacteristicsFactory getCharacteristicsFactory() {
 		return (CharacteristicsFactory) getEFactoryInstance();
 	}
@@ -313,19 +356,23 @@ public class CharacteristicsPackageImpl extends EPackageImpl implements Characte
 
 		characteristicCatalogueEClass = createEClass(CHARACTERISTIC_CATALOGUE);
 		createEReference(characteristicCatalogueEClass, CHARACTERISTIC_CATALOGUE__CHARACTERISTICS);
+		createEReference(characteristicCatalogueEClass, CHARACTERISTIC_CATALOGUE__OWNED_ENTITIES);
 
 		characteristicEClass = createEClass(CHARACTERISTIC);
 
 		enumCharacteristicEClass = createEClass(ENUM_CHARACTERISTIC);
-		createEReference(enumCharacteristicEClass, ENUM_CHARACTERISTIC__ENUMLITERALS);
-
-		enumLiteralsEClass = createEClass(ENUM_LITERALS);
+		createEReference(enumCharacteristicEClass, ENUM_CHARACTERISTIC__ENUM);
 
 		characteristicValueEClass = createEClass(CHARACTERISTIC_VALUE);
 		createEReference(characteristicValueEClass, CHARACTERISTIC_VALUE__CHARACTERISTIC);
 
 		enumCharacteristicValueEClass = createEClass(ENUM_CHARACTERISTIC_VALUE);
 		createEReference(enumCharacteristicValueEClass, ENUM_CHARACTERISTIC_VALUE__ENUMLITERALS);
+
+		enumEClass = createEClass(ENUM);
+		createEReference(enumEClass, ENUM__LITERALS);
+
+		enumLiteralEClass = createEClass(ENUM_LITERAL);
 	}
 
 	/**
@@ -366,15 +413,16 @@ public class CharacteristicsPackageImpl extends EPackageImpl implements Characte
 		// Add supertypes to classes
 		characteristicEClass.getESuperTypes().add(theMetamodelPackage.getEntity());
 		enumCharacteristicEClass.getESuperTypes().add(this.getCharacteristic());
-		enumLiteralsEClass.getESuperTypes().add(theMetamodelPackage.getEntity());
 		g1 = createEGenericType(this.getCharacteristicValue());
 		EGenericType g2 = createEGenericType(this.getEnumCharacteristic());
 		g1.getETypeArguments().add(g2);
 		enumCharacteristicValueEClass.getEGenericSuperTypes().add(g1);
+		enumEClass.getESuperTypes().add(theMetamodelPackage.getEntity());
+		enumLiteralEClass.getESuperTypes().add(theMetamodelPackage.getEntity());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(characteristicsHavingElementEClass, CharacteristicsHavingElement.class,
-				"CharacteristicsHavingElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+				"CharacteristicsHavingElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		g1 = createEGenericType(this.getCharacteristicValue());
 		g2 = createEGenericType(this.getCharacteristic());
 		g1.getETypeArguments().add(g2);
@@ -387,18 +435,18 @@ public class CharacteristicsPackageImpl extends EPackageImpl implements Characte
 		initEReference(getCharacteristicCatalogue_Characteristics(), this.getCharacteristic(), null, "characteristics",
 				null, 0, -1, CharacteristicCatalogue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
 				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCharacteristicCatalogue_OwnedEntities(), theMetamodelPackage.getEntity(), null,
+				"ownedEntities", null, 0, -1, CharacteristicCatalogue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(characteristicEClass, Characteristic.class, "Characteristic", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(enumCharacteristicEClass, EnumCharacteristic.class, "EnumCharacteristic", !IS_ABSTRACT,
-				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEnumCharacteristic_Enumliterals(), this.getEnumLiterals(), null, "enumliterals", null, 0, -1,
-				EnumCharacteristic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(enumLiteralsEClass, EnumLiterals.class, "EnumLiterals", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(enumCharacteristicEClass, EnumCharacteristic.class, "EnumCharacteristic", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEnumCharacteristic_Enum(), this.getEnum(), null, "enum", null, 1, 1, EnumCharacteristic.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(characteristicValueEClass, CharacteristicValue.class, "CharacteristicValue", IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -409,9 +457,56 @@ public class CharacteristicsPackageImpl extends EPackageImpl implements Characte
 
 		initEClass(enumCharacteristicValueEClass, EnumCharacteristicValue.class, "EnumCharacteristicValue",
 				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEnumCharacteristicValue_Enumliterals(), this.getEnumLiterals(), null, "enumliterals", null, 0,
+		initEReference(getEnumCharacteristicValue_Enumliterals(), this.getEnumLiteral(), null, "enumliterals", null, 0,
 				-1, EnumCharacteristicValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(enumEClass, edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.Enum.class, "Enum",
+				!IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEnum_Literals(), this.getEnumLiteral(), null, "literals", null, 0, -1,
+				edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.Enum.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+
+		initEClass(enumLiteralEClass, EnumLiteral.class, "EnumLiteral", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		// Create annotations
+		// http://www.eclipse.org/emf/2002/Ecore
+		createEcoreAnnotations();
+		// http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
+		createPivotAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createEcoreAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/Ecore";
+		addAnnotation(this, source,
+				new String[] { "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
+						"settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "validationDelegates",
+						"http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" });
+		addAnnotation(characteristicEClass, source, new String[] { "constraints", "nameHasToBeId" });
+		addAnnotation(enumCharacteristicValueEClass, source,
+				new String[] { "constraints", "onlyLiteralsFromMatchingEnum" });
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createPivotAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
+		addAnnotation(characteristicEClass, source,
+				new String[] { "nameHasToBeId", "self.name.matches(\'[a-zA-Z0-9]+\')" });
+		addAnnotation(enumCharacteristicValueEClass, source, new String[] { "onlyLiteralsFromMatchingEnum",
+				"characteristic.oclAsType(EnumCharacteristic).enum.literals->includesAll(enumliterals)" });
 	}
 
 } //CharacteristicsPackageImpl

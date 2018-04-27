@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicsFactory
  * @model kind="package"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
  * @generated
  */
 public interface CharacteristicsPackage extends EPackage {
@@ -115,13 +116,22 @@ public interface CharacteristicsPackage extends EPackage {
 	int CHARACTERISTIC_CATALOGUE__CHARACTERISTICS = 0;
 
 	/**
+	 * The feature id for the '<em><b>Owned Entities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHARACTERISTIC_CATALOGUE__OWNED_ENTITIES = 1;
+
+	/**
 	 * The number of structural features of the '<em>Characteristic Catalogue</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHARACTERISTIC_CATALOGUE_FEATURE_COUNT = 1;
+	int CHARACTERISTIC_CATALOGUE_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Characteristic Catalogue</em>' class.
@@ -207,13 +217,13 @@ public interface CharacteristicsPackage extends EPackage {
 	int ENUM_CHARACTERISTIC__NAME = CHARACTERISTIC__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Enumliterals</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Enum</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM_CHARACTERISTIC__ENUMLITERALS = CHARACTERISTIC_FEATURE_COUNT + 0;
+	int ENUM_CHARACTERISTIC__ENUM = CHARACTERISTIC_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Enum Characteristic</em>' class.
@@ -234,52 +244,6 @@ public interface CharacteristicsPackage extends EPackage {
 	int ENUM_CHARACTERISTIC_OPERATION_COUNT = CHARACTERISTIC_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.impl.EnumLiteralsImpl <em>Enum Literals</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.impl.EnumLiteralsImpl
-	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.impl.CharacteristicsPackageImpl#getEnumLiterals()
-	 * @generated
-	 */
-	int ENUM_LITERALS = 4;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUM_LITERALS__ID = MetamodelPackage.ENTITY__ID;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUM_LITERALS__NAME = MetamodelPackage.ENTITY__NAME;
-
-	/**
-	 * The number of structural features of the '<em>Enum Literals</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUM_LITERALS_FEATURE_COUNT = MetamodelPackage.ENTITY_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Enum Literals</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUM_LITERALS_OPERATION_COUNT = MetamodelPackage.ENTITY_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.impl.CharacteristicValueImpl <em>Characteristic Value</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -287,7 +251,7 @@ public interface CharacteristicsPackage extends EPackage {
 	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.impl.CharacteristicsPackageImpl#getCharacteristicValue()
 	 * @generated
 	 */
-	int CHARACTERISTIC_VALUE = 5;
+	int CHARACTERISTIC_VALUE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Characteristic</b></em>' reference.
@@ -324,7 +288,7 @@ public interface CharacteristicsPackage extends EPackage {
 	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.impl.CharacteristicsPackageImpl#getEnumCharacteristicValue()
 	 * @generated
 	 */
-	int ENUM_CHARACTERISTIC_VALUE = 6;
+	int ENUM_CHARACTERISTIC_VALUE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Characteristic</b></em>' reference.
@@ -361,6 +325,107 @@ public interface CharacteristicsPackage extends EPackage {
 	 * @ordered
 	 */
 	int ENUM_CHARACTERISTIC_VALUE_OPERATION_COUNT = CHARACTERISTIC_VALUE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.impl.EnumImpl <em>Enum</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.impl.EnumImpl
+	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.impl.CharacteristicsPackageImpl#getEnum()
+	 * @generated
+	 */
+	int ENUM = 6;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM__ID = MetamodelPackage.ENTITY__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM__NAME = MetamodelPackage.ENTITY__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Literals</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM__LITERALS = MetamodelPackage.ENTITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Enum</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_FEATURE_COUNT = MetamodelPackage.ENTITY_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Enum</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_OPERATION_COUNT = MetamodelPackage.ENTITY_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.impl.EnumLiteralImpl <em>Enum Literal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.impl.EnumLiteralImpl
+	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.impl.CharacteristicsPackageImpl#getEnumLiteral()
+	 * @generated
+	 */
+	int ENUM_LITERAL = 7;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_LITERAL__ID = MetamodelPackage.ENTITY__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_LITERAL__NAME = MetamodelPackage.ENTITY__NAME;
+
+	/**
+	 * The number of structural features of the '<em>Enum Literal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_LITERAL_FEATURE_COUNT = MetamodelPackage.ENTITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Enum Literal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_LITERAL_OPERATION_COUNT = MetamodelPackage.ENTITY_OPERATION_COUNT + 0;
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicsHavingElement <em>Having Element</em>}'.
@@ -405,6 +470,17 @@ public interface CharacteristicsPackage extends EPackage {
 	EReference getCharacteristicCatalogue_Characteristics();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicCatalogue#getOwnedEntities <em>Owned Entities</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Owned Entities</em>'.
+	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicCatalogue#getOwnedEntities()
+	 * @see #getCharacteristicCatalogue()
+	 * @generated
+	 */
+	EReference getCharacteristicCatalogue_OwnedEntities();
+
+	/**
 	 * Returns the meta object for class '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.Characteristic <em>Characteristic</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -425,25 +501,15 @@ public interface CharacteristicsPackage extends EPackage {
 	EClass getEnumCharacteristic();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumCharacteristic#getEnumliterals <em>Enumliterals</em>}'.
+	 * Returns the meta object for the reference '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumCharacteristic#getEnum <em>Enum</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Enumliterals</em>'.
-	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumCharacteristic#getEnumliterals()
+	 * @return the meta object for the reference '<em>Enum</em>'.
+	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumCharacteristic#getEnum()
 	 * @see #getEnumCharacteristic()
 	 * @generated
 	 */
-	EReference getEnumCharacteristic_Enumliterals();
-
-	/**
-	 * Returns the meta object for class '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumLiterals <em>Enum Literals</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Enum Literals</em>'.
-	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumLiterals
-	 * @generated
-	 */
-	EClass getEnumLiterals();
+	EReference getEnumCharacteristic_Enum();
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicValue <em>Characteristic Value</em>}'.
@@ -486,6 +552,37 @@ public interface CharacteristicsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getEnumCharacteristicValue_Enumliterals();
+
+	/**
+	 * Returns the meta object for class '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.Enum <em>Enum</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Enum</em>'.
+	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.Enum
+	 * @generated
+	 */
+	EClass getEnum();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.Enum#getLiterals <em>Literals</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Literals</em>'.
+	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.Enum#getLiterals()
+	 * @see #getEnum()
+	 * @generated
+	 */
+	EReference getEnum_Literals();
+
+	/**
+	 * Returns the meta object for class '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumLiteral <em>Enum Literal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Enum Literal</em>'.
+	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumLiteral
+	 * @generated
+	 */
+	EClass getEnumLiteral();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -548,6 +645,14 @@ public interface CharacteristicsPackage extends EPackage {
 		EReference CHARACTERISTIC_CATALOGUE__CHARACTERISTICS = eINSTANCE.getCharacteristicCatalogue_Characteristics();
 
 		/**
+		 * The meta object literal for the '<em><b>Owned Entities</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CHARACTERISTIC_CATALOGUE__OWNED_ENTITIES = eINSTANCE.getCharacteristicCatalogue_OwnedEntities();
+
+		/**
 		 * The meta object literal for the '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.impl.CharacteristicImpl <em>Characteristic</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -568,22 +673,12 @@ public interface CharacteristicsPackage extends EPackage {
 		EClass ENUM_CHARACTERISTIC = eINSTANCE.getEnumCharacteristic();
 
 		/**
-		 * The meta object literal for the '<em><b>Enumliterals</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Enum</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ENUM_CHARACTERISTIC__ENUMLITERALS = eINSTANCE.getEnumCharacteristic_Enumliterals();
-
-		/**
-		 * The meta object literal for the '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.impl.EnumLiteralsImpl <em>Enum Literals</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.impl.EnumLiteralsImpl
-		 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.impl.CharacteristicsPackageImpl#getEnumLiterals()
-		 * @generated
-		 */
-		EClass ENUM_LITERALS = eINSTANCE.getEnumLiterals();
+		EReference ENUM_CHARACTERISTIC__ENUM = eINSTANCE.getEnumCharacteristic_Enum();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.impl.CharacteristicValueImpl <em>Characteristic Value</em>}' class.
@@ -620,6 +715,34 @@ public interface CharacteristicsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ENUM_CHARACTERISTIC_VALUE__ENUMLITERALS = eINSTANCE.getEnumCharacteristicValue_Enumliterals();
+
+		/**
+		 * The meta object literal for the '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.impl.EnumImpl <em>Enum</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.impl.EnumImpl
+		 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.impl.CharacteristicsPackageImpl#getEnum()
+		 * @generated
+		 */
+		EClass ENUM = eINSTANCE.getEnum();
+
+		/**
+		 * The meta object literal for the '<em><b>Literals</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ENUM__LITERALS = eINSTANCE.getEnum_Literals();
+
+		/**
+		 * The meta object literal for the '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.impl.EnumLiteralImpl <em>Enum Literal</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.impl.EnumLiteralImpl
+		 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.impl.CharacteristicsPackageImpl#getEnumLiteral()
+		 * @generated
+		 */
+		EClass ENUM_LITERAL = eINSTANCE.getEnumLiteral();
 
 	}
 

@@ -9,16 +9,11 @@ import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.flow.Data;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.flow.FlowPackage;
 
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.provider.EntityItemProvider;
-import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.provider.MetamodelEditPlugin;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -153,17 +148,6 @@ public class DataItemProvider extends EntityItemProvider {
 		newChildDescriptors.add(
 				createChildParameter(CharacteristicsPackage.Literals.CHARACTERISTICS_HAVING_ELEMENT__CHARACTERISTIC,
 						CharacteristicsFactory.eINSTANCE.createEnumCharacteristicValue()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return MetamodelEditPlugin.INSTANCE;
 	}
 
 }

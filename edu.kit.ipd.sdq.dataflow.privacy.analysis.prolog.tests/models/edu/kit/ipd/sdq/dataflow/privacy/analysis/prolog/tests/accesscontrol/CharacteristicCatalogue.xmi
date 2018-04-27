@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<characteristics:CharacteristicCatalogue xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:accesscontrol="http://sdq.ipd.kit.edu/dataflow/privacy/analysis/mm/accesscontrol" xmlns:characteristics="http://sdq.ipd.kit.edu/dataflow/privacy/analysis/mm/characteristics" xsi:schemaLocation="http://sdq.ipd.kit.edu/dataflow/privacy/analysis/mm/accesscontrol ../../../../../../../../../../../../../plugin/edu.kit.ipd.sdq.dataflow.privacy.analysis.prolog.accesscontrol/model/accessControl.ecore http://sdq.ipd.kit.edu/dataflow/privacy/analysis/mm/characteristics ../../../../../../../../../../../../../plugin/edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel/model/metamodel.ecore#//characteristics">
+  <characteristics xsi:type="accesscontrol:AccessControlCharacteristic" id="characteristic_accesscontrol" name="AccessRights" enum="enum_role"/>
+  <characteristics xsi:type="accesscontrol:RoleCharacteristic" id="characteristic_role" name="Role" enum="enum_role"/>
+  <ownedEntities xsi:type="characteristics:Enum" id="enum_role" name="Role">
+    <literals id="enumliteral_a" name="A"/>
+    <literals id="enumliteral_b" name="B"/>
+    <literals id="enumliteral_c" name="C"/>
+  </ownedEntities>
+</characteristics:CharacteristicCatalogue>

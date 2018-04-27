@@ -43,11 +43,5 @@
         </menu>
      </menuContribution>
   </extension>
- <extension
-       point="edu.kit.ipd.sdq.dataflow.privacy.analysis.prolog.generator.contributor">
-    <class
-          class="edu.kit.ipd.sdq.dataflow.privacy.analysis.prolog.generator.contributors.impl.RoleCharacteristicContributor">
-    </class>
- </extension>
 
 </plugin>

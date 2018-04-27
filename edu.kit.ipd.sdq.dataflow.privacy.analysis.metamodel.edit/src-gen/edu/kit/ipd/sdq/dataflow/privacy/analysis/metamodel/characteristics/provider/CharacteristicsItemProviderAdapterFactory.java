@@ -2,19 +2,26 @@
  */
 package edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.provider;
 
+import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicsPackage;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.util.CharacteristicsAdapterFactory;
 
+import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.provider.MetamodelEditPlugin;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import java.util.List;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
 
+import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ChangeNotifier;
+import org.eclipse.emf.edit.provider.ChildCreationExtenderManager;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IChangeNotifier;
+import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IDisposable;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -33,7 +40,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class CharacteristicsItemProviderAdapterFactory extends CharacteristicsAdapterFactory
-		implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+		implements ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
@@ -49,6 +56,15 @@ public class CharacteristicsItemProviderAdapterFactory extends CharacteristicsAd
 	 * @generated
 	 */
 	protected IChangeNotifier changeNotifier = new ChangeNotifier();
+
+	/**
+	 * This helps manage the child creation extenders.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ChildCreationExtenderManager childCreationExtenderManager = new ChildCreationExtenderManager(
+			MetamodelEditPlugin.INSTANCE, CharacteristicsPackage.eNS_URI);
 
 	/**
 	 * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
@@ -70,29 +86,6 @@ public class CharacteristicsItemProviderAdapterFactory extends CharacteristicsAd
 		supportedTypes.add(ITreeItemContentProvider.class);
 		supportedTypes.add(IItemLabelProvider.class);
 		supportedTypes.add(IItemPropertySource.class);
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicsHavingElement} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CharacteristicsHavingElementItemProvider characteristicsHavingElementItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicsHavingElement}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCharacteristicsHavingElementAdapter() {
-		if (characteristicsHavingElementItemProvider == null) {
-			characteristicsHavingElementItemProvider = new CharacteristicsHavingElementItemProvider(this);
-		}
-
-		return characteristicsHavingElementItemProvider;
 	}
 
 	/**
@@ -119,52 +112,6 @@ public class CharacteristicsItemProviderAdapterFactory extends CharacteristicsAd
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumCharacteristic} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EnumCharacteristicItemProvider enumCharacteristicItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumCharacteristic}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createEnumCharacteristicAdapter() {
-		if (enumCharacteristicItemProvider == null) {
-			enumCharacteristicItemProvider = new EnumCharacteristicItemProvider(this);
-		}
-
-		return enumCharacteristicItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumLiterals} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EnumLiteralsItemProvider enumLiteralsItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumLiterals}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createEnumLiteralsAdapter() {
-		if (enumLiteralsItemProvider == null) {
-			enumLiteralsItemProvider = new EnumLiteralsItemProvider(this);
-		}
-
-		return enumLiteralsItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumCharacteristicValue} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -185,6 +132,52 @@ public class CharacteristicsItemProviderAdapterFactory extends CharacteristicsAd
 		}
 
 		return enumCharacteristicValueItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.Enum} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EnumItemProvider enumItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.Enum}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEnumAdapter() {
+		if (enumItemProvider == null) {
+			enumItemProvider = new EnumItemProvider(this);
+		}
+
+		return enumItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumLiteral} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EnumLiteralItemProvider enumLiteralItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumLiteral}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEnumLiteralAdapter() {
+		if (enumLiteralItemProvider == null) {
+			enumLiteralItemProvider = new EnumLiteralItemProvider(this);
+		}
+
+		return enumLiteralItemProvider;
 	}
 
 	/**
@@ -246,6 +239,33 @@ public class CharacteristicsItemProviderAdapterFactory extends CharacteristicsAd
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public List<IChildCreationExtender> getChildCreationExtenders() {
+		return childCreationExtenderManager.getChildCreationExtenders();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain) {
+		return childCreationExtenderManager.getNewChildDescriptors(object, editingDomain);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ResourceLocator getResourceLocator() {
+		return childCreationExtenderManager;
+	}
+
+	/**
 	 * This adds a listener.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -286,16 +306,14 @@ public class CharacteristicsItemProviderAdapterFactory extends CharacteristicsAd
 	 * @generated
 	 */
 	public void dispose() {
-		if (characteristicsHavingElementItemProvider != null)
-			characteristicsHavingElementItemProvider.dispose();
 		if (characteristicCatalogueItemProvider != null)
 			characteristicCatalogueItemProvider.dispose();
-		if (enumCharacteristicItemProvider != null)
-			enumCharacteristicItemProvider.dispose();
-		if (enumLiteralsItemProvider != null)
-			enumLiteralsItemProvider.dispose();
 		if (enumCharacteristicValueItemProvider != null)
 			enumCharacteristicValueItemProvider.dispose();
+		if (enumItemProvider != null)
+			enumItemProvider.dispose();
+		if (enumLiteralItemProvider != null)
+			enumLiteralItemProvider.dispose();
 	}
 
 }

@@ -2,7 +2,11 @@
  */
 package edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.impl;
 
-import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.*;
+import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicCatalogue;
+import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicsFactory;
+import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicsPackage;
+import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumCharacteristicValue;
+import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumLiteral;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -56,29 +60,17 @@ public class CharacteristicsFactoryImpl extends EFactoryImpl implements Characte
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case CharacteristicsPackage.CHARACTERISTICS_HAVING_ELEMENT:
-			return createCharacteristicsHavingElement();
 		case CharacteristicsPackage.CHARACTERISTIC_CATALOGUE:
 			return createCharacteristicCatalogue();
-		case CharacteristicsPackage.ENUM_CHARACTERISTIC:
-			return createEnumCharacteristic();
-		case CharacteristicsPackage.ENUM_LITERALS:
-			return createEnumLiterals();
 		case CharacteristicsPackage.ENUM_CHARACTERISTIC_VALUE:
 			return createEnumCharacteristicValue();
+		case CharacteristicsPackage.ENUM:
+			return createEnum();
+		case CharacteristicsPackage.ENUM_LITERAL:
+			return createEnumLiteral();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CharacteristicsHavingElement createCharacteristicsHavingElement() {
-		CharacteristicsHavingElementImpl characteristicsHavingElement = new CharacteristicsHavingElementImpl();
-		return characteristicsHavingElement;
 	}
 
 	/**
@@ -96,29 +88,29 @@ public class CharacteristicsFactoryImpl extends EFactoryImpl implements Characte
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EnumCharacteristic createEnumCharacteristic() {
-		EnumCharacteristicImpl enumCharacteristic = new EnumCharacteristicImpl();
-		return enumCharacteristic;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EnumLiterals createEnumLiterals() {
-		EnumLiteralsImpl enumLiterals = new EnumLiteralsImpl();
-		return enumLiterals;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EnumCharacteristicValue createEnumCharacteristicValue() {
 		EnumCharacteristicValueImpl enumCharacteristicValue = new EnumCharacteristicValueImpl();
 		return enumCharacteristicValue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.Enum createEnum() {
+		EnumImpl enum_ = new EnumImpl();
+		return enum_;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EnumLiteral createEnumLiteral() {
+		EnumLiteralImpl enumLiteral = new EnumLiteralImpl();
+		return enumLiteral;
 	}
 
 	/**

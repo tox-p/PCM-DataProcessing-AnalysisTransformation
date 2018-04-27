@@ -147,6 +147,10 @@ public class FlowNodeItemProvider extends NodeItemProvider {
 
 		newChildDescriptors
 				.add(createChildParameter(OperationsPackage.Literals.OPERATION_EXECUTING_ELEMENT__OPERATION_EXECUTION,
+						OperationsFactory.eINSTANCE.createDataCharacteristicChangingOperationExecution()));
+
+		newChildDescriptors
+				.add(createChildParameter(OperationsPackage.Literals.OPERATION_EXECUTING_ELEMENT__OPERATION_EXECUTION,
 						OperationsFactory.eINSTANCE.createEnumCharacteristicChangingOperationExecution()));
 
 		newChildDescriptors

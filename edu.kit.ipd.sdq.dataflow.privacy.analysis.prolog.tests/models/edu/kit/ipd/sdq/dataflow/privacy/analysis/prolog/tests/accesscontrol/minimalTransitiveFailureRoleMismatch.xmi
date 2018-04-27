@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow:DataFlowDiagram
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:accesscontrol="http://sdq.ipd.kit.edu/dataflow/privacy/analysis/mm/accesscontrol"
+    xmlns:characteristics="http://sdq.ipd.kit.edu/dataflow/privacy/analysis/mm/characteristics"
+    xmlns:flow="http://sdq.ipd.kit.edu/dataflow/privacy/analysis/mm/flow"
+    xsi:schemaLocation="http://sdq.ipd.kit.edu/dataflow/privacy/analysis/mm/accesscontrol ../../../../../../../../../../../../edu.kit.ipd.sdq.dataflow.privacy.analysis.prolog.accesscontrol/model/accessControl.ecore http://sdq.ipd.kit.edu/dataflow/privacy/analysis/mm/characteristics ../../../../../../../../../../../../edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel/model/metamodel.ecore#//characteristics http://sdq.ipd.kit.edu/dataflow/privacy/analysis/mm/flow ../../../../../../../../../../../../edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel/model/metamodel.ecore#//flow">
+  <nodecontainer
+      id="nc_a"
+      name="A">
+    <characteristic
+        xsi:type="characteristics:EnumCharacteristicValue">
+      <characteristic
+          xsi:type="accesscontrol:RoleCharacteristic"
+          href="CharacteristicCatalogue.xmi#characteristic_role"/>
+      <enumliterals
+          href="CharacteristicCatalogue.xmi#enumliteral_a"/>
+    </characteristic>
+    <nodes xsi:type="flow:FlowStart"
+        id="fs_1"
+        name="Start_A"/>
+    <nodes xsi:type="flow:FlowEnd"
+        id="fs_2"
+        name="End_A"/>
+  </nodecontainer>
+  <nodecontainer
+      id="nc_b"
+      name="B">
+    <characteristic
+        xsi:type="characteristics:EnumCharacteristicValue">
+      <characteristic
+          xsi:type="accesscontrol:RoleCharacteristic"
+          href="CharacteristicCatalogue.xmi#characteristic_role"/>
+      <enumliterals
+          href="CharacteristicCatalogue.xmi#enumliteral_b"/>
+    </characteristic>
+    <nodes xsi:type="flow:FlowNode"
+        id="fn_1"
+        name="process"/>
+  </nodecontainer>
+  <data id="data_d"
+      name="D">
+    <characteristic
+        xsi:type="characteristics:EnumCharacteristicValue">
+      <characteristic
+          xsi:type="accesscontrol:AccessControlCharacteristic"
+          href="CharacteristicCatalogue.xmi#characteristic_accesscontrol"/>
+      <enumliterals
+          href="CharacteristicCatalogue.xmi#enumliteral_a"/>
+    </characteristic>
+  </data>
+  <flow id="flow_start_process"
+      name="start -> process"
+      startNode="fs_1"
+      endNode="fn_1"
+      data="data_d"/>
+  <flow id="flow_process_end"
+      name="process -> end"
+      startNode="fn_1"
+      endNode="fs_2"
+      data="data_d"/>
+</flow:DataFlowDiagram>

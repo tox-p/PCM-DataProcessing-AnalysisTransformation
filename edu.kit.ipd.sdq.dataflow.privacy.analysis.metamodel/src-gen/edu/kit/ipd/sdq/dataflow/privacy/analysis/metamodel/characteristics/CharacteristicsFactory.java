@@ -23,15 +23,6 @@ public interface CharacteristicsFactory extends EFactory {
 			.init();
 
 	/**
-	 * Returns a new object of class '<em>Having Element</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Having Element</em>'.
-	 * @generated
-	 */
-	CharacteristicsHavingElement createCharacteristicsHavingElement();
-
-	/**
 	 * Returns a new object of class '<em>Characteristic Catalogue</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -41,24 +32,6 @@ public interface CharacteristicsFactory extends EFactory {
 	CharacteristicCatalogue createCharacteristicCatalogue();
 
 	/**
-	 * Returns a new object of class '<em>Enum Characteristic</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Enum Characteristic</em>'.
-	 * @generated
-	 */
-	EnumCharacteristic createEnumCharacteristic();
-
-	/**
-	 * Returns a new object of class '<em>Enum Literals</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Enum Literals</em>'.
-	 * @generated
-	 */
-	EnumLiterals createEnumLiterals();
-
-	/**
 	 * Returns a new object of class '<em>Enum Characteristic Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,6 +39,24 @@ public interface CharacteristicsFactory extends EFactory {
 	 * @generated
 	 */
 	EnumCharacteristicValue createEnumCharacteristicValue();
+
+	/**
+	 * Returns a new object of class '<em>Enum</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Enum</em>'.
+	 * @generated
+	 */
+	Enum createEnum();
+
+	/**
+	 * Returns a new object of class '<em>Enum Literal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Enum Literal</em>'.
+	 * @generated
+	 */
+	EnumLiteral createEnumLiteral();
 
 	/**
 	 * Returns the package supported by this factory.

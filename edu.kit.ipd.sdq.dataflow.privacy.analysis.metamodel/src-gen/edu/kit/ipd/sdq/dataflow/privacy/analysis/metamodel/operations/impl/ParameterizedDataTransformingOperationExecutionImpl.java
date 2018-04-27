@@ -3,13 +3,16 @@
 package edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.impl;
 
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.flow.Data;
+
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.OperationsPackage;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.ParameterizedDataTransformingOperation;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.ParameterizedDataTransformingOperationExecution;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**

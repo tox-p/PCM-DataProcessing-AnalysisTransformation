@@ -21,7 +21,7 @@ public class EclipseRegistryBasedContributorRegistry implements IPrologGenerator
 		contributors = createContributors();
 	}
 	
-	protected static Iterable<IPrologGeneratorContributor> createContributors() {
+	protected Iterable<IPrologGeneratorContributor> createContributors() {
 		Collection<IPrologGeneratorContributor> contributors = new ArrayList<>();
 		
 	    IExtensionRegistry reg = Platform.getExtensionRegistry();
@@ -42,5 +42,5 @@ public class EclipseRegistryBasedContributorRegistry implements IPrologGenerator
 	public Iterable<IPrologGeneratorContributor> getContributors() {
 		return contributors;
 	}
-
+	
 }

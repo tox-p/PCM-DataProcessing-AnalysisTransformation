@@ -2,8 +2,6 @@
  */
 package edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics;
 
-import org.eclipse.emf.common.util.EList;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Enum Characteristic</b></em>'.
@@ -13,28 +11,38 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumCharacteristic#getEnumliterals <em>Enumliterals</em>}</li>
+ *   <li>{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumCharacteristic#getEnum <em>Enum</em>}</li>
  * </ul>
  *
  * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicsPackage#getEnumCharacteristic()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface EnumCharacteristic extends Characteristic {
 	/**
-	 * Returns the value of the '<em><b>Enumliterals</b></em>' containment reference list.
-	 * The list contents are of type {@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumLiterals}.
+	 * Returns the value of the '<em><b>Enum</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Enumliterals</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Enum</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Enumliterals</em>' containment reference list.
-	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicsPackage#getEnumCharacteristic_Enumliterals()
-	 * @model containment="true"
+	 * @return the value of the '<em>Enum</em>' reference.
+	 * @see #setEnum(edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.Enum)
+	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicsPackage#getEnumCharacteristic_Enum()
+	 * @model required="true"
 	 * @generated
 	 */
-	EList<EnumLiterals> getEnumliterals();
+	edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.Enum getEnum();
+
+	/**
+	 * Sets the value of the '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumCharacteristic#getEnum <em>Enum</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Enum</em>' reference.
+	 * @see #getEnum()
+	 * @generated
+	 */
+	void setEnum(edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.Enum value);
 
 } // EnumCharacteristic

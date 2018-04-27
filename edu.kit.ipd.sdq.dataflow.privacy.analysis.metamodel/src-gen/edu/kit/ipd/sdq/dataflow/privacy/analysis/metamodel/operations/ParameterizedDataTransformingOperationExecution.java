@@ -22,7 +22,6 @@ import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.flow.Data;
  */
 public interface ParameterizedDataTransformingOperationExecution<T extends ParameterizedDataTransformingOperation>
 		extends DataTransformingOperationExecution<T> {
-
 	/**
 	 * Returns the value of the '<em><b>Parameter</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -48,4 +47,5 @@ public interface ParameterizedDataTransformingOperationExecution<T extends Param
 	 * @generated
 	 */
 	void setParameter(Data value);
+
 } // ParameterizedDataTransformingOperationExecution

@@ -6,8 +6,9 @@ import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.Chara
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicsFactory;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicsPackage;
 
-import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.provider.MetamodelEditPlugin;
+import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.flow.FlowFactory;
 
+import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.OperationsFactory;
 import java.util.Collection;
 import java.util.List;
 
@@ -18,6 +19,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -73,6 +75,7 @@ public class CharacteristicCatalogueItemProvider extends ItemProviderAdapter imp
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(CharacteristicsPackage.Literals.CHARACTERISTIC_CATALOGUE__CHARACTERISTICS);
+			childrenFeatures.add(CharacteristicsPackage.Literals.CHARACTERISTIC_CATALOGUE__OWNED_ENTITIES);
 		}
 		return childrenFeatures;
 	}
@@ -135,6 +138,7 @@ public class CharacteristicCatalogueItemProvider extends ItemProviderAdapter imp
 
 		switch (notification.getFeatureID(CharacteristicCatalogue.class)) {
 		case CharacteristicsPackage.CHARACTERISTIC_CATALOGUE__CHARACTERISTICS:
+		case CharacteristicsPackage.CHARACTERISTIC_CATALOGUE__OWNED_ENTITIES:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -153,8 +157,48 @@ public class CharacteristicCatalogueItemProvider extends ItemProviderAdapter imp
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors
-				.add(createChildParameter(CharacteristicsPackage.Literals.CHARACTERISTIC_CATALOGUE__CHARACTERISTICS,
-						CharacteristicsFactory.eINSTANCE.createEnumCharacteristic()));
+				.add(createChildParameter(CharacteristicsPackage.Literals.CHARACTERISTIC_CATALOGUE__OWNED_ENTITIES,
+						CharacteristicsFactory.eINSTANCE.createEnum()));
+
+		newChildDescriptors
+				.add(createChildParameter(CharacteristicsPackage.Literals.CHARACTERISTIC_CATALOGUE__OWNED_ENTITIES,
+						CharacteristicsFactory.eINSTANCE.createEnumLiteral()));
+
+		newChildDescriptors
+				.add(createChildParameter(CharacteristicsPackage.Literals.CHARACTERISTIC_CATALOGUE__OWNED_ENTITIES,
+						OperationsFactory.eINSTANCE.createEnumCharacteristicChangingOperation()));
+
+		newChildDescriptors
+				.add(createChildParameter(CharacteristicsPackage.Literals.CHARACTERISTIC_CATALOGUE__OWNED_ENTITIES,
+						OperationsFactory.eINSTANCE.createDataTransformingOperation()));
+
+		newChildDescriptors
+				.add(createChildParameter(CharacteristicsPackage.Literals.CHARACTERISTIC_CATALOGUE__OWNED_ENTITIES,
+						OperationsFactory.eINSTANCE.createParameterizedDataTransformingOperation()));
+
+		newChildDescriptors
+				.add(createChildParameter(CharacteristicsPackage.Literals.CHARACTERISTIC_CATALOGUE__OWNED_ENTITIES,
+						FlowFactory.eINSTANCE.createNodeContainer()));
+
+		newChildDescriptors
+				.add(createChildParameter(CharacteristicsPackage.Literals.CHARACTERISTIC_CATALOGUE__OWNED_ENTITIES,
+						FlowFactory.eINSTANCE.createFlowStart()));
+
+		newChildDescriptors
+				.add(createChildParameter(CharacteristicsPackage.Literals.CHARACTERISTIC_CATALOGUE__OWNED_ENTITIES,
+						FlowFactory.eINSTANCE.createFlowEnd()));
+
+		newChildDescriptors
+				.add(createChildParameter(CharacteristicsPackage.Literals.CHARACTERISTIC_CATALOGUE__OWNED_ENTITIES,
+						FlowFactory.eINSTANCE.createFlowNode()));
+
+		newChildDescriptors
+				.add(createChildParameter(CharacteristicsPackage.Literals.CHARACTERISTIC_CATALOGUE__OWNED_ENTITIES,
+						FlowFactory.eINSTANCE.createFlow()));
+
+		newChildDescriptors
+				.add(createChildParameter(CharacteristicsPackage.Literals.CHARACTERISTIC_CATALOGUE__OWNED_ENTITIES,
+						FlowFactory.eINSTANCE.createData()));
 	}
 
 	/**
@@ -165,7 +209,7 @@ public class CharacteristicCatalogueItemProvider extends ItemProviderAdapter imp
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return MetamodelEditPlugin.INSTANCE;
+		return ((IChildCreationExtender) adapterFactory).getResourceLocator();
 	}
 
 }

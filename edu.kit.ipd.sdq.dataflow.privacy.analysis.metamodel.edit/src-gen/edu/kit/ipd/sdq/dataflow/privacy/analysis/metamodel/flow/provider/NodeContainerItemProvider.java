@@ -9,17 +9,11 @@ import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.provi
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.flow.FlowFactory;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.flow.FlowPackage;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.flow.NodeContainer;
-
-import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.provider.MetamodelEditPlugin;
-
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -199,17 +193,6 @@ public class NodeContainerItemProvider extends CharacteristicsHavingElementItemP
 
 		newChildDescriptors.add(createChildParameter(FlowPackage.Literals.NODE_CONTAINER__NODES,
 				FlowFactory.eINSTANCE.createFlowNode()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return MetamodelEditPlugin.INSTANCE;
 	}
 
 }

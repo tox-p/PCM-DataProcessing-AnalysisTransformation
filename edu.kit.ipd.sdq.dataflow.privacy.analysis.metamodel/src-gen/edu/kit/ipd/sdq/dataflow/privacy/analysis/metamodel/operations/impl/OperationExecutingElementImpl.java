@@ -6,8 +6,10 @@ import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.Operation;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.OperationExecutingElement;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.OperationExecution;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.OperationsPackage;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 

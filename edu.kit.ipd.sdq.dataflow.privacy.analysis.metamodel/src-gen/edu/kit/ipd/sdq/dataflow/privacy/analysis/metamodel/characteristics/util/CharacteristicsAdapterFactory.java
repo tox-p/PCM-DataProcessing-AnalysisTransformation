@@ -6,7 +6,14 @@ import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.Entity;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.IdHavingElement;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.NameHavingElement;
 
-import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.*;
+import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.Characteristic;
+import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicCatalogue;
+import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicValue;
+import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicsHavingElement;
+import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicsPackage;
+import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumCharacteristic;
+import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumCharacteristicValue;
+import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumLiteral;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -91,11 +98,6 @@ public class CharacteristicsAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseEnumLiterals(EnumLiterals object) {
-			return createEnumLiteralsAdapter();
-		}
-
-		@Override
 		public <T extends Characteristic> Adapter caseCharacteristicValue(CharacteristicValue<T> object) {
 			return createCharacteristicValueAdapter();
 		}
@@ -103,6 +105,16 @@ public class CharacteristicsAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseEnumCharacteristicValue(EnumCharacteristicValue object) {
 			return createEnumCharacteristicValueAdapter();
+		}
+
+		@Override
+		public Adapter caseEnum(edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.Enum object) {
+			return createEnumAdapter();
+		}
+
+		@Override
+		public Adapter caseEnumLiteral(EnumLiteral object) {
+			return createEnumLiteralAdapter();
 		}
 
 		@Override
@@ -196,20 +208,6 @@ public class CharacteristicsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumLiterals <em>Enum Literals</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumLiterals
-	 * @generated
-	 */
-	public Adapter createEnumLiteralsAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicValue <em>Characteristic Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -234,6 +232,34 @@ public class CharacteristicsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEnumCharacteristicValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.Enum <em>Enum</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.Enum
+	 * @generated
+	 */
+	public Adapter createEnumAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumLiteral <em>Enum Literal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumLiteral
+	 * @generated
+	 */
+	public Adapter createEnumLiteralAdapter() {
 		return null;
 	}
 

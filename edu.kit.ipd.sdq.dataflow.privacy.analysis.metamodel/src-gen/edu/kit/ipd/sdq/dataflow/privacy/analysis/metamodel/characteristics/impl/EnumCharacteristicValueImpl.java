@@ -5,7 +5,7 @@ package edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.impl
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicsPackage;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumCharacteristic;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumCharacteristicValue;
-import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumLiterals;
+import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumLiteral;
 
 import java.util.Collection;
 
@@ -38,7 +38,7 @@ public class EnumCharacteristicValueImpl extends CharacteristicValueImpl<EnumCha
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<EnumLiterals> enumliterals;
+	protected EList<EnumLiteral> enumliterals;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -75,9 +75,9 @@ public class EnumCharacteristicValueImpl extends CharacteristicValueImpl<EnumCha
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<EnumLiterals> getEnumliterals() {
+	public EList<EnumLiteral> getEnumliterals() {
 		if (enumliterals == null) {
-			enumliterals = new EObjectResolvingEList<EnumLiterals>(EnumLiterals.class, this,
+			enumliterals = new EObjectResolvingEList<EnumLiteral>(EnumLiteral.class, this,
 					CharacteristicsPackage.ENUM_CHARACTERISTIC_VALUE__ENUMLITERALS);
 		}
 		return enumliterals;
@@ -108,7 +108,7 @@ public class EnumCharacteristicValueImpl extends CharacteristicValueImpl<EnumCha
 		switch (featureID) {
 		case CharacteristicsPackage.ENUM_CHARACTERISTIC_VALUE__ENUMLITERALS:
 			getEnumliterals().clear();
-			getEnumliterals().addAll((Collection<? extends EnumLiterals>) newValue);
+			getEnumliterals().addAll((Collection<? extends EnumLiteral>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);

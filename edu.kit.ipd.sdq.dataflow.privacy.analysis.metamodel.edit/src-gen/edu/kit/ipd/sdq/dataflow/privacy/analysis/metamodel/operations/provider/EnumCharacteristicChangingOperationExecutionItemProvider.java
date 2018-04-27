@@ -24,7 +24,8 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EnumCharacteristicChangingOperationExecutionItemProvider extends OperationExecutionItemProvider {
+public class EnumCharacteristicChangingOperationExecutionItemProvider
+		extends DataCharacteristicChangingOperationExecutionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->

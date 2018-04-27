@@ -5,9 +5,6 @@ package edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.provider;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.OperationExecutingElement;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.OperationsFactory;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.OperationsPackage;
-
-import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.provider.MetamodelEditPlugin;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -18,6 +15,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -143,6 +141,10 @@ public class OperationExecutingElementItemProvider extends ItemProviderAdapter i
 
 		newChildDescriptors
 				.add(createChildParameter(OperationsPackage.Literals.OPERATION_EXECUTING_ELEMENT__OPERATION_EXECUTION,
+						OperationsFactory.eINSTANCE.createDataCharacteristicChangingOperationExecution()));
+
+		newChildDescriptors
+				.add(createChildParameter(OperationsPackage.Literals.OPERATION_EXECUTING_ELEMENT__OPERATION_EXECUTION,
 						OperationsFactory.eINSTANCE.createEnumCharacteristicChangingOperationExecution()));
 
 		newChildDescriptors
@@ -162,7 +164,7 @@ public class OperationExecutingElementItemProvider extends ItemProviderAdapter i
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return MetamodelEditPlugin.INSTANCE;
+		return ((IChildCreationExtender) adapterFactory).getResourceLocator();
 	}
 
 }

@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicsPackage#getCharacteristicsHavingElement()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface CharacteristicsHavingElement extends EObject {

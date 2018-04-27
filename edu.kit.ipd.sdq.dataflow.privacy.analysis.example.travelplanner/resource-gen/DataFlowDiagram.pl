@@ -57,10 +57,10 @@ flowNode(flownode_airline_receive_confirmation, 'receive confirmation (Airline)'
 flowNode(flownode_airline_send_confirmation, 'send confirmation (Airline)').
 
 % Node containers
-flowNodeContainer(nc_user, [flowstart_user, flownode_user_sendrequestdata, flownode_user_receive_flightoffers, flownode_user_select_flightoffer, flownode_user_receive_ccd, flownode_user_send_ccd, flownode_user_receive_ccd_declassified, flownode_user_send_booking, flownode_user_receive_confirmation])
-flowNodeContainer(nc_mobile, [flowstart_creditcardcenterstore, flownode_TP_receiveRequestData, flownode_TP_sendRequestData, flownode_TP_receive_FlightOffers, flownode_TP_send_FlightOffers, flownode_ccc_send_ccd, flownode_ccc_receive_ccd, flownode_ccc_declassify_ccd, flownode_ccc_send_ccdDeclassified, flownode_tp_receive_booking, flownode_tp_send_booking, flownode_tp_receive_confirmation, flownode_tp_send_confirmation])
-flowNodeContainer(nc_travelagency, [flownode_ta_receiverequestdata, flownode_ta_sendRequestData, flownode_ta_receive_flightoffers, flownode_ta_send_FlightOffers, flownode_ta_receive_offerid, flowstart_travelagency, flownode_ta_send_confirmation])
-flowNodeContainer(nc_airline, [flowstart_airlinestore, flownode_airline_receiveRequestData, flownode_airline_loadData, flownode_airline_filter_flightoffers, flownode_airline_send_flightoffers, flownode_airline_receive_bookingrequest, flownode_airline_project_offerid, flownode_airline_send_offerid, flownode_airline_receive_confirmation, flowstart_Airline, flownode_airline_send_confirmation])
+flowNodeContainer(nc_user, [flowstart_user, flownode_user_sendrequestdata, flownode_user_receive_flightoffers, flownode_user_select_flightoffer, flownode_user_receive_ccd, flownode_user_send_ccd, flownode_user_receive_ccd_declassified, flownode_user_send_booking, flownode_user_receive_confirmation]).
+flowNodeContainer(nc_mobile, [flowstart_creditcardcenterstore, flownode_TP_receiveRequestData, flownode_TP_sendRequestData, flownode_TP_receive_FlightOffers, flownode_TP_send_FlightOffers, flownode_ccc_send_ccd, flownode_ccc_receive_ccd, flownode_ccc_declassify_ccd, flownode_ccc_send_ccdDeclassified, flownode_tp_receive_booking, flownode_tp_send_booking, flownode_tp_receive_confirmation, flownode_tp_send_confirmation]).
+flowNodeContainer(nc_travelagency, [flownode_ta_receiverequestdata, flownode_ta_sendRequestData, flownode_ta_receive_flightoffers, flownode_ta_send_FlightOffers, flownode_ta_receive_offerid, flowstart_travelagency, flownode_ta_send_confirmation]).
+flowNodeContainer(nc_airline, [flowstart_airlinestore, flownode_airline_receiveRequestData, flownode_airline_loadData, flownode_airline_filter_flightoffers, flownode_airline_send_flightoffers, flownode_airline_receive_bookingrequest, flownode_airline_project_offerid, flownode_airline_send_offerid, flownode_airline_receive_confirmation, flowstart_Airline, flownode_airline_send_confirmation]).
 
 % Flows
 flow(flow_requestData_User_User, flowstart_user, flownode_user_sendrequestdata, [data_requestdata]).
@@ -104,37 +104,42 @@ flow(flow_confirmation_TP_User, flownode_tp_send_confirmation, flownode_user_rec
 % Characteristic values
 
 %% Role (characteristic_role)
-role(nc_user, [characteristic_role_user]).
-role(nc_mobile, [characteristic_role_user]).
-role(nc_travelagency, [characteristic_role_travelagency]).
-role(nc_airline, [characteristic_role_airline]).
+role(nc_user, [enumliteral_role_user]).
+role(nc_mobile, [enumliteral_role_user]).
+role(nc_travelagency, [enumliteral_role_travelagency]).
+role(nc_airline, [enumliteral_role_airline]).
 
-%% AccessRights (characteristic_access)
-accessRights(data_requestdata, [characteristic_access_airline, characteristic_access_travelagency, characteristic_access_user]).
-accessRights(data_flightoffers, [characteristic_access_airline, characteristic_access_travelagency, characteristic_access_user]).
-accessRights(data_ccdetails, [characteristic_access_user]).
+%% AccessRights (characteristic_accesscontrol)
+accessRights(data_requestdata, [enumliteral_role_airline, enumliteral_role_travelagency, enumliteral_role_user]).
+accessRights(data_flightoffers, [enumliteral_role_airline, enumliteral_role_travelagency, enumliteral_role_user]).
+accessRights(data_ccdetails, [enumliteral_role_user]).
+accessRights(data_confirmation_ta, [enumliteral_role_airline, enumliteral_role_travelagency, enumliteral_role_user]).
+accessRights(data_confirmation_airline, [enumliteral_role_airline, enumliteral_role_travelagency, enumliteral_role_user]).
 
 
 % Node operations
 
-%% Selection (op_selection)
-selection(flownode_user_select_flightoffer, data_flightOffers_filtered, data_flightoffer).
+%% opSelection (op_selection)
+opSelection(flownode_user_select_flightoffer, data_flightoffers, data_flightoffer).
 
-%% GrantAccessRights (op_grantaccessrights)
-grantAccessRights(flownode_ccc_declassify_ccd, [characteristic_access_airline]).
+%% opGrantAccessRights (op_grantaccessrights)
+opGrantAccessRights(flownode_ccc_declassify_ccd, data_ccdetails, [enumliteral_role_airline]).
 
-%% Filter (op_filter)
-filter(flownode_airline_filter_flightoffers, data_flightoffers, data_requestdata, data_flightOffers_filtered).
+%% opFilter (op_filter)
+opFilter(flownode_airline_filter_flightoffers, data_flightoffers, data_requestdata, data_flightOffers_filtered).
 
-%% Projection (op_projection)
-projection(flownode_airline_project_offerid, data_flightoffer, data_offerid).
+%% opProjection (op_projection)
+opProjection(flownode_airline_project_offerid, data_flightoffer, data_offerid).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %            Contributed Facts           %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% edu.kit.ipd.sdq.dataflow.privacy.analysis.prolog.generator.contributors.impl.RoleCharacteristicContributor
+% edu.kit.ipd.sdq.dataflow.privacy.analysis.prolog.accesscontrol.contribution.AccessControlContributor
+% no facts contributed
+
+% edu.kit.ipd.sdq.dataflow.privacy.analysis.prolog.relational.contribution.RelationalContributor
 % no facts contributed
 
 
@@ -143,12 +148,9 @@ projection(flownode_airline_project_offerid, data_flightoffer, data_offerid).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 predecessor(S, T) :-
-  S = T.
-
-predecessor(S, T) :-
   flow(_, S, T, _).
 
-predecessor(S, T) :-
+transitivePredecessor(S, T) :-
   flow(_, X, T, _),
   predecessor(S, X).
 
@@ -157,61 +159,83 @@ predecessor(S, T) :-
 %            Contributed Rules           %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% edu.kit.ipd.sdq.dataflow.privacy.analysis.prolog.generator.contributors.impl.RoleCharacteristicContributor
+% edu.kit.ipd.sdq.dataflow.privacy.analysis.prolog.accesscontrol.contribution.AccessControlContributor
 %% copy roles V from node container C to node N
-role(N, V) :-
+hasRole(N, V) :-
   flowNodeContainer(C, M),
   member(N, M),
-  role(C, V).
+  role(C, X),
+  member(V, X).
 
-%% access right R for data D has been granted if explicitly granted before node N 
-hasAssignedAccessRightsBefore(N, D, R) :-
+%% access right R for data D has been granted for N if has already been granted before N
+hasAssignedAccessRights(N, D, R) :-
   predecessor(N2, N),
-  grantAccessRights(N2, D, Z),
+  hasAssignedAccessRights(N2, D, R).
+
+%% access right R for data D has been granted if explicitly granted in node N
+hasAssignedAccessRights(N, D, R) :-
+  opGrantAccessRights(N, D, Z),
   member(R, Z).
 
 %% access right R for data D has been granted if it is in initial rights of data and node N is a start node
-hasAssignedAccessRightsBefore(N, D, R) :-
+hasAssignedAccessRights(N, D, R) :-
   flowStart(N, _),
+  flow(_, N, _, DT),
+  member(D, DT),
   accessRights(D, Z),
   member(R, Z).
 
 %% copy access rights R for data D from previous data DI if node N performs a projection operation
-grantAccessRights(N, D, R) :-
-  projection(N, DI, D),
-  hasAssignedAccessRightsBefore(N, DI, R).
+hasAssignedAccessRights(N, D, R) :-
+  opProjection(N, DI, D),
+  hasAssignedAccessRights(N, DI, R).
 
 %% copy access rights R for data D from previous data DI if node N performs a selection operation
-grantAccessRights(N, D, R) :-
-  selection(N, DI, D),
-  hasAssignedAccessRightsBefore(N, DI, R).
+hasAssignedAccessRights(N, D, R) :-
+  opSelection(N, DI, D),
+  hasAssignedAccessRights(N, DI, R).
 
 %% copy access rights R for data D from previous data DI if node N performs a filter operation
-grantAccessRights(N, D, R) :-
-  filter(N, DI, _, D),
-  hasAssignedAccessRightsBefore(N, DI, R).
+hasAssignedAccessRights(N, D, R) :-
+  opFilter(N, DI, _, D),
+  hasAssignedAccessRights(N, DI, R).
 
-%% data D has been accessed before node N by role R if node N has received data D
-accessedByRoleBefore(N, D, R) :-
-  role(X, R),
-  predecessor(X, N),
-  flow(_, _, X, D).
+%% data D has been accessed transitively in node N by role R if it has been accessed transitively by role R in a node before
+accessedByRoleTransitive(N, D, R) :-
+  predecessor(N2, N),
+  accessedByRoleTransitive(N2, D, R).
 
-%% data D has been accessed before node N by role R if node N has sent data D
-accessedByRoleBefore(N, D, R) :-
-  role(X, R),
-  predecessor(X, N),
-  flow(_, X, _, D).
+%% data D has been accessed transitively in node N by role R if it has been accessed directly in node N
+accessedByRoleTransitive(N, D, R) :-
+  accessedByRole(N, D, R).
+
+%% data D is accessed by role R in node N if N received the data
+accessedByRole(N, D, R) :-
+  hasRole(N, R),
+  flow(_, _, N, Y),
+  member(D, Y).
+
+%% data D is accessed by role R in node N if node N is sending the data
+accessedByRole(N, D, R) :-
+  hasRole(N, R),
+  flow(_, N, _, Y),
+  member(D, Y).
 
 %% determine all assigned access rights R to data D before node N
 allAssignedRolesBefore(N, D, R) :-
-  findall(X, hasAssignedAccessRightsBefore(N, D, X), Z),
+  findall(X, hasAssignedAccessRights(N, D, X), Z),
   sort(Z, R).
 
-%% determine all accessing roles R to data D before node N
-allAccessingRolesBefore(N, D, R) :-
-  findall(X, accessedByRoleBefore(N, D, X), Z),
+%% determine all accessing roles R to data D in node N
+allAccessingRoles(N, D, R) :-
+  findall(X, accessedByRole(N, D, X), Z),
   sort(Z, R).
 
-%% Please note: You have to provide a matching between roles and access rights in order to perform a comparison
+%% determine node N that accesses data D with role R without proper access rights
+illegalAccess(N, D, R) :-
+  accessedByRole(N, D, R),
+  \+hasAssignedAccessRights(N, D, R).
+
+% edu.kit.ipd.sdq.dataflow.privacy.analysis.prolog.relational.contribution.RelationalContributor
+% no rules contributed
 

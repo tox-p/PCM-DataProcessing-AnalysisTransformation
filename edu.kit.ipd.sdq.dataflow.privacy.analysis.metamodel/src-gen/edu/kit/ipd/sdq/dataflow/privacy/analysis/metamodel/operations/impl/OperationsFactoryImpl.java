@@ -65,6 +65,8 @@ public class OperationsFactoryImpl extends EFactoryImpl implements OperationsFac
 			return createDataTransformingOperation();
 		case OperationsPackage.PARAMETERIZED_DATA_TRANSFORMING_OPERATION:
 			return createParameterizedDataTransformingOperation();
+		case OperationsPackage.DATA_CHARACTERISTIC_CHANGING_OPERATION_EXECUTION:
+			return createDataCharacteristicChangingOperationExecution();
 		case OperationsPackage.ENUM_CHARACTERISTIC_CHANGING_OPERATION_EXECUTION:
 			return createEnumCharacteristicChangingOperationExecution();
 		case OperationsPackage.DATA_TRANSFORMING_OPERATION_EXECUTION:
@@ -144,6 +146,16 @@ public class OperationsFactoryImpl extends EFactoryImpl implements OperationsFac
 	public ParameterizedDataTransformingOperation createParameterizedDataTransformingOperation() {
 		ParameterizedDataTransformingOperationImpl parameterizedDataTransformingOperation = new ParameterizedDataTransformingOperationImpl();
 		return parameterizedDataTransformingOperation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public <T extends Operation> DataCharacteristicChangingOperationExecution<T> createDataCharacteristicChangingOperationExecution() {
+		DataCharacteristicChangingOperationExecutionImpl<T> dataCharacteristicChangingOperationExecution = new DataCharacteristicChangingOperationExecutionImpl<T>();
+		return dataCharacteristicChangingOperationExecution;
 	}
 
 	/**

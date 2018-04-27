@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class CharacteristicsHavingElementImpl extends MinimalEObjectImpl.Container
+public abstract class CharacteristicsHavingElementImpl extends MinimalEObjectImpl.Container
 		implements CharacteristicsHavingElement {
 	/**
 	 * The cached value of the '{@link #getCharacteristic() <em>Characteristic</em>}' containment reference list.

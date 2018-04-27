@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<operations:OperationCatalogue xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:operations="http://sdq.ipd.kit.edu/dataflow/privacy/analysis/mm/operations" xsi:schemaLocation="http://sdq.ipd.kit.edu/dataflow/privacy/analysis/mm/operations ../../../../../../../../../../../../edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel/model/metamodel.ecore#//operations">
+  <operations xsi:type="operations:EnumCharacteristicChangingOperation" id="op_grantAccessRights" name="GrantAccessRights"/>
+</operations:OperationCatalogue>

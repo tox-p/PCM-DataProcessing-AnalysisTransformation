@@ -17,13 +17,14 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicsPackage#getEnumCharacteristicValue()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='onlyLiteralsFromMatchingEnum'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot onlyLiteralsFromMatchingEnum='characteristic.oclAsType(EnumCharacteristic).enum.literals-&gt;includesAll(enumliterals)'"
  * @generated
  */
 public interface EnumCharacteristicValue extends CharacteristicValue<EnumCharacteristic> {
 	/**
 	 * Returns the value of the '<em><b>Enumliterals</b></em>' reference list.
-	 * The list contents are of type {@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumLiterals}.
+	 * The list contents are of type {@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumLiteral}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Enumliterals</em>' reference list isn't clear,
@@ -35,6 +36,6 @@ public interface EnumCharacteristicValue extends CharacteristicValue<EnumCharact
 	 * @model
 	 * @generated
 	 */
-	EList<EnumLiterals> getEnumliterals();
+	EList<EnumLiteral> getEnumliterals();
 
 } // EnumCharacteristicValue

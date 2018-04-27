@@ -59,6 +59,15 @@ public interface OperationsFactory extends EFactory {
 	ParameterizedDataTransformingOperation createParameterizedDataTransformingOperation();
 
 	/**
+	 * Returns a new object of class '<em>Data Characteristic Changing Operation Execution</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Data Characteristic Changing Operation Execution</em>'.
+	 * @generated
+	 */
+	<T extends Operation> DataCharacteristicChangingOperationExecution<T> createDataCharacteristicChangingOperationExecution();
+
+	/**
 	 * Returns a new object of class '<em>Enum Characteristic Changing Operation Execution</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -7,8 +7,10 @@ import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumC
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.EnumCharacteristicChangingOperation;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.EnumCharacteristicChangingOperationExecution;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.OperationsPackage;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -28,7 +30,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class EnumCharacteristicChangingOperationExecutionImpl
-		extends OperationExecutionImpl<EnumCharacteristicChangingOperation>
+		extends DataCharacteristicChangingOperationExecutionImpl<EnumCharacteristicChangingOperation>
 		implements EnumCharacteristicChangingOperationExecution {
 	/**
 	 * The cached value of the '{@link #getEnumcharacteristicvalue() <em>Enumcharacteristicvalue</em>}' containment reference.
@@ -57,17 +59,6 @@ public class EnumCharacteristicChangingOperationExecutionImpl
 	@Override
 	protected EClass eStaticClass() {
 		return OperationsPackage.Literals.ENUM_CHARACTERISTIC_CHANGING_OPERATION_EXECUTION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * This is specialized for the more specific type known in this context.
-	 * @generated
-	 */
-	@Override
-	public void setOperation(EnumCharacteristicChangingOperation newOperation) {
-		super.setOperation(newOperation);
 	}
 
 	/**
@@ -158,7 +149,6 @@ public class EnumCharacteristicChangingOperationExecutionImpl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {

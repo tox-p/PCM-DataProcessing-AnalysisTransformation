@@ -106,6 +106,12 @@ public class OperationsAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public <T extends Operation> Adapter caseDataCharacteristicChangingOperationExecution(
+				DataCharacteristicChangingOperationExecution<T> object) {
+			return createDataCharacteristicChangingOperationExecutionAdapter();
+		}
+
+		@Override
 		public Adapter caseEnumCharacteristicChangingOperationExecution(
 				EnumCharacteristicChangingOperationExecution object) {
 			return createEnumCharacteristicChangingOperationExecutionAdapter();
@@ -252,6 +258,20 @@ public class OperationsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOperationExecutionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.DataCharacteristicChangingOperationExecution <em>Data Characteristic Changing Operation Execution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.DataCharacteristicChangingOperationExecution
+	 * @generated
+	 */
+	public Adapter createDataCharacteristicChangingOperationExecutionAdapter() {
 		return null;
 	}
 

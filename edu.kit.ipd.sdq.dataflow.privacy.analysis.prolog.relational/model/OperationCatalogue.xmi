@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<operations:OperationCatalogue xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:operations="http://sdq.ipd.kit.edu/dataflow/privacy/analysis/mm/operations" xsi:schemaLocation="http://sdq.ipd.kit.edu/dataflow/privacy/analysis/mm/operations ../../../plugin/edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel/model/metamodel.ecore#//operations">
+  <operations xsi:type="operations:DataTransformingOperation" id="op_projection" name="Projection"/>
+  <operations xsi:type="operations:ParameterizedDataTransformingOperation" id="op_filter" name="Filter"/>
+  <operations xsi:type="operations:DataTransformingOperation" id="op_selection" name="Selection"/>
+</operations:OperationCatalogue>

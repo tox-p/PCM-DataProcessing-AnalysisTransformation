@@ -6,7 +6,14 @@ import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.Entity;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.IdHavingElement;
 import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.NameHavingElement;
 
-import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.*;
+import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.Characteristic;
+import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicCatalogue;
+import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicValue;
+import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicsHavingElement;
+import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicsPackage;
+import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumCharacteristic;
+import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumCharacteristicValue;
+import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.EnumLiteral;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -112,19 +119,6 @@ public class CharacteristicsSwitch<T1> extends Switch<T1> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case CharacteristicsPackage.ENUM_LITERALS: {
-			EnumLiterals enumLiterals = (EnumLiterals) theEObject;
-			T1 result = caseEnumLiterals(enumLiterals);
-			if (result == null)
-				result = caseEntity(enumLiterals);
-			if (result == null)
-				result = caseIdHavingElement(enumLiterals);
-			if (result == null)
-				result = caseNameHavingElement(enumLiterals);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
 		case CharacteristicsPackage.CHARACTERISTIC_VALUE: {
 			CharacteristicValue<?> characteristicValue = (CharacteristicValue<?>) theEObject;
 			T1 result = caseCharacteristicValue(characteristicValue);
@@ -137,6 +131,32 @@ public class CharacteristicsSwitch<T1> extends Switch<T1> {
 			T1 result = caseEnumCharacteristicValue(enumCharacteristicValue);
 			if (result == null)
 				result = caseCharacteristicValue(enumCharacteristicValue);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case CharacteristicsPackage.ENUM: {
+			edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.Enum enum_ = (edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.Enum) theEObject;
+			T1 result = caseEnum(enum_);
+			if (result == null)
+				result = caseEntity(enum_);
+			if (result == null)
+				result = caseIdHavingElement(enum_);
+			if (result == null)
+				result = caseNameHavingElement(enum_);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case CharacteristicsPackage.ENUM_LITERAL: {
+			EnumLiteral enumLiteral = (EnumLiteral) theEObject;
+			T1 result = caseEnumLiteral(enumLiteral);
+			if (result == null)
+				result = caseEntity(enumLiteral);
+			if (result == null)
+				result = caseIdHavingElement(enumLiteral);
+			if (result == null)
+				result = caseNameHavingElement(enumLiteral);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -207,21 +227,6 @@ public class CharacteristicsSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Enum Literals</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Enum Literals</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T1 caseEnumLiterals(EnumLiterals object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Characteristic Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -248,6 +253,36 @@ public class CharacteristicsSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseEnumCharacteristicValue(EnumCharacteristicValue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Enum</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Enum</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseEnum(edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.Enum object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Enum Literal</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Enum Literal</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseEnumLiteral(EnumLiteral object) {
 		return null;
 	}
 

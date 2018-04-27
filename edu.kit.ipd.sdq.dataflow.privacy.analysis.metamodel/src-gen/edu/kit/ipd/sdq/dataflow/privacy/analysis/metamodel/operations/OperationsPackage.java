@@ -365,14 +365,14 @@ public interface OperationsPackage extends EPackage {
 	int OPERATION_EXECUTION_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.impl.EnumCharacteristicChangingOperationExecutionImpl <em>Enum Characteristic Changing Operation Execution</em>}' class.
+	 * The meta object id for the '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.impl.DataCharacteristicChangingOperationExecutionImpl <em>Data Characteristic Changing Operation Execution</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.impl.EnumCharacteristicChangingOperationExecutionImpl
-	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.impl.OperationsPackageImpl#getEnumCharacteristicChangingOperationExecution()
+	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.impl.DataCharacteristicChangingOperationExecutionImpl
+	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.impl.OperationsPackageImpl#getDataCharacteristicChangingOperationExecution()
 	 * @generated
 	 */
-	int ENUM_CHARACTERISTIC_CHANGING_OPERATION_EXECUTION = 7;
+	int DATA_CHARACTERISTIC_CHANGING_OPERATION_EXECUTION = 7;
 
 	/**
 	 * The feature id for the '<em><b>Operation</b></em>' reference.
@@ -381,7 +381,62 @@ public interface OperationsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM_CHARACTERISTIC_CHANGING_OPERATION_EXECUTION__OPERATION = OPERATION_EXECUTION__OPERATION;
+	int DATA_CHARACTERISTIC_CHANGING_OPERATION_EXECUTION__OPERATION = OPERATION_EXECUTION__OPERATION;
+
+	/**
+	 * The feature id for the '<em><b>Data</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_CHARACTERISTIC_CHANGING_OPERATION_EXECUTION__DATA = OPERATION_EXECUTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Data Characteristic Changing Operation Execution</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_CHARACTERISTIC_CHANGING_OPERATION_EXECUTION_FEATURE_COUNT = OPERATION_EXECUTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Data Characteristic Changing Operation Execution</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_CHARACTERISTIC_CHANGING_OPERATION_EXECUTION_OPERATION_COUNT = OPERATION_EXECUTION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.impl.EnumCharacteristicChangingOperationExecutionImpl <em>Enum Characteristic Changing Operation Execution</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.impl.EnumCharacteristicChangingOperationExecutionImpl
+	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.impl.OperationsPackageImpl#getEnumCharacteristicChangingOperationExecution()
+	 * @generated
+	 */
+	int ENUM_CHARACTERISTIC_CHANGING_OPERATION_EXECUTION = 8;
+
+	/**
+	 * The feature id for the '<em><b>Operation</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_CHARACTERISTIC_CHANGING_OPERATION_EXECUTION__OPERATION = DATA_CHARACTERISTIC_CHANGING_OPERATION_EXECUTION__OPERATION;
+
+	/**
+	 * The feature id for the '<em><b>Data</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_CHARACTERISTIC_CHANGING_OPERATION_EXECUTION__DATA = DATA_CHARACTERISTIC_CHANGING_OPERATION_EXECUTION__DATA;
 
 	/**
 	 * The feature id for the '<em><b>Enumcharacteristicvalue</b></em>' containment reference.
@@ -390,7 +445,7 @@ public interface OperationsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM_CHARACTERISTIC_CHANGING_OPERATION_EXECUTION__ENUMCHARACTERISTICVALUE = OPERATION_EXECUTION_FEATURE_COUNT
+	int ENUM_CHARACTERISTIC_CHANGING_OPERATION_EXECUTION__ENUMCHARACTERISTICVALUE = DATA_CHARACTERISTIC_CHANGING_OPERATION_EXECUTION_FEATURE_COUNT
 			+ 0;
 
 	/**
@@ -400,7 +455,8 @@ public interface OperationsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM_CHARACTERISTIC_CHANGING_OPERATION_EXECUTION_FEATURE_COUNT = OPERATION_EXECUTION_FEATURE_COUNT + 1;
+	int ENUM_CHARACTERISTIC_CHANGING_OPERATION_EXECUTION_FEATURE_COUNT = DATA_CHARACTERISTIC_CHANGING_OPERATION_EXECUTION_FEATURE_COUNT
+			+ 1;
 
 	/**
 	 * The number of operations of the '<em>Enum Characteristic Changing Operation Execution</em>' class.
@@ -409,7 +465,8 @@ public interface OperationsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM_CHARACTERISTIC_CHANGING_OPERATION_EXECUTION_OPERATION_COUNT = OPERATION_EXECUTION_OPERATION_COUNT + 0;
+	int ENUM_CHARACTERISTIC_CHANGING_OPERATION_EXECUTION_OPERATION_COUNT = DATA_CHARACTERISTIC_CHANGING_OPERATION_EXECUTION_OPERATION_COUNT
+			+ 0;
 
 	/**
 	 * The meta object id for the '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.impl.DataTransformingOperationExecutionImpl <em>Data Transforming Operation Execution</em>}' class.
@@ -419,7 +476,7 @@ public interface OperationsPackage extends EPackage {
 	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.impl.OperationsPackageImpl#getDataTransformingOperationExecution()
 	 * @generated
 	 */
-	int DATA_TRANSFORMING_OPERATION_EXECUTION = 8;
+	int DATA_TRANSFORMING_OPERATION_EXECUTION = 9;
 
 	/**
 	 * The feature id for the '<em><b>Operation</b></em>' reference.
@@ -474,7 +531,7 @@ public interface OperationsPackage extends EPackage {
 	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.impl.OperationsPackageImpl#getParameterizedDataTransformingOperationExecution()
 	 * @generated
 	 */
-	int PARAMETERIZED_DATA_TRANSFORMING_OPERATION_EXECUTION = 9;
+	int PARAMETERIZED_DATA_TRANSFORMING_OPERATION_EXECUTION = 10;
 
 	/**
 	 * The feature id for the '<em><b>Operation</b></em>' reference.
@@ -541,7 +598,7 @@ public interface OperationsPackage extends EPackage {
 	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.impl.OperationsPackageImpl#getEnumChangeOperations()
 	 * @generated
 	 */
-	int ENUM_CHANGE_OPERATIONS = 10;
+	int ENUM_CHANGE_OPERATIONS = 11;
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.OperationExecutingElement <em>Operation Executing Element</em>}'.
@@ -656,6 +713,27 @@ public interface OperationsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getOperationExecution_Operation();
+
+	/**
+	 * Returns the meta object for class '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.DataCharacteristicChangingOperationExecution <em>Data Characteristic Changing Operation Execution</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Data Characteristic Changing Operation Execution</em>'.
+	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.DataCharacteristicChangingOperationExecution
+	 * @generated
+	 */
+	EClass getDataCharacteristicChangingOperationExecution();
+
+	/**
+	 * Returns the meta object for the reference '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.DataCharacteristicChangingOperationExecution#getData <em>Data</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Data</em>'.
+	 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.DataCharacteristicChangingOperationExecution#getData()
+	 * @see #getDataCharacteristicChangingOperationExecution()
+	 * @generated
+	 */
+	EReference getDataCharacteristicChangingOperationExecution_Data();
 
 	/**
 	 * Returns the meta object for class '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.EnumCharacteristicChangingOperationExecution <em>Enum Characteristic Changing Operation Execution</em>}'.
@@ -867,6 +945,26 @@ public interface OperationsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference OPERATION_EXECUTION__OPERATION = eINSTANCE.getOperationExecution_Operation();
+
+		/**
+		 * The meta object literal for the '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.impl.DataCharacteristicChangingOperationExecutionImpl <em>Data Characteristic Changing Operation Execution</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.impl.DataCharacteristicChangingOperationExecutionImpl
+		 * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.impl.OperationsPackageImpl#getDataCharacteristicChangingOperationExecution()
+		 * @generated
+		 */
+		EClass DATA_CHARACTERISTIC_CHANGING_OPERATION_EXECUTION = eINSTANCE
+				.getDataCharacteristicChangingOperationExecution();
+
+		/**
+		 * The meta object literal for the '<em><b>Data</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DATA_CHARACTERISTIC_CHANGING_OPERATION_EXECUTION__DATA = eINSTANCE
+				.getDataCharacteristicChangingOperationExecution_Data();
 
 		/**
 		 * The meta object literal for the '{@link edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.operations.impl.EnumCharacteristicChangingOperationExecutionImpl <em>Enum Characteristic Changing Operation Execution</em>}' class.

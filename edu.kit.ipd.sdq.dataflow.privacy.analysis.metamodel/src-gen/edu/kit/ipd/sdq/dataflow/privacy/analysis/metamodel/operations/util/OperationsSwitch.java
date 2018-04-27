@@ -151,9 +151,20 @@ public class OperationsSwitch<T1> extends Switch<T1> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case OperationsPackage.DATA_CHARACTERISTIC_CHANGING_OPERATION_EXECUTION: {
+			DataCharacteristicChangingOperationExecution<?> dataCharacteristicChangingOperationExecution = (DataCharacteristicChangingOperationExecution<?>) theEObject;
+			T1 result = caseDataCharacteristicChangingOperationExecution(dataCharacteristicChangingOperationExecution);
+			if (result == null)
+				result = caseOperationExecution(dataCharacteristicChangingOperationExecution);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		case OperationsPackage.ENUM_CHARACTERISTIC_CHANGING_OPERATION_EXECUTION: {
 			EnumCharacteristicChangingOperationExecution enumCharacteristicChangingOperationExecution = (EnumCharacteristicChangingOperationExecution) theEObject;
 			T1 result = caseEnumCharacteristicChangingOperationExecution(enumCharacteristicChangingOperationExecution);
+			if (result == null)
+				result = caseDataCharacteristicChangingOperationExecution(enumCharacteristicChangingOperationExecution);
 			if (result == null)
 				result = caseOperationExecution(enumCharacteristicChangingOperationExecution);
 			if (result == null)
@@ -288,6 +299,22 @@ public class OperationsSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public <T extends Operation> T1 caseOperationExecution(OperationExecution<T> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Data Characteristic Changing Operation Execution</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Characteristic Changing Operation Execution</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <T extends Operation> T1 caseDataCharacteristicChangingOperationExecution(
+			DataCharacteristicChangingOperationExecution<T> object) {
 		return null;
 	}
 

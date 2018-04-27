@@ -11,7 +11,7 @@
   <foreignModel>metamodel.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="Metamodel" basePackage="edu.kit.ipd.sdq.dataflow.privacy.analysis"
-      disposableProviderFactory="true" ecorePackage="metamodel.ecore#/">
+      disposableProviderFactory="true" extensibleProviderFactory="true" ecorePackage="metamodel.ecore#/">
     <genClasses ecoreClass="metamodel.ecore#//IdHavingElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//IdHavingElement/id"/>
     </genClasses>
@@ -19,18 +19,20 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//NameHavingElement/name"/>
     </genClasses>
     <genClasses ecoreClass="metamodel.ecore#//Entity"/>
-    <nestedGenPackages prefix="Characteristics" disposableProviderFactory="true" ecorePackage="metamodel.ecore#//characteristics">
+    <nestedGenPackages prefix="Characteristics" disposableProviderFactory="true" extensibleProviderFactory="true"
+        ecorePackage="metamodel.ecore#//characteristics">
       <genClasses ecoreClass="metamodel.ecore#//characteristics/CharacteristicsHavingElement">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//characteristics/CharacteristicsHavingElement/characteristic"/>
       </genClasses>
       <genClasses ecoreClass="metamodel.ecore#//characteristics/CharacteristicCatalogue">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//characteristics/CharacteristicCatalogue/characteristics"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//characteristics/CharacteristicCatalogue/ownedEntities"/>
       </genClasses>
       <genClasses image="false" ecoreClass="metamodel.ecore#//characteristics/Characteristic"/>
       <genClasses ecoreClass="metamodel.ecore#//characteristics/EnumCharacteristic">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//characteristics/EnumCharacteristic/enumliterals"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference metamodel.ecore#//characteristics/EnumCharacteristic/enum"/>
       </genClasses>
-      <genClasses ecoreClass="metamodel.ecore#//characteristics/EnumLiterals"/>
       <genClasses image="false" ecoreClass="metamodel.ecore#//characteristics/CharacteristicValue">
         <genTypeParameters ecoreTypeParameter="metamodel.ecore#//characteristics/CharacteristicValue/T"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -40,8 +42,13 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference metamodel.ecore#//characteristics/EnumCharacteristicValue/enumliterals"/>
       </genClasses>
+      <genClasses ecoreClass="metamodel.ecore#//characteristics/Enum">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//characteristics/Enum/literals"/>
+      </genClasses>
+      <genClasses ecoreClass="metamodel.ecore#//characteristics/EnumLiteral"/>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Operations" disposableProviderFactory="true" ecorePackage="metamodel.ecore#//operations">
+    <nestedGenPackages prefix="Operations" disposableProviderFactory="true" extensibleProviderFactory="true"
+        ecorePackage="metamodel.ecore#//operations">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="metamodel.ecore#//operations/EnumChangeOperations">
         <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//operations/EnumChangeOperations/ADD"/>
         <genEnumLiterals ecoreEnumLiteral="metamodel.ecore#//operations/EnumChangeOperations/REMOVE"/>
@@ -56,16 +63,36 @@
       <genClasses ecoreClass="metamodel.ecore#//operations/EnumCharacteristicChangingOperation">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute metamodel.ecore#//operations/EnumCharacteristicChangingOperation/change"/>
       </genClasses>
+      <genClasses ecoreClass="metamodel.ecore#//operations/DataTransformingOperation"/>
+      <genClasses ecoreClass="metamodel.ecore#//operations/ParameterizedDataTransformingOperation"/>
       <genClasses image="false" ecoreClass="metamodel.ecore#//operations/OperationExecution">
         <genTypeParameters ecoreTypeParameter="metamodel.ecore#//operations/OperationExecution/T"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference metamodel.ecore#//operations/OperationExecution/operation"/>
       </genClasses>
+      <genClasses ecoreClass="metamodel.ecore#//operations/DataCharacteristicChangingOperationExecution">
+        <genTypeParameters ecoreTypeParameter="metamodel.ecore#//operations/DataCharacteristicChangingOperationExecution/T"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference metamodel.ecore#//operations/DataCharacteristicChangingOperationExecution/data"/>
+      </genClasses>
       <genClasses ecoreClass="metamodel.ecore#//operations/EnumCharacteristicChangingOperationExecution">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//operations/EnumCharacteristicChangingOperationExecution/enumcharacteristicvalue"/>
       </genClasses>
+      <genClasses ecoreClass="metamodel.ecore#//operations/DataTransformingOperationExecution">
+        <genTypeParameters ecoreTypeParameter="metamodel.ecore#//operations/DataTransformingOperationExecution/T"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference metamodel.ecore#//operations/DataTransformingOperationExecution/input"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference metamodel.ecore#//operations/DataTransformingOperationExecution/output"/>
+      </genClasses>
+      <genClasses ecoreClass="metamodel.ecore#//operations/ParameterizedDataTransformingOperationExecution">
+        <genTypeParameters ecoreTypeParameter="metamodel.ecore#//operations/ParameterizedDataTransformingOperationExecution/T"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference metamodel.ecore#//operations/ParameterizedDataTransformingOperationExecution/parameter"/>
+      </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Flow" disposableProviderFactory="true" ecorePackage="metamodel.ecore#//flow">
+    <nestedGenPackages prefix="Flow" disposableProviderFactory="true" extensibleProviderFactory="true"
+        ecorePackage="metamodel.ecore#//flow">
       <genClasses ecoreClass="metamodel.ecore#//flow/DataFlowDiagram">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//flow/DataFlowDiagram/nodecontainer"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference metamodel.ecore#//flow/DataFlowDiagram/data"/>

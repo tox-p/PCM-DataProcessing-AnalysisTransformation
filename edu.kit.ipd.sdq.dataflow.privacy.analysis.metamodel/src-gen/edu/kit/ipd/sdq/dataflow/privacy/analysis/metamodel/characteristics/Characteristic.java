@@ -12,6 +12,8 @@ import edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.Entity;
  *
  * @see edu.kit.ipd.sdq.dataflow.privacy.analysis.metamodel.characteristics.CharacteristicsPackage#getCharacteristic()
  * @model abstract="true"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='nameHasToBeId'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot nameHasToBeId='self.name.matches(\'[a-zA-Z0-9]+\')'"
  * @generated
  */
 public interface Characteristic extends Entity {

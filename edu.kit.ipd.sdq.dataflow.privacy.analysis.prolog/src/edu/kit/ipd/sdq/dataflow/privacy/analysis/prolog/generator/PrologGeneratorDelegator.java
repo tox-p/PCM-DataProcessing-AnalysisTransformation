@@ -38,5 +38,9 @@ public class PrologGeneratorDelegator extends AbstractEcore2TxtGenerator {
 	public String getFileNameForResource(Resource inputResource) {
 		return inputResource.getURI().trimFileExtension().appendFileExtension(FILE_EXTENSION).lastSegment();
 	}
+	
+	public IEcore2TxtGenerator getGenerator() {
+		return generator;
+	}
 
 }
