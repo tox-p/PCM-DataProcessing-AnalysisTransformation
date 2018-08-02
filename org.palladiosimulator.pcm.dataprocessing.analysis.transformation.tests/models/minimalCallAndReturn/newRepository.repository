@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dataProcessingProfile="http://www.palladiosimulator.org/pcm/dataprocessing/profile/0.1/" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2">
+  <repository:Repository id="_F1XiMJQCEeid5-moNDqnwg" entityName="New Repository">
+    <components__Repository xsi:type="repository:BasicComponent" id="_zk0GgJQCEeid5-moNDqnwg" entityName="EchoComponent">
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_12zXQJQCEeid5-moNDqnwg" entityName="OperationProvidedRole1" providedInterface__OperationProvidedRole="_s9qzYJQCEeid5-moNDqnwg"/>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_13svIJQCEeid5-moNDqnwg" describedService__SEFF="_ufAqUJQCEeid5-moNDqnwg">
+        <steps_Behaviour xsi:type="seff:StartAction" id="_13tWMJQCEeid5-moNDqnwg" successor_AbstractAction="_3iwiwJQCEeid5-moNDqnwg"/>
+        <steps_Behaviour xsi:type="seff:StopAction" id="_13tWMZQCEeid5-moNDqnwg" predecessor_AbstractAction="_3iwiwJQCEeid5-moNDqnwg"/>
+        <steps_Behaviour xsi:type="seff:InternalAction" id="_3iwiwJQCEeid5-moNDqnwg" entityName="doEcho" predecessor_AbstractAction="_13tWMJQCEeid5-moNDqnwg" successor_AbstractAction="_13tWMZQCEeid5-moNDqnwg"/>
+      </serviceEffectSpecifications__BasicComponent>
+    </components__Repository>
+    <interfaces__Repository xsi:type="repository:OperationInterface" id="_s9qzYJQCEeid5-moNDqnwg" entityName="Echo">
+      <signatures__OperationInterface id="_ufAqUJQCEeid5-moNDqnwg" entityName="echo">
+        <parameters__OperationSignature parameterName="input">
+          <dataType__Parameter xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.1"/>
+        </parameters__OperationSignature>
+        <returnType__OperationSignature xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.1"/>
+      </signatures__OperationInterface>
+    </interfaces__Repository>
+  </repository:Repository>
+  <emfprofileapplication:ProfileApplication>
+    <stereotypeApplications xsi:type="dataProcessingProfile:DataSeffSpecification" appliedTo="_13svIJQCEeid5-moNDqnwg">
+      <extension href="../../../../plugin/org.palladiosimulator.pcm.dataprocessing.profile/profile.emfprofile_diagram#_jc7rMFqiEeiW1d-qz7Oqsw"/>
+      <dataSeffSpecification href="DataSpecification.xmi#seffSpec"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="dataProcessingProfile:DataProcessingSpecification" appliedTo="_3iwiwJQCEeid5-moNDqnwg">
+      <extension href="../../../../plugin/org.palladiosimulator.pcm.dataprocessing.profile/profile.emfprofile_diagram#_YGiQIFqhEeiGTpqaWj7bwA"/>
+      <dataProcessingContainer href="DataSpecification.xmi#seffReadWriteEchoData"/>
+    </stereotypeApplications>
+    <importedProfiles nsURI="http://www.palladiosimulator.org/pcm/dataprocessing/profile/0.1/" location="platform:/plugin/org.palladiosimulator.pcm.dataprocessing.profile/profile.emfprofile_diagram"/>
+  </emfprofileapplication:ProfileApplication>
+</xmi:XMI>
