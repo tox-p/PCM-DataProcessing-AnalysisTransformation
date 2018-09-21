@@ -23,15 +23,15 @@
   </usagemodel:UsageModel>
   <emfprofileapplication:ProfileApplication>
     <stereotypeApplications xsi:type="dataProcessingProfile:DataProcessingSpecification" appliedTo="_hNQq8JQDEeid5-moNDqnwg">
-      <extension href="../../../../plugin/org.palladiosimulator.pcm.dataprocessing.profile/profile.emfprofile_diagram#_6LFWwFqlEeiW1d-qz7Oqsw"/>
+      <extension href="platform:/plugin/org.palladiosimulator.pcm.dataprocessing.profile/profile.emfprofile_diagram#_6LFWwFqlEeiW1d-qz7Oqsw"/>
       <dataProcessingContainer href="DataSpecification.xmi#ucCreateEchoData"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="dataProcessingProfile:DataProcessingSpecification" appliedTo="_hzUlYJQDEeid5-moNDqnwg">
-      <extension href="../../../../plugin/org.palladiosimulator.pcm.dataprocessing.profile/profile.emfprofile_diagram#_6LFWwFqlEeiW1d-qz7Oqsw"/>
+      <extension href="platform:/plugin/org.palladiosimulator.pcm.dataprocessing.profile/profile.emfprofile_diagram#_6LFWwFqlEeiW1d-qz7Oqsw"/>
       <dataProcessingContainer href="DataSpecification.xmi#ucReadEchoData"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="dataProcessingProfile:DataProcessingSpecification" appliedTo="_iNDUAJQDEeid5-moNDqnwg">
-      <extension href="../../../../plugin/org.palladiosimulator.pcm.dataprocessing.profile/profile.emfprofile_diagram#_5sn5IFqlEeiW1d-qz7Oqsw"/>
+      <extension href="platform:/plugin/org.palladiosimulator.pcm.dataprocessing.profile/profile.emfprofile_diagram#_5sn5IFqlEeiW1d-qz7Oqsw"/>
       <dataProcessingContainer href="DataSpecification.xmi#ucSendEchoData"/>
     </stereotypeApplications>
     <importedProfiles nsURI="http://www.palladiosimulator.org/pcm/dataprocessing/profile/0.1/" location="platform:/plugin/org.palladiosimulator.pcm.dataprocessing.profile/profile.emfprofile_diagram"/>

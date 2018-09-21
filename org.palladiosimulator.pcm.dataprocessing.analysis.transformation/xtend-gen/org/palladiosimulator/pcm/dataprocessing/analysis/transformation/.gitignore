@@ -7,3 +7,9 @@
 /.SEFFInstance.java._trace
 /.PCM2DFSystemModelTransformationBackup.java._trace
 /.SEFFTransformation.java._trace
+/.PCM2DFSystemModelTransformation.xtendbin
+/PCM2DFSystemModelTransformation.java
+/.UniqueNameCache.java._trace
+/.UniqueNameProvider.java._trace
+/.CachedUniqueNameProvider.java._trace
+/.BehaviorDescriptionTransformator.java._trace

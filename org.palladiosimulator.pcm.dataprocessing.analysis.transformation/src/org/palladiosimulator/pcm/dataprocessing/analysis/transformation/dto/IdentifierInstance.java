@@ -60,17 +60,13 @@ public class IdentifierInstance<T extends Identifier, S extends Entity> implemen
 
 	@Override
 	public String getUniqueName() {
-		Hash digest = new Hash();
-		digest.add(entity.getId());
 		String entityName = Optional.of(entity).filter(Entity.class::isInstance).map(Entity.class::cast)
 				.map(Entity::getEntityName).orElse(entity.getId());
-		if (identifier.isPresent()) {
-			digest.add(identifier.get().getId());
-			return String.format("%s_%s_%s_%s", entity.getClass().getInterfaces()[0].getSimpleName(), entityName,
-					identifier.get().getEntityName(), digest.getHash());
-		}
-		return String.format("%s_%s_%s", entity.getClass().getInterfaces()[0].getSimpleName(), entityName,
-				digest.getHash());
+		String entityId = entity.getId();
+		String identifierId = identifier.map(Identifier::getId).orElse("");
+		String hash = Hash.init(entityId).add(identifierId).getHash();
+		
+		return String.format("%s_%s", entityName, hash);
 	}
 
 	public static <T extends Identifier, S extends Entity> IdentifierInstance<T, S> createInstance(S identifier,

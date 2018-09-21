@@ -17,7 +17,7 @@ class DataOperationGraphFactory {
 	}
 	
 	def createDataOpGraph(Iterable<DataOperation> dataOps) {
- 		val graphBuilder = DefaultDirectedGraph.builder(DataEdge)
+ 		val graphBuilder = DefaultDirectedGraph.createBuilder(DataEdge)
  		dataOps.forEach[o | graphBuilder.addVertex(o)]
  		graphBuilder.addVertex(dummyOperation)
  		

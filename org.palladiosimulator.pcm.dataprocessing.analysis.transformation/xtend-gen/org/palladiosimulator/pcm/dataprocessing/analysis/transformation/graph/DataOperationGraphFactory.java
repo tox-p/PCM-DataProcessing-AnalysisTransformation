@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.jgrapht.graph.DefaultDirectedGraph;
-import org.jgrapht.graph.builder.DirectedGraphBuilderBase;
+import org.jgrapht.graph.builder.GraphBuilder;
 import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.dto.DataEdge;
 import org.palladiosimulator.pcm.dataprocessing.dataprocessing.data.Data;
 import org.palladiosimulator.pcm.dataprocessing.dataprocessing.processing.DataOperation;
@@ -27,7 +27,7 @@ public class DataOperationGraphFactory {
   public DefaultDirectedGraph<DataOperation, DataEdge> createDataOpGraph(final Iterable<DataOperation> dataOps) {
     DefaultDirectedGraph<DataOperation, DataEdge> _xblockexpression = null;
     {
-      final DirectedGraphBuilderBase<DataOperation, DataEdge, ? extends DefaultDirectedGraph<DataOperation, DataEdge>, ?> graphBuilder = DefaultDirectedGraph.<DataOperation, DataEdge>builder(DataEdge.class);
+      final GraphBuilder<DataOperation, DataEdge, ? extends DefaultDirectedGraph<DataOperation, DataEdge>> graphBuilder = DefaultDirectedGraph.<DataOperation, DataEdge>createBuilder(DataEdge.class);
       final Consumer<DataOperation> _function = (DataOperation o) -> {
         graphBuilder.addVertex(o);
       };
