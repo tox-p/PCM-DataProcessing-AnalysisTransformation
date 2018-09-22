@@ -16,4 +16,5 @@ Require-Bundle: com.google.guava,
  org.eclipse.gmf.runtime.notation;bundle-version="1.8.0",
  org.jgrapht.core;bundle-version="1.0.1",
  org.palladiosimulator.pcm.dataprocessing.profile;bundle-version="0.1.0"
+Automatic-Module-Name: org.palladiosimulator.pcm.dataprocessing.analysis.transformation
 

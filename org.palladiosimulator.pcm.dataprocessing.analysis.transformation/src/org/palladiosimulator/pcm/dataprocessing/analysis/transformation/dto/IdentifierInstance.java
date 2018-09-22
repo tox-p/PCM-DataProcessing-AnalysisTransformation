@@ -7,22 +7,23 @@ import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.util.Has
 
 import de.uka.ipd.sdq.identifier.Identifier;
 
-public class IdentifierInstance<T extends Identifier, S extends Entity> implements UniqueNameHaving {
+public class IdentifierInstance<ENTITY_TYPE extends Identifier, IDENTIFIER_TYPE extends Identifier>
+		implements UniqueNameHaving {
 
-	private final Optional<S> identifier;
-	private final T entity;
+	private final Optional<IDENTIFIER_TYPE> identifier;
+	private final ENTITY_TYPE entity;
 
-	public IdentifierInstance(T entity, S identifier) {
+	public IdentifierInstance(ENTITY_TYPE entity, IDENTIFIER_TYPE identifier) {
 		super();
 		this.identifier = Optional.ofNullable(identifier);
 		this.entity = entity;
 	}
 
-	public Optional<S> getIdentifier() {
+	public Optional<IDENTIFIER_TYPE> getIdentifier() {
 		return identifier;
 	}
 
-	public T getEntity() {
+	public ENTITY_TYPE getEntity() {
 		return entity;
 	}
 
@@ -65,13 +66,13 @@ public class IdentifierInstance<T extends Identifier, S extends Entity> implemen
 		String entityId = entity.getId();
 		String identifierId = identifier.map(Identifier::getId).orElse("");
 		String hash = Hash.init(entityId).add(identifierId).getHash();
-		
+
 		return String.format("%s_%s", entityName, hash);
 	}
 
-	public static <T extends Identifier, S extends Entity> IdentifierInstance<T, S> createInstance(S identifier,
-			T entity) {
-		return new IdentifierInstance<T, S>(entity, identifier);
+	public static <ENTITY_TYPE extends Identifier, IDENTIFIER_TYPE extends Identifier> IdentifierInstance<ENTITY_TYPE, IDENTIFIER_TYPE> createInstance(
+			IDENTIFIER_TYPE identifier, ENTITY_TYPE entity) {
+		return new IdentifierInstance<ENTITY_TYPE, IDENTIFIER_TYPE>(entity, identifier);
 	}
 
 }
