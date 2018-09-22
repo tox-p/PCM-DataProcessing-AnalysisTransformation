@@ -38,6 +38,11 @@ class PCM2DFSystemModelTransformation implements PCM2IntermediateModelTransforma
 		system.types += pcmCharacteristicTypeContainer.characteristicTypes.map[valueType]
 		system.operations += BehaviorTransformator.findAllSEFFs(pcmSystem).map[getSEFFOperation]
 		system.systemusages += pcmUsageModel.usageScenario_UsageModel.map[scenarioBehaviour_UsageScenario].map[getSystemUsage]
+		
+		val idToObject = (uniqueNameProvider as CachedUniqueNameProvider).cache.inverse
+		val idDump = idToObject.keySet.sort.map[k | '''«k» -> «idToObject.get(k)»'''].join("\n")
+		print(idDump)
+		
 		system
 	}
 	

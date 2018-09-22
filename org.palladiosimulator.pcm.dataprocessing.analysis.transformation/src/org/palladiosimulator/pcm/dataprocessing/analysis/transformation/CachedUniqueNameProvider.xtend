@@ -3,20 +3,25 @@ package org.palladiosimulator.pcm.dataprocessing.analysis.transformation
 import com.google.common.collect.BiMap
 import com.google.common.collect.HashBiMap
 import de.uka.ipd.sdq.identifier.Identifier
-import org.eclipse.emf.ecore.EObject
 import org.palladiosimulator.pcm.core.entity.Entity
+import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.dto.IdentifierInstance
 import org.palladiosimulator.pcm.repository.DataType
+import com.google.common.collect.ImmutableBiMap
 
 class CachedUniqueNameProvider extends UniqueNameProvider {
 	
-	val BiMap<EObject, String> cache = HashBiMap.create
+	val BiMap<Object, String> cache = HashBiMap.create
 	
 	def lookupObject(String uniqueName) {
 		cache.get(uniqueName)
 	}
 	
-	def lookupName(EObject object) {
+	def lookupName(Object object) {
 		cache.inverse.get(object)
+	}
+	
+	def getCache() {
+		ImmutableBiMap.copyOf(cache)
 	}
 	
 	override String uniqueName(Entity entity) {
@@ -25,6 +30,10 @@ class CachedUniqueNameProvider extends UniqueNameProvider {
 	
 	override String uniqueName(Identifier entity) {
 		cache.computeIfAbsent(entity, [super.uniqueName(entity)])		
+	}
+	
+	override String uniqueName(IdentifierInstance<?, ?> identifierInstance) {
+		cache.computeIfAbsent(identifierInstance, [super.uniqueName(identifierInstance)])
 	}
 	
 	override String uniqueName(DataType dataType) {

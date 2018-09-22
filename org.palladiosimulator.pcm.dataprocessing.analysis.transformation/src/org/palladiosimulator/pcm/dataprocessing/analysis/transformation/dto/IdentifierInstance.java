@@ -3,12 +3,10 @@ package org.palladiosimulator.pcm.dataprocessing.analysis.transformation.dto;
 import java.util.Optional;
 
 import org.palladiosimulator.pcm.core.entity.Entity;
-import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.util.Hash;
 
 import de.uka.ipd.sdq.identifier.Identifier;
 
-public class IdentifierInstance<ENTITY_TYPE extends Identifier, IDENTIFIER_TYPE extends Identifier>
-		implements UniqueNameHaving {
+public class IdentifierInstance<ENTITY_TYPE extends Identifier, IDENTIFIER_TYPE extends Identifier> {
 
 	private final Optional<IDENTIFIER_TYPE> identifier;
 	private final ENTITY_TYPE entity;
@@ -58,16 +56,14 @@ public class IdentifierInstance<ENTITY_TYPE extends Identifier, IDENTIFIER_TYPE 
 			return false;
 		return true;
 	}
-
+	
 	@Override
-	public String getUniqueName() {
+	public String toString() {
 		String entityName = Optional.of(entity).filter(Entity.class::isInstance).map(Entity.class::cast)
 				.map(Entity::getEntityName).orElse(entity.getId());
-		String entityId = entity.getId();
 		String identifierId = identifier.map(Identifier::getId).orElse("");
-		String hash = Hash.init(entityId).add(identifierId).getHash();
 
-		return String.format("%s_%s", entityName, hash);
+		return String.format("IdentifierInstance (Entity: %s, Identifier: %s)", entityName, identifierId);
 	}
 
 	public static <ENTITY_TYPE extends Identifier, IDENTIFIER_TYPE extends Identifier> IdentifierInstance<ENTITY_TYPE, IDENTIFIER_TYPE> createInstance(
