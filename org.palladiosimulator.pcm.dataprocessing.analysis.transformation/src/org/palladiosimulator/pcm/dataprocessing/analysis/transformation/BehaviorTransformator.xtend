@@ -52,10 +52,11 @@ abstract class BehaviorTransformator {
 	protected def transformBehavior(Operation behaviorOperation, IdentifierInstance<? extends Identifier, AssemblyContext> selfInstance) {
 
 		val selfAssemblyContext = selfInstance.identifier.orElse(null)
+		val selfPropertySource = selfInstance.propertySource
 		val dataOps = selfInstance.entity.findAllDataOps
 
 		// create called operations
-		val ops = dataOps.map[op | selfAssemblyContext.createInstance(op)].map[getOperation]
+		val ops = dataOps.map[op | selfAssemblyContext.createInstance(op)].map[getOperation(selfPropertySource)]
 		system.operations += ops
 		
 		val dataOpGraph = dataOps.createDataOpGraph
@@ -132,6 +133,8 @@ abstract class BehaviorTransformator {
 			behaviorOperation.returnValueAssignments += createReturnValueAssignmentsForConsumerOperations(consumerDataOp, selfAssemblyContext, selfInstance, consumerOpCall)
 		}
 	}
+	
+	protected abstract def EObject getPropertySource(IdentifierInstance<? extends Identifier, AssemblyContext> instance)
 	
 	protected abstract def Iterable<VariableAssignment> createReturnValueAssignmentsForConsumerOperations(DataOperation consumerDataOp, AssemblyContext selfAssemblyContext, IdentifierInstance<? extends Identifier, AssemblyContext> selfInstance, OperationCall consumerOpCall)
 	

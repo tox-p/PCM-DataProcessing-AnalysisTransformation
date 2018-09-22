@@ -8,19 +8,27 @@ import edu.kit.ipd.sdq.dataflow.systemmodel.VariableAssignment
 import java.util.ArrayList
 import java.util.List
 import java.util.Map
+import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtend.lib.annotations.Delegate
+import org.palladiosimulator.mdsdprofiles.api.StereotypeAPI
 import org.palladiosimulator.pcm.allocation.Allocation
+import org.palladiosimulator.pcm.core.composition.AssemblyContext
 import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.dto.IdentifierInstance
 import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.dto.SEFFInstance
+import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.util.EMFUtils
 import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.util.Hash
+import org.palladiosimulator.pcm.dataprocessing.dataprocessing.characteristics.Characteristic
+import org.palladiosimulator.pcm.dataprocessing.dataprocessing.characteristics.CharacteristicContainer
 import org.palladiosimulator.pcm.dataprocessing.dataprocessing.characteristics.CharacteristicType
 import org.palladiosimulator.pcm.dataprocessing.dataprocessing.characteristics.CharacteristicTypeContainer
+import org.palladiosimulator.pcm.dataprocessing.dataprocessing.characteristics.EnumCharacteristic
 import org.palladiosimulator.pcm.dataprocessing.dataprocessing.characteristics.EnumCharacteristicLiteral
 import org.palladiosimulator.pcm.dataprocessing.dataprocessing.characteristics.EnumCharacteristicType
 import org.palladiosimulator.pcm.dataprocessing.dataprocessing.data.Data
 import org.palladiosimulator.pcm.dataprocessing.dataprocessing.processing.CreateDataOperation
 import org.palladiosimulator.pcm.dataprocessing.dataprocessing.processing.DataOperation
 import org.palladiosimulator.pcm.dataprocessing.dataprocessing.processing.ReturnDataOperation
+import org.palladiosimulator.pcm.dataprocessing.profile.api.ProfileConstants
 import org.palladiosimulator.pcm.repository.DataType
 import org.palladiosimulator.pcm.system.System
 import org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour
@@ -32,10 +40,13 @@ class PCM2DFSystemModelTransformation implements PCM2IntermediateModelTransforma
 	
 	static val factory = SystemModelFactory.eINSTANCE
 	val extension UniqueNameProvider uniqueNameProvider = new CachedUniqueNameProvider()
+	var Allocation pcmAllocationModel
 	
 	override transform(UsageModel pcmUsageModel, System pcmSystem, Allocation pcmAllocationModel, CharacteristicTypeContainer pcmCharacteristicTypeContainer) {
+		this.pcmAllocationModel = pcmAllocationModel
 		system.name = pcmSystem.entityName
 		system.types += pcmCharacteristicTypeContainer.characteristicTypes.map[valueType]
+		system.properties += pcmCharacteristicTypeContainer.characteristicTypes.map[property]
 		system.operations += BehaviorTransformator.findAllSEFFs(pcmSystem).map[getSEFFOperation]
 		system.systemusages += pcmUsageModel.usageScenario_UsageModel.map[scenarioBehaviour_UsageScenario].map[getSystemUsage]
 		
@@ -71,6 +82,12 @@ class PCM2DFSystemModelTransformation implements PCM2IntermediateModelTransforma
 	protected def create value: factory.createValue getValue(EnumCharacteristicLiteral literal) {
 		value.name = literal.uniqueName
 	}
+	
+	// TRANSFORMATION: CharacteristicType -> Property
+	protected def create prop: factory.createProperty getProperty(CharacteristicType characteristicType) {
+		prop.name = characteristicType.uniqueName
+		prop.type = characteristicType.valueType
+	}
 		
 	// TRANSFORMATION: ScenarioBehavior -> SystemUsage
 	protected def create sysUsage: factory.createSystemUsage getSystemUsage(ScenarioBehaviour scenarioBehavior) {
@@ -89,6 +106,9 @@ class PCM2DFSystemModelTransformation implements PCM2IntermediateModelTransforma
 		
 		val transformator = new UsageModelBehaviorTransformator(this)
 		transformator.transformBehavior(sysUsageDataOp, createInstance(null, scenarioBehavior))
+		
+		// copy properties of processing node to operation
+		scenarioBehavior.copyCharacteristicsTo(sysUsageDataOp)
 	}
 	
 	// TRANSFORMATION: SEFFInstance -> Operation
@@ -97,20 +117,31 @@ class PCM2DFSystemModelTransformation implements PCM2IntermediateModelTransforma
 		
 		val transformator = new SEFFBehaviorTransformator(this)
 		transformator.transformBehavior(op, seffInstance)
+		
+		// copy properties of processing node to operation
+		val assemblyContext = seffInstance.identifier.get
+		assemblyContext.copyCharacteristicsTo(op)
 	}
 	
 	// TRANSFORMATION: SEFFInstance, DataOperation -> Operation
-	override create op: factory.createOperation getOperation(IdentifierInstance<DataOperation, ?> dataOpInstance) {
+	override create op: factory.createOperation getOperation(IdentifierInstance<DataOperation, AssemblyContext> dataOpInstance) {
 		op.name = dataOpInstance.uniqueName
 		
 		// we never have input parameters
-		// we might use state variables but we have to handle this later
+		// usage of state variables depends on concrete DataOperation (not handled here)
+		// we have to determine calls later
 		
 		// create return variables in current operation (containment)
 		var outgoingData = dataOpInstance.entity.outgoingData + #[dataOpInstance.entity].filter(ReturnDataOperation).flatMap[incomingData]
 		op.returnValues += outgoingData.map[getReturnVariable(dataOpInstance)]
 		
-		// we have to determine calls later
+		// we assume that properties have been copied or will be copied
+	}
+	
+	override getOperation(IdentifierInstance<DataOperation, AssemblyContext> dataOpInstance, EObject propertySource) {
+		val op = dataOpInstance.operation
+		propertySource.copyCharacteristicsTo(op)
+		op
 	}
 
 	// TRANSFORMATION: SEFFInstance, Operation/Operation -> OperationCall
@@ -172,6 +203,37 @@ class PCM2DFSystemModelTransformation implements PCM2IntermediateModelTransforma
 	protected def create dt: factory.createDataType getDataTypeInternal(DataType dataType) {
 		dt.name = dataType.uniqueName
 		system.datatypes += dt
+	}
+	
+	// Helpers
+	
+	override getResourceContainer(AssemblyContext ac) {
+		pcmAllocationModel.allocationContexts_Allocation.findFirst[a | a.assemblyContext_AllocationContext === ac].resourceContainer_AllocationContext
+	}
+	
+	protected def copyCharacteristicsTo(AssemblyContext ac, Operation op) {
+		val resourceContainer = ac.resourceContainer
+		resourceContainer.copyCharacteristicsTo(op)
+	}
+	
+	protected def copyCharacteristicsTo(EObject characteristicHolder, Operation op) {
+		if (StereotypeAPI.hasAppliedStereotype(#{characteristicHolder}, ProfileConstants.STEREOTYPE_NAME_CHARACTERIZABLE)) {
+			val characteristicContainer = EMFUtils.getTaggedValue(characteristicHolder, ProfileConstants.TAGGED_VALUE_NAME_CHARACTERIZABLE_CONTAINER, ProfileConstants.STEREOTYPE_NAME_CHARACTERIZABLE, CharacteristicContainer)
+			for (characteristic : characteristicContainer.ownedCharacteristics) {
+				val propDef = factory.createPropertyDefinition
+				propDef.property = characteristic.characteristicType.property
+				propDef.presentValues += characteristic.values
+				op.propertyDefinitions += propDef
+			}
+		}
+	}
+	
+	protected def dispatch getValues(EnumCharacteristic characteristic) {
+		characteristic.literals.map[getValue]
+	}
+	
+	protected def dispatch getValues(Characteristic characteristic) {
+		throw new IllegalArgumentException("Unable to transform characteristic " + characteristic.class.name)
 	}
 	
 	

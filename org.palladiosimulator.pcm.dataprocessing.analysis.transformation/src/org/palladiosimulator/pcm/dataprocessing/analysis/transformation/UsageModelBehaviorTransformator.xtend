@@ -56,4 +56,9 @@ class UsageModelBehaviorTransformator extends BehaviorTransformator {
 		(identifier as ScenarioBehaviour).actions_ScenarioBehaviour.map[findAllDataOperationsOfStereotpyedEObject].flatten
 	}
 	
+	override protected getPropertySource(IdentifierInstance<? extends Identifier, AssemblyContext> instance) {
+		// ScenarioBehavior itself
+		instance.entity
+	}
+	
 }

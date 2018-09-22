@@ -85,4 +85,8 @@ class SEFFBehaviorTransformator extends BehaviorTransformator {
 		#[returnVariableAssignment]
 	}
 	
+	override protected getPropertySource(IdentifierInstance<? extends Identifier, AssemblyContext> instance) {
+		instance.identifier.get.resourceContainer
+	}
+	
 }
