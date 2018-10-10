@@ -2,10 +2,13 @@ package org.palladiosimulator.pcm.dataprocessing.analysis.transformation.util;
 
 import java.util.Collection;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.modelversioning.emfprofile.Stereotype;
 import org.modelversioning.emfprofileapplication.ProfileApplication;
 import org.modelversioning.emfprofileapplication.StereotypeApplication;
 import org.palladiosimulator.mdsdprofiles.api.ProfileAPI;
@@ -26,6 +29,22 @@ public class EMFUtils {
 			Class<T> wantedType) {
 		return getStereotypedElements(stereotypeName, taggedValue).stream().filter(wantedType::isInstance)
 				.map(wantedType::cast).collect(Collectors.toList());
+	}
+
+	public static <T extends EObject> Optional<T> tryGetTaggedValue(final EObject stereotypedElement,
+			final String taggedValueName, final String stereotypeName, Class<T> clz) {
+		if (StereotypeAPI.isStereotypeApplied(stereotypedElement, stereotypeName)) {
+			Collection<StereotypeApplication> applications = StereotypeAPI.getStereotypeApplications(stereotypedElement,
+					stereotypeName);
+			Collection<EStructuralFeature> taggedValueFeatures = applications.stream()
+					.map(StereotypeApplication::getStereotype).map(Stereotype::getTaggedValues)
+					.flatMap(Collection::stream).filter(tv -> taggedValueName.equals(tv.getName()))
+					.collect(Collectors.toSet());
+			return applications.stream()
+					.flatMap(a -> taggedValueFeatures.stream().map(f -> a.eGet(f, true)).filter(Objects::nonNull))
+					.filter(clz::isInstance).map(clz::cast).findFirst();
+		}
+		return Optional.empty();
 	}
 
 	public static <T extends EObject> T getTaggedValue(final EObject stereotypedElement, final String taggedValueName,

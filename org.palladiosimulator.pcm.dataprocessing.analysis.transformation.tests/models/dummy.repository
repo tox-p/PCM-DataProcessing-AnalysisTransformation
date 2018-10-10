@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" id="_chE18Mo4EeiYWJemf317CQ" entityName="New Repository">
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_dhJL0Mo4EeiYWJemf317CQ" entityName="Interface1">
+    <signatures__OperationInterface id="_dxgjEMo4EeiYWJemf317CQ" entityName="method1">
+      <returnType__OperationSignature xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.2"/>
+    </signatures__OperationInterface>
+  </interfaces__Repository>
+</repository:Repository>

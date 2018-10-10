@@ -27,11 +27,17 @@
     <semanticResources>http://sdq.ipd.uka.de/Units/2.1</semanticResources>
     <semanticResources>models/minimalCallAndReturn/characteristicTypes.xmi</semanticResources>
     <semanticResources>platform:/resource/org.palladiosimulator.pcm.dataprocessing.profile/profile.emfprofile_diagram</semanticResources>
+    <semanticResources>models/graph_sameDataChain.xmi</semanticResources>
+    <semanticResources>models/dummy.repository</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" xmi:id="_H_WGcJQCEeid5-moNDqnwg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.palladiosimulator.editors.sirius.repository/description/repository.odesign#//@ownedViewpoints[name='Repository']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_IE24kJQCEeid5-moNDqnwg" name="new Repository Diagram" repPath="#_IAANwJQCEeid5-moNDqnwg">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.palladiosimulator.editors.sirius.repository/description/repository.odesign#//@ownedViewpoints[name='Repository']/@ownedRepresentations[name='Repository%20Diagram']"/>
         <target xmi:type="repository:Repository" href="models/minimalCallAndReturn/newRepository.repository#_F1XiMJQCEeid5-moNDqnwg"/>
+      </ownedRepresentationDescriptors>
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_c5fV8Mo4EeiYWJemf317CQ" name="new Repository Diagram" repPath="#_c2ivoMo4EeiYWJemf317CQ">
+        <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.palladiosimulator.editors.sirius.repository/description/repository.odesign#//@ownedViewpoints[name='Repository']/@ownedRepresentations[name='Repository%20Diagram']"/>
+        <target xmi:type="repository:Repository" href="models/dummy.repository#_chE18Mo4EeiYWJemf317CQ"/>
       </ownedRepresentationDescriptors>
     </ownedViews>
     <ownedViews xmi:type="viewpoint:DView" xmi:id="_14Hl4JQCEeid5-moNDqnwg">
@@ -2788,5 +2794,51 @@
     <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_Xc0rpJQDEeid5-moNDqnwg"/>
     <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.palladiosimulator.editors.sirius.usage/description/usage.odesign#//@ownedViewpoints[name='UsageModel']/@ownedRepresentations[name='UsageModel%20Diagram']/@defaultLayer"/>
     <target xmi:type="usagemodel:UsageModel" href="models/minimalCallAndReturn/newUsageModel.usagemodel#/0"/>
+  </diagram:DSemanticDiagram>
+  <diagram:DSemanticDiagram xmi:id="_c5eH0Mo4EeiYWJemf317CQ" name="new Repository Diagram" uid="_c2ivoMo4EeiYWJemf317CQ">
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_c5eH0co4EeiYWJemf317CQ" source="DANNOTATION_CUSTOMIZATION_KEY">
+      <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_c5eH0so4EeiYWJemf317CQ"/>
+    </ownedAnnotationEntries>
+    <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_c517QMo4EeiYWJemf317CQ" source="GMF_DIAGRAMS">
+      <data xmi:type="notation:Diagram" xmi:id="_c517Qco4EeiYWJemf317CQ" type="Sirius" element="_c5eH0Mo4EeiYWJemf317CQ" measurementUnit="Pixel">
+        <children xmi:type="notation:Node" xmi:id="_dhz6MMo4EeiYWJemf317CQ" type="2003" element="_dhUK8Mo4EeiYWJemf317CQ">
+          <children xmi:type="notation:Node" xmi:id="_dh1vYMo4EeiYWJemf317CQ" type="5007"/>
+          <children xmi:type="notation:Node" xmi:id="_dh2WcMo4EeiYWJemf317CQ" type="7004">
+            <children xmi:type="notation:Node" xmi:id="_d4y20Mo4EeiYWJemf317CQ" type="3010" element="_dxiYQMo4EeiYWJemf317CQ">
+              <styles xmi:type="notation:FontStyle" xmi:id="_d4y20co4EeiYWJemf317CQ" fontName="Segoe UI" fontHeight="8"/>
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_d4y20so4EeiYWJemf317CQ"/>
+            </children>
+            <styles xmi:type="notation:SortingStyle" xmi:id="_dh2Wcco4EeiYWJemf317CQ"/>
+            <styles xmi:type="notation:FilteringStyle" xmi:id="_dh2Wcso4EeiYWJemf317CQ"/>
+          </children>
+          <styles xmi:type="notation:ShapeStyle" xmi:id="_dhz6Mco4EeiYWJemf317CQ" fontName="Segoe UI" fontHeight="8"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dhz6Mso4EeiYWJemf317CQ" x="540" y="120" width="200" height="100"/>
+        </children>
+        <styles xmi:type="notation:DiagramStyle" xmi:id="_c517Qso4EeiYWJemf317CQ"/>
+      </data>
+    </ownedAnnotationEntries>
+    <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_dhUK8Mo4EeiYWJemf317CQ" name="&lt;&lt;Interface>>&#xA;Interface1" width="20" height="10">
+      <target xmi:type="repository:OperationInterface" href="models/dummy.repository#_dhJL0Mo4EeiYWJemf317CQ"/>
+      <semanticElements xmi:type="repository:OperationInterface" href="models/dummy.repository#_dhJL0Mo4EeiYWJemf317CQ"/>
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_dhXOQMo4EeiYWJemf317CQ" borderSize="1" borderSizeComputationExpression="1" foregroundColor="255,255,255">
+        <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.palladiosimulator.editors.sirius.repository/description/repository.odesign#//@ownedViewpoints[name='Repository']/@ownedRepresentations[name='Repository%20Diagram']/@defaultLayer/@containerMappings[name='Interface']/@style"/>
+      </ownedStyle>
+      <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.palladiosimulator.editors.sirius.repository/description/repository.odesign#//@ownedViewpoints[name='Repository']/@ownedRepresentations[name='Repository%20Diagram']/@defaultLayer/@containerMappings[name='Interface']"/>
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_dxiYQMo4EeiYWJemf317CQ" name="bool method1()">
+        <target xmi:type="repository:OperationSignature" href="models/dummy.repository#_dxgjEMo4EeiYWJemf317CQ"/>
+        <semanticElements xmi:type="repository:OperationSignature" href="models/dummy.repository#_dxgjEMo4EeiYWJemf317CQ"/>
+        <ownedStyle xmi:type="diagram:Square" xmi:id="_fJnlgMo4EeiYWJemf317CQ" showIcon="false" labelPosition="node">
+          <description xmi:type="style:SquareDescription" href="platform:/plugin/org.palladiosimulator.editors.sirius.repository/description/repository.odesign#//@ownedViewpoints[name='Repository']/@ownedRepresentations[name='Repository%20Diagram']/@defaultLayer/@containerMappings[name='Interface']/@subNodeMappings[name='OperationSignature']/@conditionnalStyles.0/@style"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.palladiosimulator.editors.sirius.repository/description/repository.odesign#//@ownedViewpoints[name='Repository']/@ownedRepresentations[name='Repository%20Diagram']/@defaultLayer/@containerMappings[name='Interface']/@subNodeMappings[name='OperationSignature']"/>
+      </ownedElements>
+    </ownedDiagramElements>
+    <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.palladiosimulator.editors.sirius.repository/description/repository.odesign#//@ownedViewpoints[name='Repository']/@ownedRepresentations[name='Repository%20Diagram']"/>
+    <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_c5eH1Mo4EeiYWJemf317CQ"/>
+    <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.palladiosimulator.editors.sirius.repository/description/repository.odesign#//@ownedViewpoints[name='Repository']/@ownedRepresentations[name='Repository%20Diagram']/@defaultLayer"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.palladiosimulator.editors.sirius.repository/description/repository.odesign#//@ownedViewpoints[name='Repository']/@ownedRepresentations[name='Repository%20Diagram']/@additionalLayers[name='Component%20Types']"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.palladiosimulator.editors.sirius.repository/description/repository.odesign#//@ownedViewpoints[name='Repository']/@ownedRepresentations[name='Repository%20Diagram']/@additionalLayers[name='Event-Based%20Communication']"/>
+    <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.palladiosimulator.editors.sirius.repository/description/repository.odesign#//@ownedViewpoints[name='Repository']/@ownedRepresentations[name='Repository%20Diagram']/@additionalLayers[name='DataTypes']"/>
+    <target xmi:type="repository:Repository" href="models/dummy.repository#_chE18Mo4EeiYWJemf317CQ"/>
   </diagram:DSemanticDiagram>
 </xmi:XMI>

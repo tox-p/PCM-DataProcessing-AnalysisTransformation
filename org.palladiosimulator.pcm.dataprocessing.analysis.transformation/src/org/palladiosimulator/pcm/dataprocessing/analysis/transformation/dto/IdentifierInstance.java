@@ -63,7 +63,7 @@ public class IdentifierInstance<ENTITY_TYPE extends Identifier, IDENTIFIER_TYPE 
 				.map(Entity::getEntityName).orElse(entity.getId());
 		String identifierId = identifier.map(Identifier::getId).orElse("");
 
-		return String.format("IdentifierInstance (Entity: %s, Identifier: %s)", entityName, identifierId);
+		return String.format("IdentifierInstance[%s] (Entity: %s, Identifier: %s)", entity.eClass().getName(), entityName, identifierId);
 	}
 
 	public static <ENTITY_TYPE extends Identifier, IDENTIFIER_TYPE extends Identifier> IdentifierInstance<ENTITY_TYPE, IDENTIFIER_TYPE> createInstance(
