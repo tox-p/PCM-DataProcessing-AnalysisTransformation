@@ -3,6 +3,6 @@
    <service>
       <provide interface="org.palladiosimulator.pcm.dataprocessing.analysis.transformation.basic.ITransformatorFactory"/>
    </service>
-   <reference cardinality="1..1" field="registry" interface="org.palladiosimulator.pcm.dataprocessing.analysis.transformation.characteristics.impl.IReturnValueAssignmentGeneratorRegistry" name="registry"/>
+   <reference cardinality="1..1" field="registry" interface="org.palladiosimulator.pcm.dataprocessing.analysis.transformation.characteristics.IReturnValueAssignmentGeneratorRegistry" name="registry"/>
    <implementation class="org.palladiosimulator.pcm.dataprocessing.analysis.transformation.basic.impl.TransformatorFactoryImpl"/>
 </scr:component>

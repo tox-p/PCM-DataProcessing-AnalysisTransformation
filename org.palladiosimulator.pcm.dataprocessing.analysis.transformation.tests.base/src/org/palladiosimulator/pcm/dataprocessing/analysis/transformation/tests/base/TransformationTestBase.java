@@ -15,10 +15,10 @@ import org.eclipse.emf.common.util.URI;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.basic.ITransformator;
-import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.basic.impl.PCM2DFSystemModelTransformation;
+import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.basic.impl.TransformatorFactoryImpl;
 import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.characteristics.IReturnValueAssignmentGenerator;
+import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.characteristics.IReturnValueAssignmentGeneratorRegistry;
 import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.characteristics.impl.DefaultReturnValueAssignmentGenerator;
-import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.characteristics.impl.IReturnValueAssignmentGeneratorRegistry;
 
 import edu.kit.ipd.sdq.dataflow.systemmodel.OperationCall;
 import edu.kit.ipd.sdq.dataflow.systemmodel.ReturnValueRef;
@@ -53,7 +53,8 @@ public abstract class TransformationTestBase {
 				return generators;
 			}
 		};
-		subject = new PCM2DFSystemModelTransformation(registry);
+		TransformatorFactoryImpl factory = new TransformatorFactoryImpl();
+		subject = factory.create(registry, new HumanReadableUniqueNameProvider());
 	}
 
 	protected ITransformator getSubject() {

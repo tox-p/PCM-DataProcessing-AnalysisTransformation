@@ -21,7 +21,9 @@ Automatic-Module-Name: org.palladiosimulator.pcm.dataprocessing.analysis.transfo
 Export-Package: org.palladiosimulator.pcm.dataprocessing.analysis.transformation.basic,
  org.palladiosimulator.pcm.dataprocessing.analysis.transformation.basic.impl;x-friends:="org.palladiosimulator.pcm.dataprocessing.analysis.transformation.tests.base",
  org.palladiosimulator.pcm.dataprocessing.analysis.transformation.characteristics,
- org.palladiosimulator.pcm.dataprocessing.analysis.transformation.characteristics.impl;x-friends:="org.palladiosimulator.pcm.dataprocessing.analysis.transformation.tests.base"
+ org.palladiosimulator.pcm.dataprocessing.analysis.transformation.characteristics.impl;x-friends:="org.palladiosimulator.pcm.dataprocessing.analysis.transformation.tests.base",
+ org.palladiosimulator.pcm.dataprocessing.analysis.transformation.dto,
+ org.palladiosimulator.pcm.dataprocessing.analysis.transformation.naming
 Service-Component: OSGI-INF/org.palladiosimulator.pcm.dataprocessing.analysis.transformation.characteristics.impl.ReturnValueAssignmentGeneratorRegistry.xml,
  OSGI-INF/org.palladiosimulator.pcm.dataprocessing.analysis.transformation.basic.impl.TransformatorFactoryImpl.xml,
  OSGI-INF/org.palladiosimulator.pcm.dataprocessing.analysis.transformation.characteristics.impl.DefaultReturnValueAssignmentGenerator.xml

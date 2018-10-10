@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.3.0" name="org.palladiosimulator.pcm.dataprocessing.analysis.transformation.characteristics.impl.ReturnValueAssignmentGeneratorRegistry">
    <service scope="singleton">
-      <provide interface="org.palladiosimulator.pcm.dataprocessing.analysis.transformation.characteristics.impl.IReturnValueAssignmentGeneratorRegistry"/>
+      <provide interface="org.palladiosimulator.pcm.dataprocessing.analysis.transformation.characteristics.IReturnValueAssignmentGeneratorRegistry"/>
    </service>
    <reference bind="addGenerator" cardinality="0..n" interface="org.palladiosimulator.pcm.dataprocessing.analysis.transformation.characteristics.IReturnValueAssignmentGenerator" name="Generator" unbind="removeGenerator"/>
    <implementation class="org.palladiosimulator.pcm.dataprocessing.analysis.transformation.characteristics.impl.ReturnValueAssignmentGeneratorRegistry"/>

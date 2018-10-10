@@ -8,6 +8,7 @@ import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ServiceScope;
 import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.characteristics.IReturnValueAssignmentGenerator;
+import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.characteristics.IReturnValueAssignmentGeneratorRegistry;
 
 @Component(scope=ServiceScope.SINGLETON)
 public class ReturnValueAssignmentGeneratorRegistry implements IReturnValueAssignmentGeneratorRegistry {
