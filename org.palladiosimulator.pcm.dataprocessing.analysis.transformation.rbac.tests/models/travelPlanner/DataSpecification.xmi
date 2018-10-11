@@ -50,7 +50,8 @@
       entityName="UsageModel - RequestFlightOffers">
     <operations
         xsi:type="processing:PerformDataTransmissionOperation"
-        id="_81yW47_ZEeitJoiAXfVRAA">
+        id="_81yW47_ZEeitJoiAXfVRAA"
+        entityName="UsageModel - RequestFlightOffers - CallTravelAgency">
       <inputMappings
           id="_M-CM0L_aEeitJoiAXfVRAA"
           from="_yFuGkL_ZEeitJoiAXfVRAA"
