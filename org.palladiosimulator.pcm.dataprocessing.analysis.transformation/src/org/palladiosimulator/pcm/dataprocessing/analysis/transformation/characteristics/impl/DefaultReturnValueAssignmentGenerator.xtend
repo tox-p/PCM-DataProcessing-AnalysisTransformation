@@ -26,6 +26,7 @@ import org.palladiosimulator.pcm.dataprocessing.profile.api.ProfileConstants
 
 import static org.apache.commons.lang3.Validate.*
 import org.palladiosimulator.pcm.dataprocessing.dataprocessing.processing.CreateDataOperation
+import org.palladiosimulator.pcm.dataprocessing.dataprocessing.characteristics.Characteristic
 
 @Component
 class DefaultReturnValueAssignmentGenerator implements IReturnValueAssignmentGenerator {
@@ -66,7 +67,7 @@ class DefaultReturnValueAssignmentGenerator implements IReturnValueAssignmentGen
 		/*
 		 * CharacteristicChangingDataOperation: see implementation
 		 * ConsumeDataOperation: no action needed (except for ReturnDataOperation)
-		 * CreateDataOperation: disable all properties by default
+		 * CreateDataOperation: disable all properties and copy initial characteristics
 		 * LoadDataOperation: disable all properties and copy default characteristics
 		 * ManyToOneDataOperation: default handling not possible
 		 * PerformDataTransmissionOperation: already handled in behaviour transformation
@@ -119,10 +120,7 @@ class DefaultReturnValueAssignmentGenerator implements IReturnValueAssignmentGen
 	}
 	
 	protected def dispatch generate(CreateDataOperation dataOperation, Pair<Data, Variable> returnVariable, Map<Data, LogicTerm> availableData, extension IQueryExecutor queryExecutor, Optional<AssemblyContext> ac) {
-		val falseAssignment = createVariableAssignment
-		falseAssignment.variable = returnVariable.value
-		falseAssignment.term = createFalse
-		#[falseAssignment]
+		returnVariable.value.createAssignments(dataOperation.initialCharacteristics, queryExecutor)
 	}
 	
 	protected def dispatch generate(LoadDataOperation dataOperation, Pair<Data, Variable> returnVariable, Map<Data, LogicTerm> availableData, extension IQueryExecutor queryExecutor, Optional<AssemblyContext> ac) {
@@ -131,14 +129,27 @@ class DefaultReturnValueAssignmentGenerator implements IReturnValueAssignmentGen
 			return #[]
 		}
 
-		val result = new ArrayList<VariableAssignment>()
-		result += _generate(dataOperation as CreateDataOperation, returnVariable, availableData, queryExecutor, ac)
-		
 		val variable = returnVariable.value
 		val defaultCharacteristicContainer = EMFUtils.getTaggedValue(ac.get, ProfileConstants.TAGGED_VALUE_NAME_STORE_CHARACTERIZATION, ProfileConstants.STEREOTYPE_NAME_STORE_CHARACTERIZATION, StoreCharacteristicContainer)
 		val defaultCharacteristics = defaultCharacteristicContainer.characteristics.findFirst[c | c.store === dataOperation.store]
 		
-		for (characteristic : defaultCharacteristics.ownedCharacteristics) {
+		variable.createAssignments(defaultCharacteristics.ownedCharacteristics, queryExecutor)
+	}
+//	
+//	protected def dispatch generate(TransformDataOperation dataOperation, Pair<Data, Variable> returnVariable, Map<Data, LogicTerm> availableData, IQueryExecutor queryExecutor, Optional<AssemblyContext> ac) {
+//		// copy everything from input to output while ignoring parameter data
+//		#[createCopyAssignment(returnVariable.value, availableData.get(dataOperation.input))]
+//	}
+	
+	protected static def createAssignments(Variable variable, Iterable<Characteristic> characteristics, extension IQueryExecutor queryExecutor) {
+		val result = new ArrayList<VariableAssignment>()
+		
+		val falseAssignment = createVariableAssignment
+		falseAssignment.variable = variable
+		falseAssignment.term = createFalse
+		result += falseAssignment
+		
+		for (characteristic : characteristics) {
 			val attribute = characteristic.characteristicType.attribute
 			for (value : characteristic.values) {
 				val changeAssignment = createVariableAssignment
@@ -149,14 +160,8 @@ class DefaultReturnValueAssignmentGenerator implements IReturnValueAssignmentGen
 				result += changeAssignment
 			}
 		}
-		
 		result
 	}
-//	
-//	protected def dispatch generate(TransformDataOperation dataOperation, Pair<Data, Variable> returnVariable, Map<Data, LogicTerm> availableData, IQueryExecutor queryExecutor, Optional<AssemblyContext> ac) {
-//		// copy everything from input to output while ignoring parameter data
-//		#[createCopyAssignment(returnVariable.value, availableData.get(dataOperation.input))]
-//	}
 	
 	protected static def createCopyAssignment(Variable destination, LogicTerm assignment) {
 		notNull(destination)
