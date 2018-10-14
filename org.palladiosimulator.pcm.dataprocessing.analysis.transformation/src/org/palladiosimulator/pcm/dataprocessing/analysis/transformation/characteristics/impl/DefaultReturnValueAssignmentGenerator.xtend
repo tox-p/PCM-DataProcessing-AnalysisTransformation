@@ -25,6 +25,7 @@ import org.palladiosimulator.pcm.dataprocessing.dataprocessing.processing.Transf
 import org.palladiosimulator.pcm.dataprocessing.profile.api.ProfileConstants
 
 import static org.apache.commons.lang3.Validate.*
+import org.palladiosimulator.pcm.dataprocessing.dataprocessing.processing.CreateDataOperation
 
 @Component
 class DefaultReturnValueAssignmentGenerator implements IReturnValueAssignmentGenerator {
@@ -65,7 +66,8 @@ class DefaultReturnValueAssignmentGenerator implements IReturnValueAssignmentGen
 		/*
 		 * CharacteristicChangingDataOperation: see implementation
 		 * ConsumeDataOperation: no action needed (except for ReturnDataOperation)
-		 * CreateDataOperation: no action needed (except for LoadDataOperation)
+		 * CreateDataOperation: disable all properties by default
+		 * LoadDataOperation: disable all properties and copy default characteristics
 		 * ManyToOneDataOperation: default handling not possible
 		 * PerformDataTransmissionOperation: already handled in behaviour transformation
 		 * TransformDataOperation: see implementation
@@ -116,6 +118,13 @@ class DefaultReturnValueAssignmentGenerator implements IReturnValueAssignmentGen
 		result
 	}
 	
+	protected def dispatch generate(CreateDataOperation dataOperation, Pair<Data, Variable> returnVariable, Map<Data, LogicTerm> availableData, extension IQueryExecutor queryExecutor, Optional<AssemblyContext> ac) {
+		val falseAssignment = createVariableAssignment
+		falseAssignment.variable = returnVariable.value
+		falseAssignment.term = createFalse
+		#[falseAssignment]
+	}
+	
 	protected def dispatch generate(LoadDataOperation dataOperation, Pair<Data, Variable> returnVariable, Map<Data, LogicTerm> availableData, extension IQueryExecutor queryExecutor, Optional<AssemblyContext> ac) {
 		// copy default characteristics if existing
 		if (!StereotypeAPI.hasAppliedStereotype(#{ac.get}, ProfileConstants.STEREOTYPE_NAME_STORE_CHARACTERIZATION)) {
@@ -123,6 +132,7 @@ class DefaultReturnValueAssignmentGenerator implements IReturnValueAssignmentGen
 		}
 
 		val result = new ArrayList<VariableAssignment>()
+		result += _generate(dataOperation as CreateDataOperation, returnVariable, availableData, queryExecutor, ac)
 		
 		val variable = returnVariable.value
 		val defaultCharacteristicContainer = EMFUtils.getTaggedValue(ac.get, ProfileConstants.TAGGED_VALUE_NAME_STORE_CHARACTERIZATION, ProfileConstants.STEREOTYPE_NAME_STORE_CHARACTERIZATION, StoreCharacteristicContainer)
