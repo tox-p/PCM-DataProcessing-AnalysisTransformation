@@ -16,6 +16,7 @@ Require-Bundle: org.junit;bundle-version="4.12.0";visibility:=reexport,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtend.lib,
  org.eclipse.xtend.lib.macro,
- org.palladiosimulator.pcm.resources;bundle-version="4.0.0";visibility:=reexport
+ org.palladiosimulator.pcm.resources;bundle-version="4.0.0";visibility:=reexport,
+ org.eclipse.emf.compare;bundle-version="3.5.2";visibility:=reexport
 Export-Package: org.palladiosimulator.pcm.dataprocessing.analysis.transformation.tests.base
 

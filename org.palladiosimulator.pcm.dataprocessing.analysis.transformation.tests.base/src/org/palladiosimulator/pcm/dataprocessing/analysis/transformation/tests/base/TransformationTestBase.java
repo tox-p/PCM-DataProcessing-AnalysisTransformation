@@ -6,12 +6,18 @@ import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.compare.Comparison;
+import org.eclipse.emf.compare.utils.EMFComparePrettyPrinter;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.basic.ITransformator;
@@ -55,6 +61,7 @@ public abstract class TransformationTestBase {
 		};
 		TransformatorFactoryImpl factory = new TransformatorFactoryImpl();
 		subject = factory.create(registry, new HumanReadableUniqueNameProvider());
+//		subject = factory.create(registry, null);
 	}
 
 	protected ITransformator getSubject() {
@@ -109,5 +116,15 @@ public abstract class TransformationTestBase {
 			sb.append(diagnosticChildren.getMessage());
 		}
 		return sb.toString();
+	}
+	
+
+	protected static String toString(Comparison comparison) throws IOException {
+		try (OutputStream baos = new ByteArrayOutputStream()) {
+			try (PrintStream ps = new PrintStream(baos)) {
+				EMFComparePrettyPrinter.printComparison(comparison, ps);
+				return baos.toString();
+			}
+		}
 	}
 }

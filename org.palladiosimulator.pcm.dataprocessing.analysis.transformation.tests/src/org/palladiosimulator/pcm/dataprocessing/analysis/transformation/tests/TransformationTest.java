@@ -78,7 +78,7 @@ public class TransformationTest extends TransformationTestBase {
 		Operation createOperation = transmitOperation.getCalls().get(0).getCallee();
 		assertThat(createOperation.getCalls(), is(empty()));
 		assertThat(createOperation.getReturnValues(), hasSize(1));
-		assertThat(createOperation.getReturnValueAssignments(), hasSize(0));
+		assertThat(createOperation.getReturnValueAssignments(), hasSize(1));
 
 		Operation seffOperation = transmitOperation.getCalls().get(1).getCallee();
 		assertThat(seffOperation.getReturnValues(), hasSize(1));
