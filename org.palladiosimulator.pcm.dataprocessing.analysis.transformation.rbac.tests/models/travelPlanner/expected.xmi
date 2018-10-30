@@ -167,9 +167,9 @@
       <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.25/@stateVariables.0"/>
     </returnValueAssignments>
   </operations>
-  <operations name="PerformDataTransmissionOperation TP - bookSelected - callTA (_NLNCI8AGEei_D8NS_upkXw) - AC _2pBlYMN-EeWst9mTsticNA">
-    <calls callee="//@operations.15" name="opCall_2be44da8"/>
-    <calls callee="//@operations.26" name="opCall_765d3fa9">
+  <operations name="PerformDataTransmissionOperation TP - bookSelected - callAirline (_NLNCI8AGEei_D8NS_upkXw) - AC _2pBlYMN-EeWst9mTsticNA">
+    <calls callee="//@operations.15" name="opCall_e2f4fd7"/>
+    <calls callee="//@operations.26" name="opCall_7dd41d8">
       <preCallStateDefinitions variable="//@operations.26/@stateVariables.1">
         <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.15/@returnValues.0" call="//@operations.16/@calls.0"/>
       </preCallStateDefinitions>
@@ -177,14 +177,14 @@
         <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.25/@stateVariables.1"/>
       </preCallStateDefinitions>
     </calls>
-    <returnValues datatype="//@datatypes.2" name="TP_output_bookingConfirmation_RETURN_a6b04049"/>
+    <returnValues datatype="//@datatypes.2" name="TP_output_bookingConfirmation_RETURN_2d454278"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0"/>
     <returnValueAssignments variable="//@operations.16/@returnValues.0">
       <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.26/@returnValues.0" call="//@operations.16/@calls.1"/>
     </returnValueAssignments>
   </operations>
   <operations name="ReturnDataOperation TP - bookSelected - returnConfirmation (_-2yq5cAREei4h6B-w6nC0g) - AC _2pBlYMN-EeWst9mTsticNA">
-    <calls callee="//@operations.16" name="opCall_f7c04d02"/>
+    <calls callee="//@operations.16" name="opCall_a2644f31"/>
     <returnValues datatype="//@datatypes.2" name="TP_output_bookingConfirmation_RETURN_3b3f3fb8"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0"/>
     <returnValueAssignments variable="//@operations.17/@returnValues.0">

@@ -190,7 +190,7 @@
   </dataProcessingContainers>
   <dataProcessingContainers
       id="_HTtqUMAGEei_D8NS_upkXw"
-      entityName="TP - bookSelected - callTA">
+      entityName="TP - bookSelected - callAirline">
     <operations
         xsi:type="processing:ProjectionDataOperation"
         id="_qr-_dMAGEei_D8NS_upkXw"
@@ -209,7 +209,7 @@
     <operations
         xsi:type="processing:PerformDataTransmissionOperation"
         id="_NLNCI8AGEei_D8NS_upkXw"
-        entityName="TP - bookSelected - callTA">
+        entityName="TP - bookSelected - callAirline">
       <inputMappings
           id="_O1_I8MAGEei_D8NS_upkXw"
           from="_Z-ibo8APEeil6smoSOhy-A"
