@@ -48,7 +48,7 @@ class DefaultReturnValueAssignmentGenerator implements IReturnValueAssignmentGen
 	protected def dispatch generateAssignmentsInternal(DataOperation dataOperation, IQueryExecutor queryExecutor, Optional<AssemblyContext> ac, Map<Data, LogicTerm> availableData, Map<Data, Variable> returnVariables) {
 		// default case: generate single assignments for each operation
 		val result = new ArrayList<VariableAssignment>()
-		for (data : returnVariables.keySet) {
+		for (data : returnVariables.keySet.sortBy[id]) {
 			val returnVariable = data -> returnVariables.get(data)
 			notNull(returnVariable.key)
 			notNull(returnVariable.value)

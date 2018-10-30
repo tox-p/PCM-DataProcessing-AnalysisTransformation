@@ -9,7 +9,7 @@ import edu.kit.ipd.sdq.dataflow.systemmodel.Variable
 import edu.kit.ipd.sdq.dataflow.systemmodel.VariableAssignment
 import java.util.ArrayList
 import java.util.HashMap
-import java.util.HashSet
+import java.util.LinkedHashSet
 import java.util.LinkedList
 import java.util.Map
 import org.eclipse.emf.ecore.EObject
@@ -83,7 +83,7 @@ abstract class BehaviorTransformator {
 			val resultRefCache = new HashMap<Data, LogicTerm>();
  			val callerInstance = selfAssemblyContext.createInstance(dataOp)
  			val caller = callerInstance.operation
- 			val incomingEdges = dataOpGraph.incomingEdgesOf(dataOp)
+ 			val incomingEdges = dataOpGraph.incomingEdgesOf(dataOp).sortBy[data.id]
  			for (incomingEdge : incomingEdges) {
  				val incomingData = incomingEdge.data
  				val calledDataOperation = incomingEdge.findSource
@@ -219,7 +219,7 @@ abstract class BehaviorTransformator {
 	}
 	
 	protected static def findAllSEFFs(AssemblyContext assembly) {
-		val seffs = new HashSet<SEFFInstance>();
+		val seffs = new LinkedHashSet<SEFFInstance>();
 		val acQueue = new LinkedList<AssemblyContext>(#[assembly])
 		while (!acQueue.isEmpty) {
 			val ac = acQueue.pop
