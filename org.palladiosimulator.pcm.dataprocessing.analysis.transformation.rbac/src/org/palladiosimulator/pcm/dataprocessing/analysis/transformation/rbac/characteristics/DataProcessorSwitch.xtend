@@ -1,7 +1,14 @@
 package org.palladiosimulator.pcm.dataprocessing.analysis.transformation.rbac.characteristics
 
+import edu.kit.ipd.sdq.dataflow.systemmodel.Attribute
+import edu.kit.ipd.sdq.dataflow.systemmodel.DefaultStateRef
 import edu.kit.ipd.sdq.dataflow.systemmodel.LogicTerm
+import edu.kit.ipd.sdq.dataflow.systemmodel.ParameterRef
+import edu.kit.ipd.sdq.dataflow.systemmodel.PropertyRef
+import edu.kit.ipd.sdq.dataflow.systemmodel.ReturnValueRef
+import edu.kit.ipd.sdq.dataflow.systemmodel.StateRef
 import edu.kit.ipd.sdq.dataflow.systemmodel.SystemModelFactory
+import edu.kit.ipd.sdq.dataflow.systemmodel.Value
 import edu.kit.ipd.sdq.dataflow.systemmodel.Variable
 import edu.kit.ipd.sdq.dataflow.systemmodel.VariableAssignment
 import java.util.ArrayList
@@ -9,6 +16,7 @@ import java.util.List
 import java.util.Map
 import java.util.Optional
 import org.eclipse.emf.ecore.EObject
+import org.eclipse.emf.ecore.util.EcoreUtil
 import org.palladiosimulator.pcm.core.composition.AssemblyContext
 import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.characteristics.IQueryExecutor
 import org.palladiosimulator.pcm.dataprocessing.dataprocessing.data.Data
@@ -55,7 +63,11 @@ class DataProcessorSwitch extends ProcessingSwitch<List<VariableAssignment>> {
 				assignment.attribute = attribute
 				assignment.value = value
 				val term = createAnd
-				op.consumedData.map[d | availableData.get(d)].forEach[t | term.operands += t]
+				for (inputTerm : op.consumedData.map[d | availableData.get(d)]) {
+					val inputTermCopy = EcoreUtil.copy(inputTerm)
+					inputTermCopy.setAttributeAndValue(attribute, value)
+					term.operands += inputTermCopy
+				}
 				assignment.term = term
 				result += assignment
 			}
@@ -72,4 +84,34 @@ class DataProcessorSwitch extends ProcessingSwitch<List<VariableAssignment>> {
 	override defaultCase(EObject obj) {
 		#[]
 	}
+	
+	protected static def dispatch setAttributeAndValue(ReturnValueRef ref, Attribute attribute, Value value) {
+		ref.attribute = attribute
+		ref.value = value
+	}
+	
+	protected static def dispatch setAttributeAndValue(StateRef ref, Attribute attribute, Value value) {
+		ref.attribute = attribute
+		ref.value = value
+	}
+	
+	protected static def dispatch setAttributeAndValue(DefaultStateRef ref, Attribute attribute, Value value) {
+		ref.attribute = attribute
+		ref.value = value
+	}
+	
+	protected static def dispatch setAttributeAndValue(ParameterRef ref, Attribute attribute, Value value) {
+		ref.attribute = attribute
+		ref.value = value
+	}
+	
+	protected static def dispatch setAttributeAndValue(PropertyRef ref, Attribute attribute, Value value) {
+		// do not set attribute
+		ref.value = value
+	}
+	
+	protected static def dispatch setAttributeAndValue(LogicTerm term, Attribute attribute, Value value) {
+		// do nothing
+	}
+	
 }
