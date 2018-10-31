@@ -61,12 +61,10 @@
   <emfprofileapplication:ProfileApplication>
     <stereotypeApplications xsi:type="dataProcessingProfile:StoreCharacterization" appliedTo="_XOyEsMOBEeWst9mTsticNA">
       <extension href="../../../../plugin/org.palladiosimulator.pcm.dataprocessing.profile/profile.emfprofile_diagram#_6E0ooFqjEeiW1d-qz7Oqsw"/>
-      <store href="DataSpecification.xmi#_zLB7EL_UEeiWFMbQiO_SNQ"/>
       <storeCharacteristicContainer href="DataSpecification.xmi#_2pAhB7_YEeiHzIjoCJdVGA"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="dataProcessingProfile:StoreCharacterization" appliedTo="_HRAO0MOAEeWst9mTsticNA">
       <extension href="../../../../plugin/org.palladiosimulator.pcm.dataprocessing.profile/profile.emfprofile_diagram#_6E0ooFqjEeiW1d-qz7Oqsw"/>
-      <store href="DataSpecification.xmi#_mrOygL_UEeiWFMbQiO_SNQ"/>
       <storeCharacteristicContainer href="DataSpecification.xmi#_uX9Q0L_YEeiHzIjoCJdVGA"/>
     </stereotypeApplications>
     <importedProfiles nsURI="http://www.palladiosimulator.org/pcm/dataprocessing/profile/0.1/" location="platform:/plugin/org.palladiosimulator.pcm.dataprocessing.profile/profile.emfprofile_diagram"/>
