@@ -6,6 +6,7 @@ import edu.kit.ipd.sdq.dataflow.systemmodel.SystemModelFactory
 import edu.kit.ipd.sdq.dataflow.systemmodel.Variable
 import edu.kit.ipd.sdq.dataflow.systemmodel.VariableAssignment
 import java.util.ArrayList
+import java.util.List
 import java.util.Map
 import java.util.Optional
 import org.osgi.service.component.annotations.Component
@@ -14,19 +15,23 @@ import org.palladiosimulator.pcm.core.composition.AssemblyContext
 import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.characteristics.IQueryExecutor
 import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.characteristics.IReturnValueAssignmentGenerator
 import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.util.EMFUtils
+import org.palladiosimulator.pcm.dataprocessing.dataprocessing.characteristics.Characteristic
+import org.palladiosimulator.pcm.dataprocessing.dataprocessing.characteristics.CharacteristicType
 import org.palladiosimulator.pcm.dataprocessing.dataprocessing.characteristics.StoreCharacteristicContainer
 import org.palladiosimulator.pcm.dataprocessing.dataprocessing.data.Data
+import org.palladiosimulator.pcm.dataprocessing.dataprocessing.effectspecification.CharacteristicSpecification
+import org.palladiosimulator.pcm.dataprocessing.dataprocessing.effectspecification.DirectCharacteristic
 import org.palladiosimulator.pcm.dataprocessing.dataprocessing.processing.CharacteristicChangeOperation
 import org.palladiosimulator.pcm.dataprocessing.dataprocessing.processing.CharacteristicChangingDataOperation
+import org.palladiosimulator.pcm.dataprocessing.dataprocessing.processing.CreateDataOperation
 import org.palladiosimulator.pcm.dataprocessing.dataprocessing.processing.DataOperation
 import org.palladiosimulator.pcm.dataprocessing.dataprocessing.processing.LoadDataOperation
+import org.palladiosimulator.pcm.dataprocessing.dataprocessing.processing.ProcessingEffectOperationTypeSpecifyingOperation
 import org.palladiosimulator.pcm.dataprocessing.dataprocessing.processing.ReturnDataOperation
 import org.palladiosimulator.pcm.dataprocessing.dataprocessing.processing.TransformDataOperation
 import org.palladiosimulator.pcm.dataprocessing.profile.api.ProfileConstants
 
 import static org.apache.commons.lang3.Validate.*
-import org.palladiosimulator.pcm.dataprocessing.dataprocessing.processing.CreateDataOperation
-import org.palladiosimulator.pcm.dataprocessing.dataprocessing.characteristics.Characteristic
 
 @Component
 class DefaultReturnValueAssignmentGenerator implements IReturnValueAssignmentGenerator {
@@ -42,7 +47,12 @@ class DefaultReturnValueAssignmentGenerator implements IReturnValueAssignmentGen
 		notNull(dataOperation)
 		notNull(availableData)
 		notNull(returnVariables)
-		dataOperation.generateAssignmentsInternal(queryExecutor, ac, availableData, returnVariables)
+		val result = new ArrayList<VariableAssignment>()
+		result += dataOperation.generateAssignmentsInternal(queryExecutor, ac, availableData, returnVariables)
+		if (dataOperation instanceof ProcessingEffectOperationTypeSpecifyingOperation) {
+			result += dataOperation.generateUserDefinedProcessingEffectAssignments(queryExecutor, ac, availableData, returnVariables)			
+		}
+		result
 	}
 	
 	protected def dispatch generateAssignmentsInternal(DataOperation dataOperation, IQueryExecutor queryExecutor, Optional<AssemblyContext> ac, Map<Data, LogicTerm> availableData, Map<Data, Variable> returnVariables) {
@@ -85,37 +95,12 @@ class DefaultReturnValueAssignmentGenerator implements IReturnValueAssignmentGen
 	
 	protected def dispatch generate(CharacteristicChangingDataOperation<?> dataOperation, Pair<Data, Variable> returnVariable, Map<Data, LogicTerm> availableData, IQueryExecutor queryExecutor, Optional<AssemblyContext> ac) {
 		val result = new ArrayList<VariableAssignment>()
-		
 		val variable = returnVariable.value
-		val attribute = queryExecutor.getAttribute(dataOperation.characteristic.characteristicType)
-		notNull(attribute)
 		
 		// always: copy all characteristics from input to output
 		result += createCopyAssignment(variable, availableData.get(returnVariable.key))
-
-		// replace: set all values related to the characteristic to false
-		if (dataOperation.operation === CharacteristicChangeOperation.REPLACE) {
-			
-			val resetAssignment = createVariableAssignment
-			resetAssignment.variable = variable
-			resetAssignment.attribute = attribute
-			resetAssignment.term = createFalse
-			result += resetAssignment
-		}
 		
-		// always: set values mentioned in the operation
-		val Supplier<LogicTerm> termProvider = if (dataOperation.operation === CharacteristicChangeOperation.REMOVE) [createFalse] else [createTrue]
-		val values = queryExecutor.getValues(dataOperation.characteristic)
-		notNull(values)
-		for (value : values) {
-			val changeAssignment = createVariableAssignment
-			changeAssignment.variable = variable
-			changeAssignment.attribute = attribute
-			changeAssignment.value = value
-			changeAssignment.term = termProvider.get
-			result += changeAssignment
-		}
-
+		result += variable.createChangeAssignments(dataOperation.operation, queryExecutor, dataOperation.characteristic, dataOperation.characteristic.characteristicType)
 		result
 	}
 	
@@ -140,6 +125,76 @@ class DefaultReturnValueAssignmentGenerator implements IReturnValueAssignmentGen
 //		// copy everything from input to output while ignoring parameter data
 //		#[createCopyAssignment(returnVariable.value, availableData.get(dataOperation.input))]
 //	}
+	
+	
+		
+	protected def List<VariableAssignment> generateUserDefinedProcessingEffectAssignments(ProcessingEffectOperationTypeSpecifyingOperation dataOperation, IQueryExecutor queryExecutor, Optional<AssemblyContext> ac, Map<Data, LogicTerm> availableData, Map<Data, Variable> returnVariables) {
+		val result = new ArrayList<VariableAssignment>()
+		
+		for (returnVariableEntry : returnVariables.entrySet) {
+			val returnData = returnVariableEntry.key
+			val returnVariable = returnVariableEntry.value
+			
+			val relevantProcessingEffects = dataOperation.processingEffectProvider.processingEffects.filter[isApplicableTo(dataOperation, returnData)]
+			for (characteristicChange : relevantProcessingEffects.map[characteristicChanges].flatten) {
+				
+				for (changeSpecification : characteristicChange.characteristicSpecifications) {
+					result += changeSpecification.createChangeAssignmentsBySpecification(returnVariable, queryExecutor)
+				}
+				
+			}
+		}
+		
+		result
+	}
+	
+	protected def dispatch createChangeAssignmentsBySpecification(DirectCharacteristic spec, Variable returnVariable, IQueryExecutor queryExecutor) {
+		val changeOperation = spec.characteristicChange.changeOperation
+		val sourceCharacteristic = spec.characteristic
+		returnVariable.createChangeAssignments(changeOperation, queryExecutor, sourceCharacteristic, sourceCharacteristic.characteristicType)
+		
+	}
+	
+	protected def dispatch createChangeAssignmentsBySpecification(CharacteristicSpecification spec, Variable returnVariable, IQueryExecutor queryExecutor) {
+		#[]
+	}
+	
+	
+	protected static def createChangeAssignments(Variable variable, CharacteristicChangeOperation changeOperation, IQueryExecutor queryExecutor, Characteristic sourceCharacteristic, CharacteristicType targetCharacteristicType) {
+		val result = new ArrayList<VariableAssignment>()
+		
+		val sourceAttribute = queryExecutor.getAttribute(sourceCharacteristic.characteristicType)
+		notNull(sourceAttribute)
+		val targetAttribute = queryExecutor.getAttribute(targetCharacteristicType)
+		notNull(targetAttribute)
+		
+		// copy has to take place before
+
+		// replace: set all values related to the characteristic to false
+		if (changeOperation === CharacteristicChangeOperation.REPLACE) {
+			
+			val resetAssignment = createVariableAssignment
+			resetAssignment.variable = variable
+			resetAssignment.attribute = targetAttribute
+			resetAssignment.term = createFalse
+			result += resetAssignment
+		}
+		
+		// always: set values mentioned in the operation
+		val Supplier<LogicTerm> termProvider = if (changeOperation === CharacteristicChangeOperation.REMOVE) [createFalse] else [createTrue]
+		val values = queryExecutor.getValues(sourceCharacteristic)
+		notNull(values)
+		for (value : values) {
+			val changeAssignment = createVariableAssignment
+			changeAssignment.variable = variable
+			changeAssignment.attribute = targetAttribute
+			changeAssignment.value = value
+			changeAssignment.term = termProvider.get
+			result += changeAssignment
+		}
+
+		result
+	}
 	
 	protected static def createAssignments(Variable variable, Iterable<Characteristic> characteristics, extension IQueryExecutor queryExecutor) {
 		val result = new ArrayList<VariableAssignment>()
