@@ -25,6 +25,7 @@ import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.basic.im
 import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.characteristics.IReturnValueAssignmentGenerator;
 import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.characteristics.IReturnValueAssignmentGeneratorRegistry;
 import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.characteristics.impl.DefaultReturnValueAssignmentGenerator;
+import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.characteristics.impl.UserDefinedReturnValueAssignmentsGenerator;
 
 import edu.kit.ipd.sdq.dataflow.systemmodel.OperationCall;
 import edu.kit.ipd.sdq.dataflow.systemmodel.ReturnValueRef;
@@ -55,6 +56,7 @@ public abstract class TransformationTestBase {
 			public Iterable<IReturnValueAssignmentGenerator> getGenerators() {
 				Collection<IReturnValueAssignmentGenerator> generators = new ArrayList<>();
 				generators.add(new DefaultReturnValueAssignmentGenerator());
+				generators.add(new UserDefinedReturnValueAssignmentsGenerator());
 				generators.addAll(getAdditionalGenerators());
 				return generators;
 			}

@@ -3,7 +3,7 @@ package org.palladiosimulator.pcm.dataprocessing.analysis.transformation.charact
 public interface IPrioritizable extends Comparable<IPrioritizable> {
 
 	enum ProducedAssignmentType {
-		DEFAULTS(10), ATTRIBUTES(50), VARIABLES(50), OTHER(100);
+		DEFAULTS(10), DEFAULTS_SPECIFIC(20), ATTRIBUTES(50), VARIABLES(50), OTHER(100);
 
 		private final int priority;
 

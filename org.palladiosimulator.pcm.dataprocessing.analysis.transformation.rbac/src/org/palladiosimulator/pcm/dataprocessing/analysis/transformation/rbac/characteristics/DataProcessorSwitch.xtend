@@ -57,6 +57,7 @@ class DataProcessorSwitch extends ProcessingSwitch<List<VariableAssignment>> {
 
 		for (returnVariable : returnVariables.entrySet) { // should be exactly one
 			val attribute = queryExecutor.getAttribute(relevantCharacteristicType)
+			//TODO try to avoid generating assignments for single values
 			for (value : values) {
 				val assignment = createVariableAssignment
 				assignment.variable = returnVariable.value

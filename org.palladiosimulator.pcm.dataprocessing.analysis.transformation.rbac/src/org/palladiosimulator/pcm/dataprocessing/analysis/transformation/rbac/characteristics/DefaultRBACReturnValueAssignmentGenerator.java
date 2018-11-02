@@ -16,14 +16,14 @@ import edu.kit.ipd.sdq.dataflow.systemmodel.Variable;
 import edu.kit.ipd.sdq.dataflow.systemmodel.VariableAssignment;
 
 @Component
-public class RBACReturnValueAssignmentGenerator implements IReturnValueAssignmentGenerator {
+public class DefaultRBACReturnValueAssignmentGenerator implements IReturnValueAssignmentGenerator {
 
 	private static final String CHARACTERISTIC_NAME_ROLE = "Roles";
 	private static final String CHARACTERISTIC_NAME_RIGHTS = "AccessRights";
 	
 	@Override
 	public ProducedAssignmentType getProducedType() {
-		return ProducedAssignmentType.ATTRIBUTES;
+		return ProducedAssignmentType.DEFAULTS_SPECIFIC;
 	}
 
 	@Override
