@@ -12,7 +12,6 @@ import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.characte
 import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.characteristics.IReturnValueAssignmentGenerator
 import org.palladiosimulator.pcm.dataprocessing.dataprocessing.data.Data
 import org.palladiosimulator.pcm.dataprocessing.dataprocessing.processing.DataOperation
-import org.palladiosimulator.pcm.dataprocessing.dataprocessing.processing.ProcessingEffectOperationTypeSpecifyingOperation
 
 import static extension org.palladiosimulator.pcm.dataprocessing.analysis.transformation.characteristics.impl.AssignmentsGeneratorUtils.*
 
@@ -24,10 +23,6 @@ class UserDefinedReturnValueAssignmentsGenerator implements IReturnValueAssignme
 	}
 	
 	override generateAssignments(IQueryExecutor queryExecutor, Optional<AssemblyContext> ac, DataOperation dataOperation, Map<Data, LogicTerm> availableData, Map<Data, Variable> returnVariables) {
-			dataOperation.generateAssignmentsInternal(queryExecutor, ac, availableData, returnVariables)			
-	}
-	
-	protected def dispatch generateAssignmentsInternal(ProcessingEffectOperationTypeSpecifyingOperation dataOperation, IQueryExecutor queryExecutor, Optional<AssemblyContext> ac, Map<Data, LogicTerm> availableData, Map<Data, Variable> returnVariables) {
 		val result = new ArrayList<VariableAssignment>()
 		
 		for (returnVariableEntry : returnVariables.entrySet) {
@@ -46,10 +41,5 @@ class UserDefinedReturnValueAssignmentsGenerator implements IReturnValueAssignme
 		
 		result
 	}
-	
-	protected def dispatch generateAssignmentsInternal(DataOperation dataOperation, IQueryExecutor queryExecutor, Optional<AssemblyContext> ac, Map<Data, LogicTerm> availableData, Map<Data, Variable> returnVariables) {
-		#[]
-	}
-	
 
 }
