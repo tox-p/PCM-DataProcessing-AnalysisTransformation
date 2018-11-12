@@ -4,7 +4,8 @@ import java.util.HashSet
 import java.util.LinkedList
 import java.util.List
 import org.eclipse.emf.ecore.EObject
-import org.jgrapht.graph.DefaultDirectedGraph
+import org.jgrapht.Graph
+import org.jgrapht.graph.DirectedMultigraph
 import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.dto.DataEdge
 import org.palladiosimulator.pcm.dataprocessing.dataprocessing.processing.DataOperation
 
@@ -16,8 +17,8 @@ class DataOperationGraphFactory {
 		this.dummyOperation = dummyOperation
 	}
 	
-	def createDataOpGraph(Iterable<DataOperation> dataOps) {
- 		val graphBuilder = DefaultDirectedGraph.createBuilder(DataEdge)
+	def Graph<DataOperation, DataEdge> createDataOpGraph(Iterable<DataOperation> dataOps) {
+ 		val graphBuilder = DirectedMultigraph.createBuilder(DataEdge)
  		dataOps.forEach[o | graphBuilder.addVertex(o)]
  		graphBuilder.addVertex(dummyOperation)
  		

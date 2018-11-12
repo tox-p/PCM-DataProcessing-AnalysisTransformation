@@ -5,4 +5,14 @@
       <returnType__OperationSignature xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.2"/>
     </signatures__OperationInterface>
   </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_Rn9sV-adEeiGRJWgj622wA" entityName="Interface2">
+    <signatures__OperationInterface id="_T9CGQOadEeiGRJWgj622wA" entityName="method1">
+      <parameters__OperationSignature parameterName="p1">
+        <dataType__Parameter xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.2"/>
+      </parameters__OperationSignature>
+      <parameters__OperationSignature parameterName="p2">
+        <dataType__Parameter xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.5"/>
+      </parameters__OperationSignature>
+    </signatures__OperationInterface>
+  </interfaces__Repository>
 </repository:Repository>

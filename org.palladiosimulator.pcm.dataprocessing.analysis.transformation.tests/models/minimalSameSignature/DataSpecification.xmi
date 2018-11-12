@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataprocessing:DataSpecification xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:data="http://www.palladiosimulator.org/pcm/dataprocessing/data/0.1/" xmlns:dataprocessing="http://www.palladiosimulator.org/pcm/dataprocessing/0.1/" xmlns:processing="http://www.palladiosimulator.org/pcm/dataprocessing/processing/0.1/" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2">
+  <dataProcessingContainers id="_h7JS0OaQEeiJ5POhgxpySg" entityName="Usage">
+    <operations xsi:type="processing:CreateDataOperation" id="_htIPgOaREeiJ5POhgxpySg" entityName="createData">
+      <resultingData xsi:type="data:OriginalData" id="_urKMMOaREeiJ5POhgxpySg" entityName="d1">
+        <originalType xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.2"/>
+      </resultingData>
+    </operations>
+    <operations xsi:type="processing:PerformDataTransmissionOperation" id="_y0LQA-aREeiJ5POhgxpySg" entityName="callA">
+      <inputMappings id="_zZrw0OaREeiJ5POhgxpySg" from="_urKMMOaREeiJ5POhgxpySg" to="_kJXocOaREeiJ5POhgxpySg"/>
+      <outputMappings id="_8Zar8eaREeiJ5POhgxpySg" from="_l7o3UuaREeiJ5POhgxpySg" to="_3CeccuaREeiJ5POhgxpySg"/>
+      <outputData id="_3CeccuaREeiJ5POhgxpySg" entityName="usage_r1">
+        <operation href="newRepository.repository#_paiugOaOEeiJ5POhgxpySg"/>
+      </outputData>
+    </operations>
+    <operations xsi:type="processing:UserReadData" id="_1wbMduaWEeiJ5POhgxpySg" entityName="discard" consumedData="_3CeccuaREeiJ5POhgxpySg"/>
+  </dataProcessingContainers>
+  <dataProcessingContainers id="_jUQa0OaQEeiJ5POhgxpySg" entityName="A">
+    <operations xsi:type="processing:PerformDataTransmissionOperation" id="_QHgAI-aSEeiJ5POhgxpySg" entityName="callB">
+      <inputMappings id="_SHI8oOaSEeiJ5POhgxpySg" from="_kJXocOaREeiJ5POhgxpySg" to="_kJXocOaREeiJ5POhgxpySg"/>
+      <outputMappings id="_VE7jceaSEeiJ5POhgxpySg" from="_l7o3UuaREeiJ5POhgxpySg" to="_TqF9IuaSEeiJ5POhgxpySg"/>
+      <outputData id="_TqF9IuaSEeiJ5POhgxpySg" entityName="a_r1">
+        <operation href="newRepository.repository#_paiugOaOEeiJ5POhgxpySg"/>
+      </outputData>
+    </operations>
+    <operations xsi:type="processing:ReturnDataOperation" id="_5t4gheaWEeiJ5POhgxpySg" entityName="a_return" consumedData="_TqF9IuaSEeiJ5POhgxpySg" returnDestination="_l7o3UuaREeiJ5POhgxpySg"/>
+  </dataProcessingContainers>
+  <dataProcessingContainers id="_kfjwUOaQEeiJ5POhgxpySg" entityName="B">
+    <operations xsi:type="processing:ReturnDataOperation" id="_amH7JeaSEeiJ5POhgxpySg" entityName="returnData" consumedData="_kJXocOaREeiJ5POhgxpySg" returnDestination="_l7o3UuaREeiJ5POhgxpySg"/>
+  </dataProcessingContainers>
+  <characteristicContainer id="_JLrS8-aREeiJ5POhgxpySg" entityName="Usage"/>
+  <characteristicContainer id="_Rc6wY-aREeiJ5POhgxpySg" entityName="RC1"/>
+  <operationSignatureDataRefinement id="_mkDXpuaQEeiJ5POhgxpySg" entityName="M1">
+    <parameterRefinements id="_kJXocOaREeiJ5POhgxpySg" entityName="signature_p1">
+      <parameter href="newRepository.repository#/0/@interfaces__Repository.0/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
+    </parameterRefinements>
+    <resultRefinements id="_l7o3UuaREeiJ5POhgxpySg" entityName="signature_r1">
+      <operation href="newRepository.repository#_paiugOaOEeiJ5POhgxpySg"/>
+    </resultRefinements>
+  </operationSignatureDataRefinement>
+</dataprocessing:DataSpecification>

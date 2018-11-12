@@ -88,4 +88,25 @@ class DataOperationGraphFactoryTest {
 		
 	}
 	
+	@Test
+	def testSameDataSource() {
+		val rs = new ResourceSetImpl();
+		val dataSpecification = rs.getResource(createRelativeURI("models/graph_sameSource.xmi"), true).getContents().get(0) as DataSpecification
+		EcoreUtil.resolveAll(rs);
+		val container = dataSpecification.dataProcessingContainers.findFirst[true]
+		
+		
+		val actual = subject.createDataOpGraph(container.operations)
+		
+		assertEquals(2, actual.vertexSet.size)
+		assertEquals(2, actual.edgeSet.size)
+		
+		assertEquals(0, actual.incomingEdgesOf(DUMMY_OPERATION).size)
+		assertEquals(2, actual.outgoingEdgesOf(DUMMY_OPERATION).size)
+		
+		assertEquals(2, actual.incomingEdgesOf(container.operations.get(0)).size)
+		assertEquals(0, actual.outgoingEdgesOf(container.operations.get(0)).size)
+				
+	}
+	
 }

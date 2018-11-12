@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataprocessing:DataSpecification
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:dataprocessing="http://www.palladiosimulator.org/pcm/dataprocessing/0.1/"
+    xmlns:processing="http://www.palladiosimulator.org/pcm/dataprocessing/processing/0.1/">
+  <dataProcessingContainers
+      id="_jXUC8OadEeiGRJWgj622wA"
+      entityName="cmpA">
+    <operations
+        xsi:type="processing:PerformDataTransmissionOperation"
+        id="_kUYvM-adEeiGRJWgj622wA">
+      <inputMappings
+          id="_pAc1sOadEeiGRJWgj622wA"
+          from="_dvQOQOadEeiGRJWgj622wA"
+          to="_dvQOQOadEeiGRJWgj622wA"/>
+      <inputMappings
+          id="_pv4ukOadEeiGRJWgj622wA"
+          from="_eTPFEOadEeiGRJWgj622wA"
+          to="_eTPFEOadEeiGRJWgj622wA"/>
+    </operations>
+  </dataProcessingContainers>
+  <operationSignatureDataRefinement
+      id="_VLH8Fso4EeiYWJemf317CQ"
+      entityName="interface2">
+    <parameterRefinements
+        id="_dvQOQOadEeiGRJWgj622wA"
+        entityName="p1">
+      <parameter
+          href="dummy.repository#//@interfaces__Repository.1/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
+    </parameterRefinements>
+    <parameterRefinements
+        id="_eTPFEOadEeiGRJWgj622wA"
+        entityName="p2">
+      <parameter
+          href="dummy.repository#//@interfaces__Repository.1/@signatures__OperationInterface.0/@parameters__OperationSignature.1"/>
+    </parameterRefinements>
+  </operationSignatureDataRefinement>
+</dataprocessing:DataSpecification>

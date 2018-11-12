@@ -13,7 +13,7 @@ import java.util.LinkedHashSet
 import java.util.LinkedList
 import java.util.Map
 import org.eclipse.emf.ecore.EObject
-import org.jgrapht.graph.DefaultDirectedGraph
+import org.jgrapht.Graph
 import org.palladiosimulator.pcm.core.composition.AssemblyContext
 import org.palladiosimulator.pcm.core.composition.ComposedStructure
 import org.palladiosimulator.pcm.core.entity.Entity
@@ -201,7 +201,7 @@ abstract class BehaviorTransformator {
 		}
 	}
 	
-	protected def void validateDataOpGraph(DefaultDirectedGraph<DataOperation, DataEdge> dataOpGraph) {
+	protected def void validateDataOpGraph(Graph<DataOperation, DataEdge> dataOpGraph) {
 		// intentionally left blank
 	}
 	

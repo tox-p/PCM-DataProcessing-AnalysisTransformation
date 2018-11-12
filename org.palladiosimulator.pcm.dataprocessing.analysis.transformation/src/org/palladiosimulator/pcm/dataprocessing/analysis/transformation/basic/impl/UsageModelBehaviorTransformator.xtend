@@ -4,7 +4,7 @@ import de.uka.ipd.sdq.identifier.Identifier
 import edu.kit.ipd.sdq.dataflow.systemmodel.OperationCall
 import java.util.ArrayList
 import org.eclipse.emf.ecore.util.EcoreUtil
-import org.jgrapht.graph.DefaultDirectedGraph
+import org.jgrapht.Graph
 import org.palladiosimulator.pcm.core.composition.AssemblyContext
 import org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector
 import org.palladiosimulator.pcm.core.entity.Entity
@@ -22,7 +22,7 @@ class UsageModelBehaviorTransformator extends BehaviorTransformator {
 		super(transformationFacilities)
 	}
 	
-	override validateDataOpGraph(DefaultDirectedGraph<DataOperation, DataEdge> dataOpGraph) {
+	override validateDataOpGraph(Graph<DataOperation, DataEdge> dataOpGraph) {
 		if (dataOpGraph.outgoingEdgesOf(SEFF_DUMMY_OPERATION).size != 0) {
 			throw new IllegalStateException("A usage model cannot provide any data.")
 		}
