@@ -67,7 +67,7 @@ class PCM2DFSystemModelTransformation implements ITransformator, TransformationF
 		system.datatypes.forEach[dt | dt.attributes += system.attributes] // we might want to optimise this later
 		
 		val idToObject = uniqueNameProvider.cache.inverse
-		val idDump = idToObject.keySet.sort.map[k | '''«k» -> «idToObject.get(k)»'''].join("\n")
+		val idDump = idToObject.keySet.sort.map[k | '''Â«kÂ» -> Â«idToObject.get(k)Â»'''].join("\n")
 		print(idDump)
 		
 		system
@@ -185,7 +185,7 @@ class PCM2DFSystemModelTransformation implements ITransformator, TransformationF
 	}
 	
 	protected def create variable: factory.createVariable getVariable(Data data, VariablePurpose purpose, IdentifierInstance<?, ?> entityInstance) {
-		variable.name = '''«data.entityName»_«purpose»_«Hash.init(entityInstance.uniqueName).add(data.uniqueName).hash»'''
+		variable.name = '''Â«data.entityNameÂ»_Â«purposeÂ»_Â«Hash.init(entityInstance.uniqueName).add(data.uniqueName).hashÂ»'''
 		variable.datatype = data.type.dataType
 	}
 	

@@ -10,15 +10,15 @@ class HumanReadableUniqueNameProvider extends AbstractUniqueNameProvider {
 	
 	override protected generateName(Identifier identifier) {
 		if (identifier instanceof Entity) {
-			return '''«identifier.eClass.name» «identifier.entityName» («identifier.id»)'''
+			return '''Â«identifier.eClass.nameÂ» Â«identifier.entityNameÂ» (Â«identifier.idÂ»)'''
 		}
-		return '''«identifier.eClass.name» («identifier.id»)'''
+		return '''Â«identifier.eClass.nameÂ» (Â«identifier.idÂ»)'''
 	}
 	
 	override protected generateName(IdentifierInstance<?, ?> identifierInstance)
-		'''«identifierInstance.entity.generateName» - AC «identifierInstance.identifier.map[id].orElse("n/a")»'''
+		'''Â«identifierInstance.entity.generateNameÂ» - AC Â«identifierInstance.identifier.map[id].orElse("n/a")Â»'''
 	
 	override protected generateName(PrimitiveDataType dataType)
-		'''«PrimitiveDataType.name» «dataType.type.getName»'''
+		'''Â«PrimitiveDataType.nameÂ» Â«dataType.type.getNameÂ»'''
 	
 }
