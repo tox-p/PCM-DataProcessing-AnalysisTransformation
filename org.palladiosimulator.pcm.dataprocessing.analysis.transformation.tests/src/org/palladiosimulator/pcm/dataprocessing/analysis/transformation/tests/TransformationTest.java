@@ -150,4 +150,44 @@ public class TransformationTest extends TransformationTestBase {
 
 		assertThat(toString(comparison), comparison.getDifferences(), is(empty()));
 	}
+	
+	@Test
+	public void testSecureLinksMinimal() throws Exception {
+		ResourceSet rs = new ResourceSetImpl();
+
+		UsageModel usageModel = (UsageModel) rs
+				.getResource(createRelativeURI("models/secure-links-minimal/default.usagemodel"), true)
+				.getContents()
+				.get(0);
+		
+		org.palladiosimulator.pcm.system.System system = (org.palladiosimulator.pcm.system.System) rs
+				.getResource(createRelativeURI("models/secure-links-minimal/default.system"), true)
+				.getContents()
+				.get(0);
+		
+		Allocation allocationModel = (Allocation) rs
+				.getResource(createRelativeURI("models/secure-links-minimal/default.allocation"), true)
+				.getContents()
+				.get(0);
+		
+		CharacteristicTypeContainer characteristicTypeContainer = (CharacteristicTypeContainer) rs
+				.getResource(createRelativeURI("models/secure-links-minimal/characteristicTypes.xmi"), true)
+				.getContents()
+				.get(0);
+		
+		EcoreUtil.resolveAll(rs);
+
+		edu.kit.ipd.sdq.dataflow.systemmodel.System dataFlowSystemModel = getSubject().transform(
+				usageModel, system, allocationModel, characteristicTypeContainer);
+
+		Diagnostic validationResult = Diagnostician.INSTANCE.validate(dataFlowSystemModel);
+		assertThat(toString(validationResult), validationResult.getSeverity(), is(Diagnostic.OK));
+		
+		Resource expectedResource = rs.getResource(createRelativeURI("models/secure-links-minimal/expected.xmi"), true);
+		
+		IComparisonScope scope = new DefaultComparisonScope(expectedResource.getContents().get(0), dataFlowSystemModel, null);
+		Comparison comparison = EMFCompare.builder().build().compare(scope);
+
+		assertThat(toString(comparison), comparison.getDifferences(), is(empty()));
+	}
 }
