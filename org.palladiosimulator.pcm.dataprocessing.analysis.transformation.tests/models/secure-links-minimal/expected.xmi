@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ASCII"?>
+<systemmodel:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:systemmodel="http://sdq.ipd.kit.edu/dataflow/systemmodel" name="SecureLinksMinimalSystem">
+  <attributes type="//@types.0" name="EnumCharacteristicType Link (_0r9P0P7hEeizQdLqRSCK5g)"/>
+  <attributes type="//@types.1" name="EnumCharacteristicType Sensitivity (_5KwWYP7hEeizQdLqRSCK5g)"/>
+  <datatypes attributes="//@attributes.0 //@attributes.1" name="CompositeDataType Data (_7XQpDf7HEeizQdLqRSCK5g)"/>
+  <operations name="PerformDataTransmissionOperation callArtifactTwo (__mLrA_-MEeiCvJvtMoMgzQ) - AC _DsDPEP7bEeizQdLqRSCK5g">
+    <calls callee="//@operations.4" name="opCall_92153d35">
+      <preCallStateDefinitions variable="//@operations.4/@stateVariables.0">
+        <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.3/@stateVariables.0"/>
+      </preCallStateDefinitions>
+    </calls>
+    <returnValues datatype="//@datatypes.0" name="returnValueArtifactOne_RETURN_18893c40"/>
+    <returnValueAssignments variable="//@operations.0/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.4/@returnValues.0" call="//@operations.0/@calls.0"/>
+    </returnValueAssignments>
+  </operations>
+  <operations name="ReturnDataOperation returnFromArtifactOne (_QDbEFf-OEeiCvJvtMoMgzQ) - AC _DsDPEP7bEeizQdLqRSCK5g">
+    <calls callee="//@operations.0" name="opCall_1dd4610"/>
+    <returnValues datatype="//@datatypes.0" name="returnValueArtifactOne_RETURN_22c5391b"/>
+    <returnValueAssignments variable="//@operations.1/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.0/@returnValues.0" call="//@operations.1/@calls.0"/>
+    </returnValueAssignments>
+  </operations>
+  <operations name="ReturnDataOperation returnFromArtifactTwo (_9T0xZf-NEeiCvJvtMoMgzQ) - AC _LDNNYP7cEeizQdLqRSCK5g">
+    <returnValues datatype="//@datatypes.0" name="CallSignatureParameter_RETURN_d9593a5a"/>
+    <returnValueAssignments variable="//@operations.2/@returnValues.0">
+      <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.4/@stateVariables.0"/>
+    </returnValueAssignments>
+  </operations>
+  <operations name="ResourceDemandingSEFF (_snXhh_-VEeiCvJvtMoMgzQ) - AC _DsDPEP7bEeizQdLqRSCK5g">
+    <calls callee="//@operations.1" name="opCall_4e5f3b16"/>
+    <returnValues datatype="//@datatypes.0" name="CallSignatureReturn_RETURN_e5fb3025"/>
+    <returnValueAssignments variable="//@operations.3/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.1/@returnValues.0" call="//@operations.3/@calls.0"/>
+    </returnValueAssignments>
+    <stateVariables datatype="//@datatypes.0" name="CallSignatureParameter_STATE_12e0326b"/>
+  </operations>
+  <operations name="ResourceDemandingSEFF (_PdH5J_7KEeizQdLqRSCK5g) - AC _LDNNYP7cEeizQdLqRSCK5g">
+    <calls callee="//@operations.2" name="opCall_c7ad3a2a"/>
+    <returnValues datatype="//@datatypes.0" name="CallSignatureReturn_RETURN_7d072f1f"/>
+    <returnValueAssignments variable="//@operations.4/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.2/@returnValues.0" call="//@operations.4/@calls.0"/>
+    </returnValueAssignments>
+    <stateVariables datatype="//@datatypes.0" name="CallSignatureParameter_STATE_a3b93165"/>
+  </operations>
+  <operations name="ScenarioBehaviour defaultUsageScenarioBehaviour (_H3szUP7fEeizQdLqRSCK5g)_dataOp"/>
+  <properties type="//@types.0" name="EnumCharacteristicType Link (_0r9P0P7hEeizQdLqRSCK5g)"/>
+  <properties type="//@types.1" name="EnumCharacteristicType Sensitivity (_5KwWYP7hEeizQdLqRSCK5g)"/>
+  <types name="Enumeration Links (_oZtbEf7hEeizQdLqRSCK5g)">
+    <values name="EnumCharacteristicLiteral Internet (_roPzoP7hEeizQdLqRSCK5g)"/>
+    <values name="EnumCharacteristicLiteral LAN (_sJEowP7hEeizQdLqRSCK5g)"/>
+    <values name="EnumCharacteristicLiteral Wire (_sgUrIP7hEeizQdLqRSCK5g)"/>
+    <values name="EnumCharacteristicLiteral Encrypted (_sywe8P7hEeizQdLqRSCK5g)"/>
+  </types>
+  <types name="Enumeration Sensitivities (_wK8iwf7hEeizQdLqRSCK5g)">
+    <values name="EnumCharacteristicLiteral Secrecy (_ycUIcP7hEeizQdLqRSCK5g)"/>
+    <values name="EnumCharacteristicLiteral Integrity (_yxegIP7hEeizQdLqRSCK5g)"/>
+  </types>
+  <systemusages name="ScenarioBehaviour defaultUsageScenarioBehaviour (_H3szUP7fEeizQdLqRSCK5g)">
+    <calls callee="//@operations.5" name="opCall_531738a1"/>
+  </systemusages>
+</systemmodel:System>

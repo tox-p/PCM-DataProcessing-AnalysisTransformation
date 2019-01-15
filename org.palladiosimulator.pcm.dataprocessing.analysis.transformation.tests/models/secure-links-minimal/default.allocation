@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ASCII"?>
+<allocation:Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:allocation="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2" id="_aLuZwP7eEeizQdLqRSCK5g" entityName="SecureLinksMinimalAllocation">
+  <targetResourceEnvironment_Allocation href="default.resourceenvironment#/"/>
+  <system_Allocation href="default.system#_4GgvUP7aEeizQdLqRSCK5g"/>
+  <allocationContexts_Allocation id="_xLdr8P7eEeizQdLqRSCK5g" entityName="Allocation_ArtifactOne &lt;ArtifactOne> &lt;ArtifactOne>">
+    <resourceContainer_AllocationContext href="default.resourceenvironment#_Do4e8f7eEeizQdLqRSCK5g"/>
+    <assemblyContext_AllocationContext href="default.system#_DsDPEP7bEeizQdLqRSCK5g"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_3Wr4EP7eEeizQdLqRSCK5g" entityName="Allocation_ArtifactTwo &lt;ArtifactTwo> &lt;ArtifactTwo>">
+    <resourceContainer_AllocationContext href="default.resourceenvironment#_H15R8f7eEeizQdLqRSCK5g"/>
+    <assemblyContext_AllocationContext href="default.system#_LDNNYP7cEeizQdLqRSCK5g"/>
+  </allocationContexts_Allocation>
+</allocation:Allocation>
