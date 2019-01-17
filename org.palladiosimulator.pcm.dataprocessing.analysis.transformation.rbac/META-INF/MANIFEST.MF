@@ -10,7 +10,8 @@ Require-Bundle: org.palladiosimulator.pcm.dataprocessing.analysis.transformation
  com.google.guava,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtend.lib,
- org.eclipse.xtend.lib.macro
+ org.eclipse.xtend.lib.macro,
+ org.eclipse.osgi.services;bundle-version="3.7.0"
 Bundle-ActivationPolicy: lazy
 Service-Component: OSGI-INF/org.palladiosimulator.pcm.dataprocessing.analysis.transformation.rbac.characteristics.DefaultRBACReturnValueAssignmentGenerator.xml
 
