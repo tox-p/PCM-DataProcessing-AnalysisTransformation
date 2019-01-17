@@ -168,8 +168,7 @@ abstract class BehaviorTransformator {
 	
 	protected abstract def Iterable<Variable> createReturnVariables(IdentifierInstance<? extends Identifier, AssemblyContext> behaviorIdentifier)
 	protected abstract def Iterable<Variable> createStateVariables(IdentifierInstance<? extends Identifier, AssemblyContext> behaviorIdentifier)
-	protected abstract def SEFFInstance determineCalledSEFF(Iterable<Entity> callAction, IdentifierInstance<? extends Entity, AssemblyContext> callerInstance)
-	
+
 	protected def createDataOpGraph(Iterable<DataOperation> dataOps) {
  		val factory = new DataOperationGraphFactory(SEFF_DUMMY_OPERATION)
  		return factory.createDataOpGraph(dataOps)

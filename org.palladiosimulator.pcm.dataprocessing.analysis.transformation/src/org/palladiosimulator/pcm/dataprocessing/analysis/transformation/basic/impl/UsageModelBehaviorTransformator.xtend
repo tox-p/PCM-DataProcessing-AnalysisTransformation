@@ -75,7 +75,7 @@ class UsageModelBehaviorTransformator extends BehaviorTransformator {
 		}
 	}
 	
-	override protected determineCalledSEFF(Iterable<Entity> callAction, IdentifierInstance<? extends Entity, AssemblyContext> callerInstance) {
+	private def determineCalledSEFF(Iterable<Entity> callAction, IdentifierInstance<? extends Entity, AssemblyContext> callerInstance) {
 		val elsc = callAction.filter(EntryLevelSystemCall).findFirst[true]
 		val calledSignature = elsc.operationSignature__EntryLevelSystemCall
 		

@@ -130,7 +130,7 @@ class SEFFBehaviorTransformator extends BehaviorTransformator {
 		}
 	}
 	
-	override protected determineCalledSEFF(Iterable<Entity> callAction, IdentifierInstance<? extends Entity, AssemblyContext> callerInstance) {
+	private def determineCalledSEFF(Iterable<Entity> callAction, IdentifierInstance<? extends Entity, AssemblyContext> callerInstance) {
 		val eca = callAction.filter(ExternalCallAction).findFirst[true]
 		
 		val calledOperationSignature = eca.calledService_ExternalService
