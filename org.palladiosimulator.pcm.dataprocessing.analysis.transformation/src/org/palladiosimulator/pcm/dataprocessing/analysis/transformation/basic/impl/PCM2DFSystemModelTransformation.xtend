@@ -35,6 +35,7 @@ import org.palladiosimulator.pcm.dataprocessing.dataprocessing.processing.DataOp
 import org.palladiosimulator.pcm.dataprocessing.dataprocessing.processing.ReturnDataOperation
 import org.palladiosimulator.pcm.dataprocessing.profile.api.ProfileConstants
 import org.palladiosimulator.pcm.repository.DataType
+import org.palladiosimulator.pcm.resourceenvironment.LinkingResource
 import org.palladiosimulator.pcm.system.System
 import org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour
 import org.palladiosimulator.pcm.usagemodel.UsageModel
@@ -214,6 +215,10 @@ class PCM2DFSystemModelTransformation implements ITransformator, TransformationF
 	protected def copyCharacteristicsTo(AssemblyContext ac, Operation op) {
 		val resourceContainer = ac.resourceContainer
 		resourceContainer.copyCharacteristicsTo(op)
+	}
+	
+	override copyCharacteristicsTo(LinkingResource lr, Operation op) {
+		(lr as EObject).copyCharacteristicsTo(op)
 	}
 	
 	protected def copyCharacteristicsTo(EObject characteristicHolder, Operation op) {

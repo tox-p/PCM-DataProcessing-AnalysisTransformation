@@ -33,7 +33,6 @@ import org.palladiosimulator.pcm.seff.StartAction
 import org.palladiosimulator.pcm.system.System
 
 import static org.palladiosimulator.mdsdprofiles.api.StereotypeAPI.*
-import static org.palladiosimulator.pcm.dataprocessing.analysis.transformation.util.EMFUtils.*
 
 import static extension org.palladiosimulator.pcm.dataprocessing.analysis.transformation.dto.IdentifierInstance.createInstance
 import static extension org.palladiosimulator.pcm.dataprocessing.analysis.transformation.dto.SEFFInstance.createInstance
@@ -141,65 +140,27 @@ abstract class BehaviorTransformator {
 	
 	protected abstract def Iterable<VariableAssignment> createReturnValueAssignmentsForConsumerOperations(DataOperation consumerDataOp, AssemblyContext selfAssemblyContext, IdentifierInstance<? extends Identifier, AssemblyContext> selfInstance, OperationCall consumerOpCall)
 	
-	protected def handleTransferOperation(PerformDataTransmissionOperation callerDataOperation, Operation caller, IdentifierInstance<DataOperation, AssemblyContext> callerInstance, Map<Data, LogicTerm> resultRefCache) {
-		/*
-		 * Data transmissions have to be treated special because they decouple data
-		 * operations by indirect data flows:
-		 * - data transmissions map input data and output data
-		 * - input data from:  data contained in the current SEFF/UsageModel
-		 * - input data to:    data defined in the operation signature refinement
-		 * - output data from: data defined in the operation signature refinement
-		 * - output data to:   data contained in the data transmission operation
-		 * 
-		 * Data operations in the current SEFF/UsageModel always only refer to data
-		 * defined/contained in the current SEFF/UsageModel. This case is already
-		 * handled by the general code above.
-		 * 
-		 * The special handling is about copying the characteristics between the
-		 * called SEFF and the calling SEFF/UsageModel. We have to
-		 * - create state variables for "input.to" in target SEFF operation
-		 * - copy characteristics from "input.from" to "input.to" in the call
-		 * - create return variables for "output.from" in target SEFF operation
-		 * - copy characteristics from "output.from" to "output.to" in the return value assignments
-		 */
-		
-		val actionCandidates = getStereotypedElements(ProfileConstants.STEREOTYPE_NAME_DATA_PROCESSING, callerDataOperation.container, Entity)
-		val targetSEFF = determineCalledSEFF(actionCandidates, callerInstance)
-		
-		val targetDataOperation = targetSEFF.SEFFOperation
-		val call = caller.getOperationCall(targetDataOperation)
-		caller.calls += call
-
-		for (inputMapping : callerDataOperation.inputMappings) {
-			val targetParameterData = inputMapping.to
-			val targetStateVariable = targetParameterData.getStateVariable(targetSEFF)
-			targetDataOperation.stateVariables += targetStateVariable //TODO put in SEFF construction
-			val sourceData = inputMapping.from
-			
-			// copy assignments from sourceReturnVariable to targetStateVariable
-			val assignment = factory.createVariableAssignment
-			assignment.term = resultRefCache.get(sourceData)
-			assignment.variable = targetStateVariable
-			call.preCallStateDefinitions += assignment					
-		}
-		
-		for (outputMapping : callerDataOperation.outputMappings) {
-			val calledReturnVariable = outputMapping.from.getReturnVariable(targetSEFF)
-	
-			val selfReturnVariable = outputMapping.to.getReturnVariable(callerInstance)
-			caller.returnValues += selfReturnVariable
-	
-			val resultRef = factory.createReturnValueRef
-			resultRef.call = call
-			resultRef.returnValue = calledReturnVariable
-	
-			val assignment = factory.createVariableAssignment
-			assignment.term = resultRef
-			assignment.variable = selfReturnVariable
-	
-			callerInstance.operation.returnValueAssignments += assignment
-		}
-	}
+	/*
+	 * Data transmissions have to be treated special because they decouple data
+	 * operations by indirect data flows:
+	 * - data transmissions map input data and output data
+	 * - input data from:  data contained in the current SEFF/UsageModel
+	 * - input data to:    data defined in the operation signature refinement
+	 * - output data from: data defined in the operation signature refinement
+	 * - output data to:   data contained in the data transmission operation
+	 * 
+	 * Data operations in the current SEFF/UsageModel always only refer to data
+	 * defined/contained in the current SEFF/UsageModel. This case is already
+	 * handled by the general code above.
+	 * 
+	 * The special handling is about copying the characteristics between the
+	 * called SEFF and the calling SEFF/UsageModel. We have to
+	 * - create state variables for "input.to" in target SEFF operation
+	 * - copy characteristics from "input.from" to "input.to" in the call
+	 * - create return variables for "output.from" in target SEFF operation
+	 * - copy characteristics from "output.from" to "output.to" in the return value assignments
+	 */
+	protected abstract def void handleTransferOperation(PerformDataTransmissionOperation callerDataOperation, Operation caller, IdentifierInstance<DataOperation, AssemblyContext> callerInstance, Map<Data, LogicTerm> resultRefCache)
 	
 	protected def void validateDataOpGraph(Graph<DataOperation, DataEdge> dataOpGraph) {
 		// intentionally left blank

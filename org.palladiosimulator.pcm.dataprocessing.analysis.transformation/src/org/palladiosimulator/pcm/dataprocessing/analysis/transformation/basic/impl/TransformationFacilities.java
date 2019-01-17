@@ -9,6 +9,7 @@ import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.dto.Iden
 import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.dto.SEFFInstance;
 import org.palladiosimulator.pcm.dataprocessing.dataprocessing.data.Data;
 import org.palladiosimulator.pcm.dataprocessing.dataprocessing.processing.DataOperation;
+import org.palladiosimulator.pcm.resourceenvironment.LinkingResource;
 import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
 
 import edu.kit.ipd.sdq.dataflow.systemmodel.Caller;
@@ -38,4 +39,6 @@ public interface TransformationFacilities {
 			Map<Data, LogicTerm> availableData);
 
 	ResourceContainer getResourceContainer(AssemblyContext ac);
+	
+	void copyCharacteristicsTo(LinkingResource lr, Operation op);
 }
