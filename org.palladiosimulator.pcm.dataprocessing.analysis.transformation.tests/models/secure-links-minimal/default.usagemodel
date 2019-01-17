@@ -3,9 +3,9 @@
   <usagemodel:UsageModel>
     <usageScenario_UsageModel id="_ESV2MP7fEeizQdLqRSCK5g" entityName="defaultUsageScenario">
       <scenarioBehaviour_UsageScenario id="_H3szUP7fEeizQdLqRSCK5g" entityName="defaultUsageScenarioBehaviour">
-        <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_1AeZNP7fEeizQdLqRSCK5g" entityName="start"/>
-        <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_2PVZA_7fEeizQdLqRSCK5g" entityName="stop"/>
-        <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_5C2CcP7fEeizQdLqRSCK5g" entityName="UsageCall">
+        <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_1AeZNP7fEeizQdLqRSCK5g" entityName="start" successor="_5C2CcP7fEeizQdLqRSCK5g"/>
+        <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_2PVZA_7fEeizQdLqRSCK5g" entityName="stop" predecessor="_5C2CcP7fEeizQdLqRSCK5g"/>
+        <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_5C2CcP7fEeizQdLqRSCK5g" entityName="UsageCall" successor="_2PVZA_7fEeizQdLqRSCK5g" predecessor="_1AeZNP7fEeizQdLqRSCK5g">
           <providedRole_EntryLevelSystemCall href="default.system#_YI2Yj_7dEeizQdLqRSCK5g"/>
           <operationSignature__EntryLevelSystemCall href="default.repository#_oQ7RUP7HEeizQdLqRSCK5g"/>
         </actions_ScenarioBehaviour>
