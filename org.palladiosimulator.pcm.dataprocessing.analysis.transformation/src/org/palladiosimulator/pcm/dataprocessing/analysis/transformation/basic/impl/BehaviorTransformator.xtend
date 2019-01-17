@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject
 import org.jgrapht.Graph
 import org.palladiosimulator.pcm.core.composition.AssemblyContext
 import org.palladiosimulator.pcm.core.composition.ComposedStructure
-import org.palladiosimulator.pcm.core.entity.Entity
 import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.dto.DataEdge
 import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.dto.IdentifierInstance
 import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.dto.SEFFInstance
