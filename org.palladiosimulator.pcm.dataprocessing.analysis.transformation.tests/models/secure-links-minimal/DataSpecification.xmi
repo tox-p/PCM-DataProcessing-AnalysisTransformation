@@ -1,52 +1,138 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataprocessing:DataSpecification xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:characteristics="http://www.palladiosimulator.org/pcm/dataprocessing/characteristics/0.1/" xmlns:data="http://www.palladiosimulator.org/pcm/dataprocessing/data/0.1/" xmlns:dataprocessing="http://www.palladiosimulator.org/pcm/dataprocessing/0.1/" xmlns:processing="http://www.palladiosimulator.org/pcm/dataprocessing/processing/0.1/" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2">
-  <dataProcessingContainers id="_ZDNVsP7iEeizQdLqRSCK5g" entityName="Usage_Call">
-    <operations xsi:type="processing:CreateDataOperation" id="_LncB8P-DEeiVwuyqdxF24g" entityName="createData">
-      <resultingData xsi:type="data:OriginalData" id="_Od7G4P-DEeiVwuyqdxF24g" entityName="initialData">
-        <originalType xsi:type="repository:CompositeDataType" href="default.repository#_7XQpDf7HEeizQdLqRSCK5g"/>
+<dataprocessing:DataSpecification
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:characteristics="http://www.palladiosimulator.org/pcm/dataprocessing/characteristics/0.1/"
+    xmlns:data="http://www.palladiosimulator.org/pcm/dataprocessing/data/0.1/"
+    xmlns:dataprocessing="http://www.palladiosimulator.org/pcm/dataprocessing/0.1/"
+    xmlns:processing="http://www.palladiosimulator.org/pcm/dataprocessing/processing/0.1/"
+    xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2">
+  <dataProcessingContainers
+      id="_ZDNVsP7iEeizQdLqRSCK5g"
+      entityName="Usage_Call">
+    <operations
+        xsi:type="processing:CreateDataOperation"
+        id="_LncB8P-DEeiVwuyqdxF24g"
+        entityName="createData">
+      <resultingData
+          xsi:type="data:OriginalData"
+          id="_Od7G4P-DEeiVwuyqdxF24g"
+          entityName="initialData">
+        <originalType
+            xsi:type="repository:CompositeDataType"
+            href="default.repository#_7XQpDf7HEeizQdLqRSCK5g"/>
       </resultingData>
-      <initialCharacteristics xsi:type="characteristics:EnumCharacteristic" id="_3mNcZ_-PEeiCvJvtMoMgzQ">
-        <characteristicType xsi:type="characteristics:EnumCharacteristicType" href="characteristicTypes.xmi#_5KwWYP7hEeizQdLqRSCK5g"/>
-        <literals href="characteristicTypes.xmi#_ycUIcP7hEeizQdLqRSCK5g"/>
+      <initialCharacteristics
+          xsi:type="characteristics:EnumCharacteristic"
+          id="_3mNcZ_-PEeiCvJvtMoMgzQ">
+        <characteristicType
+            xsi:type="characteristics:EnumCharacteristicType"
+            href="characteristicTypes.xmi#_5KwWYP7hEeizQdLqRSCK5g"/>
+        <literals
+            href="characteristicTypes.xmi#_yxegIP7hEeizQdLqRSCK5g"/>
       </initialCharacteristics>
     </operations>
-    <operations xsi:type="processing:PerformDataTransmissionOperation" id="_w4z3o_-MEeiCvJvtMoMgzQ" entityName="callArtifactOne">
-      <inputMappings id="_OhXQ4P-NEeiCvJvtMoMgzQ" from="_Od7G4P-DEeiVwuyqdxF24g" to="_cpVtoP-MEeiCvJvtMoMgzQ"/>
-      <outputMappings id="_mcdiof-OEeiCvJvtMoMgzQ" from="_tuFoEv-MEeiCvJvtMoMgzQ" to="_oWg0gv-OEeiCvJvtMoMgzQ"/>
-      <outputData id="_oWg0gv-OEeiCvJvtMoMgzQ" entityName="returnValueUsage">
-        <operation href="default.repository#_oQ7RUP7HEeizQdLqRSCK5g"/>
+    <operations
+        xsi:type="processing:PerformDataTransmissionOperation"
+        id="_w4z3o_-MEeiCvJvtMoMgzQ"
+        entityName="callArtifactOne">
+      <inputMappings
+          id="_OhXQ4P-NEeiCvJvtMoMgzQ"
+          from="_Od7G4P-DEeiVwuyqdxF24g"
+          to="_cpVtoP-MEeiCvJvtMoMgzQ"/>
+      <outputMappings
+          id="_mcdiof-OEeiCvJvtMoMgzQ"
+          from="_tuFoEv-MEeiCvJvtMoMgzQ"
+          to="_oWg0gv-OEeiCvJvtMoMgzQ"/>
+      <outputData
+          id="_oWg0gv-OEeiCvJvtMoMgzQ"
+          entityName="returnValueUsage">
+        <operation
+            href="default.repository#_oQ7RUP7HEeizQdLqRSCK5g"/>
       </outputData>
     </operations>
-    <operations xsi:type="processing:UserReadData" id="_VMnEFv-REeiCvJvtMoMgzQ" entityName="dicard" consumedData="_oWg0gv-OEeiCvJvtMoMgzQ"/>
+    <operations
+        xsi:type="processing:UserReadData"
+        id="_VMnEFv-REeiCvJvtMoMgzQ"
+        entityName="dicard"
+        consumedData="_oWg0gv-OEeiCvJvtMoMgzQ"/>
   </dataProcessingContainers>
-  <dataProcessingContainers id="_7iU0AP-MEeiCvJvtMoMgzQ" entityName="ArtifactOne_Call">
-    <operations xsi:type="processing:PerformDataTransmissionOperation" id="__mLrA_-MEeiCvJvtMoMgzQ" entityName="callArtifactTwo">
-      <inputMappings id="_g4agsP-NEeiCvJvtMoMgzQ" from="_cpVtoP-MEeiCvJvtMoMgzQ" to="_cpVtoP-MEeiCvJvtMoMgzQ"/>
-      <outputMappings id="_NFUUMf-OEeiCvJvtMoMgzQ" from="_tuFoEv-MEeiCvJvtMoMgzQ" to="_ZmbEUv-OEeiCvJvtMoMgzQ"/>
-      <outputData id="_ZmbEUv-OEeiCvJvtMoMgzQ" entityName="returnValueArtifactOne">
-        <operation href="default.repository#_oQ7RUP7HEeizQdLqRSCK5g"/>
+  <dataProcessingContainers
+      id="_7iU0AP-MEeiCvJvtMoMgzQ"
+      entityName="ArtifactOne_Call">
+    <operations
+        xsi:type="processing:PerformDataTransmissionOperation"
+        id="__mLrA_-MEeiCvJvtMoMgzQ"
+        entityName="callArtifactTwo">
+      <inputMappings
+          id="_g4agsP-NEeiCvJvtMoMgzQ"
+          from="_cpVtoP-MEeiCvJvtMoMgzQ"
+          to="_cpVtoP-MEeiCvJvtMoMgzQ"/>
+      <outputMappings
+          id="_NFUUMf-OEeiCvJvtMoMgzQ"
+          from="_tuFoEv-MEeiCvJvtMoMgzQ"
+          to="_ZmbEUv-OEeiCvJvtMoMgzQ"/>
+      <outputData
+          id="_ZmbEUv-OEeiCvJvtMoMgzQ"
+          entityName="returnValueArtifactOne">
+        <operation
+            href="default.repository#_oQ7RUP7HEeizQdLqRSCK5g"/>
       </outputData>
     </operations>
-    <operations xsi:type="processing:ReturnDataOperation" id="_QDbEFf-OEeiCvJvtMoMgzQ" entityName="returnFromArtifactOne" consumedData="_ZmbEUv-OEeiCvJvtMoMgzQ" returnDestination="_tuFoEv-MEeiCvJvtMoMgzQ"/>
+    <operations
+        xsi:type="processing:ReturnDataOperation"
+        id="_QDbEFf-OEeiCvJvtMoMgzQ"
+        entityName="returnFromArtifactOne"
+        consumedData="_ZmbEUv-OEeiCvJvtMoMgzQ"
+        returnDestination="_tuFoEv-MEeiCvJvtMoMgzQ"/>
   </dataProcessingContainers>
-  <dataProcessingContainers id="_DROZYP-NEeiCvJvtMoMgzQ" entityName="ArtifactTwo_Call">
-    <operations xsi:type="processing:ReturnDataOperation" id="_9T0xZf-NEeiCvJvtMoMgzQ" entityName="returnFromArtifactTwo" consumedData="_cpVtoP-MEeiCvJvtMoMgzQ" returnDestination="_tuFoEv-MEeiCvJvtMoMgzQ"/>
+  <dataProcessingContainers
+      id="_DROZYP-NEeiCvJvtMoMgzQ"
+      entityName="ArtifactTwo_Call">
+    <operations
+        xsi:type="processing:ReturnDataOperation"
+        id="_9T0xZf-NEeiCvJvtMoMgzQ"
+        entityName="returnFromArtifactTwo"
+        consumedData="_cpVtoP-MEeiCvJvtMoMgzQ"
+        returnDestination="_tuFoEv-MEeiCvJvtMoMgzQ"/>
   </dataProcessingContainers>
-  <characteristicContainer id="_h2XEw_-PEeiCvJvtMoMgzQ" entityName="Client"/>
-  <characteristicContainer id="_ipKas_-PEeiCvJvtMoMgzQ" entityName="Server"/>
-  <characteristicContainer id="_jGkIYv-PEeiCvJvtMoMgzQ" entityName="Client &lt;-> Server Link">
-    <ownedCharacteristics xsi:type="characteristics:EnumCharacteristic" id="_na-j4P-PEeiCvJvtMoMgzQ">
-      <characteristicType xsi:type="characteristics:EnumCharacteristicType" href="characteristicTypes.xmi#_0r9P0P7hEeizQdLqRSCK5g"/>
-      <literals href="characteristicTypes.xmi#_roPzoP7hEeizQdLqRSCK5g"/>
+  <characteristicContainer
+      id="_h2XEw_-PEeiCvJvtMoMgzQ"
+      entityName="Client"/>
+  <characteristicContainer
+      id="_ipKas_-PEeiCvJvtMoMgzQ"
+      entityName="Server"/>
+  <characteristicContainer
+      id="_jGkIYv-PEeiCvJvtMoMgzQ"
+      entityName="Client &lt;-> Server Link">
+    <ownedCharacteristics
+        xsi:type="characteristics:EnumCharacteristic"
+        id="_na-j4P-PEeiCvJvtMoMgzQ">
+      <characteristicType
+          xsi:type="characteristics:EnumCharacteristicType"
+          href="characteristicTypes.xmi#_0r9P0P7hEeizQdLqRSCK5g"/>
+      <literals
+          href="characteristicTypes.xmi#_sywe8P7hEeizQdLqRSCK5g"/>
     </ownedCharacteristics>
   </characteristicContainer>
-  <characteristicContainer id="_2IRL0P-cEeiP-NwKQBj_Gw" entityName="Usage"/>
-  <operationSignatureDataRefinement id="_ao9KRv-MEeiCvJvtMoMgzQ" entityName="Call">
-    <parameterRefinements id="_cpVtoP-MEeiCvJvtMoMgzQ" entityName="CallSignatureParameter">
-      <parameter href="default.repository#/0/@interfaces__Repository.0/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
+  <characteristicContainer
+      id="_2IRL0P-cEeiP-NwKQBj_Gw"
+      entityName="Usage"/>
+  <operationSignatureDataRefinement
+      id="_ao9KRv-MEeiCvJvtMoMgzQ"
+      entityName="Call">
+    <parameterRefinements
+        id="_cpVtoP-MEeiCvJvtMoMgzQ"
+        entityName="CallSignatureParameter">
+      <parameter
+          href="default.repository#/0/@interfaces__Repository.0/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
     </parameterRefinements>
-    <resultRefinements id="_tuFoEv-MEeiCvJvtMoMgzQ" entityName="CallSignatureReturn">
-      <operation href="default.repository#_oQ7RUP7HEeizQdLqRSCK5g"/>
+    <resultRefinements
+        id="_tuFoEv-MEeiCvJvtMoMgzQ"
+        entityName="CallSignatureReturn">
+      <operation
+          href="default.repository#_oQ7RUP7HEeizQdLqRSCK5g"/>
     </resultRefinements>
   </operationSignatureDataRefinement>
 </dataprocessing:DataSpecification>

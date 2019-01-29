@@ -34,7 +34,7 @@
       </preCallStateDefinitions>
     </calls>
     <returnValues datatype="//@datatypes.0" name="DataTransmissionProxy_RETURN_CommunicationPath Client &lt;-> Server__NFUUMf-OEeiCvJvtMoMgzQ"/>
-    <propertyDefinitions property="//@properties.0" presentValues="//@types.0/@values.0"/>
+    <propertyDefinitions property="//@properties.0" presentValues="//@types.0/@values.3"/>
     <returnValueAssignments variable="//@operations.3/@returnValues.0">
       <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.5/@returnValues.0" call="//@operations.3/@calls.0"/>
     </returnValueAssignments>
@@ -61,7 +61,7 @@
     <returnValueAssignments variable="//@operations.6/@returnValues.0">
       <term xsi:type="systemmodel:False"/>
     </returnValueAssignments>
-    <returnValueAssignments variable="//@operations.6/@returnValues.0" attribute="//@attributes.1" value="//@types.1/@values.0">
+    <returnValueAssignments variable="//@operations.6/@returnValues.0" attribute="//@attributes.1" value="//@types.1/@values.1">
       <term xsi:type="systemmodel:True"/>
     </returnValueAssignments>
   </operations>
