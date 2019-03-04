@@ -8,13 +8,25 @@
         <throughput_CommunicationLinkResourceSpecification specification="1"/>
       </communicationLinkResourceSpecifications_LinkingResource>
     </linkingResources__ResourceEnvironment>
+    <linkingResources__ResourceEnvironment id="_qOX5ED3LEemy7-rRVYUUTw" entityName="LR_N2_N3" connectedResourceContainers_LinkingResource="_H15R8f7eEeizQdLqRSCK5g _jqqUcT3LEemy7-rRVYUUTw">
+      <communicationLinkResourceSpecifications_LinkingResource id="_sx0GMD3LEemy7-rRVYUUTw">
+        <communicationLinkResourceType_CommunicationLinkResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+        <latency_CommunicationLinkResourceSpecification specification="1"/>
+        <throughput_CommunicationLinkResourceSpecification specification="1"/>
+      </communicationLinkResourceSpecifications_LinkingResource>
+    </linkingResources__ResourceEnvironment>
     <resourceContainer_ResourceEnvironment id="_Do4e8f7eEeizQdLqRSCK5g" entityName="N1"/>
     <resourceContainer_ResourceEnvironment id="_H15R8f7eEeizQdLqRSCK5g" entityName="N2"/>
+    <resourceContainer_ResourceEnvironment id="_jqqUcT3LEemy7-rRVYUUTw" entityName="N3"/>
   </resourceenvironment:ResourceEnvironment>
   <emfprofileapplication:ProfileApplication>
     <stereotypeApplications xsi:type="dataProcessingProfile:Characterizable" appliedTo="_OQ4YYP7eEeizQdLqRSCK5g">
       <extension href="../../../../plugin/org.palladiosimulator.pcm.dataprocessing.profile/profile.emfprofile_diagram#_Imn6oFqjEeiW1d-qz7Oqsw"/>
       <characteristicContainer href="DataSpecification.xmi#_jGkIYv-PEeiCvJvtMoMgzQ"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="dataProcessingProfile:Characterizable" appliedTo="_qOX5ED3LEemy7-rRVYUUTw">
+      <extension href="../../../../plugin/org.palladiosimulator.pcm.dataprocessing.profile/profile.emfprofile_diagram#_Imn6oFqjEeiW1d-qz7Oqsw"/>
+      <characteristicContainer href="DataSpecification.xmi#_xj_bwz3LEemy7-rRVYUUTw"/>
     </stereotypeApplications>
     <importedProfiles nsURI="http://www.palladiosimulator.org/pcm/dataprocessing/profile/0.1/" location="platform:/plugin/org.palladiosimulator.pcm.dataprocessing.profile/profile.emfprofile_diagram"/>
   </emfprofileapplication:ProfileApplication>

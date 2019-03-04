@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="ASCII"?>
+<systemmodel:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:systemmodel="http://sdq.ipd.kit.edu/dataflow/systemmodel" name="Secure Links">
+  <attributes type="//@types.0" name="EnumCharacteristicType Link (_0r9P0P7hEeizQdLqRSCK5g)"/>
+  <attributes type="//@types.1" name="EnumCharacteristicType Sensitivity (_5KwWYP7hEeizQdLqRSCK5g)"/>
+  <datatypes attributes="//@attributes.0 //@attributes.1" name="CompositeDataType Data (_7XQpDf7HEeizQdLqRSCK5g)"/>
+  <operations name="CreateDataOperation C1_createData (_iwra0D3_EemFIJdsQlcvyQ) - AC _DsDPEP7bEeizQdLqRSCK5g">
+    <returnValues datatype="//@datatypes.0" name="C1_initialData_RETURN_8a823064"/>
+    <returnValueAssignments variable="//@operations.0/@returnValues.0">
+      <term xsi:type="systemmodel:False"/>
+    </returnValueAssignments>
+    <returnValueAssignments variable="//@operations.0/@returnValues.0" attribute="//@attributes.1" value="//@types.1/@values.2">
+      <term xsi:type="systemmodel:True"/>
+    </returnValueAssignments>
+  </operations>
+  <operations name="PerformDataTransmissionOperation C1_call_C2 (__mLrA_-MEeiCvJvtMoMgzQ) - AC _DsDPEP7bEeizQdLqRSCK5g">
+    <calls callee="//@operations.0" name="opCall_e8e13fa1"/>
+    <calls callee="//@operations.16" name="2606402b">
+      <preCallStateDefinitions variable="//@operations.16/@stateVariables.0">
+        <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.0/@returnValues.0" call="//@operations.1/@calls.0"/>
+      </preCallStateDefinitions>
+    </calls>
+    <returnValues datatype="//@datatypes.0" name="C1_call_C2_returnValue_RETURN_50c038d1"/>
+    <returnValueAssignments variable="//@operations.1/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.16/@returnValues.0" call="//@operations.1/@calls.1"/>
+    </returnValueAssignments>
+  </operations>
+  <operations name="SystemDiscardData C1_discard (_KZ1Lyz3_EemFIJdsQlcvyQ) - AC _DsDPEP7bEeizQdLqRSCK5g">
+    <calls callee="//@operations.1" name="opCall_4d723db5"/>
+  </operations>
+  <operations name="ReturnDataOperation C1_returnOperation (_QDbEFf-OEeiCvJvtMoMgzQ) - AC _DsDPEP7bEeizQdLqRSCK5g">
+    <returnValues datatype="//@datatypes.0" name="Usage_call_parameter_RETURN_7d113821"/>
+    <returnValueAssignments variable="//@operations.3/@returnValues.0">
+      <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.17/@stateVariables.0"/>
+    </returnValueAssignments>
+  </operations>
+  <operations name="CreateDataOperation C2C3_createData (_9TytID3_EemFIJdsQlcvyQ) - AC _LDNNYP7cEeizQdLqRSCK5g">
+    <returnValues datatype="//@datatypes.0" name="C2_initialData_RETURN_b8433039"/>
+    <returnValueAssignments variable="//@operations.4/@returnValues.0">
+      <term xsi:type="systemmodel:False"/>
+    </returnValueAssignments>
+    <returnValueAssignments variable="//@operations.4/@returnValues.0" attribute="//@attributes.1" value="//@types.1/@values.0">
+      <term xsi:type="systemmodel:True"/>
+    </returnValueAssignments>
+  </operations>
+  <operations name="PerformDataTransmissionOperation C2_call_C3 (_AzIqAz3NEemy7-rRVYUUTw) - AC _LDNNYP7cEeizQdLqRSCK5g">
+    <calls callee="//@operations.4" name="opCall_282d3f94"/>
+    <calls callee="//@operations.13" name="ffcd3fef">
+      <preCallStateDefinitions variable="//@operations.13/@stateVariables.0">
+        <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.4/@returnValues.0" call="//@operations.5/@calls.0"/>
+      </preCallStateDefinitions>
+    </calls>
+    <returnValues datatype="//@datatypes.0" name="C2_call_C3_returnValue_RETURN_23db37bf"/>
+    <returnValueAssignments variable="//@operations.5/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.13/@returnValues.0" call="//@operations.5/@calls.1"/>
+    </returnValueAssignments>
+  </operations>
+  <operations name="SystemDiscardData C2C3_discard (_PBtV2z3_EemFIJdsQlcvyQ) - AC _LDNNYP7cEeizQdLqRSCK5g">
+    <calls callee="//@operations.5" name="opCall_8f643dbb"/>
+  </operations>
+  <operations name="ReturnDataOperation C2C3_returnOperation (_9T0xZf-NEeiCvJvtMoMgzQ) - AC _LDNNYP7cEeizQdLqRSCK5g">
+    <returnValues datatype="//@datatypes.0" name="IC2_call_parameter_RETURN_3d1436c4"/>
+    <returnValueAssignments variable="//@operations.7/@returnValues.0">
+      <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.18/@stateVariables.0"/>
+    </returnValueAssignments>
+  </operations>
+  <operations name="CreateDataOperation C2C4_createData (_AzgE4D5mEemFIJdsQlcvyQ) - AC _LDNNYP7cEeizQdLqRSCK5g">
+    <returnValues datatype="//@datatypes.0" name="C2C4_initialData_RETURN_b0a30c3"/>
+    <returnValueAssignments variable="//@operations.8/@returnValues.0">
+      <term xsi:type="systemmodel:False"/>
+    </returnValueAssignments>
+    <returnValueAssignments variable="//@operations.8/@returnValues.0" attribute="//@attributes.1" value="//@types.1/@values.1">
+      <term xsi:type="systemmodel:True"/>
+    </returnValueAssignments>
+  </operations>
+  <operations name="PerformDataTransmissionOperation C2_call_C4 (_BN_Bcz5mEemFIJdsQlcvyQ) - AC _LDNNYP7cEeizQdLqRSCK5g">
+    <calls callee="//@operations.8" name="opCall_474c3fc8"/>
+    <calls callee="//@operations.15" name="3a4e40fd">
+      <preCallStateDefinitions variable="//@operations.15/@stateVariables.0">
+        <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.8/@returnValues.0" call="//@operations.9/@calls.0"/>
+      </preCallStateDefinitions>
+    </calls>
+    <returnValues datatype="//@datatypes.0" name="C2_call_C4_returnValue_RETURN_490f38c4"/>
+    <returnValueAssignments variable="//@operations.9/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.15/@returnValues.0" call="//@operations.9/@calls.1"/>
+    </returnValueAssignments>
+  </operations>
+  <operations name="SystemDiscardData C2C4_discard (_Bhvq9z5mEemFIJdsQlcvyQ) - AC _LDNNYP7cEeizQdLqRSCK5g">
+    <calls callee="//@operations.9" name="opCall_c4763e53"/>
+  </operations>
+  <operations name="ReturnDataOperation C2C4_returnOperation (_B6rIVT5mEemFIJdsQlcvyQ) - AC _LDNNYP7cEeizQdLqRSCK5g">
+    <returnValues datatype="//@datatypes.0" name="IC2_call_parameter_RETURN_3b2036c0"/>
+    <returnValueAssignments variable="//@operations.11/@returnValues.0">
+      <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.18/@stateVariables.0"/>
+    </returnValueAssignments>
+  </operations>
+  <operations name="ReturnDataOperation C3_returnOperation (_tl41ZT31EemFIJdsQlcvyQ) - AC _v4EQAD3MEemy7-rRVYUUTw">
+    <returnValues datatype="//@datatypes.0" name="IC3_call_parameter_RETURN_d58e35fb"/>
+    <returnValueAssignments variable="//@operations.12/@returnValues.0">
+      <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.19/@stateVariables.0"/>
+    </returnValueAssignments>
+  </operations>
+  <operations name="DataTransmissionProxyOperation_PerformDataTransmissionOperation C2_call_C3 (_AzIqAz3NEemy7-rRVYUUTw) - AC _LDNNYP7cEeizQdLqRSCK5g_ResourceDemandingSEFF (_IEEWdz3MEemy7-rRVYUUTw) - AC _v4EQAD3MEemy7-rRVYUUTw">
+    <calls callee="//@operations.19" name="1db4003">
+      <preCallStateDefinitions variable="//@operations.19/@stateVariables.0">
+        <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.13/@stateVariables.0"/>
+      </preCallStateDefinitions>
+    </calls>
+    <returnValues datatype="//@datatypes.0" name="DataTransmissionProxy_RETURN_LR_N2_N3__C_OHET3NEemy7-rRVYUUTw"/>
+    <propertyDefinitions property="//@properties.0" presentValues="//@types.0/@values.1"/>
+    <returnValueAssignments variable="//@operations.13/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.19/@returnValues.0" call="//@operations.13/@calls.0"/>
+    </returnValueAssignments>
+    <stateVariables datatype="//@datatypes.0" name="DataTransmissionProxy_STATE_LR_N2_N3__Cq75ID3NEemy7-rRVYUUTw"/>
+  </operations>
+  <operations name="ReturnDataOperation C4_returnOperation (_QI0T9T5kEemFIJdsQlcvyQ) - AC _aG-mMD5kEemFIJdsQlcvyQ">
+    <returnValues datatype="//@datatypes.0" name="IC4_call_parameter_RETURN_efd236a0"/>
+    <returnValueAssignments variable="//@operations.14/@returnValues.0">
+      <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.26/@stateVariables.0"/>
+    </returnValueAssignments>
+  </operations>
+  <operations name="DataTransmissionProxyOperation_PerformDataTransmissionOperation C2_call_C4 (_BN_Bcz5mEemFIJdsQlcvyQ) - AC _LDNNYP7cEeizQdLqRSCK5g_ResourceDemandingSEFF (_14FyJz5jEemFIJdsQlcvyQ) - AC _aG-mMD5kEemFIJdsQlcvyQ">
+    <calls callee="//@operations.26" name="3c4d4111">
+      <preCallStateDefinitions variable="//@operations.26/@stateVariables.0">
+        <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.15/@stateVariables.0"/>
+      </preCallStateDefinitions>
+    </calls>
+    <returnValues datatype="//@datatypes.0" name="DataTransmissionProxy_RETURN_LR_N2_N3__IMiH8T5mEemFIJdsQlcvyQ"/>
+    <propertyDefinitions property="//@properties.0" presentValues="//@types.0/@values.1"/>
+    <returnValueAssignments variable="//@operations.15/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.26/@returnValues.0" call="//@operations.15/@calls.0"/>
+    </returnValueAssignments>
+    <stateVariables datatype="//@datatypes.0" name="DataTransmissionProxy_STATE_LR_N2_N3__H5qPQD5mEemFIJdsQlcvyQ"/>
+  </operations>
+  <operations name="DataTransmissionProxyOperation_PerformDataTransmissionOperation C1_call_C2 (__mLrA_-MEeiCvJvtMoMgzQ) - AC _DsDPEP7bEeizQdLqRSCK5g_ResourceDemandingSEFF (_PdH5J_7KEeizQdLqRSCK5g) - AC _LDNNYP7cEeizQdLqRSCK5g">
+    <calls callee="//@operations.18" name="2805403f">
+      <preCallStateDefinitions variable="//@operations.18/@stateVariables.0">
+        <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.16/@stateVariables.0"/>
+      </preCallStateDefinitions>
+    </calls>
+    <returnValues datatype="//@datatypes.0" name="DataTransmissionProxy_RETURN_LR_N1_N2__NFUUMf-OEeiCvJvtMoMgzQ"/>
+    <propertyDefinitions property="//@properties.0" presentValues="//@types.0/@values.3"/>
+    <returnValueAssignments variable="//@operations.16/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.18/@returnValues.0" call="//@operations.16/@calls.0"/>
+    </returnValueAssignments>
+    <stateVariables datatype="//@datatypes.0" name="DataTransmissionProxy_STATE_LR_N1_N2__g4agsP-NEeiCvJvtMoMgzQ"/>
+  </operations>
+  <operations name="ResourceDemandingSEFF (_snXhh_-VEeiCvJvtMoMgzQ) - AC _DsDPEP7bEeizQdLqRSCK5g">
+    <calls callee="//@operations.2" name="opCall_1029357c"/>
+    <calls callee="//@operations.3" name="opCall_7fd839b6"/>
+    <returnValues datatype="//@datatypes.0" name="Usage_call_returnValue_RETURN_80043163"/>
+    <returnValueAssignments variable="//@operations.17/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.3/@returnValues.0" call="//@operations.17/@calls.1"/>
+    </returnValueAssignments>
+    <stateVariables datatype="//@datatypes.0" name="Usage_call_parameter_STATE_ae2b31ac"/>
+  </operations>
+  <operations name="ResourceDemandingSEFF (_PdH5J_7KEeizQdLqRSCK5g) - AC _LDNNYP7cEeizQdLqRSCK5g">
+    <calls callee="//@operations.6" name="opCall_eb5134d6"/>
+    <calls callee="//@operations.7" name="opCall_5a653929"/>
+    <calls callee="//@operations.10" name="opCall_f9fc3523"/>
+    <calls callee="//@operations.11" name="opCall_596d3925"/>
+    <returnValues datatype="//@datatypes.0" name="IC2_call_returnValue_RETURN_92992e97"/>
+    <returnValueAssignments variable="//@operations.18/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.7/@returnValues.0" call="//@operations.18/@calls.1"/>
+    </returnValueAssignments>
+    <returnValueAssignments variable="//@operations.18/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.11/@returnValues.0" call="//@operations.18/@calls.3"/>
+    </returnValueAssignments>
+    <stateVariables datatype="//@datatypes.0" name="IC2_call_parameter_STATE_bf352ed0"/>
+  </operations>
+  <operations name="ResourceDemandingSEFF (_IEEWdz3MEemy7-rRVYUUTw) - AC _v4EQAD3MEemy7-rRVYUUTw">
+    <calls callee="//@operations.12" name="opCall_fb863889"/>
+    <returnValues datatype="//@datatypes.0" name="IC3_call_returnValue_RETURN_a3e82ebc"/>
+    <returnValueAssignments variable="//@operations.19/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.12/@returnValues.0" call="//@operations.19/@calls.0"/>
+    </returnValueAssignments>
+    <stateVariables datatype="//@datatypes.0" name="IC3_call_parameter_STATE_cea22ee3"/>
+  </operations>
+  <operations name="CreateDataOperation C1_createData (_iwra0D3_EemFIJdsQlcvyQ) - AC _l5uosD36EemFIJdsQlcvyQ">
+    <returnValues datatype="//@datatypes.0" name="C1_initialData_RETURN_a99430e9"/>
+    <returnValueAssignments variable="//@operations.20/@returnValues.0">
+      <term xsi:type="systemmodel:False"/>
+    </returnValueAssignments>
+    <returnValueAssignments variable="//@operations.20/@returnValues.0" attribute="//@attributes.1" value="//@types.1/@values.2">
+      <term xsi:type="systemmodel:True"/>
+    </returnValueAssignments>
+  </operations>
+  <operations name="PerformDataTransmissionOperation C1_call_C2 (__mLrA_-MEeiCvJvtMoMgzQ) - AC _l5uosD36EemFIJdsQlcvyQ">
+    <calls callee="//@operations.20" name="opCall_1dba40ab"/>
+    <calls callee="//@operations.24" name="585140b0">
+      <preCallStateDefinitions variable="//@operations.24/@stateVariables.0">
+        <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.20/@returnValues.0" call="//@operations.21/@calls.0"/>
+      </preCallStateDefinitions>
+    </calls>
+    <returnValues datatype="//@datatypes.0" name="C1_call_C2_returnValue_RETURN_75893956"/>
+    <returnValueAssignments variable="//@operations.21/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.24/@returnValues.0" call="//@operations.21/@calls.1"/>
+    </returnValueAssignments>
+  </operations>
+  <operations name="SystemDiscardData C1_discard (_KZ1Lyz3_EemFIJdsQlcvyQ) - AC _l5uosD36EemFIJdsQlcvyQ">
+    <calls callee="//@operations.21" name="opCall_876e3ebf"/>
+  </operations>
+  <operations name="ReturnDataOperation C1_returnOperation (_QDbEFf-OEeiCvJvtMoMgzQ) - AC _l5uosD36EemFIJdsQlcvyQ">
+    <returnValues datatype="//@datatypes.0" name="Usage_call_parameter_RETURN_a25f38a6"/>
+    <returnValueAssignments variable="//@operations.23/@returnValues.0">
+      <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.25/@stateVariables.0"/>
+    </returnValueAssignments>
+  </operations>
+  <operations name="DataTransmissionProxyOperation_PerformDataTransmissionOperation C1_call_C2 (__mLrA_-MEeiCvJvtMoMgzQ) - AC _l5uosD36EemFIJdsQlcvyQ_ResourceDemandingSEFF (_PdH5J_7KEeizQdLqRSCK5g) - AC _LDNNYP7cEeizQdLqRSCK5g">
+    <calls callee="//@operations.18" name="5a5040c4">
+      <preCallStateDefinitions variable="//@operations.18/@stateVariables.0">
+        <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.24/@stateVariables.0"/>
+      </preCallStateDefinitions>
+    </calls>
+    <returnValues datatype="//@datatypes.0" name="DataTransmissionProxy_RETURN_LR_N2_N3__NFUUMf-OEeiCvJvtMoMgzQ"/>
+    <propertyDefinitions property="//@properties.0" presentValues="//@types.0/@values.1"/>
+    <returnValueAssignments variable="//@operations.24/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.18/@returnValues.0" call="//@operations.24/@calls.0"/>
+    </returnValueAssignments>
+    <stateVariables datatype="//@datatypes.0" name="DataTransmissionProxy_STATE_LR_N2_N3__g4agsP-NEeiCvJvtMoMgzQ"/>
+  </operations>
+  <operations name="ResourceDemandingSEFF (_snXhh_-VEeiCvJvtMoMgzQ) - AC _l5uosD36EemFIJdsQlcvyQ">
+    <calls callee="//@operations.22" name="opCall_425a3686"/>
+    <calls callee="//@operations.23" name="opCall_b73b3ac0"/>
+    <returnValues datatype="//@datatypes.0" name="Usage_call_returnValue_RETURN_a4cd31e8"/>
+    <returnValueAssignments variable="//@operations.25/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.23/@returnValues.0" call="//@operations.25/@calls.1"/>
+    </returnValueAssignments>
+    <stateVariables datatype="//@datatypes.0" name="Usage_call_parameter_STATE_d3793231"/>
+  </operations>
+  <operations name="ResourceDemandingSEFF (_14FyJz5jEemFIJdsQlcvyQ) - AC _aG-mMD5kEemFIJdsQlcvyQ">
+    <calls callee="//@operations.14" name="opCall_4f1339ba"/>
+    <returnValues datatype="//@datatypes.0" name="IC4_call_returnValue_RETURN_e1af2fe0"/>
+    <returnValueAssignments variable="//@operations.26/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.14/@returnValues.0" call="//@operations.26/@calls.0"/>
+    </returnValueAssignments>
+    <stateVariables datatype="//@datatypes.0" name="IC4_call_parameter_STATE_a332fdd"/>
+  </operations>
+  <operations name="CreateDataOperation Scenario1_createData (_LncB8P-DEeiVwuyqdxF24g) - AC n/a">
+    <returnValues datatype="//@datatypes.0" name="Scenario1_initialData_RETURN_b46e2ed2"/>
+    <returnValueAssignments variable="//@operations.27/@returnValues.0">
+      <term xsi:type="systemmodel:False"/>
+    </returnValueAssignments>
+  </operations>
+  <operations name="PerformDataTransmissionOperation Scenario1_call_C1 (_w4z3o_-MEeiCvJvtMoMgzQ) - AC n/a">
+    <calls callee="//@operations.27" name="opCall_4e8d37d4"/>
+    <calls callee="//@operations.17" name="opCall_5d1437be">
+      <preCallStateDefinitions variable="//@operations.17/@stateVariables.0">
+        <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.27/@returnValues.0" call="//@operations.28/@calls.0"/>
+      </preCallStateDefinitions>
+    </calls>
+    <returnValues datatype="//@datatypes.0" name="Scenario1_call_C1_returnValue_RETURN_7ae23806"/>
+    <returnValueAssignments variable="//@operations.28/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.17/@returnValues.0" call="//@operations.28/@calls.1"/>
+    </returnValueAssignments>
+  </operations>
+  <operations name="UserReadData Scenario1_discard (_VMnEFv-REeiCvJvtMoMgzQ) - AC n/a">
+    <calls callee="//@operations.28" name="opCall_b5e5341c"/>
+  </operations>
+  <operations name="ScenarioBehaviour Scenario1_Behaviour (_H3szUP7fEeizQdLqRSCK5g)_dataOp">
+    <calls callee="//@operations.29" name="opCall_ed32f61"/>
+  </operations>
+  <operations name="CreateDataOperation Scenario2_createData (_szWoYD35EemFIJdsQlcvyQ) - AC n/a">
+    <returnValues datatype="//@datatypes.0" name="Scenario2_initialData_RETURN_cf762f2c"/>
+    <returnValueAssignments variable="//@operations.31/@returnValues.0">
+      <term xsi:type="systemmodel:False"/>
+    </returnValueAssignments>
+  </operations>
+  <operations name="PerformDataTransmissionOperation Scenario2_call_C4 (_tNCTsz35EemFIJdsQlcvyQ) - AC n/a">
+    <calls callee="//@operations.31" name="opCall_55f1382c"/>
+    <calls callee="//@operations.25" name="opCall_5ff73841">
+      <preCallStateDefinitions variable="//@operations.25/@stateVariables.0">
+        <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.31/@returnValues.0" call="//@operations.32/@calls.0"/>
+      </preCallStateDefinitions>
+    </calls>
+    <returnValues datatype="//@datatypes.0" name="Scenario2_call_C4_returnValue_RETURN_6d313759"/>
+    <returnValueAssignments variable="//@operations.32/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.25/@returnValues.0" call="//@operations.32/@calls.1"/>
+    </returnValueAssignments>
+  </operations>
+  <operations name="UserReadData Scenario2_discard (_tj-NBj35EemFIJdsQlcvyQ) - AC n/a">
+    <calls callee="//@operations.32" name="opCall_9e3933e3"/>
+  </operations>
+  <operations name="ScenarioBehaviour Scenario2_Behaviour (_GL8oUD36EemFIJdsQlcvyQ)_dataOp">
+    <calls callee="//@operations.33" name="opCall_fbf92f16"/>
+  </operations>
+  <properties type="//@types.0" name="EnumCharacteristicType Link (_0r9P0P7hEeizQdLqRSCK5g)"/>
+  <properties type="//@types.1" name="EnumCharacteristicType Sensitivity (_5KwWYP7hEeizQdLqRSCK5g)"/>
+  <types name="Enumeration Links (_oZtbEf7hEeizQdLqRSCK5g)">
+    <values name="EnumCharacteristicLiteral Internet (_roPzoP7hEeizQdLqRSCK5g)"/>
+    <values name="EnumCharacteristicLiteral LAN (_sJEowP7hEeizQdLqRSCK5g)"/>
+    <values name="EnumCharacteristicLiteral Wire (_sgUrIP7hEeizQdLqRSCK5g)"/>
+    <values name="EnumCharacteristicLiteral Encrypted (_sywe8P7hEeizQdLqRSCK5g)"/>
+  </types>
+  <types name="Enumeration Sensitivities (_wK8iwf7hEeizQdLqRSCK5g)">
+    <values name="EnumCharacteristicLiteral Secrecy (_ycUIcP7hEeizQdLqRSCK5g)"/>
+    <values name="EnumCharacteristicLiteral Integrity (_yxegIP7hEeizQdLqRSCK5g)"/>
+    <values name="EnumCharacteristicLiteral High (_T3EVID2lEemy7-rRVYUUTw)"/>
+  </types>
+  <systemusages name="ScenarioBehaviour Scenario1_Behaviour (_H3szUP7fEeizQdLqRSCK5g)">
+    <calls callee="//@operations.30" name="opCall_c4da300d"/>
+  </systemusages>
+  <systemusages name="ScenarioBehaviour Scenario2_Behaviour (_GL8oUD36EemFIJdsQlcvyQ)">
+    <calls callee="//@operations.34" name="opCall_af362fe5"/>
+  </systemusages>
+</systemmodel:System>

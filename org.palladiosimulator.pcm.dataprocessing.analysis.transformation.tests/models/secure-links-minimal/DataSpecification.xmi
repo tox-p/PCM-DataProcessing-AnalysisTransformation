@@ -10,15 +10,15 @@
     xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2">
   <dataProcessingContainers
       id="_ZDNVsP7iEeizQdLqRSCK5g"
-      entityName="Usage_Call">
+      entityName="Scenario1">
     <operations
         xsi:type="processing:CreateDataOperation"
         id="_LncB8P-DEeiVwuyqdxF24g"
-        entityName="createData">
+        entityName="Scenario1_createData">
       <resultingData
           xsi:type="data:OriginalData"
           id="_Od7G4P-DEeiVwuyqdxF24g"
-          entityName="initialData">
+          entityName="Scenario1_initialData">
         <originalType
             xsi:type="repository:CompositeDataType"
             href="default.repository#_7XQpDf7HEeizQdLqRSCK5g"/>
@@ -30,13 +30,13 @@
             xsi:type="characteristics:EnumCharacteristicType"
             href="characteristicTypes.xmi#_5KwWYP7hEeizQdLqRSCK5g"/>
         <literals
-            href="characteristicTypes.xmi#_yxegIP7hEeizQdLqRSCK5g"/>
+            href="characteristicTypes.xmi#_ycUIcP7hEeizQdLqRSCK5g"/>
       </initialCharacteristics>
     </operations>
     <operations
         xsi:type="processing:PerformDataTransmissionOperation"
         id="_w4z3o_-MEeiCvJvtMoMgzQ"
-        entityName="callArtifactOne">
+        entityName="Scenario1_call_C1">
       <inputMappings
           id="_OhXQ4P-NEeiCvJvtMoMgzQ"
           from="_Od7G4P-DEeiVwuyqdxF24g"
@@ -47,7 +47,7 @@
           to="_oWg0gv-OEeiCvJvtMoMgzQ"/>
       <outputData
           id="_oWg0gv-OEeiCvJvtMoMgzQ"
-          entityName="returnValueUsage">
+          entityName="Scenario1_call_C1_returnValue">
         <operation
             href="default.repository#_oQ7RUP7HEeizQdLqRSCK5g"/>
       </outputData>
@@ -55,16 +55,16 @@
     <operations
         xsi:type="processing:UserReadData"
         id="_VMnEFv-REeiCvJvtMoMgzQ"
-        entityName="dicard"
+        entityName="Scenario1_discard"
         consumedData="_oWg0gv-OEeiCvJvtMoMgzQ"/>
   </dataProcessingContainers>
   <dataProcessingContainers
       id="_7iU0AP-MEeiCvJvtMoMgzQ"
-      entityName="ArtifactOne_Call">
+      entityName="C1">
     <operations
         xsi:type="processing:PerformDataTransmissionOperation"
         id="__mLrA_-MEeiCvJvtMoMgzQ"
-        entityName="callArtifactTwo">
+        entityName="C1_call_C2">
       <inputMappings
           id="_g4agsP-NEeiCvJvtMoMgzQ"
           from="_cpVtoP-MEeiCvJvtMoMgzQ"
@@ -75,7 +75,7 @@
           to="_ZmbEUv-OEeiCvJvtMoMgzQ"/>
       <outputData
           id="_ZmbEUv-OEeiCvJvtMoMgzQ"
-          entityName="returnValueArtifactOne">
+          entityName="C1_call_C2_returnValue">
         <operation
             href="default.repository#_oQ7RUP7HEeizQdLqRSCK5g"/>
       </outputData>
@@ -83,29 +83,23 @@
     <operations
         xsi:type="processing:ReturnDataOperation"
         id="_QDbEFf-OEeiCvJvtMoMgzQ"
-        entityName="returnFromArtifactOne"
+        entityName="C1_returnOperation"
         consumedData="_ZmbEUv-OEeiCvJvtMoMgzQ"
         returnDestination="_tuFoEv-MEeiCvJvtMoMgzQ"/>
   </dataProcessingContainers>
   <dataProcessingContainers
       id="_DROZYP-NEeiCvJvtMoMgzQ"
-      entityName="ArtifactTwo_Call">
+      entityName="C2">
     <operations
         xsi:type="processing:ReturnDataOperation"
         id="_9T0xZf-NEeiCvJvtMoMgzQ"
-        entityName="returnFromArtifactTwo"
+        entityName="C2_returnOperation"
         consumedData="_cpVtoP-MEeiCvJvtMoMgzQ"
         returnDestination="_tuFoEv-MEeiCvJvtMoMgzQ"/>
   </dataProcessingContainers>
   <characteristicContainer
-      id="_h2XEw_-PEeiCvJvtMoMgzQ"
-      entityName="Client"/>
-  <characteristicContainer
-      id="_ipKas_-PEeiCvJvtMoMgzQ"
-      entityName="Server"/>
-  <characteristicContainer
       id="_jGkIYv-PEeiCvJvtMoMgzQ"
-      entityName="Client &lt;-> Server Link">
+      entityName="LR_N1_N2">
     <ownedCharacteristics
         xsi:type="characteristics:EnumCharacteristic"
         id="_na-j4P-PEeiCvJvtMoMgzQ">
@@ -113,24 +107,21 @@
           xsi:type="characteristics:EnumCharacteristicType"
           href="characteristicTypes.xmi#_0r9P0P7hEeizQdLqRSCK5g"/>
       <literals
-          href="characteristicTypes.xmi#_sywe8P7hEeizQdLqRSCK5g"/>
+          href="characteristicTypes.xmi#_roPzoP7hEeizQdLqRSCK5g"/>
     </ownedCharacteristics>
   </characteristicContainer>
-  <characteristicContainer
-      id="_2IRL0P-cEeiP-NwKQBj_Gw"
-      entityName="Usage"/>
   <operationSignatureDataRefinement
       id="_ao9KRv-MEeiCvJvtMoMgzQ"
-      entityName="Call">
+      entityName="I">
     <parameterRefinements
         id="_cpVtoP-MEeiCvJvtMoMgzQ"
-        entityName="CallSignatureParameter">
+        entityName="I_parameter">
       <parameter
           href="default.repository#/0/@interfaces__Repository.0/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
     </parameterRefinements>
     <resultRefinements
         id="_tuFoEv-MEeiCvJvtMoMgzQ"
-        entityName="CallSignatureReturn">
+        entityName="I_returnValue">
       <operation
           href="default.repository#_oQ7RUP7HEeizQdLqRSCK5g"/>
     </resultRefinements>

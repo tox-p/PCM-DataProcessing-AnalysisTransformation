@@ -11,5 +11,6 @@
   <enumerations id="_wK8iwf7hEeizQdLqRSCK5g" entityName="Sensitivities">
     <literals id="_ycUIcP7hEeizQdLqRSCK5g" entityName="Secrecy"/>
     <literals id="_yxegIP7hEeizQdLqRSCK5g" entityName="Integrity"/>
+    <literals id="_T3EVID2lEemy7-rRVYUUTw" entityName="High"/>
   </enumerations>
 </characteristics:CharacteristicTypeContainer>

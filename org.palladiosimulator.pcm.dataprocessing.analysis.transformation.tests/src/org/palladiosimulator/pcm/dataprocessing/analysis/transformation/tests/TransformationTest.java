@@ -183,35 +183,39 @@ public class TransformationTest extends TransformationTestBase {
 		Diagnostic validationResult = Diagnostician.INSTANCE.validate(dataFlowSystemModel);
 		assertThat(toString(validationResult), validationResult.getSeverity(), is(Diagnostic.OK));
 		
+//		Resource r = rs.createResource(createRelativeURI("models/secure-links-minimal/expected.xmi"));
+//		r.getContents().add(dataFlowSystemModel);
+//		r.save(Collections.emptyMap());
+		
 		Resource expectedResource = rs.getResource(createRelativeURI("models/secure-links-minimal/expected.xmi"), true);
 		
 		IComparisonScope scope = new DefaultComparisonScope(expectedResource.getContents().get(0), dataFlowSystemModel, null);
 		Comparison comparison = EMFCompare.builder().build().compare(scope);
-
+		
 		assertThat(toString(comparison), comparison.getDifferences(), is(empty()));
 	}
 	
 	@Test
-	public void testSecureLinksTwoDependencies() throws Exception {
+	public void testSecureLinksComplex() throws Exception {
 		ResourceSet rs = new ResourceSetImpl();
 
 		UsageModel usageModel = (UsageModel) rs
-				.getResource(createRelativeURI("models/secure-links-two-dependencies/default.usagemodel"), true)
+				.getResource(createRelativeURI("models/secure-links-complex/default.usagemodel"), true)
 				.getContents()
 				.get(0);
 		
 		org.palladiosimulator.pcm.system.System system = (org.palladiosimulator.pcm.system.System) rs
-				.getResource(createRelativeURI("models/secure-links-two-dependencies/default.system"), true)
+				.getResource(createRelativeURI("models/secure-links-complex/default.system"), true)
 				.getContents()
 				.get(0);
 		
 		Allocation allocationModel = (Allocation) rs
-				.getResource(createRelativeURI("models/secure-links-two-dependencies/default.allocation"), true)
+				.getResource(createRelativeURI("models/secure-links-complex/default.allocation"), true)
 				.getContents()
 				.get(0);
 		
 		CharacteristicTypeContainer characteristicTypeContainer = (CharacteristicTypeContainer) rs
-				.getResource(createRelativeURI("models/secure-links-two-dependencies/characteristicTypes.xmi"), true)
+				.getResource(createRelativeURI("models/secure-links-complex/characteristicTypes.xmi"), true)
 				.getContents()
 				.get(0);
 		
@@ -223,15 +227,15 @@ public class TransformationTest extends TransformationTestBase {
 		Diagnostic validationResult = Diagnostician.INSTANCE.validate(dataFlowSystemModel);
 		assertThat(toString(validationResult), validationResult.getSeverity(), is(Diagnostic.OK));
 		
-//		Resource expectedResource = rs.getResource(createRelativeURI("models/secure-links-two-dependencies/expected.xmi"), true);
-//		
-//		IComparisonScope scope = new DefaultComparisonScope(expectedResource.getContents().get(0), dataFlowSystemModel, null);
-//		Comparison comparison = EMFCompare.builder().build().compare(scope);
-
-//		assertThat(toString(comparison), comparison.getDifferences(), is(empty()));
+//		Resource r = rs.createResource(createRelativeURI("models/secure-links-complex/expected.xmi"));
+//		r.getContents().add(dataFlowSystemModel);
+//		r.save(Collections.emptyMap());
 		
-		Resource r = rs.createResource(createRelativeURI("models/secure-links-two-dependencies/expected.xmi"));
-		r.getContents().add(dataFlowSystemModel);
-		r.save(Collections.emptyMap());
+		Resource expectedResource = rs.getResource(createRelativeURI("models/secure-links-complex/expected.xmi"), true);
+		
+		IComparisonScope scope = new DefaultComparisonScope(expectedResource.getContents().get(0), dataFlowSystemModel, null);
+		Comparison comparison = EMFCompare.builder().build().compare(scope);
+		
+		assertThat(toString(comparison), comparison.getDifferences(), is(empty()));
 	}
 }

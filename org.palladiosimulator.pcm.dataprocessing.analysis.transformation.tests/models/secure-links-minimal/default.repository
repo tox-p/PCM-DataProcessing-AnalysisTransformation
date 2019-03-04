@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="ASCII"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dataProcessingProfile="http://www.palladiosimulator.org/pcm/dataprocessing/profile/0.1/" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2">
-  <repository:Repository id="_KYfpAP7HEeizQdLqRSCK5g" entityName="SecureLinksMinimalRepository">
-    <components__Repository xsi:type="repository:BasicComponent" id="_c0EzgP7HEeizQdLqRSCK5g" entityName="ArtifactOne">
-      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_93Bqgf7cEeizQdLqRSCK5g" entityName="Provided_Usage_ArtifactOne" providedInterface__OperationProvidedRole="_jq79p_7HEeizQdLqRSCK5g"/>
-      <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_JbA3pf7IEeizQdLqRSCK5g" entityName="Required_ArtifactTwo_ArtifactOne" requiredInterface__OperationRequiredRole="_jq79p_7HEeizQdLqRSCK5g"/>
+  <repository:Repository id="_KYfpAP7HEeizQdLqRSCK5g" entityName="Secure Links">
+    <components__Repository xsi:type="repository:BasicComponent" id="_c0EzgP7HEeizQdLqRSCK5g" entityName="C1">
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_93Bqgf7cEeizQdLqRSCK5g" entityName="Usage_C1" providedInterface__OperationProvidedRole="_jq79p_7HEeizQdLqRSCK5g"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_JbA3pf7IEeizQdLqRSCK5g" entityName="C1_C2" requiredInterface__OperationRequiredRole="_jq79p_7HEeizQdLqRSCK5g"/>
       <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_snXhh_-VEeiCvJvtMoMgzQ" describedService__SEFF="_oQ7RUP7HEeizQdLqRSCK5g">
-        <steps_Behaviour xsi:type="seff:StartAction" id="_t_nt4v-VEeiCvJvtMoMgzQ" entityName="ArtifactOneStart" successor_AbstractAction="_utIUJv-VEeiCvJvtMoMgzQ"/>
-        <steps_Behaviour xsi:type="seff:StopAction" id="_tCG8wP-VEeiCvJvtMoMgzQ" entityName="ArtifactOneStop" predecessor_AbstractAction="_utIUJv-VEeiCvJvtMoMgzQ"/>
-        <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_utIUJv-VEeiCvJvtMoMgzQ" entityName="ArtifactOneCallToArtifactTwo" predecessor_AbstractAction="_t_nt4v-VEeiCvJvtMoMgzQ" successor_AbstractAction="_tCG8wP-VEeiCvJvtMoMgzQ" calledService_ExternalService="_oQ7RUP7HEeizQdLqRSCK5g" role_ExternalService="_JbA3pf7IEeizQdLqRSCK5g"/>
+        <steps_Behaviour xsi:type="seff:StartAction" id="_t_nt4v-VEeiCvJvtMoMgzQ" entityName="C1_start" successor_AbstractAction="_utIUJv-VEeiCvJvtMoMgzQ"/>
+        <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_utIUJv-VEeiCvJvtMoMgzQ" entityName="C1_call_C2" predecessor_AbstractAction="_t_nt4v-VEeiCvJvtMoMgzQ" successor_AbstractAction="_tCG8wP-VEeiCvJvtMoMgzQ" calledService_ExternalService="_oQ7RUP7HEeizQdLqRSCK5g" role_ExternalService="_JbA3pf7IEeizQdLqRSCK5g"/>
+        <steps_Behaviour xsi:type="seff:StopAction" id="_tCG8wP-VEeiCvJvtMoMgzQ" entityName="C1_stop" predecessor_AbstractAction="_utIUJv-VEeiCvJvtMoMgzQ"/>
       </serviceEffectSpecifications__BasicComponent>
     </components__Repository>
-    <components__Repository xsi:type="repository:BasicComponent" id="_fEU-4P7HEeizQdLqRSCK5g" entityName="ArtifactTwo">
-      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_PuaIUf7IEeizQdLqRSCK5g" entityName="Provided_ArtifactOne_ArtifactTwo" providedInterface__OperationProvidedRole="_jq79p_7HEeizQdLqRSCK5g"/>
+    <components__Repository xsi:type="repository:BasicComponent" id="_fEU-4P7HEeizQdLqRSCK5g" entityName="C2">
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_PuaIUf7IEeizQdLqRSCK5g" entityName="C1_C2" providedInterface__OperationProvidedRole="_jq79p_7HEeizQdLqRSCK5g"/>
       <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_PdH5J_7KEeizQdLqRSCK5g" describedService__SEFF="_oQ7RUP7HEeizQdLqRSCK5g">
-        <steps_Behaviour xsi:type="seff:StartAction" id="_S_LDkv7KEeizQdLqRSCK5g" entityName="ArtifactTwoStart" successor_AbstractAction="_e6atnP7KEeizQdLqRSCK5g"/>
-        <steps_Behaviour xsi:type="seff:StopAction" id="_TpuccP7KEeizQdLqRSCK5g" entityName="ArtifactTwoStop" predecessor_AbstractAction="_e6atnP7KEeizQdLqRSCK5g"/>
-        <steps_Behaviour xsi:type="seff:InternalAction" id="_e6atnP7KEeizQdLqRSCK5g" entityName="ArtifactTwoInternalCall" predecessor_AbstractAction="_S_LDkv7KEeizQdLqRSCK5g" successor_AbstractAction="_TpuccP7KEeizQdLqRSCK5g"/>
+        <steps_Behaviour xsi:type="seff:StartAction" id="_S_LDkv7KEeizQdLqRSCK5g" entityName="C2_start" successor_AbstractAction="_e6atnP7KEeizQdLqRSCK5g"/>
+        <steps_Behaviour xsi:type="seff:InternalAction" id="_e6atnP7KEeizQdLqRSCK5g" entityName="C2_internalAction" predecessor_AbstractAction="_S_LDkv7KEeizQdLqRSCK5g" successor_AbstractAction="_TpuccP7KEeizQdLqRSCK5g"/>
+        <steps_Behaviour xsi:type="seff:StopAction" id="_TpuccP7KEeizQdLqRSCK5g" entityName="C2_stop" predecessor_AbstractAction="_e6atnP7KEeizQdLqRSCK5g"/>
       </serviceEffectSpecifications__BasicComponent>
     </components__Repository>
-    <interfaces__Repository xsi:type="repository:OperationInterface" id="_jq79p_7HEeizQdLqRSCK5g" entityName="CallDependency">
+    <interfaces__Repository xsi:type="repository:OperationInterface" id="_jq79p_7HEeizQdLqRSCK5g" entityName="I">
       <signatures__OperationInterface id="_oQ7RUP7HEeizQdLqRSCK5g" entityName="call" returnType__OperationSignature="_7XQpDf7HEeizQdLqRSCK5g">
-        <parameters__OperationSignature dataType__Parameter="_7XQpDf7HEeizQdLqRSCK5g" parameterName="callArgument"/>
+        <parameters__OperationSignature dataType__Parameter="_7XQpDf7HEeizQdLqRSCK5g" parameterName="argument"/>
       </signatures__OperationInterface>
     </interfaces__Repository>
     <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_7XQpDf7HEeizQdLqRSCK5g" entityName="Data"/>

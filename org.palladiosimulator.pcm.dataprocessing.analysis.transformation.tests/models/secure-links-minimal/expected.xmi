@@ -3,85 +3,85 @@
   <attributes type="//@types.0" name="EnumCharacteristicType Link (_0r9P0P7hEeizQdLqRSCK5g)"/>
   <attributes type="//@types.1" name="EnumCharacteristicType Sensitivity (_5KwWYP7hEeizQdLqRSCK5g)"/>
   <datatypes attributes="//@attributes.0 //@attributes.1" name="CompositeDataType Data (_7XQpDf7HEeizQdLqRSCK5g)"/>
-  <operations name="PerformDataTransmissionOperation callArtifactTwo (__mLrA_-MEeiCvJvtMoMgzQ) - AC _DsDPEP7bEeizQdLqRSCK5g">
-    <calls callee="//@operations.3" name="14e942ec">
+  <operations name="PerformDataTransmissionOperation C1_call_C2 (__mLrA_-MEeiCvJvtMoMgzQ) - AC _DsDPEP7bEeizQdLqRSCK5g">
+    <calls callee="//@operations.3" name="2606402b">
       <preCallStateDefinitions variable="//@operations.3/@stateVariables.0">
         <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.4/@stateVariables.0"/>
       </preCallStateDefinitions>
     </calls>
-    <returnValues datatype="//@datatypes.0" name="returnValueArtifactOne_RETURN_18893c40"/>
+    <returnValues datatype="//@datatypes.0" name="C1_call_C2_returnValue_RETURN_50c038d1"/>
     <returnValueAssignments variable="//@operations.0/@returnValues.0">
       <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.3/@returnValues.0" call="//@operations.0/@calls.0"/>
     </returnValueAssignments>
   </operations>
-  <operations name="ReturnDataOperation returnFromArtifactOne (_QDbEFf-OEeiCvJvtMoMgzQ) - AC _DsDPEP7bEeizQdLqRSCK5g">
-    <calls callee="//@operations.0" name="opCall_1dd4610"/>
-    <returnValues datatype="//@datatypes.0" name="returnValueArtifactOne_RETURN_22c5391b"/>
+  <operations name="ReturnDataOperation C1_returnOperation (_QDbEFf-OEeiCvJvtMoMgzQ) - AC _DsDPEP7bEeizQdLqRSCK5g">
+    <calls callee="//@operations.0" name="opCall_5b2441ef"/>
+    <returnValues datatype="//@datatypes.0" name="C1_call_C2_returnValue_RETURN_289e370d"/>
     <returnValueAssignments variable="//@operations.1/@returnValues.0">
       <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.0/@returnValues.0" call="//@operations.1/@calls.0"/>
     </returnValueAssignments>
   </operations>
-  <operations name="ReturnDataOperation returnFromArtifactTwo (_9T0xZf-NEeiCvJvtMoMgzQ) - AC _LDNNYP7cEeizQdLqRSCK5g">
-    <returnValues datatype="//@datatypes.0" name="CallSignatureParameter_RETURN_d9593a5a"/>
+  <operations name="ReturnDataOperation C2_returnOperation (_9T0xZf-NEeiCvJvtMoMgzQ) - AC _LDNNYP7cEeizQdLqRSCK5g">
+    <returnValues datatype="//@datatypes.0" name="I_parameter_RETURN_856e347d"/>
     <returnValueAssignments variable="//@operations.2/@returnValues.0">
       <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.5/@stateVariables.0"/>
     </returnValueAssignments>
   </operations>
-  <operations name="DataTransmissionProxyOperation_PerformDataTransmissionOperation callArtifactTwo (__mLrA_-MEeiCvJvtMoMgzQ) - AC _DsDPEP7bEeizQdLqRSCK5g_ResourceDemandingSEFF (_PdH5J_7KEeizQdLqRSCK5g) - AC _LDNNYP7cEeizQdLqRSCK5g">
-    <calls callee="//@operations.5" name="16e84300">
+  <operations name="DataTransmissionProxyOperation_PerformDataTransmissionOperation C1_call_C2 (__mLrA_-MEeiCvJvtMoMgzQ) - AC _DsDPEP7bEeizQdLqRSCK5g_ResourceDemandingSEFF (_PdH5J_7KEeizQdLqRSCK5g) - AC _LDNNYP7cEeizQdLqRSCK5g">
+    <calls callee="//@operations.5" name="2805403f">
       <preCallStateDefinitions variable="//@operations.5/@stateVariables.0">
         <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.3/@stateVariables.0"/>
       </preCallStateDefinitions>
     </calls>
-    <returnValues datatype="//@datatypes.0" name="DataTransmissionProxy_RETURN_CommunicationPath Client &lt;-> Server__NFUUMf-OEeiCvJvtMoMgzQ"/>
-    <propertyDefinitions property="//@properties.0" presentValues="//@types.0/@values.3"/>
+    <returnValues datatype="//@datatypes.0" name="DataTransmissionProxy_RETURN_LR_N1_N2__NFUUMf-OEeiCvJvtMoMgzQ"/>
+    <propertyDefinitions property="//@properties.0" presentValues="//@types.0/@values.0"/>
     <returnValueAssignments variable="//@operations.3/@returnValues.0">
       <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.5/@returnValues.0" call="//@operations.3/@calls.0"/>
     </returnValueAssignments>
-    <stateVariables datatype="//@datatypes.0" name="DataTransmissionProxy_STATE_CommunicationPath Client &lt;-> Server__g4agsP-NEeiCvJvtMoMgzQ"/>
+    <stateVariables datatype="//@datatypes.0" name="DataTransmissionProxy_STATE_LR_N1_N2__g4agsP-NEeiCvJvtMoMgzQ"/>
   </operations>
   <operations name="ResourceDemandingSEFF (_snXhh_-VEeiCvJvtMoMgzQ) - AC _DsDPEP7bEeizQdLqRSCK5g">
-    <calls callee="//@operations.1" name="opCall_4e5f3b16"/>
-    <returnValues datatype="//@datatypes.0" name="CallSignatureReturn_RETURN_e5fb3025"/>
+    <calls callee="//@operations.1" name="opCall_7fd839b6"/>
+    <returnValues datatype="//@datatypes.0" name="I_returnValue_RETURN_c3a22dbc"/>
     <returnValueAssignments variable="//@operations.4/@returnValues.0">
       <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.1/@returnValues.0" call="//@operations.4/@calls.0"/>
     </returnValueAssignments>
-    <stateVariables datatype="//@datatypes.0" name="CallSignatureParameter_STATE_12e0326b"/>
+    <stateVariables datatype="//@datatypes.0" name="I_parameter_STATE_eee52e05"/>
   </operations>
   <operations name="ResourceDemandingSEFF (_PdH5J_7KEeizQdLqRSCK5g) - AC _LDNNYP7cEeizQdLqRSCK5g">
-    <calls callee="//@operations.2" name="opCall_c7ad3a2a"/>
-    <returnValues datatype="//@datatypes.0" name="CallSignatureReturn_RETURN_7d072f1f"/>
+    <calls callee="//@operations.2" name="opCall_f72d38b3"/>
+    <returnValues datatype="//@datatypes.0" name="I_returnValue_RETURN_60d22cb6"/>
     <returnValueAssignments variable="//@operations.5/@returnValues.0">
       <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.2/@returnValues.0" call="//@operations.5/@calls.0"/>
     </returnValueAssignments>
-    <stateVariables datatype="//@datatypes.0" name="CallSignatureParameter_STATE_a3b93165"/>
+    <stateVariables datatype="//@datatypes.0" name="I_parameter_STATE_8b0f2cff"/>
   </operations>
-  <operations name="CreateDataOperation createData (_LncB8P-DEeiVwuyqdxF24g) - AC n/a">
-    <returnValues datatype="//@datatypes.0" name="initialData_RETURN_1b8b274a"/>
+  <operations name="CreateDataOperation Scenario1_createData (_LncB8P-DEeiVwuyqdxF24g) - AC n/a">
+    <returnValues datatype="//@datatypes.0" name="Scenario1_initialData_RETURN_b46e2ed2"/>
     <returnValueAssignments variable="//@operations.6/@returnValues.0">
       <term xsi:type="systemmodel:False"/>
     </returnValueAssignments>
-    <returnValueAssignments variable="//@operations.6/@returnValues.0" attribute="//@attributes.1" value="//@types.1/@values.1">
+    <returnValueAssignments variable="//@operations.6/@returnValues.0" attribute="//@attributes.1" value="//@types.1/@values.0">
       <term xsi:type="systemmodel:True"/>
     </returnValueAssignments>
   </operations>
-  <operations name="PerformDataTransmissionOperation callArtifactOne (_w4z3o_-MEeiCvJvtMoMgzQ) - AC n/a">
-    <calls callee="//@operations.6" name="opCall_d58a33c9"/>
-    <calls callee="//@operations.4" name="opCall_191c3777">
+  <operations name="PerformDataTransmissionOperation Scenario1_call_C1 (_w4z3o_-MEeiCvJvtMoMgzQ) - AC n/a">
+    <calls callee="//@operations.6" name="opCall_4e8d37d4"/>
+    <calls callee="//@operations.4" name="opCall_5d1437be">
       <preCallStateDefinitions variable="//@operations.4/@stateVariables.0">
         <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.6/@returnValues.0" call="//@operations.7/@calls.0"/>
       </preCallStateDefinitions>
     </calls>
-    <returnValues datatype="//@datatypes.0" name="returnValueUsage_RETURN_82a33322"/>
+    <returnValues datatype="//@datatypes.0" name="Scenario1_call_C1_returnValue_RETURN_7ae23806"/>
     <returnValueAssignments variable="//@operations.7/@returnValues.0">
       <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.4/@returnValues.0" call="//@operations.7/@calls.1"/>
     </returnValueAssignments>
   </operations>
-  <operations name="UserReadData dicard (_VMnEFv-REeiCvJvtMoMgzQ) - AC n/a">
-    <calls callee="//@operations.7" name="opCall_33e2f9e"/>
+  <operations name="UserReadData Scenario1_discard (_VMnEFv-REeiCvJvtMoMgzQ) - AC n/a">
+    <calls callee="//@operations.7" name="opCall_b5e5341c"/>
   </operations>
-  <operations name="ScenarioBehaviour defaultUsageScenarioBehaviour (_H3szUP7fEeizQdLqRSCK5g)_dataOp">
-    <calls callee="//@operations.8" name="opCall_1e7f2f74"/>
+  <operations name="ScenarioBehaviour Scenario1_Behaviour (_H3szUP7fEeizQdLqRSCK5g)_dataOp">
+    <calls callee="//@operations.8" name="opCall_ed32f61"/>
   </operations>
   <properties type="//@types.0" name="EnumCharacteristicType Link (_0r9P0P7hEeizQdLqRSCK5g)"/>
   <properties type="//@types.1" name="EnumCharacteristicType Sensitivity (_5KwWYP7hEeizQdLqRSCK5g)"/>
@@ -94,8 +94,9 @@
   <types name="Enumeration Sensitivities (_wK8iwf7hEeizQdLqRSCK5g)">
     <values name="EnumCharacteristicLiteral Secrecy (_ycUIcP7hEeizQdLqRSCK5g)"/>
     <values name="EnumCharacteristicLiteral Integrity (_yxegIP7hEeizQdLqRSCK5g)"/>
+    <values name="EnumCharacteristicLiteral High (_T3EVID2lEemy7-rRVYUUTw)"/>
   </types>
-  <systemusages name="ScenarioBehaviour defaultUsageScenarioBehaviour (_H3szUP7fEeizQdLqRSCK5g)">
-    <calls callee="//@operations.9" name="opCall_531738a1"/>
+  <systemusages name="ScenarioBehaviour Scenario1_Behaviour (_H3szUP7fEeizQdLqRSCK5g)">
+    <calls callee="//@operations.9" name="opCall_c4da300d"/>
   </systemusages>
 </systemmodel:System>
