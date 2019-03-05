@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dataProcessingProfile="http://www.palladiosimulator.org/pcm/dataprocessing/profile/0.1/" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:resourceenvironment="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.2">
+  <resourceenvironment:ResourceEnvironment entityName="Secure Links">
+    <linkingResources__ResourceEnvironment id="_OQ4YYP7eEeizQdLqRSCK5g" entityName="LR_N1_N3" connectedResourceContainers_LinkingResource="_Do4e8f7eEeizQdLqRSCK5g _H15R8f7eEeizQdLqRSCK5g">
+      <communicationLinkResourceSpecifications_LinkingResource id="_dh4AwP7fEeizQdLqRSCK5g">
+        <communicationLinkResourceType_CommunicationLinkResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+        <latency_CommunicationLinkResourceSpecification specification="1"/>
+        <throughput_CommunicationLinkResourceSpecification specification="1"/>
+      </communicationLinkResourceSpecifications_LinkingResource>
+    </linkingResources__ResourceEnvironment>
+    <linkingResources__ResourceEnvironment id="_qOX5ED3LEemy7-rRVYUUTw" entityName="LR_N2_N3" connectedResourceContainers_LinkingResource="_H15R8f7eEeizQdLqRSCK5g _jqqUcT3LEemy7-rRVYUUTw">
+      <communicationLinkResourceSpecifications_LinkingResource id="_sx0GMD3LEemy7-rRVYUUTw">
+        <communicationLinkResourceType_CommunicationLinkResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_o3sScH2AEdyH8uerKnHYug"/>
+        <latency_CommunicationLinkResourceSpecification specification="1"/>
+        <throughput_CommunicationLinkResourceSpecification specification="1"/>
+      </communicationLinkResourceSpecifications_LinkingResource>
+    </linkingResources__ResourceEnvironment>
+    <resourceContainer_ResourceEnvironment id="_Do4e8f7eEeizQdLqRSCK5g" entityName="N1"/>
+    <resourceContainer_ResourceEnvironment id="_H15R8f7eEeizQdLqRSCK5g" entityName="N3"/>
+    <resourceContainer_ResourceEnvironment id="_jqqUcT3LEemy7-rRVYUUTw" entityName="N2"/>
+  </resourceenvironment:ResourceEnvironment>
+  <emfprofileapplication:ProfileApplication>
+    <stereotypeApplications xsi:type="dataProcessingProfile:Characterizable" appliedTo="_OQ4YYP7eEeizQdLqRSCK5g">
+      <extension href="../../../../plugin/org.palladiosimulator.pcm.dataprocessing.profile/profile.emfprofile_diagram#_Imn6oFqjEeiW1d-qz7Oqsw"/>
+      <characteristicContainer href="DataSpecification.xmi#_jGkIYv-PEeiCvJvtMoMgzQ"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="dataProcessingProfile:Characterizable" appliedTo="_qOX5ED3LEemy7-rRVYUUTw">
+      <extension href="../../../../plugin/org.palladiosimulator.pcm.dataprocessing.profile/profile.emfprofile_diagram#_Imn6oFqjEeiW1d-qz7Oqsw"/>
+      <characteristicContainer href="DataSpecification.xmi#_xj_bwz3LEemy7-rRVYUUTw"/>
+    </stereotypeApplications>
+    <importedProfiles nsURI="http://www.palladiosimulator.org/pcm/dataprocessing/profile/0.1/" location="platform:/plugin/org.palladiosimulator.pcm.dataprocessing.profile/profile.emfprofile_diagram"/>
+  </emfprofileapplication:ProfileApplication>
+</xmi:XMI>

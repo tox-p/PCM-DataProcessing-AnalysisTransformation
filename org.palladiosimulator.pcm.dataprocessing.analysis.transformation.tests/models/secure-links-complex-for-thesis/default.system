@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ASCII"?>
+<system:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:system="http://palladiosimulator.org/PalladioComponentModel/System/5.2" id="_4GgvUP7aEeizQdLqRSCK5g" entityName="Secure Links">
+  <assemblyContexts__ComposedStructure id="_DsDPEP7bEeizQdLqRSCK5g" entityName="AC1">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="default.repository#_c0EzgP7HEeizQdLqRSCK5g"/>
+  </assemblyContexts__ComposedStructure>
+  <assemblyContexts__ComposedStructure id="_LDNNYP7cEeizQdLqRSCK5g" entityName="AC3">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="default.repository#_fEU-4P7HEeizQdLqRSCK5g"/>
+  </assemblyContexts__ComposedStructure>
+  <assemblyContexts__ComposedStructure id="_v4EQAD3MEemy7-rRVYUUTw" entityName="AC2">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="default.repository#_FOdbQD3MEemy7-rRVYUUTw"/>
+  </assemblyContexts__ComposedStructure>
+  <assemblyContexts__ComposedStructure id="_l5uosD36EemFIJdsQlcvyQ" entityName="AC1'">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="default.repository#_c0EzgP7HEeizQdLqRSCK5g"/>
+  </assemblyContexts__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_SP751v7cEeizQdLqRSCK5g" entityName="ACon_AC1_AC3" requiringAssemblyContext_AssemblyConnector="_DsDPEP7bEeizQdLqRSCK5g" providingAssemblyContext_AssemblyConnector="_LDNNYP7cEeizQdLqRSCK5g">
+    <providedRole_AssemblyConnector href="default.repository#_PuaIUf7IEeizQdLqRSCK5g"/>
+    <requiredRole_AssemblyConnector href="default.repository#_JbA3pf7IEeizQdLqRSCK5g"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_xhuVdj3MEemy7-rRVYUUTw" entityName="ACon_AC3_AC2" requiringAssemblyContext_AssemblyConnector="_LDNNYP7cEeizQdLqRSCK5g" providingAssemblyContext_AssemblyConnector="_v4EQAD3MEemy7-rRVYUUTw">
+    <providedRole_AssemblyConnector href="default.repository#_IsHN4T3MEemy7-rRVYUUTw"/>
+    <requiredRole_AssemblyConnector href="default.repository#_c_mVNT3MEemy7-rRVYUUTw"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_ojQ2xj36EemFIJdsQlcvyQ" entityName="ACon_AC1'_AC3" requiringAssemblyContext_AssemblyConnector="_l5uosD36EemFIJdsQlcvyQ" providingAssemblyContext_AssemblyConnector="_LDNNYP7cEeizQdLqRSCK5g">
+    <providedRole_AssemblyConnector href="default.repository#_PuaIUf7IEeizQdLqRSCK5g"/>
+    <requiredRole_AssemblyConnector href="default.repository#_JbA3pf7IEeizQdLqRSCK5g"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_zbwqVD36EemFIJdsQlcvyQ" entityName="PDC Usage_AC1'" outerProvidedRole_ProvidedDelegationConnector="_Luw7Pz37EemFIJdsQlcvyQ" assemblyContext_ProvidedDelegationConnector="_l5uosD36EemFIJdsQlcvyQ">
+    <innerProvidedRole_ProvidedDelegationConnector href="default.repository#_93Bqgf7cEeizQdLqRSCK5g"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_HMOfVP7dEeizQdLqRSCK5g" entityName="PDC Usage_AC1" outerProvidedRole_ProvidedDelegationConnector="_YI2Yj_7dEeizQdLqRSCK5g" assemblyContext_ProvidedDelegationConnector="_DsDPEP7bEeizQdLqRSCK5g">
+    <innerProvidedRole_ProvidedDelegationConnector href="default.repository#_93Bqgf7cEeizQdLqRSCK5g"/>
+  </connectors__ComposedStructure>
+  <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_YI2Yj_7dEeizQdLqRSCK5g" entityName="OPR Usage_AC1">
+    <providedInterface__OperationProvidedRole href="default.repository#_jq79p_7HEeizQdLqRSCK5g"/>
+  </providedRoles_InterfaceProvidingEntity>
+  <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_Luw7Pz37EemFIJdsQlcvyQ" entityName="OPR Usage_AC1'">
+    <providedInterface__OperationProvidedRole href="default.repository#_jq79p_7HEeizQdLqRSCK5g"/>
+  </providedRoles_InterfaceProvidingEntity>
+</system:System>
