@@ -219,7 +219,7 @@ public class TransformationTest extends TransformationTestBase {
 				.getContents()
 				.get(0);
 		
-		EcoreUtil.resolveAll(rs);
+		EcoreUtil.resolveAll(rs); 
 
 		edu.kit.ipd.sdq.dataflow.systemmodel.System dataFlowSystemModel = getSubject().transform(
 				usageModel, system, allocationModel, characteristicTypeContainer);

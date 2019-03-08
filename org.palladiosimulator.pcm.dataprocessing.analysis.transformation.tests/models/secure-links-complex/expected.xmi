@@ -265,20 +265,20 @@
       <term xsi:type="systemmodel:False"/>
     </returnValueAssignments>
   </operations>
-  <operations name="PerformDataTransmissionOperation Scenario2_call_C4 (_tNCTsz35EemFIJdsQlcvyQ) - AC n/a">
-    <calls callee="//@operations.31" name="opCall_55f1382c"/>
-    <calls callee="//@operations.25" name="opCall_5ff73841">
+  <operations name="PerformDataTransmissionOperation Scenario2_call_C1 (_tNCTsz35EemFIJdsQlcvyQ) - AC n/a">
+    <calls callee="//@operations.31" name="opCall_54a43829"/>
+    <calls callee="//@operations.25" name="opCall_5ea7383e">
       <preCallStateDefinitions variable="//@operations.25/@stateVariables.0">
         <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.31/@returnValues.0" call="//@operations.32/@calls.0"/>
       </preCallStateDefinitions>
     </calls>
-    <returnValues datatype="//@datatypes.0" name="Scenario2_call_C4_returnValue_RETURN_6d313759"/>
+    <returnValues datatype="//@datatypes.0" name="Scenario2_call_C1_returnValue_RETURN_6b7b3753"/>
     <returnValueAssignments variable="//@operations.32/@returnValues.0">
       <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.25/@returnValues.0" call="//@operations.32/@calls.1"/>
     </returnValueAssignments>
   </operations>
   <operations name="UserReadData Scenario2_discard (_tj-NBj35EemFIJdsQlcvyQ) - AC n/a">
-    <calls callee="//@operations.32" name="opCall_9e3933e3"/>
+    <calls callee="//@operations.32" name="opCall_9dcd33e0"/>
   </operations>
   <operations name="ScenarioBehaviour Scenario2_Behaviour (_GL8oUD36EemFIJdsQlcvyQ)_dataOp">
     <calls callee="//@operations.33" name="opCall_fbf92f16"/>

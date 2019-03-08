@@ -9,6 +9,7 @@ import org.palladiosimulator.pcm.core.composition.AssemblyConnector
 import org.palladiosimulator.pcm.core.composition.AssemblyContext
 import org.palladiosimulator.pcm.core.entity.Entity
 import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.dto.IdentifierInstance
+import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.util.Hash
 import org.palladiosimulator.pcm.dataprocessing.dataprocessing.data.Data
 import org.palladiosimulator.pcm.dataprocessing.dataprocessing.processing.DataOperation
 import org.palladiosimulator.pcm.dataprocessing.dataprocessing.processing.PerformDataTransmissionOperation
@@ -24,7 +25,6 @@ import org.palladiosimulator.pcm.system.System
 import static org.palladiosimulator.pcm.dataprocessing.analysis.transformation.util.EMFUtils.*
 
 import static extension org.palladiosimulator.pcm.dataprocessing.analysis.transformation.dto.IdentifierInstance.createInstance
-import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.util.Hash
 
 class SEFFBehaviorTransformator extends BehaviorTransformator {
 	
@@ -46,91 +46,99 @@ class SEFFBehaviorTransformator extends BehaviorTransformator {
 		val linkingResource = allLinkingResources
 				.filter[lr | lr.connectedResourceContainers_LinkingResource.contains(ownResourceContainer) && lr.connectedResourceContainers_LinkingResource.contains(targetResourceContainer)]
 				.findFirst[true]
+				
+		if (linkingResource === null) {
+			// don't create proxy
+			super.handleTransferOperation(callerDataOperation, caller, callerInstance, resultRefCache)
+		} else {
+			// create proxy
+			val targetDataOperation = targetSEFF.SEFFOperation
+			val proxyDataOperation = factory.createOperation
+			proxyDataOperation.name = '''DataTransmissionProxyOperation_«caller.name»_«targetDataOperation.name»'''
+			transformationFacilities.system.operations += proxyDataOperation
+			linkingResource.copyCharacteristicsTo(proxyDataOperation)
+		
+			val callerToProxyCall = factory.createOperationCall
+			callerToProxyCall.name = Hash.init(caller.name).add(targetDataOperation.name).add('_callerToProxy').hash
+			callerToProxyCall.caller = caller
+			callerToProxyCall.callee = proxyDataOperation
+			caller.calls += callerToProxyCall
+			
+			val proxyToTargetCall = factory.createOperationCall	
+			proxyToTargetCall.name = Hash.init(caller.name).add(targetDataOperation.name).add('_proxyToTarget').hash			
+			proxyToTargetCall.caller = proxyDataOperation
+			proxyToTargetCall.callee = targetDataOperation
+			proxyDataOperation.calls += proxyToTargetCall
+			
+			for (inputMapping : callerDataOperation.inputMappings) {
+				val targetParameterData = inputMapping.to
+				val targetStateVariable = targetParameterData.getStateVariable(targetSEFF)	
+				
+				// From Caller to Proxy
+				val proxyStateVariable = factory.createVariable
+				proxyStateVariable.name = '''DataTransmissionProxy_STATE_«linkingResource.entityName»_«inputMapping.id»'''
+				proxyStateVariable.datatype = targetStateVariable.datatype
+				
+				proxyDataOperation.stateVariables += proxyStateVariable 
+				
+				// copy assignments from sourceReturnVariable to proxyStateVariable
+				val sourceData = inputMapping.from			
+				val proxyAssignment = factory.createVariableAssignment
+				proxyAssignment.term = resultRefCache.get(sourceData)
+				proxyAssignment.variable = proxyStateVariable
+				callerToProxyCall.preCallStateDefinitions += proxyAssignment
+				
+				// From Proxy to Target			
+				targetDataOperation.stateVariables += targetStateVariable
+				
+				val stateRef = factory.createStateRef
+				stateRef.stateVariable = proxyStateVariable
+				val targetAssignment = factory.createVariableAssignment
+				targetAssignment.term = stateRef
+				targetAssignment.variable = targetStateVariable
+				proxyToTargetCall.preCallStateDefinitions += targetAssignment
+			}
+			
+			for (outputMapping : callerDataOperation.outputMappings) {
+				val targetReturnVariable = outputMapping.from.getReturnVariable(targetSEFF)
+				
+				val proxyReturnVariable = factory.createVariable
+				proxyReturnVariable.name = '''DataTransmissionProxy_RETURN_«linkingResource.entityName»_«outputMapping.id»'''
+				proxyReturnVariable.datatype = targetReturnVariable.datatype
+	
+				proxyDataOperation.returnValues += proxyReturnVariable
+				
+				// From Target to Proxy
+				val targetResultRef = factory.createReturnValueRef
+				targetResultRef.call = proxyToTargetCall
+				targetResultRef.returnValue = targetReturnVariable
+				
+				val proxyAssignment = factory.createVariableAssignment
+				proxyAssignment.term = targetResultRef
+				proxyAssignment.variable = proxyReturnVariable
+				
+				proxyDataOperation.returnValueAssignments += proxyAssignment
+				
+				// From Proxy to Caller
+				val selfReturnVariable = outputMapping.to.getReturnVariable(callerInstance)
+				caller.returnValues += selfReturnVariable
+		
+				val proxyResultRef = factory.createReturnValueRef
+				proxyResultRef.call = callerToProxyCall
+				proxyResultRef.returnValue = proxyReturnVariable
+		
+				val callerAssignment = factory.createVariableAssignment
+				callerAssignment.term = proxyResultRef
+				callerAssignment.variable = selfReturnVariable
+		
+				caller.returnValueAssignments += callerAssignment
+			}
+		}
 					
-		val targetDataOperation = targetSEFF.SEFFOperation
-		val proxyDataOperation = factory.createOperation
-		proxyDataOperation.name = '''DataTransmissionProxyOperation_«caller.name»_«targetDataOperation.name»'''
-		transformationFacilities.system.operations += proxyDataOperation
-		linkingResource.copyCharacteristicsTo(proxyDataOperation)
-	
-		val callerToProxyCall = factory.createOperationCall
-		callerToProxyCall.name = Hash.init(caller.name).add(targetDataOperation.name).add('_callerToProxy').hash
-		callerToProxyCall.caller = caller
-		callerToProxyCall.callee = proxyDataOperation
-		caller.calls += callerToProxyCall
-		
-		val proxyToTargetCall = factory.createOperationCall	
-		proxyToTargetCall.name = Hash.init(caller.name).add(targetDataOperation.name).add('_proxyToTarget').hash			
-		proxyToTargetCall.caller = proxyDataOperation
-		proxyToTargetCall.callee = targetDataOperation
-		proxyDataOperation.calls += proxyToTargetCall
-		
-		for (inputMapping : callerDataOperation.inputMappings) {
-			val targetParameterData = inputMapping.to
-			val targetStateVariable = targetParameterData.getStateVariable(targetSEFF)	
-			
-			// From Caller to Proxy
-			val proxyStateVariable = factory.createVariable
-			proxyStateVariable.name = '''DataTransmissionProxy_STATE_«linkingResource.entityName»_«inputMapping.id»'''
-			proxyStateVariable.datatype = targetStateVariable.datatype
-			
-			proxyDataOperation.stateVariables += proxyStateVariable 
-			
-			// copy assignments from sourceReturnVariable to proxyStateVariable
-			val sourceData = inputMapping.from			
-			val proxyAssignment = factory.createVariableAssignment
-			proxyAssignment.term = resultRefCache.get(sourceData)
-			proxyAssignment.variable = proxyStateVariable
-			callerToProxyCall.preCallStateDefinitions += proxyAssignment
-			
-			// From Proxy to Target			
-			targetDataOperation.stateVariables += targetStateVariable
-			
-			val stateRef = factory.createStateRef
-			stateRef.stateVariable = proxyStateVariable
-			val targetAssignment = factory.createVariableAssignment
-			targetAssignment.term = stateRef
-			targetAssignment.variable = targetStateVariable
-			proxyToTargetCall.preCallStateDefinitions += targetAssignment
-		}
-		
-		for (outputMapping : callerDataOperation.outputMappings) {
-			val targetReturnVariable = outputMapping.from.getReturnVariable(targetSEFF)
-			
-			val proxyReturnVariable = factory.createVariable
-			proxyReturnVariable.name = '''DataTransmissionProxy_RETURN_«linkingResource.entityName»_«outputMapping.id»'''
-			proxyReturnVariable.datatype = targetReturnVariable.datatype
 
-			proxyDataOperation.returnValues += proxyReturnVariable
-			
-			// From Target to Proxy
-			val targetResultRef = factory.createReturnValueRef
-			targetResultRef.call = proxyToTargetCall
-			targetResultRef.returnValue = targetReturnVariable
-			
-			val proxyAssignment = factory.createVariableAssignment
-			proxyAssignment.term = targetResultRef
-			proxyAssignment.variable = proxyReturnVariable
-			
-			proxyDataOperation.returnValueAssignments += proxyAssignment
-			
-			// From Proxy to Caller
-			val selfReturnVariable = outputMapping.to.getReturnVariable(callerInstance)
-			caller.returnValues += selfReturnVariable
-	
-			val proxyResultRef = factory.createReturnValueRef
-			proxyResultRef.call = callerToProxyCall
-			proxyResultRef.returnValue = proxyReturnVariable
-	
-			val callerAssignment = factory.createVariableAssignment
-			callerAssignment.term = proxyResultRef
-			callerAssignment.variable = selfReturnVariable
-	
-			caller.returnValueAssignments += callerAssignment
-		}
 	}
 	
-	private def determineCalledSEFF(Iterable<Entity> callAction, IdentifierInstance<? extends Entity, AssemblyContext> callerInstance) {
+	override protected determineCalledSEFF(Iterable<Entity> callAction, IdentifierInstance<? extends Entity, AssemblyContext> callerInstance) {
 		val eca = callAction.filter(ExternalCallAction).findFirst[true]
 		
 		val calledOperationSignature = eca.calledService_ExternalService

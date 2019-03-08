@@ -1,11 +1,8 @@
 package org.palladiosimulator.pcm.dataprocessing.analysis.transformation.basic.impl
 
 import de.uka.ipd.sdq.identifier.Identifier
-import edu.kit.ipd.sdq.dataflow.systemmodel.LogicTerm
-import edu.kit.ipd.sdq.dataflow.systemmodel.Operation
 import edu.kit.ipd.sdq.dataflow.systemmodel.OperationCall
 import java.util.ArrayList
-import java.util.Map
 import org.eclipse.emf.ecore.util.EcoreUtil
 import org.jgrapht.Graph
 import org.palladiosimulator.pcm.core.composition.AssemblyContext
@@ -13,16 +10,11 @@ import org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector
 import org.palladiosimulator.pcm.core.entity.Entity
 import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.dto.DataEdge
 import org.palladiosimulator.pcm.dataprocessing.analysis.transformation.dto.IdentifierInstance
-import org.palladiosimulator.pcm.dataprocessing.dataprocessing.data.Data
 import org.palladiosimulator.pcm.dataprocessing.dataprocessing.processing.DataOperation
-import org.palladiosimulator.pcm.dataprocessing.dataprocessing.processing.PerformDataTransmissionOperation
-import org.palladiosimulator.pcm.dataprocessing.profile.api.ProfileConstants
 import org.palladiosimulator.pcm.system.System
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall
 import org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour
 import org.palladiosimulator.pcm.usagemodel.Start
-
-import static org.palladiosimulator.pcm.dataprocessing.analysis.transformation.util.EMFUtils.*
 
 class UsageModelBehaviorTransformator extends BehaviorTransformator {
 	
@@ -36,46 +28,7 @@ class UsageModelBehaviorTransformator extends BehaviorTransformator {
 		}
 	}
 	
-	override handleTransferOperation(PerformDataTransmissionOperation callerDataOperation, Operation caller, IdentifierInstance<DataOperation, AssemblyContext> callerInstance, Map<Data, LogicTerm> resultRefCache) {
-		val actionCandidates = getStereotypedElements(ProfileConstants.STEREOTYPE_NAME_DATA_PROCESSING, callerDataOperation.container, Entity)
-		val targetSEFF = determineCalledSEFF(actionCandidates, callerInstance)
-		
-		val targetDataOperation = targetSEFF.SEFFOperation
-		val call = caller.getOperationCall(targetDataOperation)
-		caller.calls += call
-
-		for (inputMapping : callerDataOperation.inputMappings) {
-			val targetParameterData = inputMapping.to
-			val targetStateVariable = targetParameterData.getStateVariable(targetSEFF)
-			targetDataOperation.stateVariables += targetStateVariable //TODO put in SEFF construction
-			val sourceData = inputMapping.from
-			
-			// copy assignments from sourceReturnVariable to targetStateVariable
-			val assignment = factory.createVariableAssignment
-			assignment.term = resultRefCache.get(sourceData)
-			assignment.variable = targetStateVariable
-			call.preCallStateDefinitions += assignment					
-		}
-		
-		for (outputMapping : callerDataOperation.outputMappings) {
-			val calledReturnVariable = outputMapping.from.getReturnVariable(targetSEFF)
-	
-			val selfReturnVariable = outputMapping.to.getReturnVariable(callerInstance)
-			caller.returnValues += selfReturnVariable
-	
-			val resultRef = factory.createReturnValueRef
-			resultRef.call = call
-			resultRef.returnValue = calledReturnVariable
-	
-			val assignment = factory.createVariableAssignment
-			assignment.term = resultRef
-			assignment.variable = selfReturnVariable
-	
-			callerInstance.operation.returnValueAssignments += assignment
-		}
-	}
-	
-	private def determineCalledSEFF(Iterable<Entity> callAction, IdentifierInstance<? extends Entity, AssemblyContext> callerInstance) {
+	override protected determineCalledSEFF(Iterable<Entity> callAction, IdentifierInstance<? extends Entity, AssemblyContext> callerInstance) {
 		val elsc = callAction.filter(EntryLevelSystemCall).findFirst[true]
 		val calledSignature = elsc.operationSignature__EntryLevelSystemCall
 		
