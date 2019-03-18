@@ -41,6 +41,9 @@
     <returnValueAssignments variable="//@operations.4/@returnValues.0" attribute="//@attributes.1" value="//@types.1/@values.0">
       <term xsi:type="systemmodel:True"/>
     </returnValueAssignments>
+    <returnValueAssignments variable="//@operations.4/@returnValues.0" attribute="//@attributes.1" value="//@types.1/@values.2">
+      <term xsi:type="systemmodel:True"/>
+    </returnValueAssignments>
   </operations>
   <operations name="PerformDataTransmissionOperation C2_call_C3 (_AzIqAz3NEemy7-rRVYUUTw) - AC _LDNNYP7cEeizQdLqRSCK5g">
     <calls callee="//@operations.4" name="opCall_282d3f94"/>
@@ -106,7 +109,7 @@
       </preCallStateDefinitions>
     </calls>
     <returnValues datatype="//@datatypes.0" name="DataTransmissionProxy_RETURN_LR_N2_N3__C_OHET3NEemy7-rRVYUUTw"/>
-    <propertyDefinitions property="//@properties.0" presentValues="//@types.0/@values.1"/>
+    <propertyDefinitions property="//@properties.0" presentValues="//@types.0/@values.3"/>
     <returnValueAssignments variable="//@operations.13/@returnValues.0">
       <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.19/@returnValues.0" call="//@operations.13/@calls.0"/>
     </returnValueAssignments>
@@ -125,7 +128,7 @@
       </preCallStateDefinitions>
     </calls>
     <returnValues datatype="//@datatypes.0" name="DataTransmissionProxy_RETURN_LR_N2_N3__IMiH8T5mEemFIJdsQlcvyQ"/>
-    <propertyDefinitions property="//@properties.0" presentValues="//@types.0/@values.1"/>
+    <propertyDefinitions property="//@properties.0" presentValues="//@types.0/@values.3"/>
     <returnValueAssignments variable="//@operations.15/@returnValues.0">
       <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.26/@returnValues.0" call="//@operations.15/@calls.0"/>
     </returnValueAssignments>
@@ -212,7 +215,7 @@
       </preCallStateDefinitions>
     </calls>
     <returnValues datatype="//@datatypes.0" name="DataTransmissionProxy_RETURN_LR_N2_N3__NFUUMf-OEeiCvJvtMoMgzQ"/>
-    <propertyDefinitions property="//@properties.0" presentValues="//@types.0/@values.1"/>
+    <propertyDefinitions property="//@properties.0" presentValues="//@types.0/@values.3"/>
     <returnValueAssignments variable="//@operations.24/@returnValues.0">
       <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.18/@returnValues.0" call="//@operations.24/@calls.0"/>
     </returnValueAssignments>

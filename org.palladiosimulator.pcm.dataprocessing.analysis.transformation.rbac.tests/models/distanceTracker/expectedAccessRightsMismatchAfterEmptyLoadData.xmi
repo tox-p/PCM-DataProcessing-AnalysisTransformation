@@ -103,15 +103,15 @@
     <stateVariables datatype="//@datatypes.3" name="TrackerApplication_declassifyDistance_input_DistanceRecord_STATE_6a7f40a3"/>
   </operations>
   <operations name="PerformDataTransmissionOperation DistanceTracker_submitDistance_callTrackerService (_PJMh09zvEeigPqQSS4r9DQ) - AC _r5T6cNwvEeiXzNImH0otAg">
-    <calls callee="//@operations.15" name="opCall_10274bcf">
-      <preCallStateDefinitions variable="//@operations.15/@stateVariables.0">
-        <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.14/@stateVariables.0"/>
+    <calls callee="//@operations.14" name="5f675186">
+      <preCallStateDefinitions variable="//@operations.14/@stateVariables.0">
+        <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.15/@stateVariables.0"/>
       </preCallStateDefinitions>
     </calls>
     <returnValues datatype="//@datatypes.4" name="DistanceTracker_submitDistance_Confirmation_RETURN_68da5249"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0 //@types.0/@values.2"/>
     <returnValueAssignments variable="//@operations.9/@returnValues.0">
-      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.15/@returnValues.0" call="//@operations.9/@calls.0"/>
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.14/@returnValues.0" call="//@operations.9/@calls.0"/>
     </returnValueAssignments>
   </operations>
   <operations name="ReturnDataOperation DistanceTracker_submitDistance_returnConfirmation (_raLrNdzvEeigPqQSS4r9DQ) - AC _r5T6cNwvEeiXzNImH0otAg">
@@ -146,12 +146,24 @@
       <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.12/@returnValues.0" call="//@operations.13/@calls.0"/>
     </returnValueAssignments>
   </operations>
+  <operations name="DataTransmissionProxyOperation_PerformDataTransmissionOperation DistanceTracker_submitDistance_callTrackerService (_PJMh09zvEeigPqQSS4r9DQ) - AC _r5T6cNwvEeiXzNImH0otAg_ResourceDemandingSEFF (_3M_DkNwuEeiXzNImH0otAg) - AC _tO_7ANwvEeiXzNImH0otAg">
+    <calls callee="//@operations.16" name="6166519a">
+      <preCallStateDefinitions variable="//@operations.16/@stateVariables.0">
+        <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.14/@stateVariables.0"/>
+      </preCallStateDefinitions>
+    </calls>
+    <returnValues datatype="//@datatypes.4" name="DataTransmissionProxy_RETURN_LinkingResource1__ml3nodzvEeigPqQSS4r9DQ"/>
+    <returnValueAssignments variable="//@operations.14/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.16/@returnValues.0" call="//@operations.14/@calls.0"/>
+    </returnValueAssignments>
+    <stateVariables datatype="//@datatypes.3" name="DataTransmissionProxy_STATE_LinkingResource1__lCUxQNzvEeigPqQSS4r9DQ"/>
+  </operations>
   <operations name="ResourceDemandingSEFF (_Llw1YNxBEeiXzNImH0otAg) - AC _r5T6cNwvEeiXzNImH0otAg">
     <calls callee="//@operations.10" name="opCall_34f4738"/>
     <returnValues datatype="//@datatypes.4" name="TrackerApplication_submitDistance_output_Confirmation_RETURN_72833e24"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0 //@types.0/@values.2"/>
-    <returnValueAssignments variable="//@operations.14/@returnValues.0">
-      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.10/@returnValues.0" call="//@operations.14/@calls.0"/>
+    <returnValueAssignments variable="//@operations.15/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.10/@returnValues.0" call="//@operations.15/@calls.0"/>
     </returnValueAssignments>
     <stateVariables datatype="//@datatypes.3" name="TrackerApplication_submitDistance_input_DistanceRecord_STATE_5f513f1a"/>
   </operations>
@@ -160,8 +172,8 @@
     <calls callee="//@operations.13" name="opCall_b6a946b5"/>
     <returnValues datatype="//@datatypes.4" name="DistanceRecorder_recordDistance_output_Confirmation_RETURN_edb53d20"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.1"/>
-    <returnValueAssignments variable="//@operations.15/@returnValues.0">
-      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.13/@returnValues.0" call="//@operations.15/@calls.1"/>
+    <returnValueAssignments variable="//@operations.16/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.13/@returnValues.0" call="//@operations.16/@calls.1"/>
     </returnValueAssignments>
     <stateVariables datatype="//@datatypes.3" name="DistanceRecorder_recordDistance_input_DistanceRecord_STATE_d8c73e25"/>
   </operations>
@@ -169,42 +181,42 @@
     <calls callee="//@operations.5" name="opCall_6174170"/>
     <returnValues datatype="//@datatypes.3" name="UsageModel_getDistance_output_DistanceRecord_RETURN_3f7747d0"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0 //@types.0/@values.2"/>
-    <returnValueAssignments variable="//@operations.16/@returnValues.0">
-      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.5/@returnValues.0" call="//@operations.16/@calls.0"/>
+    <returnValueAssignments variable="//@operations.17/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.5/@returnValues.0" call="//@operations.17/@calls.0"/>
     </returnValueAssignments>
   </operations>
   <operations name="PerformDataTransmissionOperation UsageModel_declassifyDistance_callDistanceTracker (_NzxBM9xFEeiXzNImH0otAg) - AC n/a">
-    <calls callee="//@operations.16" name="opCall_648e533e"/>
+    <calls callee="//@operations.17" name="opCall_648e533e"/>
     <calls callee="//@operations.8" name="opCall_5faf44f4">
       <preCallStateDefinitions variable="//@operations.8/@stateVariables.0">
-        <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.16/@returnValues.0" call="//@operations.17/@calls.0"/>
+        <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.17/@returnValues.0" call="//@operations.18/@calls.0"/>
       </preCallStateDefinitions>
     </calls>
     <returnValues datatype="//@datatypes.3" name="UsageModel_declassifyDistance_output_DistanceRecord_RETURN_e12b4e28"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0 //@types.0/@values.2"/>
-    <returnValueAssignments variable="//@operations.17/@returnValues.0">
-      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.8/@returnValues.0" call="//@operations.17/@calls.1"/>
+    <returnValueAssignments variable="//@operations.18/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.8/@returnValues.0" call="//@operations.18/@calls.1"/>
     </returnValueAssignments>
   </operations>
   <operations name="PerformDataTransmissionOperation UsageModel_submitDistance_callDistanceTracker (_YMAAU9xFEeiXzNImH0otAg) - AC n/a">
-    <calls callee="//@operations.17" name="opCall_487f54b0"/>
-    <calls callee="//@operations.14" name="opCall_cbd4301">
-      <preCallStateDefinitions variable="//@operations.14/@stateVariables.0">
-        <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.17/@returnValues.0" call="//@operations.18/@calls.0"/>
+    <calls callee="//@operations.18" name="opCall_487f54b0"/>
+    <calls callee="//@operations.15" name="opCall_cbd4301">
+      <preCallStateDefinitions variable="//@operations.15/@stateVariables.0">
+        <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.18/@returnValues.0" call="//@operations.19/@calls.0"/>
       </preCallStateDefinitions>
     </calls>
     <returnValues datatype="//@datatypes.4" name="UsageModel_submitDistance_output_Confirmation_RETURN_a56d49ed"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0 //@types.0/@values.2"/>
-    <returnValueAssignments variable="//@operations.18/@returnValues.0">
-      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.14/@returnValues.0" call="//@operations.18/@calls.1"/>
+    <returnValueAssignments variable="//@operations.19/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.15/@returnValues.0" call="//@operations.19/@calls.1"/>
     </returnValueAssignments>
   </operations>
   <operations name="UserReadData UsageModel_submitDistance_readConfirmation (_krdxttxFEeiXzNImH0otAg) - AC n/a">
-    <calls callee="//@operations.18" name="opCall_630c4a2d"/>
+    <calls callee="//@operations.19" name="opCall_630c4a2d"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0 //@types.0/@values.2"/>
   </operations>
   <operations name="ScenarioBehaviour ScenarioBehaviour (_8KbjENwwEeiXzNImH0otAg)_dataOp">
-    <calls callee="//@operations.19" name="opCall_630839de"/>
+    <calls callee="//@operations.20" name="opCall_630839de"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0 //@types.0/@values.2"/>
   </operations>
   <properties type="//@types.0" name="EnumCharacteristicType AccessRights (_rkiSMFqnEeiY18w7ObeSrg)"/>
@@ -215,6 +227,6 @@
     <values name="EnumCharacteristicLiteral Distance (_ioF7ANxhEeioY8Z0VCkPOA)"/>
   </types>
   <systemusages name="ScenarioBehaviour ScenarioBehaviour (_8KbjENwwEeiXzNImH0otAg)">
-    <calls callee="//@operations.20" name="opCall_32d62f75"/>
+    <calls callee="//@operations.21" name="opCall_32d62f75"/>
   </systemusages>
 </systemmodel:System>

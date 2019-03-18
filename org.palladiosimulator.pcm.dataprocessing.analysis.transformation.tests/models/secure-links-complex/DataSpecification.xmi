@@ -128,6 +128,8 @@
             href="characteristicTypes.xmi#_5KwWYP7hEeizQdLqRSCK5g"/>
         <literals
             href="characteristicTypes.xmi#_ycUIcP7hEeizQdLqRSCK5g"/>
+        <literals
+            href="characteristicTypes.xmi#_T3EVID2lEemy7-rRVYUUTw"/>
       </initialCharacteristics>
     </operations>
     <operations
@@ -301,7 +303,7 @@
           xsi:type="characteristics:EnumCharacteristicType"
           href="characteristicTypes.xmi#_0r9P0P7hEeizQdLqRSCK5g"/>
       <literals
-          href="characteristicTypes.xmi#_sJEowP7hEeizQdLqRSCK5g"/>
+          href="characteristicTypes.xmi#_sywe8P7hEeizQdLqRSCK5g"/>
     </ownedCharacteristics>
   </characteristicContainer>
   <operationSignatureDataRefinement

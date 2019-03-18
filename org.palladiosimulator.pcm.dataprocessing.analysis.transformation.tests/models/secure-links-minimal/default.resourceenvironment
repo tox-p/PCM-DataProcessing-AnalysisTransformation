@@ -16,6 +16,10 @@
       <extension href="../../../../plugin/org.palladiosimulator.pcm.dataprocessing.profile/profile.emfprofile_diagram#_Imn6oFqjEeiW1d-qz7Oqsw"/>
       <characteristicContainer href="DataSpecification.xmi#_jGkIYv-PEeiCvJvtMoMgzQ"/>
     </stereotypeApplications>
+    <stereotypeApplications xsi:type="dataProcessingProfile:Characterizable">
+      <extension href="../../../../plugin/org.palladiosimulator.pcm.dataprocessing.profile/profile.emfprofile_diagram#_Imn6oFqjEeiW1d-qz7Oqsw"/>
+      <characteristicContainer href="DataSpecification.xmi#_Kyw2M0P_EemUuMF-Y-iyQA"/>
+    </stereotypeApplications>
     <importedProfiles nsURI="http://www.palladiosimulator.org/pcm/dataprocessing/profile/0.1/" location="platform:/plugin/org.palladiosimulator.pcm.dataprocessing.profile/profile.emfprofile_diagram"/>
   </emfprofileapplication:ProfileApplication>
 </xmi:XMI>

@@ -25,6 +25,7 @@ import org.palladiosimulator.pcm.system.System
 import static org.palladiosimulator.pcm.dataprocessing.analysis.transformation.util.EMFUtils.*
 
 import static extension org.palladiosimulator.pcm.dataprocessing.analysis.transformation.dto.IdentifierInstance.createInstance
+import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer
 
 class SEFFBehaviorTransformator extends BehaviorTransformator {
 	
@@ -41,10 +42,19 @@ class SEFFBehaviorTransformator extends BehaviorTransformator {
 				
 		val ownResourceContainer = ownAssemblyContext.resourceContainer
 		val targetResourceContainer = targetAssemblyContext.resourceContainer
-		val allLinkingResources = ownResourceContainer.resourceEnvironment_ResourceContainer.linkingResources__ResourceEnvironment.filter(LinkingResource)
 		
+		val resourceEnvironment = ownResourceContainer.resourceEnvironment
+		val allLinkingResources = resourceEnvironment.linkingResources__ResourceEnvironment.filter(LinkingResource)
+		
+		val ownResourceContainerHierarchy = ownResourceContainer.collectCurrentAndAllParentResourceContainers
+		val targetResourceContainerHierarchy = targetResourceContainer.collectCurrentAndAllParentResourceContainers
+		
+		// check if there exists a linking resource between ownResourceContainer or own of its parents and targetResourceContainer or one of its parents
 		val linkingResource = allLinkingResources
-				.filter[lr | lr.connectedResourceContainers_LinkingResource.contains(ownResourceContainer) && lr.connectedResourceContainers_LinkingResource.contains(targetResourceContainer)]
+				.filter[lr | 
+					ownResourceContainerHierarchy.map[x | lr.connectedResourceContainers_LinkingResource.contains(x)].reduce[x, y | x || y]
+					&& targetResourceContainerHierarchy.map[x | lr.connectedResourceContainers_LinkingResource.contains(x)].reduce[x, y | x || y]
+				]
 				.findFirst[true]
 				
 		if (linkingResource === null) {
@@ -134,8 +144,27 @@ class SEFFBehaviorTransformator extends BehaviorTransformator {
 				caller.returnValueAssignments += callerAssignment
 			}
 		}
-					
-
+	}
+	
+	private def getResourceEnvironment(ResourceContainer resourceContainer) {
+		var current = resourceContainer
+		while (current.parentResourceContainer__ResourceContainer !== null) {
+			current = current.parentResourceContainer__ResourceContainer
+		}
+		
+		current.resourceEnvironment_ResourceContainer
+	}
+	
+	private def collectCurrentAndAllParentResourceContainers(ResourceContainer resourceContainer) {
+		var resourceContainers = newArrayList()
+		var current = resourceContainer
+		
+		do {
+			resourceContainers += current
+			current = current.parentResourceContainer__ResourceContainer
+		} while (current !== null)
+		
+		resourceContainers
 	}
 	
 	override protected determineCalledSEFF(Iterable<Entity> callAction, IdentifierInstance<? extends Entity, AssemblyContext> callerInstance) {

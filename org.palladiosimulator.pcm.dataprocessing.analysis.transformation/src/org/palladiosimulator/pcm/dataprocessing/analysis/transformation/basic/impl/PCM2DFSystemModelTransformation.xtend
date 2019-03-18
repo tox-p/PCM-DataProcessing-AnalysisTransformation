@@ -162,6 +162,7 @@ class PCM2DFSystemModelTransformation implements ITransformator, TransformationF
 	override getOperation(IdentifierInstance<DataOperation, AssemblyContext> dataOpInstance, EObject propertySource) {
 		val op = dataOpInstance.operation
 		propertySource.copyCharacteristicsTo(op)
+		dataOpInstance.entity.copyCharacteristicsFromDataOperationTo(op)		
 		op
 	}
 
@@ -224,6 +225,19 @@ class PCM2DFSystemModelTransformation implements ITransformator, TransformationF
 	protected def copyCharacteristicsTo(EObject characteristicHolder, Operation op) {
 		if (StereotypeAPI.hasAppliedStereotype(#{characteristicHolder}, ProfileConstants.STEREOTYPE_NAME_CHARACTERIZABLE)) {
 			val characteristicContainer = EMFUtils.getTaggedValue(characteristicHolder, ProfileConstants.TAGGED_VALUE_NAME_CHARACTERIZABLE_CONTAINER, ProfileConstants.STEREOTYPE_NAME_CHARACTERIZABLE, CharacteristicContainer)
+			for (characteristic : characteristicContainer.ownedCharacteristics) {
+				val propDef = factory.createPropertyDefinition
+				propDef.property = characteristic.characteristicType.property
+				propDef.presentValues += characteristic.values
+				op.propertyDefinitions += propDef
+			}
+		}
+	}
+	
+	// TODO: make sure this doesn't break when the same characteristic is copied to an operation from multiple sources
+	private def copyCharacteristicsFromDataOperationTo(DataOperation dataOp, Operation op) {
+		val characteristicContainers = dataOp.characteristicContainers
+		for (characteristicContainer : characteristicContainers) {
 			for (characteristic : characteristicContainer.ownedCharacteristics) {
 				val propDef = factory.createPropertyDefinition
 				propDef.property = characteristic.characteristicType.property

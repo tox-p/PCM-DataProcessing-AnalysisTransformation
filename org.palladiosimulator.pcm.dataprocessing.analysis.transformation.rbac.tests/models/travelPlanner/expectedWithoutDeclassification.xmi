@@ -10,15 +10,15 @@
   <datatypes attributes="//@attributes.0 //@attributes.1" name="CompositeDataType FlightOffer (_QuDIrc5jEeWFJak7Wqvc0g)"/>
   <datatypes attributes="//@attributes.0 //@attributes.1" name="CompositeDataType CreditCardDetails (_WVGGLc5iEeWFJak7Wqvc0g)"/>
   <operations name="PerformDataTransmissionOperation TA - getFlightOffers - callAirline (_uQFK88eeEeiB6cKI8lzNcA) - AC _0WeT8MN-EeWst9mTsticNA">
-    <calls callee="//@operations.28" name="opCall_c8024272">
-      <preCallStateDefinitions variable="//@operations.28/@stateVariables.0">
-        <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.5/@stateVariables.0"/>
+    <calls callee="//@operations.5" name="942c4829">
+      <preCallStateDefinitions variable="//@operations.5/@stateVariables.0">
+        <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.6/@stateVariables.0"/>
       </preCallStateDefinitions>
     </calls>
     <returnValues datatype="//@datatypes.0" name="TravelAgency_output_FlightOffers_RETURN_bf4044d1"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.1"/>
     <returnValueAssignments variable="//@operations.0/@returnValues.0">
-      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.28/@returnValues.0" call="//@operations.0/@calls.0"/>
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.5/@returnValues.0" call="//@operations.0/@calls.0"/>
     </returnValueAssignments>
   </operations>
   <operations name="ReturnDataOperation TA - getFlightOffers - returnFlights (_Pp4oRcefEeiB6cKI8lzNcA) - AC _0WeT8MN-EeWst9mTsticNA">
@@ -61,227 +61,283 @@
       <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.3/@returnValues.0" call="//@operations.4/@calls.0"/>
     </returnValueAssignments>
   </operations>
+  <operations name="DataTransmissionProxyOperation_PerformDataTransmissionOperation TA - getFlightOffers - callAirline (_uQFK88eeEeiB6cKI8lzNcA) - AC _0WeT8MN-EeWst9mTsticNA_ResourceDemandingSEFF (_z-Ul0N5fEeeel_96Qa_d5A) - AC _HRAO0MOAEeWst9mTsticNA">
+    <calls callee="//@operations.32" name="962b483d">
+      <preCallStateDefinitions variable="//@operations.32/@stateVariables.0">
+        <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.5/@stateVariables.0"/>
+      </preCallStateDefinitions>
+    </calls>
+    <returnValues datatype="//@datatypes.0" name="DataTransmissionProxy_RETURN_Internet__NMmtgcefEeiB6cKI8lzNcA"/>
+    <returnValueAssignments variable="//@operations.5/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.32/@returnValues.0" call="//@operations.5/@calls.0"/>
+    </returnValueAssignments>
+    <stateVariables datatype="//@datatypes.1" name="DataTransmissionProxy_STATE_Internet__yc2GUMeeEeiB6cKI8lzNcA"/>
+  </operations>
   <operations name="ResourceDemandingSEFF (_brO1YN5fEeeel_96Qa_d5A) - AC _0WeT8MN-EeWst9mTsticNA">
     <calls callee="//@operations.1" name="opCall_293a3e8e"/>
     <returnValues datatype="//@datatypes.0" name="TravelAgency/Airline_output_FlightOffers_RETURN_dcef373e"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.1"/>
-    <returnValueAssignments variable="//@operations.5/@returnValues.0">
-      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.1/@returnValues.0" call="//@operations.5/@calls.0"/>
+    <returnValueAssignments variable="//@operations.6/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.1/@returnValues.0" call="//@operations.6/@calls.0"/>
     </returnValueAssignments>
     <stateVariables datatype="//@datatypes.1" name="TravelAgency/Airline_input_RequestData_STATE_799370a"/>
   </operations>
   <operations name="CreateDataOperation TA - payComission - createConfirmation (_4Gy78MefEeiB6cKI8lzNcA) - AC _0WeT8MN-EeWst9mTsticNA">
     <returnValues datatype="//@datatypes.2" name="TA_comission_confirmation_RETURN_5ca93d3e"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.1"/>
-    <returnValueAssignments variable="//@operations.6/@returnValues.0">
+    <returnValueAssignments variable="//@operations.7/@returnValues.0">
       <term xsi:type="systemmodel:False"/>
     </returnValueAssignments>
-    <returnValueAssignments variable="//@operations.6/@returnValues.0" attribute="//@attributes.0" value="//@types.0/@values.2">
+    <returnValueAssignments variable="//@operations.7/@returnValues.0" attribute="//@attributes.0" value="//@types.0/@values.2">
       <term xsi:type="systemmodel:True"/>
     </returnValueAssignments>
-    <returnValueAssignments variable="//@operations.6/@returnValues.0" attribute="//@attributes.0" value="//@types.0/@values.1">
+    <returnValueAssignments variable="//@operations.7/@returnValues.0" attribute="//@attributes.0" value="//@types.0/@values.1">
       <term xsi:type="systemmodel:True"/>
     </returnValueAssignments>
   </operations>
   <operations name="ReturnDataOperation TA - payComission - returnConfirmation (_Gk_D1cegEeiB6cKI8lzNcA) - AC _0WeT8MN-EeWst9mTsticNA">
-    <calls callee="//@operations.6" name="opCall_cbe04cc7"/>
+    <calls callee="//@operations.7" name="opCall_cbe04cc7"/>
     <returnValues datatype="//@datatypes.2" name="TA_comission_confirmation_RETURN_ab953dd0"/>
-    <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.1"/>
-    <returnValueAssignments variable="//@operations.7/@returnValues.0">
-      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.6/@returnValues.0" call="//@operations.7/@calls.0"/>
-    </returnValueAssignments>
-  </operations>
-  <operations name="ResourceDemandingSEFF (_pto2QHVnEeiXttXAU56kmA) - AC _0WeT8MN-EeWst9mTsticNA">
-    <calls callee="//@operations.7" name="opCall_52b3feb"/>
-    <returnValues datatype="//@datatypes.2" name="TA_output_confirmation_RETURN_563030bf"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.1"/>
     <returnValueAssignments variable="//@operations.8/@returnValues.0">
       <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.7/@returnValues.0" call="//@operations.8/@calls.0"/>
+    </returnValueAssignments>
+  </operations>
+  <operations name="ResourceDemandingSEFF (_pto2QHVnEeiXttXAU56kmA) - AC _0WeT8MN-EeWst9mTsticNA">
+    <calls callee="//@operations.8" name="opCall_52b3feb"/>
+    <returnValues datatype="//@datatypes.2" name="TA_output_confirmation_RETURN_563030bf"/>
+    <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.1"/>
+    <returnValueAssignments variable="//@operations.9/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.8/@returnValues.0" call="//@operations.9/@calls.0"/>
     </returnValueAssignments>
     <stateVariables datatype="//@datatypes.3" name="TA_input_offerId_STATE_af6a2f00"/>
   </operations>
   <operations name="CreateDataOperation TP - confirmBooking - createConfirmation (_sjvp8MAUEeiUI73niYsUQw) - AC _2pBlYMN-EeWst9mTsticNA">
     <returnValues datatype="//@datatypes.2" name="TP - confirmBooking - createdConfirmation_RETURN_2f3643e6"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0"/>
-    <returnValueAssignments variable="//@operations.9/@returnValues.0">
+    <returnValueAssignments variable="//@operations.10/@returnValues.0">
       <term xsi:type="systemmodel:False"/>
     </returnValueAssignments>
-    <returnValueAssignments variable="//@operations.9/@returnValues.0" attribute="//@attributes.0" value="//@types.0/@values.0">
+    <returnValueAssignments variable="//@operations.10/@returnValues.0" attribute="//@attributes.0" value="//@types.0/@values.0">
       <term xsi:type="systemmodel:True"/>
     </returnValueAssignments>
-    <returnValueAssignments variable="//@operations.9/@returnValues.0" attribute="//@attributes.0" value="//@types.0/@values.2">
+    <returnValueAssignments variable="//@operations.10/@returnValues.0" attribute="//@attributes.0" value="//@types.0/@values.2">
       <term xsi:type="systemmodel:True"/>
     </returnValueAssignments>
   </operations>
   <operations name="ReturnDataOperation TP - confirmBooking - returnConfirmation (_0s7XlcAUEeiUI73niYsUQw) - AC _2pBlYMN-EeWst9mTsticNA">
-    <calls callee="//@operations.9" name="opCall_77734f90"/>
+    <calls callee="//@operations.10" name="opCall_77734f90"/>
     <returnValues datatype="//@datatypes.2" name="TP - confirmBooking - createdConfirmation_RETURN_450543f7"/>
-    <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0"/>
-    <returnValueAssignments variable="//@operations.10/@returnValues.0">
-      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.9/@returnValues.0" call="//@operations.10/@calls.0"/>
-    </returnValueAssignments>
-  </operations>
-  <operations name="ResourceDemandingSEFF (_nUbBQNT3Eee-_bZGhm8PwA) - AC _2pBlYMN-EeWst9mTsticNA">
-    <calls callee="//@operations.10" name="opCall_6fc440d9"/>
-    <returnValues datatype="//@datatypes.2" name="TravelPlanner_output_confirmBooking_RETURN_ebeb354e"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0"/>
     <returnValueAssignments variable="//@operations.11/@returnValues.0">
       <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.10/@returnValues.0" call="//@operations.11/@calls.0"/>
+    </returnValueAssignments>
+  </operations>
+  <operations name="ResourceDemandingSEFF (_nUbBQNT3Eee-_bZGhm8PwA) - AC _2pBlYMN-EeWst9mTsticNA">
+    <calls callee="//@operations.11" name="opCall_6fc440d9"/>
+    <returnValues datatype="//@datatypes.2" name="TravelPlanner_output_confirmBooking_RETURN_ebeb354e"/>
+    <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0"/>
+    <returnValueAssignments variable="//@operations.12/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.11/@returnValues.0" call="//@operations.12/@calls.0"/>
     </returnValueAssignments>
     <stateVariables datatype="//@datatypes.4" name="TravelPlanner_input_airline_STATE_d0c0331b"/>
     <stateVariables datatype="//@datatypes.3" name="TravelPlanner_input_offerId_STATE_cde13302"/>
   </operations>
   <operations name="PerformDataTransmissionOperation TP - getFlightOffers - callTA (_Or1ZU8AEEeixfaJ5gBxJGQ) - AC _2pBlYMN-EeWst9mTsticNA">
-    <calls callee="//@operations.5" name="opCall_586540b1">
-      <preCallStateDefinitions variable="//@operations.5/@stateVariables.0">
-        <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.14/@stateVariables.0"/>
+    <calls callee="//@operations.6" name="opCall_586540b1">
+      <preCallStateDefinitions variable="//@operations.6/@stateVariables.0">
+        <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.15/@stateVariables.0"/>
       </preCallStateDefinitions>
     </calls>
     <returnValues datatype="//@datatypes.0" name="TP_output_FlightOffers_RETURN_ae373f1f"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0"/>
-    <returnValueAssignments variable="//@operations.12/@returnValues.0">
-      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.5/@returnValues.0" call="//@operations.12/@calls.0"/>
+    <returnValueAssignments variable="//@operations.13/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.6/@returnValues.0" call="//@operations.13/@calls.0"/>
     </returnValueAssignments>
   </operations>
   <operations name="ReturnDataOperation TP - getFlightOffers - returnFlightOffers (_ax3XBcAEEeixfaJ5gBxJGQ) - AC _2pBlYMN-EeWst9mTsticNA">
-    <calls callee="//@operations.12" name="opCall_50704fd2"/>
+    <calls callee="//@operations.13" name="opCall_50704fd2"/>
     <returnValues datatype="//@datatypes.0" name="TP_output_FlightOffers_RETURN_775f3f1c"/>
-    <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0"/>
-    <returnValueAssignments variable="//@operations.13/@returnValues.0">
-      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.12/@returnValues.0" call="//@operations.13/@calls.0"/>
-    </returnValueAssignments>
-  </operations>
-  <operations name="ResourceDemandingSEFF (_Jo_X8N5fEeeel_96Qa_d5A) - AC _2pBlYMN-EeWst9mTsticNA">
-    <calls callee="//@operations.13" name="opCall_98f340da"/>
-    <returnValues datatype="//@datatypes.0" name="TP_output_FlightOffers_RETURN_2be23060"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0"/>
     <returnValueAssignments variable="//@operations.14/@returnValues.0">
       <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.13/@returnValues.0" call="//@operations.14/@calls.0"/>
+    </returnValueAssignments>
+  </operations>
+  <operations name="ResourceDemandingSEFF (_Jo_X8N5fEeeel_96Qa_d5A) - AC _2pBlYMN-EeWst9mTsticNA">
+    <calls callee="//@operations.14" name="opCall_98f340da"/>
+    <returnValues datatype="//@datatypes.0" name="TP_output_FlightOffers_RETURN_2be23060"/>
+    <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0"/>
+    <returnValueAssignments variable="//@operations.15/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.14/@returnValues.0" call="//@operations.15/@calls.0"/>
     </returnValueAssignments>
     <stateVariables datatype="//@datatypes.1" name="TP_input_RequestData_STATE_5178303f"/>
   </operations>
   <operations name="ProjectionDataOperation TP - bookSelected - extractOfferId (_qr-_dMAGEei_D8NS_upkXw) - AC _2pBlYMN-EeWst9mTsticNA">
     <returnValues datatype="//@datatypes.3" name="TP - bookSelected - offerId_RETURN_a8953c9c"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0"/>
-    <returnValueAssignments variable="//@operations.15/@returnValues.0">
-      <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.25/@stateVariables.0"/>
+    <returnValueAssignments variable="//@operations.16/@returnValues.0">
+      <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.29/@stateVariables.0"/>
     </returnValueAssignments>
   </operations>
   <operations name="PerformDataTransmissionOperation TP - bookSelected - callAirline (_NLNCI8AGEei_D8NS_upkXw) - AC _2pBlYMN-EeWst9mTsticNA">
-    <calls callee="//@operations.15" name="opCall_e2f4fd7"/>
-    <calls callee="//@operations.26" name="opCall_7dd41d8">
-      <preCallStateDefinitions variable="//@operations.26/@stateVariables.1">
-        <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.15/@returnValues.0" call="//@operations.16/@calls.0"/>
+    <calls callee="//@operations.16" name="opCall_e2f4fd7"/>
+    <calls callee="//@operations.28" name="cb8c478f">
+      <preCallStateDefinitions variable="//@operations.28/@stateVariables.0">
+        <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.16/@returnValues.0" call="//@operations.17/@calls.0"/>
       </preCallStateDefinitions>
-      <preCallStateDefinitions variable="//@operations.26/@stateVariables.0">
-        <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.25/@stateVariables.1"/>
+      <preCallStateDefinitions variable="//@operations.28/@stateVariables.1">
+        <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.29/@stateVariables.1"/>
       </preCallStateDefinitions>
     </calls>
     <returnValues datatype="//@datatypes.2" name="TP_output_bookingConfirmation_RETURN_2d454278"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0"/>
-    <returnValueAssignments variable="//@operations.16/@returnValues.0">
-      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.26/@returnValues.0" call="//@operations.16/@calls.1"/>
+    <returnValueAssignments variable="//@operations.17/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.28/@returnValues.0" call="//@operations.17/@calls.1"/>
     </returnValueAssignments>
   </operations>
   <operations name="ReturnDataOperation TP - bookSelected - returnConfirmation (_-2yq5cAREei4h6B-w6nC0g) - AC _2pBlYMN-EeWst9mTsticNA">
-    <calls callee="//@operations.16" name="opCall_a2644f31"/>
+    <calls callee="//@operations.17" name="opCall_a2644f31"/>
     <returnValues datatype="//@datatypes.2" name="TP_output_bookingConfirmation_RETURN_3b3f3fb8"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0"/>
-    <returnValueAssignments variable="//@operations.17/@returnValues.0">
-      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.16/@returnValues.0" call="//@operations.17/@calls.0"/>
+    <returnValueAssignments variable="//@operations.18/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.17/@returnValues.0" call="//@operations.18/@calls.0"/>
     </returnValueAssignments>
   </operations>
   <operations name="CreateDataOperation Airline - bookFlight - createAirlineIdentification (_GpbogMesEeiCOOJ6eAJBcg) - AC _HRAO0MOAEeWst9mTsticNA">
     <returnValues datatype="//@datatypes.4" name="Airline_Airline_identification_RETURN_45d84455"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.2"/>
-    <returnValueAssignments variable="//@operations.18/@returnValues.0">
+    <returnValueAssignments variable="//@operations.19/@returnValues.0">
       <term xsi:type="systemmodel:False"/>
     </returnValueAssignments>
-    <returnValueAssignments variable="//@operations.18/@returnValues.0" attribute="//@attributes.0" value="//@types.0/@values.2">
+    <returnValueAssignments variable="//@operations.19/@returnValues.0" attribute="//@attributes.0" value="//@types.0/@values.2">
       <term xsi:type="systemmodel:True"/>
     </returnValueAssignments>
-    <returnValueAssignments variable="//@operations.18/@returnValues.0" attribute="//@attributes.0" value="//@types.0/@values.1">
+    <returnValueAssignments variable="//@operations.19/@returnValues.0" attribute="//@attributes.0" value="//@types.0/@values.1">
       <term xsi:type="systemmodel:True"/>
     </returnValueAssignments>
-    <returnValueAssignments variable="//@operations.18/@returnValues.0" attribute="//@attributes.0" value="//@types.0/@values.0">
+    <returnValueAssignments variable="//@operations.19/@returnValues.0" attribute="//@attributes.0" value="//@types.0/@values.0">
       <term xsi:type="systemmodel:True"/>
     </returnValueAssignments>
   </operations>
   <operations name="PerformDataTransmissionOperation Airline - bookgFlight - callForBookingConfirmation (__Xpu48epEeiCOOJ6eAJBcg) - AC _HRAO0MOAEeWst9mTsticNA">
-    <calls callee="//@operations.18" name="opCall_9f6c5be3"/>
-    <calls callee="//@operations.11" name="opCall_254749a4">
-      <preCallStateDefinitions variable="//@operations.11/@stateVariables.1">
-        <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.26/@stateVariables.1"/>
+    <calls callee="//@operations.19" name="opCall_9f6c5be3"/>
+    <calls callee="//@operations.26" name="562d4f5b">
+      <preCallStateDefinitions variable="//@operations.26/@stateVariables.0">
+        <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.30/@stateVariables.1"/>
       </preCallStateDefinitions>
-      <preCallStateDefinitions variable="//@operations.11/@stateVariables.0">
-        <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.18/@returnValues.0" call="//@operations.19/@calls.0"/>
+      <preCallStateDefinitions variable="//@operations.26/@stateVariables.1">
+        <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.19/@returnValues.0" call="//@operations.20/@calls.0"/>
       </preCallStateDefinitions>
     </calls>
     <returnValues datatype="//@datatypes.2" name="Airline_output_bookingConfirmationUser_RETURN_e8574df6"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.2"/>
-    <returnValueAssignments variable="//@operations.19/@returnValues.0">
-      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.11/@returnValues.0" call="//@operations.19/@calls.1"/>
+    <returnValueAssignments variable="//@operations.20/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.26/@returnValues.0" call="//@operations.20/@calls.1"/>
     </returnValueAssignments>
   </operations>
   <operations name="SystemDiscardData Airline - bookFlight - discardUserConfirmation (_Ird1E8pGEeivW8XRYOcdkQ) - AC _HRAO0MOAEeWst9mTsticNA">
-    <calls callee="//@operations.19" name="opCall_da17598a"/>
+    <calls callee="//@operations.20" name="opCall_da17598a"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.2"/>
   </operations>
   <operations name="PerformDataTransmissionOperation Airline - bookFlight - callPayComission (_8ezyI8esEeiCOOJ6eAJBcg) - AC _HRAO0MOAEeWst9mTsticNA">
-    <calls callee="//@operations.8" name="opCall_b6b14584">
-      <preCallStateDefinitions variable="//@operations.8/@stateVariables.0">
-        <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.26/@stateVariables.1"/>
+    <calls callee="//@operations.27" name="add74b3b">
+      <preCallStateDefinitions variable="//@operations.27/@stateVariables.0">
+        <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.30/@stateVariables.1"/>
       </preCallStateDefinitions>
     </calls>
     <returnValues datatype="//@datatypes.2" name="Airline_Confirmation_payComission_RETURN_d88347aa"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.2"/>
-    <returnValueAssignments variable="//@operations.21/@returnValues.0">
-      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.8/@returnValues.0" call="//@operations.21/@calls.0"/>
+    <returnValueAssignments variable="//@operations.22/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.27/@returnValues.0" call="//@operations.22/@calls.0"/>
     </returnValueAssignments>
   </operations>
   <operations name="SystemDiscardData Airline - bookFlight - discardComissionConfirmation (_OPBkR8pGEeivW8XRYOcdkQ) - AC _HRAO0MOAEeWst9mTsticNA">
-    <calls callee="//@operations.21" name="opCall_e1375752"/>
+    <calls callee="//@operations.22" name="opCall_e1375752"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.2"/>
   </operations>
   <operations name="CreateDataOperation Airline - bookFlight - createBookingConfirmation (_Y-VGwMetEeiCOOJ6eAJBcg) - AC _HRAO0MOAEeWst9mTsticNA">
     <returnValues datatype="//@datatypes.2" name="Airline_Confirmation_forBooking_RETURN_d4ab4387"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.2"/>
-    <returnValueAssignments variable="//@operations.23/@returnValues.0">
+    <returnValueAssignments variable="//@operations.24/@returnValues.0">
       <term xsi:type="systemmodel:False"/>
     </returnValueAssignments>
-    <returnValueAssignments variable="//@operations.23/@returnValues.0" attribute="//@attributes.0" value="//@types.0/@values.2">
+    <returnValueAssignments variable="//@operations.24/@returnValues.0" attribute="//@attributes.0" value="//@types.0/@values.2">
       <term xsi:type="systemmodel:True"/>
     </returnValueAssignments>
-    <returnValueAssignments variable="//@operations.23/@returnValues.0" attribute="//@attributes.0" value="//@types.0/@values.0">
+    <returnValueAssignments variable="//@operations.24/@returnValues.0" attribute="//@attributes.0" value="//@types.0/@values.0">
       <term xsi:type="systemmodel:True"/>
     </returnValueAssignments>
   </operations>
   <operations name="ReturnDataOperation Airline - bookFlight - returnBookingConfirmation (_r8VB1cetEeiCOOJ6eAJBcg) - AC _HRAO0MOAEeWst9mTsticNA">
-    <calls callee="//@operations.23" name="opCall_c77b54b6"/>
+    <calls callee="//@operations.24" name="opCall_c77b54b6"/>
     <returnValues datatype="//@datatypes.2" name="Airline_Confirmation_forBooking_RETURN_75e43ce"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.2"/>
-    <returnValueAssignments variable="//@operations.24/@returnValues.0">
-      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.23/@returnValues.0" call="//@operations.24/@calls.0"/>
+    <returnValueAssignments variable="//@operations.25/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.24/@returnValues.0" call="//@operations.25/@calls.0"/>
     </returnValueAssignments>
   </operations>
+  <operations name="DataTransmissionProxyOperation_PerformDataTransmissionOperation Airline - bookgFlight - callForBookingConfirmation (__Xpu48epEeiCOOJ6eAJBcg) - AC _HRAO0MOAEeWst9mTsticNA_ResourceDemandingSEFF (_nUbBQNT3Eee-_bZGhm8PwA) - AC _2pBlYMN-EeWst9mTsticNA">
+    <calls callee="//@operations.12" name="582c4f6f">
+      <preCallStateDefinitions variable="//@operations.12/@stateVariables.1">
+        <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.26/@stateVariables.0"/>
+      </preCallStateDefinitions>
+      <preCallStateDefinitions variable="//@operations.12/@stateVariables.0">
+        <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.26/@stateVariables.1"/>
+      </preCallStateDefinitions>
+    </calls>
+    <returnValues datatype="//@datatypes.2" name="DataTransmissionProxy_RETURN_4G + Internet__7Xbv0cerEeiCOOJ6eAJBcg"/>
+    <returnValueAssignments variable="//@operations.26/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.12/@returnValues.0" call="//@operations.26/@calls.0"/>
+    </returnValueAssignments>
+    <stateVariables datatype="//@datatypes.3" name="DataTransmissionProxy_STATE_4G + Internet__EpIPkMeqEeiCOOJ6eAJBcg"/>
+    <stateVariables datatype="//@datatypes.4" name="DataTransmissionProxy_STATE_4G + Internet__NQZVcMesEeiCOOJ6eAJBcg"/>
+  </operations>
+  <operations name="DataTransmissionProxyOperation_PerformDataTransmissionOperation Airline - bookFlight - callPayComission (_8ezyI8esEeiCOOJ6eAJBcg) - AC _HRAO0MOAEeWst9mTsticNA_ResourceDemandingSEFF (_pto2QHVnEeiXttXAU56kmA) - AC _0WeT8MN-EeWst9mTsticNA">
+    <calls callee="//@operations.9" name="afd64b4f">
+      <preCallStateDefinitions variable="//@operations.9/@stateVariables.0">
+        <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.27/@stateVariables.0"/>
+      </preCallStateDefinitions>
+    </calls>
+    <returnValues datatype="//@datatypes.2" name="DataTransmissionProxy_RETURN_Internet__E5NyocetEeiCOOJ6eAJBcg"/>
+    <returnValueAssignments variable="//@operations.27/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.9/@returnValues.0" call="//@operations.27/@calls.0"/>
+    </returnValueAssignments>
+    <stateVariables datatype="//@datatypes.3" name="DataTransmissionProxy_STATE_Internet___mfUwMesEeiCOOJ6eAJBcg"/>
+  </operations>
+  <operations name="DataTransmissionProxyOperation_PerformDataTransmissionOperation TP - bookSelected - callAirline (_NLNCI8AGEei_D8NS_upkXw) - AC _2pBlYMN-EeWst9mTsticNA_ResourceDemandingSEFF (_1NGIAMOAEeWst9mTsticNA) - AC _HRAO0MOAEeWst9mTsticNA">
+    <calls callee="//@operations.30" name="cd8b47a3">
+      <preCallStateDefinitions variable="//@operations.30/@stateVariables.1">
+        <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.28/@stateVariables.0"/>
+      </preCallStateDefinitions>
+      <preCallStateDefinitions variable="//@operations.30/@stateVariables.0">
+        <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.28/@stateVariables.1"/>
+      </preCallStateDefinitions>
+    </calls>
+    <returnValues datatype="//@datatypes.2" name="DataTransmissionProxy_RETURN_4G + Internet__jMwNwcAGEei_D8NS_upkXw"/>
+    <returnValueAssignments variable="//@operations.28/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.30/@returnValues.0" call="//@operations.28/@calls.0"/>
+    </returnValueAssignments>
+    <stateVariables datatype="//@datatypes.3" name="DataTransmissionProxy_STATE_4G + Internet__O1_I8MAGEei_D8NS_upkXw"/>
+    <stateVariables datatype="//@datatypes.6" name="DataTransmissionProxy_STATE_4G + Internet__kzmPwMAGEei_D8NS_upkXw"/>
+  </operations>
   <operations name="ResourceDemandingSEFF (_LFOscN5fEeeel_96Qa_d5A) - AC _2pBlYMN-EeWst9mTsticNA">
-    <calls callee="//@operations.17" name="opCall_c0043f3a"/>
+    <calls callee="//@operations.18" name="opCall_c0043f3a"/>
     <returnValues datatype="//@datatypes.2" name="TP_output_bookingConfirmation_RETURN_a01f3305"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0"/>
-    <returnValueAssignments variable="//@operations.25/@returnValues.0">
-      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.17/@returnValues.0" call="//@operations.25/@calls.0"/>
+    <returnValueAssignments variable="//@operations.29/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.18/@returnValues.0" call="//@operations.29/@calls.0"/>
     </returnValueAssignments>
     <stateVariables datatype="//@datatypes.5" name="TP_input_flightOffer_STATE_5a6b303a"/>
     <stateVariables datatype="//@datatypes.6" name="TP_input_CreditCardDetails_STATE_82bb3223"/>
   </operations>
   <operations name="ResourceDemandingSEFF (_1NGIAMOAEeWst9mTsticNA) - AC _HRAO0MOAEeWst9mTsticNA">
-    <calls callee="//@operations.20" name="opCall_583941ce"/>
-    <calls callee="//@operations.22" name="opCall_c62e43ec"/>
-    <calls callee="//@operations.24" name="opCall_88d0435e"/>
+    <calls callee="//@operations.21" name="opCall_583941ce"/>
+    <calls callee="//@operations.23" name="opCall_c62e43ec"/>
+    <calls callee="//@operations.25" name="opCall_88d0435e"/>
     <returnValues datatype="//@datatypes.2" name="Airline_output_bookingConfirmation_RETURN_a6103583"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.2"/>
-    <returnValueAssignments variable="//@operations.26/@returnValues.0">
-      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.24/@returnValues.0" call="//@operations.26/@calls.2"/>
+    <returnValueAssignments variable="//@operations.30/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.25/@returnValues.0" call="//@operations.30/@calls.2"/>
     </returnValueAssignments>
     <stateVariables datatype="//@datatypes.6" name="Airline_input_ccd_STATE_b4972f45"/>
     <stateVariables datatype="//@datatypes.3" name="Airline_input_offerId_STATE_7c3230cb"/>
@@ -293,61 +349,61 @@
     <calls callee="//@operations.4" name="opCall_3d44401d"/>
     <returnValues datatype="//@datatypes.0" name="TravelAgency/Airline_output_FlightOffers_RETURN_ce5f3720"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.2"/>
-    <returnValueAssignments variable="//@operations.28/@returnValues.0">
-      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.4/@returnValues.0" call="//@operations.28/@calls.0"/>
+    <returnValueAssignments variable="//@operations.32/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.4/@returnValues.0" call="//@operations.32/@calls.0"/>
     </returnValueAssignments>
     <stateVariables datatype="//@datatypes.1" name="TravelAgency/Airline_input_RequestData_STATE_f8dc36ec"/>
   </operations>
   <operations name="LoadDataOperation CCC - releaseCCD - loadCCD (_bZiTAcevEeiCOOJ6eAJBcg) - AC _XOyEsMOBEeWst9mTsticNA">
     <returnValues datatype="//@datatypes.6" name="CCC_ccd_RETURN_8e032f93"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0"/>
-    <returnValueAssignments variable="//@operations.29/@returnValues.0">
+    <returnValueAssignments variable="//@operations.33/@returnValues.0">
       <term xsi:type="systemmodel:False"/>
     </returnValueAssignments>
-    <returnValueAssignments variable="//@operations.29/@returnValues.0" attribute="//@attributes.0" value="//@types.0/@values.0">
+    <returnValueAssignments variable="//@operations.33/@returnValues.0" attribute="//@attributes.0" value="//@types.0/@values.0">
       <term xsi:type="systemmodel:True"/>
     </returnValueAssignments>
   </operations>
   <operations name="ReturnDataOperation CCC - releaseCCD - returnCCD (_oA2Y1cevEeiCOOJ6eAJBcg) - AC _XOyEsMOBEeWst9mTsticNA">
-    <calls callee="//@operations.29" name="opCall_5bf141bd"/>
+    <calls callee="//@operations.33" name="opCall_5bf141bd"/>
     <returnValues datatype="//@datatypes.6" name="CCC_ccd_RETURN_89ea3145"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0"/>
-    <returnValueAssignments variable="//@operations.30/@returnValues.0">
-      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.29/@returnValues.0" call="//@operations.30/@calls.0"/>
+    <returnValueAssignments variable="//@operations.34/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.33/@returnValues.0" call="//@operations.34/@calls.0"/>
     </returnValueAssignments>
   </operations>
   <operations name="ResourceDemandingSEFF (_YtkKYN5fEeeel_96Qa_d5A) - AC _XOyEsMOBEeWst9mTsticNA">
-    <calls callee="//@operations.30" name="opCall_25ca3b23"/>
+    <calls callee="//@operations.34" name="opCall_25ca3b23"/>
     <returnValues datatype="//@datatypes.6" name="CCC_output_CCDetails_RETURN_d7e92f07"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0"/>
-    <returnValueAssignments variable="//@operations.31/@returnValues.0">
-      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.30/@returnValues.0" call="//@operations.31/@calls.0"/>
+    <returnValueAssignments variable="//@operations.35/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.34/@returnValues.0" call="//@operations.35/@calls.0"/>
     </returnValueAssignments>
   </operations>
   <operations name="CharacteristicChangingDataOperation CCC - declassifyCCD - changeRights (_t-99G8evEeiCOOJ6eAJBcg) - AC _XOyEsMOBEeWst9mTsticNA">
     <returnValues datatype="//@datatypes.6" name="CCC_input_CCDetails_RETURN_6106403d"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0"/>
-    <returnValueAssignments variable="//@operations.32/@returnValues.0">
-      <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.34/@stateVariables.0"/>
+    <returnValueAssignments variable="//@operations.36/@returnValues.0">
+      <term xsi:type="systemmodel:StateRef" stateVariable="//@operations.38/@stateVariables.0"/>
     </returnValueAssignments>
-    <returnValueAssignments variable="//@operations.32/@returnValues.0" attribute="//@attributes.0" value="//@types.0/@values.2">
+    <returnValueAssignments variable="//@operations.36/@returnValues.0" attribute="//@attributes.0" value="//@types.0/@values.2">
       <term xsi:type="systemmodel:True"/>
     </returnValueAssignments>
   </operations>
   <operations name="ReturnDataOperation CCC - declassifyCCD - returnCCD (_2JwNNcevEeiCOOJ6eAJBcg) - AC _XOyEsMOBEeWst9mTsticNA">
-    <calls callee="//@operations.32" name="opCall_88054d96"/>
+    <calls callee="//@operations.36" name="opCall_88054d96"/>
     <returnValues datatype="//@datatypes.6" name="CCC_input_CCDetails_RETURN_34d538e8"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0"/>
-    <returnValueAssignments variable="//@operations.33/@returnValues.0">
-      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.32/@returnValues.0" call="//@operations.33/@calls.0"/>
+    <returnValueAssignments variable="//@operations.37/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.36/@returnValues.0" call="//@operations.37/@calls.0"/>
     </returnValueAssignments>
   </operations>
   <operations name="ResourceDemandingSEFF (_ZdekYN5fEeeel_96Qa_d5A) - AC _XOyEsMOBEeWst9mTsticNA">
-    <calls callee="//@operations.33" name="opCall_fda93c97"/>
+    <calls callee="//@operations.37" name="opCall_fda93c97"/>
     <returnValues datatype="//@datatypes.6" name="CCC_output_CCDetails_declassified_RETURN_84ff3457"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0"/>
-    <returnValueAssignments variable="//@operations.34/@returnValues.0">
-      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.33/@returnValues.0" call="//@operations.34/@calls.0"/>
+    <returnValueAssignments variable="//@operations.38/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.37/@returnValues.0" call="//@operations.38/@calls.0"/>
     </returnValueAssignments>
     <stateVariables datatype="//@datatypes.6" name="CCC_input_CCDetails_STATE_32db2f3e"/>
   </operations>
@@ -357,71 +413,71 @@
   <operations name="CreateDataOperation createRequestData (_wjeQsL_ZEeitJoiAXfVRAA) - AC n/a">
     <returnValues datatype="//@datatypes.1" name="initialRequestData_RETURN_e5062de0"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0"/>
-    <returnValueAssignments variable="//@operations.36/@returnValues.0">
+    <returnValueAssignments variable="//@operations.40/@returnValues.0">
       <term xsi:type="systemmodel:False"/>
     </returnValueAssignments>
-    <returnValueAssignments variable="//@operations.36/@returnValues.0" attribute="//@attributes.0" value="//@types.0/@values.2">
+    <returnValueAssignments variable="//@operations.40/@returnValues.0" attribute="//@attributes.0" value="//@types.0/@values.2">
       <term xsi:type="systemmodel:True"/>
     </returnValueAssignments>
-    <returnValueAssignments variable="//@operations.36/@returnValues.0" attribute="//@attributes.0" value="//@types.0/@values.1">
+    <returnValueAssignments variable="//@operations.40/@returnValues.0" attribute="//@attributes.0" value="//@types.0/@values.1">
       <term xsi:type="systemmodel:True"/>
     </returnValueAssignments>
-    <returnValueAssignments variable="//@operations.36/@returnValues.0" attribute="//@attributes.0" value="//@types.0/@values.0">
+    <returnValueAssignments variable="//@operations.40/@returnValues.0" attribute="//@attributes.0" value="//@types.0/@values.0">
       <term xsi:type="systemmodel:True"/>
     </returnValueAssignments>
   </operations>
   <operations name="PerformDataTransmissionOperation UsageModel - RequestFlightOffers - CallTravelAgency (_81yW47_ZEeitJoiAXfVRAA) - AC n/a">
-    <calls callee="//@operations.36" name="opCall_1a354322"/>
-    <calls callee="//@operations.14" name="opCall_c5ad42de">
-      <preCallStateDefinitions variable="//@operations.14/@stateVariables.0">
-        <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.36/@returnValues.0" call="//@operations.37/@calls.0"/>
+    <calls callee="//@operations.40" name="opCall_1a354322"/>
+    <calls callee="//@operations.15" name="opCall_c5ad42de">
+      <preCallStateDefinitions variable="//@operations.15/@stateVariables.0">
+        <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.40/@returnValues.0" call="//@operations.41/@calls.0"/>
       </preCallStateDefinitions>
     </calls>
     <returnValues datatype="//@datatypes.0" name="UsageModel_output_FlightOffers_RETURN_2f7d44a3"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0"/>
-    <returnValueAssignments variable="//@operations.37/@returnValues.0">
-      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.14/@returnValues.0" call="//@operations.37/@calls.1"/>
+    <returnValueAssignments variable="//@operations.41/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.15/@returnValues.0" call="//@operations.41/@calls.1"/>
     </returnValueAssignments>
   </operations>
   <operations name="SelectionDataOperation UsageModel - SelectFlightOffer (_zRqZqr_3EeiDXdgUH3RFCw) - AC n/a">
-    <calls callee="//@operations.37" name="opCall_46a64867"/>
+    <calls callee="//@operations.41" name="opCall_46a64867"/>
     <returnValues datatype="//@datatypes.5" name="UsageModel - SelectedFlightOffer_RETURN_6b6b366d"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0"/>
-    <returnValueAssignments variable="//@operations.38/@returnValues.0">
-      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.37/@returnValues.0" call="//@operations.38/@calls.0"/>
+    <returnValueAssignments variable="//@operations.42/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.41/@returnValues.0" call="//@operations.42/@calls.0"/>
     </returnValueAssignments>
   </operations>
   <operations name="PerformDataTransmissionOperation UsageModel - ReleaseCCD (_eqrSE7_4EeiDXdgUH3RFCw) - AC n/a">
-    <calls callee="//@operations.31" name="opCall_41a8389f"/>
+    <calls callee="//@operations.35" name="opCall_41a8389f"/>
     <returnValues datatype="//@datatypes.6" name="UsageModel_output_CCDetails_RETURN_fe5337ab"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0"/>
-    <returnValueAssignments variable="//@operations.39/@returnValues.0">
-      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.31/@returnValues.0" call="//@operations.39/@calls.0"/>
+    <returnValueAssignments variable="//@operations.43/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.35/@returnValues.0" call="//@operations.43/@calls.0"/>
     </returnValueAssignments>
   </operations>
   <operations name="PerformDataTransmissionOperation UsageModel - BookSelected (_rkubw7_6EeiwRoF0I7MrEQ) - AC n/a">
-    <calls callee="//@operations.38" name="opCall_4d023f1f"/>
-    <calls callee="//@operations.39" name="opCall_1db63fd7"/>
-    <calls callee="//@operations.25" name="opCall_3539a5">
-      <preCallStateDefinitions variable="//@operations.25/@stateVariables.0">
-        <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.38/@returnValues.0" call="//@operations.40/@calls.0"/>
+    <calls callee="//@operations.42" name="opCall_4d023f1f"/>
+    <calls callee="//@operations.43" name="opCall_1db63fd7"/>
+    <calls callee="//@operations.29" name="opCall_3539a5">
+      <preCallStateDefinitions variable="//@operations.29/@stateVariables.0">
+        <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.42/@returnValues.0" call="//@operations.44/@calls.0"/>
       </preCallStateDefinitions>
-      <preCallStateDefinitions variable="//@operations.25/@stateVariables.1">
-        <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.39/@returnValues.0" call="//@operations.40/@calls.1"/>
+      <preCallStateDefinitions variable="//@operations.29/@stateVariables.1">
+        <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.43/@returnValues.0" call="//@operations.44/@calls.1"/>
       </preCallStateDefinitions>
     </calls>
     <returnValues datatype="//@datatypes.2" name="UsageModel_output_bookingConfirmation_RETURN_42a33dba"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0"/>
-    <returnValueAssignments variable="//@operations.40/@returnValues.0">
-      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.25/@returnValues.0" call="//@operations.40/@calls.2"/>
+    <returnValueAssignments variable="//@operations.44/@returnValues.0">
+      <term xsi:type="systemmodel:ReturnValueRef" returnValue="//@operations.29/@returnValues.0" call="//@operations.44/@calls.2"/>
     </returnValueAssignments>
   </operations>
   <operations name="UserReadData UsageModel - ReadBookingConfirmation (_oWcy1sADEeixfaJ5gBxJGQ) - AC n/a">
-    <calls callee="//@operations.40" name="opCall_df463d58"/>
+    <calls callee="//@operations.44" name="opCall_df463d58"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0"/>
   </operations>
   <operations name="ScenarioBehaviour defaultUsageScenarioBehaviour (_rdqzEGB1Eea8PL_gXolfGA)_dataOp">
-    <calls callee="//@operations.41" name="opCall_9ae83a6f"/>
+    <calls callee="//@operations.45" name="opCall_9ae83a6f"/>
     <propertyDefinitions property="//@properties.1" presentValues="//@types.0/@values.0"/>
   </operations>
   <properties type="//@types.0" name="EnumCharacteristicType AccessRights (_rkiSMFqnEeiY18w7ObeSrg)"/>
@@ -432,6 +488,6 @@
     <values name="EnumCharacteristicLiteral Airline (_pqWdcFqnEeiY18w7ObeSrg)"/>
   </types>
   <systemusages name="ScenarioBehaviour defaultUsageScenarioBehaviour (_rdqzEGB1Eea8PL_gXolfGA)">
-    <calls callee="//@operations.42" name="opCall_5a5938bd"/>
+    <calls callee="//@operations.46" name="opCall_5a5938bd"/>
   </systemusages>
 </systemmodel:System>

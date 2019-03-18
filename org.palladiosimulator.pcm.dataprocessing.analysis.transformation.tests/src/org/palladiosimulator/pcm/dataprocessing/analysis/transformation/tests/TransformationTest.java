@@ -197,8 +197,8 @@ public class TransformationTest extends TransformationTestBase {
 	
 	@Test
 	public void testSecureLinksComplex() throws Exception {
-		ResourceSet rs = new ResourceSetImpl();
-
+		ResourceSet rs = new ResourceSetImpl(); 
+ 
 		UsageModel usageModel = (UsageModel) rs
 				.getResource(createRelativeURI("models/secure-links-complex/default.usagemodel"), true)
 				.getContents()
