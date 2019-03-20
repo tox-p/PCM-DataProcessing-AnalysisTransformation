@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dataProcessingProfile="http://www.palladiosimulator.org/pcm/dataprocessing/profile/0.1/" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:resourceenvironment="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.2">
+  <resourceenvironment:ResourceEnvironment entityName="Secure Dependencies">
+    <resourceContainer_ResourceEnvironment id="_xr4P8UsSEemsh7XLKVN3yA" entityName="N"/>
+  </resourceenvironment:ResourceEnvironment>
+  <emfprofileapplication:ProfileApplication>
+    <stereotypeApplications xsi:type="dataProcessingProfile:Characterizable">
+      <extension href="../../../../plugin/org.palladiosimulator.pcm.dataprocessing.profile/profile.emfprofile_diagram#_Imn6oFqjEeiW1d-qz7Oqsw"/>
+      <characteristicContainer href="DataSpecification.xmi#_jGkIYv-PEeiCvJvtMoMgzQ"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="dataProcessingProfile:Characterizable">
+      <extension href="../../../../plugin/org.palladiosimulator.pcm.dataprocessing.profile/profile.emfprofile_diagram#_Imn6oFqjEeiW1d-qz7Oqsw"/>
+      <characteristicContainer href="DataSpecification.xmi#_Kyw2M0P_EemUuMF-Y-iyQA"/>
+    </stereotypeApplications>
+    <importedProfiles nsURI="http://www.palladiosimulator.org/pcm/dataprocessing/profile/0.1/" location="platform:/plugin/org.palladiosimulator.pcm.dataprocessing.profile/profile.emfprofile_diagram"/>
+  </emfprofileapplication:ProfileApplication>
+</xmi:XMI>

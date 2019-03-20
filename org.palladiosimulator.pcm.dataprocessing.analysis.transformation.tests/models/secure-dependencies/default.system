@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ASCII"?>
+<system:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:system="http://palladiosimulator.org/PalladioComponentModel/System/5.2" id="_4GgvUP7aEeizQdLqRSCK5g" entityName="Secure Dependencies">
+  <assemblyContexts__ComposedStructure id="_WfgasEsREemsh7XLKVN3yA" entityName="AC1">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="default.repository#_ik0jgEsNEemsh7XLKVN3yA"/>
+  </assemblyContexts__ComposedStructure>
+  <assemblyContexts__ComposedStructure id="_Wx7ncEsREemsh7XLKVN3yA" entityName="AC2">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="default.repository#_jhzwMEsNEemsh7XLKVN3yA"/>
+  </assemblyContexts__ComposedStructure>
+  <assemblyContexts__ComposedStructure id="_W_qhcEsREemsh7XLKVN3yA" entityName="AC3">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="default.repository#_kKDb8EsNEemsh7XLKVN3yA"/>
+  </assemblyContexts__ComposedStructure>
+  <assemblyContexts__ComposedStructure id="_NBS9YEsdEem1JdSEg6s8Tg" entityName="AC1'">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="default.repository#_ik0jgEsNEemsh7XLKVN3yA"/>
+  </assemblyContexts__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_h7q8BksREemsh7XLKVN3yA" entityName="AC1_I1_AC2" requiringAssemblyContext_AssemblyConnector="_WfgasEsREemsh7XLKVN3yA" providingAssemblyContext_AssemblyConnector="_Wx7ncEsREemsh7XLKVN3yA">
+    <providedRole_AssemblyConnector href="default.repository#_c9O-AUsPEemsh7XLKVN3yA"/>
+    <requiredRole_AssemblyConnector href="default.repository#_lD08kUsNEemsh7XLKVN3yA"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_jC_JZksREemsh7XLKVN3yA" entityName="AC1_I2_AC2" requiringAssemblyContext_AssemblyConnector="_WfgasEsREemsh7XLKVN3yA" providingAssemblyContext_AssemblyConnector="_Wx7ncEsREemsh7XLKVN3yA">
+    <providedRole_AssemblyConnector href="default.repository#_dzJ5YUsPEemsh7XLKVN3yA"/>
+    <requiredRole_AssemblyConnector href="default.repository#_rQmn5UsNEemsh7XLKVN3yA"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_Yd3uZksdEem1JdSEg6s8Tg" entityName="AC1'_I1_C2" requiringAssemblyContext_AssemblyConnector="_NBS9YEsdEem1JdSEg6s8Tg" providingAssemblyContext_AssemblyConnector="_Wx7ncEsREemsh7XLKVN3yA">
+    <providedRole_AssemblyConnector href="default.repository#_c9O-AUsPEemsh7XLKVN3yA"/>
+    <requiredRole_AssemblyConnector href="default.repository#_lD08kUsNEemsh7XLKVN3yA"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_jYWVZksREemsh7XLKVN3yA" entityName="AC1'_I2_C3" requiringAssemblyContext_AssemblyConnector="_NBS9YEsdEem1JdSEg6s8Tg" providingAssemblyContext_AssemblyConnector="_W_qhcEsREemsh7XLKVN3yA">
+    <providedRole_AssemblyConnector href="default.repository#_RCHaYUsQEemsh7XLKVN3yA"/>
+    <requiredRole_AssemblyConnector href="default.repository#_rQmn5UsNEemsh7XLKVN3yA"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_kyD6VksREemsh7XLKVN3yA" entityName="C3_I1_C2" requiringAssemblyContext_AssemblyConnector="_W_qhcEsREemsh7XLKVN3yA" providingAssemblyContext_AssemblyConnector="_Wx7ncEsREemsh7XLKVN3yA">
+    <providedRole_AssemblyConnector href="default.repository#_c9O-AUsPEemsh7XLKVN3yA"/>
+    <requiredRole_AssemblyConnector href="default.repository#_Jt5l5UsQEemsh7XLKVN3yA"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_ZikGlEsSEemsh7XLKVN3yA" entityName="Usage_AC3_C3_Check" outerProvidedRole_ProvidedDelegationConnector="_cyOgj0sSEemsh7XLKVN3yA" assemblyContext_ProvidedDelegationConnector="_W_qhcEsREemsh7XLKVN3yA">
+    <innerProvidedRole_ProvidedDelegationConnector href="default.repository#_NAQugUsQEemsh7XLKVN3yA"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_ddNXNEsSEemsh7XLKVN3yA" entityName="Usage_AC1_C1_Check" outerProvidedRole_ProvidedDelegationConnector="_O8nbn0sSEemsh7XLKVN3yA" assemblyContext_ProvidedDelegationConnector="_WfgasEsREemsh7XLKVN3yA">
+    <innerProvidedRole_ProvidedDelegationConnector href="default.repository#_2pq8cUsOEemsh7XLKVN3yA"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_iZTcxEsdEem1JdSEg6s8Tg" entityName="Usage_AC1'_C1_Check" outerProvidedRole_ProvidedDelegationConnector="_i-1yz0sdEem1JdSEg6s8Tg" assemblyContext_ProvidedDelegationConnector="_NBS9YEsdEem1JdSEg6s8Tg">
+    <innerProvidedRole_ProvidedDelegationConnector href="default.repository#_2pq8cUsOEemsh7XLKVN3yA"/>
+  </connectors__ComposedStructure>
+  <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_O8nbn0sSEemsh7XLKVN3yA" entityName="Usage_AC1">
+    <providedInterface__OperationProvidedRole href="default.repository#_rmsXN0sOEemsh7XLKVN3yA"/>
+  </providedRoles_InterfaceProvidingEntity>
+  <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_cyOgj0sSEemsh7XLKVN3yA" entityName="Usage_AC3">
+    <providedInterface__OperationProvidedRole href="default.repository#_rmsXN0sOEemsh7XLKVN3yA"/>
+  </providedRoles_InterfaceProvidingEntity>
+  <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_i-1yz0sdEem1JdSEg6s8Tg" entityName="Usage_AC1'">
+    <providedInterface__OperationProvidedRole href="default.repository#_rmsXN0sOEemsh7XLKVN3yA"/>
+  </providedRoles_InterfaceProvidingEntity>
+</system:System>

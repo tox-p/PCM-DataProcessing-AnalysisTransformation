@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?>
+<allocation:Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:allocation="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2" id="_aLuZwP7eEeizQdLqRSCK5g" entityName="Secure Dependencies">
+  <targetResourceEnvironment_Allocation href="default.resourceenvironment#/0"/>
+  <system_Allocation href="default.system#_4GgvUP7aEeizQdLqRSCK5g"/>
+  <allocationContexts_Allocation id="_1Q85MEsSEemsh7XLKVN3yA" entityName="Alloc_AC1_N">
+    <resourceContainer_AllocationContext href="default.resourceenvironment#_xr4P8UsSEemsh7XLKVN3yA"/>
+    <assemblyContext_AllocationContext href="default.system#_WfgasEsREemsh7XLKVN3yA"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_1yOaQEsSEemsh7XLKVN3yA" entityName="Alloc_AC2_N">
+    <resourceContainer_AllocationContext href="default.resourceenvironment#_xr4P8UsSEemsh7XLKVN3yA"/>
+    <assemblyContext_AllocationContext href="default.system#_Wx7ncEsREemsh7XLKVN3yA"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_2S8hsEsSEemsh7XLKVN3yA" entityName="Alloc_AC3_N">
+    <resourceContainer_AllocationContext href="default.resourceenvironment#_xr4P8UsSEemsh7XLKVN3yA"/>
+    <assemblyContext_AllocationContext href="default.system#_W_qhcEsREemsh7XLKVN3yA"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_G_mrQEseEem1JdSEg6s8Tg" entityName="Alloc_AC1'_N">
+    <resourceContainer_AllocationContext href="default.resourceenvironment#_xr4P8UsSEemsh7XLKVN3yA"/>
+    <assemblyContext_AllocationContext href="default.system#_NBS9YEsdEem1JdSEg6s8Tg"/>
+  </allocationContexts_Allocation>
+</allocation:Allocation>

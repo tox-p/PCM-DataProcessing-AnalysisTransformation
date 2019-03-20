@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<characteristics:CharacteristicTypeContainer xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:characteristics="http://www.palladiosimulator.org/pcm/dataprocessing/characteristics/0.1/" id="_dVVHoP7hEeizQdLqRSCK5g">
+  <characteristicTypes xsi:type="characteristics:EnumCharacteristicType" id="_5KwWYP7hEeizQdLqRSCK5g" entityName="Critical" multipleChoice="true" enum="_wK8iwf7hEeizQdLqRSCK5g"/>
+  <enumerations id="_wK8iwf7hEeizQdLqRSCK5g" entityName="CriticalEnum">
+    <literals id="_ycUIcP7hEeizQdLqRSCK5g" entityName="Secrecy"/>
+    <literals id="_yxegIP7hEeizQdLqRSCK5g" entityName="Integrity"/>
+    <literals id="_T3EVID2lEemy7-rRVYUUTw" entityName="High"/>
+  </enumerations>
+</characteristics:CharacteristicTypeContainer>

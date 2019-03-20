@@ -416,6 +416,14 @@
     <semanticResources>models/secure-links-complex-backup/default.system</semanticResources>
     <semanticResources>models/secure-links-complex-backup/default.usagemodel</semanticResources>
     <semanticResources>models/secure-links-complex-backup/expected.xmi</semanticResources>
+    <semanticResources>models/secure-dependencies/DataSpecification.xmi</semanticResources>
+    <semanticResources>models/secure-dependencies/default.repository</semanticResources>
+    <semanticResources>models/secure-dependencies/characteristicTypes.xmi</semanticResources>
+    <semanticResources>models/secure-dependencies/default.allocation</semanticResources>
+    <semanticResources>models/secure-dependencies/default.resourceenvironment</semanticResources>
+    <semanticResources>models/secure-dependencies/default.system</semanticResources>
+    <semanticResources>models/secure-dependencies/default.usagemodel</semanticResources>
+    <semanticResources>models/secure-dependencies/expected.xmi</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" xmi:id="_H_WGcJQCEeid5-moNDqnwg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.palladiosimulator.editors.sirius.repository/description/repository.odesign#//@ownedViewpoints[name='Repository']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_IE24kJQCEeid5-moNDqnwg" name="new Repository Diagram" repPath="#_IAANwJQCEeid5-moNDqnwg">
