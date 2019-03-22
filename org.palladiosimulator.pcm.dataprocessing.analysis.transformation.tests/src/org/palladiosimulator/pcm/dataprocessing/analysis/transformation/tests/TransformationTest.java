@@ -242,7 +242,7 @@ public class TransformationTest extends TransformationTestBase {
 	@Test
 	public void testSecureDependencies() throws Exception {
 		ResourceSet rs = new ResourceSetImpl();
- 
+
 		UsageModel usageModel = (UsageModel) rs
 				.getResource(createRelativeURI("models/secure-dependencies/default.usagemodel"), true)
 				.getContents()

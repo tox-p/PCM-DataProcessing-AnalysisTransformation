@@ -1,527 +1,203 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataprocessing:DataSpecification
-    xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:characteristics="http://www.palladiosimulator.org/pcm/dataprocessing/characteristics/0.1/"
-    xmlns:data="http://www.palladiosimulator.org/pcm/dataprocessing/data/0.1/"
-    xmlns:dataprocessing="http://www.palladiosimulator.org/pcm/dataprocessing/0.1/"
-    xmlns:processing="http://www.palladiosimulator.org/pcm/dataprocessing/processing/0.1/"
-    xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2">
-  <dataProcessingContainers
-      id="_Xf71kEsUEemsh7XLKVN3yA"
-      entityName="Scenario1">
-    <operations
-        xsi:type="processing:CreateDataOperation"
-        id="_ejTxsEsUEemsh7XLKVN3yA"
-        entityName="Scenario1_createData">
-      <resultingData
-          xsi:type="data:OriginalData"
-          id="_f5wAMksUEemsh7XLKVN3yA"
-          entityName="Scenario1_initialData">
-        <originalType
-            xsi:type="repository:CompositeDataType"
-            href="default.repository#_7XQpDf7HEeizQdLqRSCK5g"/>
+<dataprocessing:DataSpecification xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:characteristics="http://www.palladiosimulator.org/pcm/dataprocessing/characteristics/0.1/" xmlns:data="http://www.palladiosimulator.org/pcm/dataprocessing/data/0.1/" xmlns:dataprocessing="http://www.palladiosimulator.org/pcm/dataprocessing/0.1/" xmlns:processing="http://www.palladiosimulator.org/pcm/dataprocessing/processing/0.1/" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2">
+  <dataProcessingContainers id="_Xf71kEsUEemsh7XLKVN3yA" entityName="Scenario1">
+    <operations xsi:type="processing:PerformDataTransmissionOperation" id="_iR-b00sUEemsh7XLKVN3yA" entityName="Scenario1_call_C1">
+      <outputMappings id="_rom0A0sUEemsh7XLKVN3yA" from="_HyhhgksUEemsh7XLKVN3yA" to="_4q5lpEsUEemsh7XLKVN3yA"/>
+      <outputData id="_4q5lpEsUEemsh7XLKVN3yA" entityName="Scenario1_call_C1_result">
+        <operation href="default.repository#_skajsEsOEemsh7XLKVN3yA"/>
+      </outputData>
+    </operations>
+    <operations xsi:type="processing:UserReadData" id="_2qi3fEsUEemsh7XLKVN3yA" entityName="Scenario1_discard" consumedData="_4q5lpEsUEemsh7XLKVN3yA"/>
+  </dataProcessingContainers>
+  <dataProcessingContainers id="_ZUWZgEsUEemsh7XLKVN3yA" entityName="Scenario2">
+    <operations xsi:type="processing:PerformDataTransmissionOperation" id="_li4Wc0sVEemsh7XLKVN3yA" entityName="Scenario2_call_C3">
+      <outputMappings id="_qejmQ0sVEemsh7XLKVN3yA" from="_HyhhgksUEemsh7XLKVN3yA" to="_w-qdREsVEemsh7XLKVN3yA"/>
+      <outputData id="_w-qdREsVEemsh7XLKVN3yA" entityName="Scenario2_call_C3_result">
+        <operation href="default.repository#_skajsEsOEemsh7XLKVN3yA"/>
+      </outputData>
+    </operations>
+    <operations xsi:type="processing:UserReadData" id="_l1ty5ksVEemsh7XLKVN3yA" entityName="Scenario2_discard" consumedData="_w-qdREsVEemsh7XLKVN3yA"/>
+  </dataProcessingContainers>
+  <dataProcessingContainers id="_1XaFgEsdEem1JdSEg6s8Tg" entityName="Scenario3">
+    <operations xsi:type="processing:PerformDataTransmissionOperation" id="_4gWMY0sdEem1JdSEg6s8Tg" entityName="Scenario3_call_AC1_">
+      <outputMappings id="_6zyOo0sdEem1JdSEg6s8Tg" from="_HyhhgksUEemsh7XLKVN3yA" to="_7EbStEsdEem1JdSEg6s8Tg"/>
+      <outputData id="_7EbStEsdEem1JdSEg6s8Tg" entityName="Scenario3_returnValue">
+        <operation href="default.repository#_skajsEsOEemsh7XLKVN3yA"/>
+      </outputData>
+    </operations>
+    <operations xsi:type="processing:UserReadData" id="_44KPdksdEem1JdSEg6s8Tg" entityName="Scenario3_discard" consumedData="_7EbStEsdEem1JdSEg6s8Tg"/>
+  </dataProcessingContainers>
+  <dataProcessingContainers id="_ZhgEsEsUEemsh7XLKVN3yA" entityName="C1_call_M1">
+    <operations xsi:type="processing:PerformDataTransmissionOperation" id="_fOMk80sYEem1JdSEg6s8Tg" entityName="C1_call_M1_C2">
+      <characteristicContainers id="_sUmagEsYEem1JdSEg6s8Tg" entityName="C1_call_M1_C2_characteristics">
+        <ownedCharacteristics xsi:type="characteristics:EnumCharacteristic" id="_zKn3IEsYEem1JdSEg6s8Tg">
+          <characteristicType xsi:type="characteristics:EnumCharacteristicType" href="characteristicTypes.xmi#_5KwWYP7hEeizQdLqRSCK5g"/>
+          <literals href="characteristicTypes.xmi#_ycUIcP7hEeizQdLqRSCK5g"/>
+        </ownedCharacteristics>
+      </characteristicContainers>
+      <outputMappings id="_rxcqI0sYEem1JdSEg6s8Tg" from="_7UHgEksTEemsh7XLKVN3yA" to="_sFIbJEsYEem1JdSEg6s8Tg"/>
+      <outputData id="_sFIbJEsYEem1JdSEg6s8Tg" entityName="C1_call_M1_C2_returnValue">
+        <operation href="default.repository#_MyFP8EsNEemsh7XLKVN3yA"/>
+      </outputData>
+    </operations>
+    <operations xsi:type="processing:SystemDiscardData" id="_h-Ocl0sYEem1JdSEg6s8Tg" entityName="C1_call_M1_C2_discard" consumedData="_sFIbJEsYEem1JdSEg6s8Tg"/>
+  </dataProcessingContainers>
+  <dataProcessingContainers id="_aEYIQEsUEemsh7XLKVN3yA" entityName="C1_call_M2">
+    <operations xsi:type="processing:PerformDataTransmissionOperation" id="_i97mE0sYEem1JdSEg6s8Tg" entityName="C1_call_M2_C2">
+      <characteristicContainers id="_79CvAEsYEem1JdSEg6s8Tg" entityName="C1_call_M2_C2_characteristics">
+        <ownedCharacteristics xsi:type="characteristics:EnumCharacteristic" id="_JVldcEsZEem1JdSEg6s8Tg">
+          <characteristicType xsi:type="characteristics:EnumCharacteristicType" href="characteristicTypes.xmi#_5KwWYP7hEeizQdLqRSCK5g"/>
+          <literals href="characteristicTypes.xmi#_ycUIcP7hEeizQdLqRSCK5g"/>
+        </ownedCharacteristics>
+      </characteristicContainers>
+      <outputMappings id="_81EjM0sYEem1JdSEg6s8Tg" from="_70-xcksTEemsh7XLKVN3yA" to="_9GCXZEsYEem1JdSEg6s8Tg"/>
+      <outputData id="_9GCXZEsYEem1JdSEg6s8Tg" entityName="C1_call_M2_C2_returnValue">
+        <operation href="default.repository#_RBnygEsNEemsh7XLKVN3yA"/>
+      </outputData>
+    </operations>
+    <operations xsi:type="processing:SystemDiscardData" id="_jZqf10sYEem1JdSEg6s8Tg" entityName="C1_call_M2_C2_discard" consumedData="_9GCXZEsYEem1JdSEg6s8Tg"/>
+  </dataProcessingContainers>
+  <dataProcessingContainers id="_aReJEEsUEemsh7XLKVN3yA" entityName="C1_call_M3">
+    <operations xsi:type="processing:CreateDataOperation" id="_uSX6EEutEem1JdSEg6s8Tg" entityName="C1_call_M3_createData">
+      <resultingData xsi:type="data:OriginalData" id="_woAUskutEem1JdSEg6s8Tg" entityName="C1_call_M3_initialData">
+        <originalType xsi:type="repository:CompositeDataType" href="default.repository#_7XQpDf7HEeizQdLqRSCK5g"/>
       </resultingData>
-    </operations>
-    <operations
-        xsi:type="processing:PerformDataTransmissionOperation"
-        id="_iR-b00sUEemsh7XLKVN3yA"
-        entityName="Scenario1_call_C1">
-      <inputMappings
-          id="_rVx-oksUEemsh7XLKVN3yA"
-          from="_f5wAMksUEemsh7XLKVN3yA"
-          to="_HfG2QEsUEemsh7XLKVN3yA"/>
-      <outputMappings
-          id="_rom0A0sUEemsh7XLKVN3yA"
-          from="_HyhhgksUEemsh7XLKVN3yA"
-          to="_4q5lpEsUEemsh7XLKVN3yA"/>
-      <outputData
-          id="_4q5lpEsUEemsh7XLKVN3yA"
-          entityName="Scenario1_call_C1_result">
-        <operation
-            href="default.repository#_skajsEsOEemsh7XLKVN3yA"/>
-      </outputData>
-    </operations>
-    <operations
-        xsi:type="processing:UserReadData"
-        id="_2qi3fEsUEemsh7XLKVN3yA"
-        entityName="Scenario1_discard"
-        consumedData="_4q5lpEsUEemsh7XLKVN3yA"/>
-  </dataProcessingContainers>
-  <dataProcessingContainers
-      id="_ZUWZgEsUEemsh7XLKVN3yA"
-      entityName="Scenario2">
-    <operations
-        xsi:type="processing:CreateDataOperation"
-        id="_lSGvgEsVEemsh7XLKVN3yA"
-        entityName="Scenario2_createData">
-      <resultingData
-          xsi:type="data:OriginalData"
-          id="_o1YpAksVEemsh7XLKVN3yA"
-          entityName="Scenario2_initialData">
-        <originalType
-            xsi:type="repository:CompositeDataType"
-            href="default.repository#_7XQpDf7HEeizQdLqRSCK5g"/>
-      </resultingData>
-    </operations>
-    <operations
-        xsi:type="processing:PerformDataTransmissionOperation"
-        id="_li4Wc0sVEemsh7XLKVN3yA"
-        entityName="Scenario2_call_C3">
-      <inputMappings
-          id="_qJGToksVEemsh7XLKVN3yA"
-          from="_o1YpAksVEemsh7XLKVN3yA"
-          to="_HfG2QEsUEemsh7XLKVN3yA"/>
-      <outputMappings
-          id="_qejmQ0sVEemsh7XLKVN3yA"
-          from="_HyhhgksUEemsh7XLKVN3yA"
-          to="_w-qdREsVEemsh7XLKVN3yA"/>
-      <outputData
-          id="_w-qdREsVEemsh7XLKVN3yA"
-          entityName="Scenario2_call_C3_result">
-        <operation
-            href="default.repository#_skajsEsOEemsh7XLKVN3yA"/>
-      </outputData>
-    </operations>
-    <operations
-        xsi:type="processing:UserReadData"
-        id="_l1ty5ksVEemsh7XLKVN3yA"
-        entityName="Scenario2_discard"
-        consumedData="_w-qdREsVEemsh7XLKVN3yA"/>
-  </dataProcessingContainers>
-  <dataProcessingContainers
-      id="_1XaFgEsdEem1JdSEg6s8Tg"
-      entityName="Scenario3">
-    <operations
-        xsi:type="processing:CreateDataOperation"
-        id="_4HqmoEsdEem1JdSEg6s8Tg"
-        entityName="Scenario3_createData">
-      <resultingData
-          xsi:type="data:OriginalData"
-          id="_5Q9xAksdEem1JdSEg6s8Tg"
-          entityName="Scenario3_initialData">
-        <originalType
-            xsi:type="repository:CompositeDataType"
-            href="default.repository#_7XQpDf7HEeizQdLqRSCK5g"/>
-      </resultingData>
-    </operations>
-    <operations
-        xsi:type="processing:PerformDataTransmissionOperation"
-        id="_4gWMY0sdEem1JdSEg6s8Tg"
-        entityName="Scenario3_call_AC1_">
-      <inputMappings
-          id="_6efUEksdEem1JdSEg6s8Tg"
-          from="_5Q9xAksdEem1JdSEg6s8Tg"
-          to="_HfG2QEsUEemsh7XLKVN3yA"/>
-      <outputMappings
-          id="_6zyOo0sdEem1JdSEg6s8Tg"
-          from="_HyhhgksUEemsh7XLKVN3yA"
-          to="_7EbStEsdEem1JdSEg6s8Tg"/>
-      <outputData
-          id="_7EbStEsdEem1JdSEg6s8Tg"
-          entityName="Scenario3_returnValue">
-        <operation
-            href="default.repository#_skajsEsOEemsh7XLKVN3yA"/>
-      </outputData>
-    </operations>
-    <operations
-        xsi:type="processing:UserReadData"
-        id="_44KPdksdEem1JdSEg6s8Tg"
-        entityName="Scenario3_discard"
-        consumedData="_7EbStEsdEem1JdSEg6s8Tg"/>
-  </dataProcessingContainers>
-  <dataProcessingContainers
-      id="_ZhgEsEsUEemsh7XLKVN3yA"
-      entityName="C1_call_M1">
-    <operations
-        xsi:type="processing:PerformDataTransmissionOperation"
-        id="_fOMk80sYEem1JdSEg6s8Tg"
-        entityName="C1_call_M1_C2">
-      <characteristicContainers
-          id="_sUmagEsYEem1JdSEg6s8Tg"
-          entityName="C1_call_M1_C2_characteristics">
-        <ownedCharacteristics
-            xsi:type="characteristics:EnumCharacteristic"
-            id="_zKn3IEsYEem1JdSEg6s8Tg">
-          <characteristicType
-              xsi:type="characteristics:EnumCharacteristicType"
-              href="characteristicTypes.xmi#_5KwWYP7hEeizQdLqRSCK5g"/>
-          <literals
-              href="characteristicTypes.xmi#_ycUIcP7hEeizQdLqRSCK5g"/>
-        </ownedCharacteristics>
-      </characteristicContainers>
-      <inputMappings
-          id="_rZhSUksYEem1JdSEg6s8Tg"
-          from="_HfG2QEsUEemsh7XLKVN3yA"
-          to="_7GmBcEsTEemsh7XLKVN3yA"/>
-      <outputMappings
-          id="_rxcqI0sYEem1JdSEg6s8Tg"
-          from="_7UHgEksTEemsh7XLKVN3yA"
-          to="_sFIbJEsYEem1JdSEg6s8Tg"/>
-      <outputData
-          id="_sFIbJEsYEem1JdSEg6s8Tg"
-          entityName="C1_call_M1_C2_returnValue">
-        <operation
-            href="default.repository#_MyFP8EsNEemsh7XLKVN3yA"/>
-      </outputData>
-    </operations>
-    <operations
-        xsi:type="processing:SystemDiscardData"
-        id="_h-Ocl0sYEem1JdSEg6s8Tg"
-        entityName="C1_call_M1_C2_discard"
-        consumedData="_sFIbJEsYEem1JdSEg6s8Tg"/>
-  </dataProcessingContainers>
-  <dataProcessingContainers
-      id="_aEYIQEsUEemsh7XLKVN3yA"
-      entityName="C1_call_M2">
-    <operations
-        xsi:type="processing:PerformDataTransmissionOperation"
-        id="_i97mE0sYEem1JdSEg6s8Tg"
-        entityName="C1_call_M2_C2">
-      <characteristicContainers
-          id="_79CvAEsYEem1JdSEg6s8Tg"
-          entityName="C1_call_M2_C2_characteristics">
-        <ownedCharacteristics
-            xsi:type="characteristics:EnumCharacteristic"
-            id="_JVldcEsZEem1JdSEg6s8Tg">
-          <characteristicType
-              xsi:type="characteristics:EnumCharacteristicType"
-              href="characteristicTypes.xmi#_5KwWYP7hEeizQdLqRSCK5g"/>
-          <literals
-              href="characteristicTypes.xmi#_ycUIcP7hEeizQdLqRSCK5g"/>
-        </ownedCharacteristics>
-      </characteristicContainers>
-      <inputMappings
-          id="_8dz5wksYEem1JdSEg6s8Tg"
-          from="_HfG2QEsUEemsh7XLKVN3yA"
-          to="_7nz4IEsTEemsh7XLKVN3yA"/>
-      <outputMappings
-          id="_81EjM0sYEem1JdSEg6s8Tg"
-          from="_70-xcksTEemsh7XLKVN3yA"
-          to="_9GCXZEsYEem1JdSEg6s8Tg"/>
-      <outputData
-          id="_9GCXZEsYEem1JdSEg6s8Tg"
-          entityName="C1_call_M2_C2_returnValue">
-        <operation
-            href="default.repository#_RBnygEsNEemsh7XLKVN3yA"/>
-      </outputData>
-    </operations>
-    <operations
-        xsi:type="processing:SystemDiscardData"
-        id="_jZqf10sYEem1JdSEg6s8Tg"
-        entityName="C1_call_M2_C2_discard"
-        consumedData="_9GCXZEsYEem1JdSEg6s8Tg"/>
-  </dataProcessingContainers>
-  <dataProcessingContainers
-      id="_aReJEEsUEemsh7XLKVN3yA"
-      entityName="C1_call_M3">
-    <operations
-        xsi:type="processing:PerformDataTransmissionOperation"
-        id="_jxuag0sYEem1JdSEg6s8Tg"
-        entityName="C1_call_M3_C2">
-      <characteristicContainers
-          id="_GoPtcEsZEem1JdSEg6s8Tg"
-          entityName="C1_call_M3_C2_characteristics">
-        <ownedCharacteristics
-            xsi:type="characteristics:EnumCharacteristic"
-            id="_P9lsMEsZEem1JdSEg6s8Tg">
-          <characteristicType
-              xsi:type="characteristics:EnumCharacteristicType"
-              href="characteristicTypes.xmi#_5KwWYP7hEeizQdLqRSCK5g"/>
-          <literals
-              href="characteristicTypes.xmi#_T3EVID2lEemy7-rRVYUUTw"/>
-        </ownedCharacteristics>
-      </characteristicContainers>
-      <inputMappings
-          id="_G6OOQksZEem1JdSEg6s8Tg"
-          from="_HfG2QEsUEemsh7XLKVN3yA"
-          to="_8IFToEsTEemsh7XLKVN3yA"/>
-      <outputMappings
-          id="_HMnl00sZEem1JdSEg6s8Tg"
-          from="_8WKy8ksTEemsh7XLKVN3yA"
-          to="_HdIuFEsZEem1JdSEg6s8Tg"/>
-      <outputData
-          id="_HdIuFEsZEem1JdSEg6s8Tg"
-          entityName="C1_call_M3_C2_returnValue">
-        <operation
-            href="default.repository#_VK5VAEsNEemsh7XLKVN3yA"/>
-      </outputData>
-    </operations>
-    <operations
-        xsi:type="processing:SystemDiscardData"
-        id="_kHOJZ0sYEem1JdSEg6s8Tg"
-        entityName="C1_call_M3_C2_discard"
-        consumedData="_HdIuFEsZEem1JdSEg6s8Tg"/>
-  </dataProcessingContainers>
-  <dataProcessingContainers
-      id="_bBiUEEsUEemsh7XLKVN3yA"
-      entityName="C3_call_M1">
-    <operations
-        xsi:type="processing:PerformDataTransmissionOperation"
-        id="_mXKLs0sYEem1JdSEg6s8Tg"
-        entityName="C3_call_M1_C2">
-      <characteristicContainers
-          id="_qdLwcEsZEem1JdSEg6s8Tg"
-          entityName="C3_call_M1_C2_characteristics">
-        <ownedCharacteristics
-            xsi:type="characteristics:EnumCharacteristic"
-            id="_uN0JcEsZEem1JdSEg6s8Tg">
-          <characteristicType
-              xsi:type="characteristics:EnumCharacteristicType"
-              href="characteristicTypes.xmi#_5KwWYP7hEeizQdLqRSCK5g"/>
-          <literals
-              href="characteristicTypes.xmi#_ycUIcP7hEeizQdLqRSCK5g"/>
-        </ownedCharacteristics>
-      </characteristicContainers>
-      <inputMappings
-          id="_qxnvYksZEem1JdSEg6s8Tg"
-          from="_HfG2QEsUEemsh7XLKVN3yA"
-          to="_7GmBcEsTEemsh7XLKVN3yA"/>
-      <outputMappings
-          id="_rH6vg0sZEem1JdSEg6s8Tg"
-          from="_7UHgEksTEemsh7XLKVN3yA"
-          to="_rZVPpEsZEem1JdSEg6s8Tg"/>
-      <outputData
-          id="_rZVPpEsZEem1JdSEg6s8Tg"
-          entityName="C3_call_M1_C2_returnValue">
-        <operation
-            href="default.repository#_MyFP8EsNEemsh7XLKVN3yA"/>
-      </outputData>
-    </operations>
-    <operations
-        xsi:type="processing:SystemDiscardData"
-        id="_mrjuZ0sYEem1JdSEg6s8Tg"
-        entityName="C3_call_M1_C2_discard"
-        consumedData="_rZVPpEsZEem1JdSEg6s8Tg"/>
-  </dataProcessingContainers>
-  <dataProcessingContainers
-      id="_crjl4EsUEemsh7XLKVN3yA"
-      entityName="C3_call_M2">
-    <operations
-        xsi:type="processing:PerformDataTransmissionOperation"
-        id="_oC8YE0sYEem1JdSEg6s8Tg"
-        entityName="C3_call_M2_C2">
-      <characteristicContainers
-          id="_0CoAsEsZEem1JdSEg6s8Tg"
-          entityName="C3_call_M2_C2_characteristics">
-        <ownedCharacteristics
-            xsi:type="characteristics:EnumCharacteristic"
-            id="_2ldw4EsZEem1JdSEg6s8Tg">
-          <characteristicType
-              xsi:type="characteristics:EnumCharacteristicType"
-              href="characteristicTypes.xmi#_5KwWYP7hEeizQdLqRSCK5g"/>
-        </ownedCharacteristics>
-      </characteristicContainers>
-      <inputMappings
-          id="_0UjeMksZEem1JdSEg6s8Tg"
-          from="_HfG2QEsUEemsh7XLKVN3yA"
-          to="_7nz4IEsTEemsh7XLKVN3yA"/>
-      <outputMappings
-          id="_0ndME0sZEem1JdSEg6s8Tg"
-          from="_70-xcksTEemsh7XLKVN3yA"
-          to="_06NI9EsZEem1JdSEg6s8Tg"/>
-      <outputData
-          id="_06NI9EsZEem1JdSEg6s8Tg"
-          entityName="C3_call_M2_C2_returnValue">
-        <operation
-            href="default.repository#_RBnygEsNEemsh7XLKVN3yA"/>
-      </outputData>
-    </operations>
-    <operations
-        xsi:type="processing:SystemDiscardData"
-        id="_oWrMZ0sYEem1JdSEg6s8Tg"
-        entityName="C3_call_M2_C2_discard"
-        consumedData="_06NI9EsZEem1JdSEg6s8Tg"/>
-  </dataProcessingContainers>
-  <dataProcessingContainers
-      id="_XKHhIEsVEemsh7XLKVN3yA"
-      entityName="C2_M1">
-    <operations
-        xsi:type="processing:CreateDataOperation"
-        id="_6HV5AEsVEemsh7XLKVN3yA"
-        entityName="C2_M1_createData">
-      <resultingData
-          xsi:type="data:OriginalData"
-          id="_Ctf2gksWEemsh7XLKVN3yA"
-          entityName="C2_M1_initialData">
-        <originalType
-            xsi:type="repository:CompositeDataType"
-            href="default.repository#_7XQpDf7HEeizQdLqRSCK5g"/>
-      </resultingData>
-      <initialCharacteristics
-          xsi:type="characteristics:EnumCharacteristic"
-          id="_CH_VuUsWEemsh7XLKVN3yA">
-        <characteristicType
-            xsi:type="characteristics:EnumCharacteristicType"
-            href="characteristicTypes.xmi#_5KwWYP7hEeizQdLqRSCK5g"/>
-        <literals
-            href="characteristicTypes.xmi#_ycUIcP7hEeizQdLqRSCK5g"/>
+      <initialCharacteristics xsi:type="characteristics:EnumCharacteristic" id="_xDfW2UutEem1JdSEg6s8Tg">
+        <characteristicType xsi:type="characteristics:EnumCharacteristicType" href="characteristicTypes.xmi#_5KwWYP7hEeizQdLqRSCK5g"/>
+        <literals href="characteristicTypes.xmi#_T3EVID2lEemy7-rRVYUUTw"/>
       </initialCharacteristics>
     </operations>
-    <operations
-        xsi:type="processing:ReturnDataOperation"
-        id="_6fq5dUsVEemsh7XLKVN3yA"
-        entityName="C2_M1_returnOperation"
-        consumedData="_Ctf2gksWEemsh7XLKVN3yA"
-        returnDestination="_7UHgEksTEemsh7XLKVN3yA"/>
+    <operations xsi:type="processing:PerformDataTransmissionOperation" id="_jxuag0sYEem1JdSEg6s8Tg" entityName="C1_call_M3_C2">
+      <characteristicContainers id="_GoPtcEsZEem1JdSEg6s8Tg" entityName="C1_call_M3_C2_characteristics">
+        <ownedCharacteristics xsi:type="characteristics:EnumCharacteristic" id="_P9lsMEsZEem1JdSEg6s8Tg">
+          <characteristicType xsi:type="characteristics:EnumCharacteristicType" href="characteristicTypes.xmi#_5KwWYP7hEeizQdLqRSCK5g"/>
+          <literals href="characteristicTypes.xmi#_T3EVID2lEemy7-rRVYUUTw"/>
+        </ownedCharacteristics>
+      </characteristicContainers>
+      <inputMappings id="_G6OOQksZEem1JdSEg6s8Tg" from="_woAUskutEem1JdSEg6s8Tg" to="_8IFToEsTEemsh7XLKVN3yA"/>
+      <outputMappings id="_HMnl00sZEem1JdSEg6s8Tg" from="_8WKy8ksTEemsh7XLKVN3yA" to="_HdIuFEsZEem1JdSEg6s8Tg"/>
+      <outputData id="_HdIuFEsZEem1JdSEg6s8Tg" entityName="C1_call_M3_C2_returnValue">
+        <operation href="default.repository#_VK5VAEsNEemsh7XLKVN3yA"/>
+      </outputData>
+    </operations>
+    <operations xsi:type="processing:SystemDiscardData" id="_kHOJZ0sYEem1JdSEg6s8Tg" entityName="C1_call_M3_C2_discard" consumedData="_HdIuFEsZEem1JdSEg6s8Tg"/>
   </dataProcessingContainers>
-  <dataProcessingContainers
-      id="_XraQUEsVEemsh7XLKVN3yA"
-      entityName="C2_M2">
-    <operations
-        xsi:type="processing:CreateDataOperation"
-        id="_7idMIEsVEemsh7XLKVN3yA"
-        entityName="C2_M2_createData">
-      <resultingData
-          xsi:type="data:OriginalData"
-          id="_h4pOcksXEemsh7XLKVN3yA"
-          entityName="C2_M2_initialData">
-        <originalType
-            xsi:type="repository:CompositeDataType"
-            href="default.repository#_7XQpDf7HEeizQdLqRSCK5g"/>
+  <dataProcessingContainers id="_bBiUEEsUEemsh7XLKVN3yA" entityName="C3_call_M1">
+    <operations xsi:type="processing:PerformDataTransmissionOperation" id="_mXKLs0sYEem1JdSEg6s8Tg" entityName="C3_call_M1_C2">
+      <characteristicContainers id="_qdLwcEsZEem1JdSEg6s8Tg" entityName="C3_call_M1_C2_characteristics">
+        <ownedCharacteristics xsi:type="characteristics:EnumCharacteristic" id="_uN0JcEsZEem1JdSEg6s8Tg">
+          <characteristicType xsi:type="characteristics:EnumCharacteristicType" href="characteristicTypes.xmi#_5KwWYP7hEeizQdLqRSCK5g"/>
+          <literals href="characteristicTypes.xmi#_ycUIcP7hEeizQdLqRSCK5g"/>
+        </ownedCharacteristics>
+      </characteristicContainers>
+      <outputMappings id="_rH6vg0sZEem1JdSEg6s8Tg" from="_7UHgEksTEemsh7XLKVN3yA" to="_rZVPpEsZEem1JdSEg6s8Tg"/>
+      <outputData id="_rZVPpEsZEem1JdSEg6s8Tg" entityName="C3_call_M1_C2_returnValue">
+        <operation href="default.repository#_MyFP8EsNEemsh7XLKVN3yA"/>
+      </outputData>
+    </operations>
+    <operations xsi:type="processing:SystemDiscardData" id="_mrjuZ0sYEem1JdSEg6s8Tg" entityName="C3_call_M1_C2_discard" consumedData="_rZVPpEsZEem1JdSEg6s8Tg"/>
+  </dataProcessingContainers>
+  <dataProcessingContainers id="_crjl4EsUEemsh7XLKVN3yA" entityName="C3_call_M2">
+    <operations xsi:type="processing:PerformDataTransmissionOperation" id="_oC8YE0sYEem1JdSEg6s8Tg" entityName="C3_call_M2_C2">
+      <characteristicContainers id="_0CoAsEsZEem1JdSEg6s8Tg" entityName="C3_call_M2_C2_characteristics">
+        <ownedCharacteristics xsi:type="characteristics:EnumCharacteristic" id="_2ldw4EsZEem1JdSEg6s8Tg">
+          <characteristicType xsi:type="characteristics:EnumCharacteristicType" href="characteristicTypes.xmi#_5KwWYP7hEeizQdLqRSCK5g"/>
+        </ownedCharacteristics>
+      </characteristicContainers>
+      <outputMappings id="_0ndME0sZEem1JdSEg6s8Tg" from="_70-xcksTEemsh7XLKVN3yA" to="_06NI9EsZEem1JdSEg6s8Tg"/>
+      <outputData id="_06NI9EsZEem1JdSEg6s8Tg" entityName="C3_call_M2_C2_returnValue">
+        <operation href="default.repository#_RBnygEsNEemsh7XLKVN3yA"/>
+      </outputData>
+    </operations>
+    <operations xsi:type="processing:SystemDiscardData" id="_oWrMZ0sYEem1JdSEg6s8Tg" entityName="C3_call_M2_C2_discard" consumedData="_06NI9EsZEem1JdSEg6s8Tg"/>
+  </dataProcessingContainers>
+  <dataProcessingContainers id="_XKHhIEsVEemsh7XLKVN3yA" entityName="C2_M1">
+    <operations xsi:type="processing:CreateDataOperation" id="_6HV5AEsVEemsh7XLKVN3yA" entityName="C2_M1_createData">
+      <resultingData xsi:type="data:OriginalData" id="_Ctf2gksWEemsh7XLKVN3yA" entityName="C2_M1_initialData">
+        <originalType xsi:type="repository:CompositeDataType" href="default.repository#_7XQpDf7HEeizQdLqRSCK5g"/>
       </resultingData>
-      <initialCharacteristics
-          xsi:type="characteristics:EnumCharacteristic"
-          id="_iM_t2UsXEemsh7XLKVN3yA">
-        <characteristicType
-            xsi:type="characteristics:EnumCharacteristicType"
-            href="characteristicTypes.xmi#_5KwWYP7hEeizQdLqRSCK5g"/>
-        <literals
-            href="characteristicTypes.xmi#_ycUIcP7hEeizQdLqRSCK5g"/>
+      <initialCharacteristics xsi:type="characteristics:EnumCharacteristic" id="_CH_VuUsWEemsh7XLKVN3yA">
+        <characteristicType xsi:type="characteristics:EnumCharacteristicType" href="characteristicTypes.xmi#_5KwWYP7hEeizQdLqRSCK5g"/>
+        <literals href="characteristicTypes.xmi#_ycUIcP7hEeizQdLqRSCK5g"/>
       </initialCharacteristics>
     </operations>
-    <operations
-        xsi:type="processing:ReturnDataOperation"
-        id="_8A1xRUsVEemsh7XLKVN3yA"
-        entityName="C2_M2_returnOperation"
-        consumedData="_h4pOcksXEemsh7XLKVN3yA"
-        returnDestination="_70-xcksTEemsh7XLKVN3yA"/>
+    <operations xsi:type="processing:ReturnDataOperation" id="_6fq5dUsVEemsh7XLKVN3yA" entityName="C2_M1_returnOperation" consumedData="_Ctf2gksWEemsh7XLKVN3yA" returnDestination="_7UHgEksTEemsh7XLKVN3yA"/>
   </dataProcessingContainers>
-  <dataProcessingContainers
-      id="_X4_ZUEsVEemsh7XLKVN3yA"
-      entityName="C2_M3">
-    <operations
-        xsi:type="processing:CreateDataOperation"
-        id="_9EdxcEsVEemsh7XLKVN3yA"
-        entityName="C2_M3_createData">
-      <resultingData
-          xsi:type="data:OriginalData"
-          id="_rRP8kksXEemsh7XLKVN3yA"
-          entityName="C2_M3_initialData">
-        <originalType
-            xsi:type="repository:CompositeDataType"
-            href="default.repository#_7XQpDf7HEeizQdLqRSCK5g"/>
+  <dataProcessingContainers id="_XraQUEsVEemsh7XLKVN3yA" entityName="C2_M2">
+    <operations xsi:type="processing:CreateDataOperation" id="_7idMIEsVEemsh7XLKVN3yA" entityName="C2_M2_createData">
+      <resultingData xsi:type="data:OriginalData" id="_h4pOcksXEemsh7XLKVN3yA" entityName="C2_M2_initialData">
+        <originalType xsi:type="repository:CompositeDataType" href="default.repository#_7XQpDf7HEeizQdLqRSCK5g"/>
       </resultingData>
-      <initialCharacteristics
-          xsi:type="characteristics:EnumCharacteristic"
-          id="_rpT3SUsXEemsh7XLKVN3yA">
-        <characteristicType
-            xsi:type="characteristics:EnumCharacteristicType"
-            href="characteristicTypes.xmi#_5KwWYP7hEeizQdLqRSCK5g"/>
+      <initialCharacteristics xsi:type="characteristics:EnumCharacteristic" id="_iM_t2UsXEemsh7XLKVN3yA">
+        <characteristicType xsi:type="characteristics:EnumCharacteristicType" href="characteristicTypes.xmi#_5KwWYP7hEeizQdLqRSCK5g"/>
+        <literals href="characteristicTypes.xmi#_ycUIcP7hEeizQdLqRSCK5g"/>
       </initialCharacteristics>
     </operations>
-    <operations
-        xsi:type="processing:ReturnDataOperation"
-        id="_909aRUsVEemsh7XLKVN3yA"
-        entityName="C2_M3_returnOperation"
-        consumedData="_rRP8kksXEemsh7XLKVN3yA"
-        returnDestination="_8WKy8ksTEemsh7XLKVN3yA"/>
+    <operations xsi:type="processing:ReturnDataOperation" id="_8A1xRUsVEemsh7XLKVN3yA" entityName="C2_M2_returnOperation" consumedData="_h4pOcksXEemsh7XLKVN3yA" returnDestination="_70-xcksTEemsh7XLKVN3yA"/>
   </dataProcessingContainers>
-  <dataProcessingContainers
-      id="_YJRRAEsVEemsh7XLKVN3yA"
-      entityName="C3_M3">
-    <operations
-        xsi:type="processing:CreateDataOperation"
-        id="_-v0gAEsVEemsh7XLKVN3yA"
-        entityName="C3_M3_createData">
-      <resultingData
-          xsi:type="data:OriginalData"
-          id="_wV3F8ksXEemsh7XLKVN3yA"
-          entityName="C3_M3_initialData">
-        <originalType
-            xsi:type="repository:CompositeDataType"
-            href="default.repository#_7XQpDf7HEeizQdLqRSCK5g"/>
+  <dataProcessingContainers id="_X4_ZUEsVEemsh7XLKVN3yA" entityName="C2_M3">
+    <operations xsi:type="processing:SelectionDataOperation" id="_t1ila0uzEem_wf-c6HW05w" entityName="C2_M3_copy" input="_8IFToEsTEemsh7XLKVN3yA">
+      <characteristicContainers id="_AuDyQEuuEem1JdSEg6s8Tg" entityName="C2_M3_characteristics">
+        <ownedCharacteristics xsi:type="characteristics:EnumCharacteristic" id="_Ct7YQEuuEem1JdSEg6s8Tg">
+          <characteristicType xsi:type="characteristics:EnumCharacteristicType" href="characteristicTypes.xmi#_5KwWYP7hEeizQdLqRSCK5g"/>
+        </ownedCharacteristics>
+      </characteristicContainers>
+      <output xsi:type="data:CopiedData" id="_10RWiEuzEem_wf-c6HW05w" entityName="C2_M3_copiedData" source="_8IFToEsTEemsh7XLKVN3yA"/>
+    </operations>
+    <operations xsi:type="processing:SystemDiscardData" id="_9QRcx0utEem1JdSEg6s8Tg" entityName="C2_M3_discard" consumedData="_10RWiEuzEem_wf-c6HW05w"/>
+    <operations xsi:type="processing:CreateDataOperation" id="_9EdxcEsVEemsh7XLKVN3yA" entityName="C2_M3_createData">
+      <resultingData xsi:type="data:OriginalData" id="_rRP8kksXEemsh7XLKVN3yA" entityName="C2_M3_initialData">
+        <originalType xsi:type="repository:CompositeDataType" href="default.repository#_7XQpDf7HEeizQdLqRSCK5g"/>
       </resultingData>
-      <initialCharacteristics
-          xsi:type="characteristics:EnumCharacteristic"
-          id="_wv2TSUsXEemsh7XLKVN3yA">
-        <characteristicType
-            xsi:type="characteristics:EnumCharacteristicType"
-            href="characteristicTypes.xmi#_5KwWYP7hEeizQdLqRSCK5g"/>
-        <literals
-            href="characteristicTypes.xmi#_T3EVID2lEemy7-rRVYUUTw"/>
+      <initialCharacteristics xsi:type="characteristics:EnumCharacteristic" id="_rpT3SUsXEemsh7XLKVN3yA">
+        <characteristicType xsi:type="characteristics:EnumCharacteristicType" href="characteristicTypes.xmi#_5KwWYP7hEeizQdLqRSCK5g"/>
       </initialCharacteristics>
     </operations>
-    <operations
-        xsi:type="processing:ReturnDataOperation"
-        id="__IHrRUsVEemsh7XLKVN3yA"
-        entityName="C3_M3_returnOperation"
-        consumedData="_wV3F8ksXEemsh7XLKVN3yA"
-        returnDestination="_8WKy8ksTEemsh7XLKVN3yA"/>
+    <operations xsi:type="processing:ReturnDataOperation" id="_909aRUsVEemsh7XLKVN3yA" entityName="C2_M3_returnOperation" consumedData="_rRP8kksXEemsh7XLKVN3yA" returnDestination="_8WKy8ksTEemsh7XLKVN3yA"/>
   </dataProcessingContainers>
-  <operationSignatureDataRefinement
-      id="_2p6axksTEemsh7XLKVN3yA"
-      entityName="M1">
-    <parameterRefinements
-        id="_7GmBcEsTEemsh7XLKVN3yA"
-        entityName="M1_param">
-      <parameter
-          href="default.repository#/0/@interfaces__Repository.0/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
-    </parameterRefinements>
-    <resultRefinements
-        id="_7UHgEksTEemsh7XLKVN3yA"
-        entityName="M1_return">
-      <operation
-          href="default.repository#_MyFP8EsNEemsh7XLKVN3yA"/>
+  <dataProcessingContainers id="_YJRRAEsVEemsh7XLKVN3yA" entityName="C3_M3">
+    <operations xsi:type="processing:SelectionDataOperation" id="_7e9oc0uzEem_wf-c6HW05w" entityName="C3_M3_copy" input="_8IFToEsTEemsh7XLKVN3yA">
+      <characteristicContainers id="_IX7tsEuuEem1JdSEg6s8Tg" entityName="C3_M3_characteristics">
+        <ownedCharacteristics xsi:type="characteristics:EnumCharacteristic" id="_JvpHgEuuEem1JdSEg6s8Tg">
+          <characteristicType xsi:type="characteristics:EnumCharacteristicType" href="characteristicTypes.xmi#_5KwWYP7hEeizQdLqRSCK5g"/>
+          <literals href="characteristicTypes.xmi#_T3EVID2lEemy7-rRVYUUTw"/>
+        </ownedCharacteristics>
+      </characteristicContainers>
+      <output xsi:type="data:CopiedData" id="_8fZxyEuzEem_wf-c6HW05w" entityName="C3_M3_copiedData" source="_8IFToEsTEemsh7XLKVN3yA"/>
+    </operations>
+    <operations xsi:type="processing:SystemDiscardData" id="_GYF850uuEem1JdSEg6s8Tg" entityName="C3_M3_discard" consumedData="_8fZxyEuzEem_wf-c6HW05w"/>
+    <operations xsi:type="processing:CreateDataOperation" id="_-v0gAEsVEemsh7XLKVN3yA" entityName="C3_M3_createData">
+      <resultingData xsi:type="data:OriginalData" id="_wV3F8ksXEemsh7XLKVN3yA" entityName="C3_M3_initialData">
+        <originalType xsi:type="repository:CompositeDataType" href="default.repository#_7XQpDf7HEeizQdLqRSCK5g"/>
+      </resultingData>
+      <initialCharacteristics xsi:type="characteristics:EnumCharacteristic" id="_wv2TSUsXEemsh7XLKVN3yA">
+        <characteristicType xsi:type="characteristics:EnumCharacteristicType" href="characteristicTypes.xmi#_5KwWYP7hEeizQdLqRSCK5g"/>
+        <literals href="characteristicTypes.xmi#_T3EVID2lEemy7-rRVYUUTw"/>
+      </initialCharacteristics>
+    </operations>
+    <operations xsi:type="processing:ReturnDataOperation" id="__IHrRUsVEemsh7XLKVN3yA" entityName="C3_M3_returnOperation" consumedData="_wV3F8ksXEemsh7XLKVN3yA" returnDestination="_8WKy8ksTEemsh7XLKVN3yA"/>
+  </dataProcessingContainers>
+  <operationSignatureDataRefinement id="_2p6axksTEemsh7XLKVN3yA" entityName="M1">
+    <resultRefinements id="_7UHgEksTEemsh7XLKVN3yA" entityName="M1_return">
+      <operation href="default.repository#_MyFP8EsNEemsh7XLKVN3yA"/>
     </resultRefinements>
   </operationSignatureDataRefinement>
-  <operationSignatureDataRefinement
-      id="_3OMMhksTEemsh7XLKVN3yA"
-      entityName="M2">
-    <parameterRefinements
-        id="_7nz4IEsTEemsh7XLKVN3yA"
-        entityName="M2_param">
-      <parameter
-          href="default.repository#/0/@interfaces__Repository.0/@signatures__OperationInterface.1/@parameters__OperationSignature.0"/>
-    </parameterRefinements>
-    <resultRefinements
-        id="_70-xcksTEemsh7XLKVN3yA"
-        entityName="M2_return">
-      <operation
-          href="default.repository#_RBnygEsNEemsh7XLKVN3yA"/>
+  <operationSignatureDataRefinement id="_3OMMhksTEemsh7XLKVN3yA" entityName="M2">
+    <resultRefinements id="_70-xcksTEemsh7XLKVN3yA" entityName="M2_return">
+      <operation href="default.repository#_RBnygEsNEemsh7XLKVN3yA"/>
     </resultRefinements>
   </operationSignatureDataRefinement>
-  <operationSignatureDataRefinement
-      id="_3kPVBksTEemsh7XLKVN3yA"
-      entityName="M3">
-    <parameterRefinements
-        id="_8IFToEsTEemsh7XLKVN3yA"
-        entityName="M3_param">
-      <parameter
-          href="default.repository#/0/@interfaces__Repository.1/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
+  <operationSignatureDataRefinement id="_3kPVBksTEemsh7XLKVN3yA" entityName="M3">
+    <parameterRefinements id="_8IFToEsTEemsh7XLKVN3yA" entityName="D">
+      <parameter href="default.repository#/0/@interfaces__Repository.1/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
     </parameterRefinements>
-    <resultRefinements
-        id="_8WKy8ksTEemsh7XLKVN3yA"
-        entityName="M3_return">
-      <operation
-          href="default.repository#_VK5VAEsNEemsh7XLKVN3yA"/>
+    <resultRefinements id="_8WKy8ksTEemsh7XLKVN3yA" entityName="M3_return">
+      <operation href="default.repository#_VK5VAEsNEemsh7XLKVN3yA"/>
     </resultRefinements>
   </operationSignatureDataRefinement>
-  <operationSignatureDataRefinement
-      id="__9lllksTEemsh7XLKVN3yA"
-      entityName="check">
-    <parameterRefinements
-        id="_HfG2QEsUEemsh7XLKVN3yA"
-        entityName="check_param">
-      <parameter
-          href="default.repository#/0/@interfaces__Repository.2/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
-    </parameterRefinements>
-    <resultRefinements
-        id="_HyhhgksUEemsh7XLKVN3yA"
-        entityName="check_return">
-      <operation
-          href="default.repository#_skajsEsOEemsh7XLKVN3yA"/>
+  <operationSignatureDataRefinement id="__9lllksTEemsh7XLKVN3yA" entityName="check">
+    <resultRefinements id="_HyhhgksUEemsh7XLKVN3yA" entityName="check_return">
+      <operation href="default.repository#_skajsEsOEemsh7XLKVN3yA"/>
     </resultRefinements>
   </operationSignatureDataRefinement>
 </dataprocessing:DataSpecification>

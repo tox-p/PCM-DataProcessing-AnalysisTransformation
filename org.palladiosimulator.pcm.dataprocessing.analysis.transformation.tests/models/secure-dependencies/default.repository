@@ -49,22 +49,16 @@
       </serviceEffectSpecifications__BasicComponent>
     </components__Repository>
     <interfaces__Repository xsi:type="repository:OperationInterface" id="_IKs1J0sNEemsh7XLKVN3yA" entityName="I1">
-      <signatures__OperationInterface id="_MyFP8EsNEemsh7XLKVN3yA" entityName="M1" returnType__OperationSignature="_7XQpDf7HEeizQdLqRSCK5g">
-        <parameters__OperationSignature dataType__Parameter="_7XQpDf7HEeizQdLqRSCK5g" parameterName="M1_arg"/>
-      </signatures__OperationInterface>
-      <signatures__OperationInterface id="_RBnygEsNEemsh7XLKVN3yA" entityName="M2" returnType__OperationSignature="_7XQpDf7HEeizQdLqRSCK5g">
-        <parameters__OperationSignature dataType__Parameter="_7XQpDf7HEeizQdLqRSCK5g" parameterName="M2_arg"/>
-      </signatures__OperationInterface>
+      <signatures__OperationInterface id="_MyFP8EsNEemsh7XLKVN3yA" entityName="M1" returnType__OperationSignature="_7XQpDf7HEeizQdLqRSCK5g"/>
+      <signatures__OperationInterface id="_RBnygEsNEemsh7XLKVN3yA" entityName="M2" returnType__OperationSignature="_7XQpDf7HEeizQdLqRSCK5g"/>
     </interfaces__Repository>
     <interfaces__Repository xsi:type="repository:OperationInterface" id="_UGZLF0sNEemsh7XLKVN3yA" entityName="I2">
       <signatures__OperationInterface id="_VK5VAEsNEemsh7XLKVN3yA" entityName="M3" returnType__OperationSignature="_7XQpDf7HEeizQdLqRSCK5g">
-        <parameters__OperationSignature dataType__Parameter="_7XQpDf7HEeizQdLqRSCK5g" parameterName="M3_arg"/>
+        <parameters__OperationSignature dataType__Parameter="_7XQpDf7HEeizQdLqRSCK5g" parameterName="D"/>
       </signatures__OperationInterface>
     </interfaces__Repository>
     <interfaces__Repository xsi:type="repository:OperationInterface" id="_rmsXN0sOEemsh7XLKVN3yA" entityName="Check">
-      <signatures__OperationInterface id="_skajsEsOEemsh7XLKVN3yA" entityName="check" returnType__OperationSignature="_7XQpDf7HEeizQdLqRSCK5g">
-        <parameters__OperationSignature dataType__Parameter="_7XQpDf7HEeizQdLqRSCK5g" parameterName="check_arg"/>
-      </signatures__OperationInterface>
+      <signatures__OperationInterface id="_skajsEsOEemsh7XLKVN3yA" entityName="check" returnType__OperationSignature="_7XQpDf7HEeizQdLqRSCK5g"/>
     </interfaces__Repository>
     <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_7XQpDf7HEeizQdLqRSCK5g" entityName="Data"/>
   </repository:Repository>
