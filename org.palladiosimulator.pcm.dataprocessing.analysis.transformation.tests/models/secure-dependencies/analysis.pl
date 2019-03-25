@@ -2,6 +2,8 @@
 % Secure Dependencies Analysis
 :-discontiguous(operationProperty/3).
 operationProperty(_, _, _) :- fail.
+:-discontiguous(not_operationProperty/3).
+not_operationProperty(_, _, _) :- fail.
 
 secureDependencies(OP, V) :- T = 'EnumCharacteristicType Critical (_5KwWYP7hEeizQdLqRSCK5g)', isOperation(OP), hasProperty(OP, T), S=[OP|_], stackValid(S), operationReturnValue(OP, R), secureDependenciesViolation(OP, T, S, R, V).
 
